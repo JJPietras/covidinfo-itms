@@ -1,13 +1,13 @@
 # Wstęp do Systemów Mobilnych
 
-|               |                	     |
-| ------------- |-------------		     |
-| semestr:      | V	      	 	         |
-| zajęcia:      | czwartek *soon*      |
-| język:        | Kotlin               |
-| prowadzący:   | *soon*               |
-| typ:          | obligatoryjny        |
-| ECTS:         | III                  |
+|               |                	      |
+| ------------- |-------------		      |
+| semestr:      | V	      	 	          |
+| zajęcia:      | czwartek 14:00        |
+| język:        | Kotlin                |
+| prowadzący:   | prof Piotr Napieralski |
+| typ:          | obligatoryjny         |
+| ECTS:         | III                   |
 
 
 ## Program Zajęć
