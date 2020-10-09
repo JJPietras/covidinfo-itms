@@ -12,7 +12,7 @@
 
 ## Program Zajęć
 
-#### 1.
+#### 1. Program do obliczania wyróżnika kwadratowego - drugie zajęcia
 #### 2.
 #### 3.
 #### 4.
