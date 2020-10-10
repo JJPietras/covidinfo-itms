@@ -39,11 +39,11 @@ class FirstFragment : Fragment() {
         calculateButton = view.findViewById(R.id.CalculateButton)
         calculateButton.setOnClickListener { calculateRoots() }
 
-        aField = view.findViewById(R.id.Num1EditText)!!
-        bField = view.findViewById(R.id.Num2EditText)!!
-        cField = view.findViewById(R.id.Num3EditText)!!
+        aField = view.findViewById(R.id.Num1EditText)
+        bField = view.findViewById(R.id.Num2EditText)
+        cField = view.findViewById(R.id.Num3EditText)
 
-        resultField = view.findViewById(R.id.textview_first)!!
+        resultField = view.findViewById(R.id.textview_first)
     }
 
     private fun calculateRoots() {
@@ -62,7 +62,7 @@ class FirstFragment : Fragment() {
             else -> "Equation has two real roots x1 = ${results[0]} and x2 = ${results[1]}." +
                     "Discriminant equals ${results[2]}."
         }
-}
+    }
 
     private fun substituteEmptyEditTexts() {
         if (aField.text.toString() == "") aField.setText("0")
