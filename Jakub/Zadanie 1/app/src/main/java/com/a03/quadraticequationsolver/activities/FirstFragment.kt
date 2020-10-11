@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import com.a03.quadraticequationsolver.R
 import com.a03.quadraticequationsolver.logic.Calculator
+import kotlinx.android.synthetic.main.fragment_first.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
