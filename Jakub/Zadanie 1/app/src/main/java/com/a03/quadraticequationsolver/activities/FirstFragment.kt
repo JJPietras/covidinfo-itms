@@ -48,12 +48,23 @@ class FirstFragment : Fragment() {
 
     private fun calculateRoots() {
         substituteEmptyEditTexts()
-        val results = calculator.calculateRoots(
-            aField.text.toString(),
-            bField.text.toString(),
-            cField.text.toString()
-        )
 
+        var results: Array<Float>? = null
+        try {
+            results = calculator.calculateRoots(
+                aField.text.toString(),
+                bField.text.toString(),
+                cField.text.toString()
+            )
+        } catch (exception: NumberFormatException) {
+            resultField.text = "Wrong number format!"
+            return
+        }
+
+        setResultTextField(results)
+    }
+
+    private fun setResultTextField(results: Array<Float>?) {
         resultField.text = when {
             results == null -> "a is equal 0. Provided equation is not quadratic."
             results[2] < 0f -> "Discriminant (${results[2]}) is < 0. Equation has no real roots."
