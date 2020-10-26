@@ -1,21 +1,13 @@
-package com.a03.quadraticequationsolver.activities
+package com.a03.zadanie2
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import com.a03.quadraticequationsolver.R
-import com.a03.quadraticequationsolver.logic.Calculator
-import kotlinx.android.synthetic.main.fragment_first.*
+import com.a03.zadanie2.logic.Calculator
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class FirstFragment : Fragment() {
+class DeltaActivity : AppCompatActivity() {
 
     private val calculator = Calculator()
 
@@ -27,24 +19,18 @@ class FirstFragment : Fragment() {
 
     private lateinit var resultField: TextView
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_delta)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        calculateButton = view.findViewById(R.id.CalculateButton)
+        calculateButton = findViewById(R.id.CalculateButton)
         calculateButton.setOnClickListener { calculateRoots() }
 
-        aField = view.findViewById(R.id.Num1EditText)
-        bField = view.findViewById(R.id.Num2EditText)
-        cField = view.findViewById(R.id.Num3EditText)
+        aField = findViewById(R.id.Num1EditText)
+        bField = findViewById(R.id.Num2EditText)
+        cField = findViewById(R.id.Num3EditText)
 
-        resultField = view.findViewById(R.id.textview_first)
+        resultField = findViewById(R.id.textview_first)
     }
 
     private fun calculateRoots() {
