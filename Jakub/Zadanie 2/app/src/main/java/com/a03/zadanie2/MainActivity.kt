@@ -25,7 +25,9 @@ class MainActivity : AppCompatActivity() {
             val gotoGoogle = Intent(Intent.ACTION_VIEW, webAddress)
             val intentTitle = "Open with:"
             val chooser = Intent.createChooser(gotoGoogle, intentTitle)
+            //if (gotoGoogle.resolveActivity(packageManager) != null) {
             startActivity(chooser)
+            //}
         }
 
         val mapBtn = findViewById<Button>(R.id.mapBtn)

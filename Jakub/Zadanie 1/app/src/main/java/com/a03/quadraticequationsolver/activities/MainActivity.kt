@@ -1,4 +1,4 @@
-package com.a03.quadraticequationsolver.activities
+package com.a03.Zadanie2.activities
 
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
