@@ -1,4 +1,4 @@
-package com.drzymalski.covidinfo.ui.home
+package com.drzymalski.covidinfo.ui.illnessSuspicion
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
 
-class HomeFragment : Fragment() {
+class TwitterFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var twitterViewModel: TwitterViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        twitterViewModel =
+                ViewModelProviders.of(this).get(TwitterViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
+        val textView: TextView = root.findViewById(R.id.text_slideshow)
+        twitterViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

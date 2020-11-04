@@ -1,4 +1,4 @@
-package com.drzymalski.covidinfo.ui.gallery
+package com.drzymalski.covidinfo.ui.todayIllness
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
 
-class GalleryFragment : Fragment() {
+class TodayIllnessFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
+    private lateinit var todayIllnessViewModel: TodayIllnessViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
-        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
+        todayIllnessViewModel =
+                ViewModelProviders.of(this).get(TodayIllnessViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        val textView: TextView = root.findViewById(R.id.text_home)
+        todayIllnessViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
