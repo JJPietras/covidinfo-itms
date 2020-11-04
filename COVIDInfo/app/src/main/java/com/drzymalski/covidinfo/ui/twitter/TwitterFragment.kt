@@ -1,4 +1,4 @@
-package com.drzymalski.covidinfo.ui.illnessSuspicion
+package com.drzymalski.covidinfo.ui.twitter
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,8 +21,8 @@ class TwitterFragment : Fragment() {
     ): View? {
         twitterViewModel =
                 ViewModelProviders.of(this).get(TwitterViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
-        val textView: TextView = root.findViewById(R.id.text_slideshow)
+        val root = inflater.inflate(R.layout.fragment_tweeter, container, false)
+        val textView: TextView = root.findViewById(R.id.text_tweeter)
         twitterViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

@@ -21,8 +21,8 @@ class HospitalsFragment : Fragment() {
     ): View? {
         hospitalsViewModel =
                 ViewModelProviders.of(this).get(HospitalsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
+        val root = inflater.inflate(R.layout.fragment_hospitals, container, false)
+        val textView: TextView = root.findViewById(R.id.text_hospitals)
         hospitalsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

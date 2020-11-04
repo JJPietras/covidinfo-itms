@@ -21,8 +21,8 @@ class TodayIllnessFragment : Fragment() {
     ): View? {
         todayIllnessViewModel =
                 ViewModelProviders.of(this).get(TodayIllnessViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
+        val root = inflater.inflate(R.layout.fragment_today, container, false)
+        val textView: TextView = root.findViewById(R.id.text_today)
         todayIllnessViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
