@@ -365,7 +365,7 @@
                         android:layout_weight="0.52"
                         android:fontFamily="@font/roboto"
                         android:gravity="bottom|right"
-                        android:text="24132 zakarzeń"
+                        android:text="24132 zakażeń"
                         android:textColor="#4C4C4C"
                         android:textSize="20sp" />
 
@@ -433,7 +433,7 @@
                         android:layout_weight="0.52"
                         android:fontFamily="@font/roboto"
                         android:gravity="bottom|right"
-                        android:text="16730 zakarzeń"
+                        android:text="16730 zakażeń"
                         android:textColor="#4C4C4C"
                         android:textSize="20sp" />
 
@@ -501,7 +501,7 @@
                         android:layout_weight="0.52"
                         android:fontFamily="@font/roboto"
                         android:gravity="bottom|right"
-                        android:text="18329 zakarzeń"
+                        android:text="18329 zakażeń"
                         android:textColor="#4C4C4C"
                         android:textSize="20sp" />
 
@@ -569,7 +569,7 @@
                         android:layout_weight="0.52"
                         android:fontFamily="@font/roboto"
                         android:gravity="bottom|right"
-                        android:text="243569 zakarzeń"
+                        android:text="243569 zakażeń"
                         android:textColor="#4C4C4C"
                         android:textSize="20sp" />
 
