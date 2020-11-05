@@ -11,4 +11,6 @@
     <string name="menu_tweeter">Tweeter MZ</string>
     <string name="menu_hospitals">Hospital Location</string>
     <string name="menu_suspicion">Infection suspicion</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

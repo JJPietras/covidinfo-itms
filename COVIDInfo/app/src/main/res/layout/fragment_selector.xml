@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.selector.SelectorFragment">
+
+    <ImageView
+        android:id="@+id/categoriesBackground"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:foregroundGravity="center"
+        android:src="@drawable/full_gradient"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/categoriesText"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dark_green_gradient"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:shadowRadius="30"
+            android:text="Wybierz Funkcjonalność"
+            android:textColor="#EAEAEA"
+            android:textSize="34dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="340dp"
+        android:layout_height="400dp"
+        android:layout_marginBottom="70dp"
+        android:backgroundTint="#303F9F"
+        app:cardCornerRadius="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@drawable/dark_green_gradient" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/ic_statistics" />
+
+            <TextView
+                android:id="@+id/categoriesText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="159dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:shadowRadius="30"
+                android:text="Statystyki"
+                android:textColor="#E3E3E3"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/categoriesText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="41dp"
+                android:layout_marginBottom="11dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:shadowRadius="30"
+                android:text="Szpitale"
+                android:textColor="#E3E3E3"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/categoriesText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="157dp"
+                android:layout_marginEnd="29dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:shadowRadius="30"
+                android:text="Tweety MZ"
+                android:textColor="#E3E3E3"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/categoriesText5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="358dp"
+                android:layout_marginEnd="26dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:shadowRadius="30"
+                android:text="Jest mi źle"
+                android:textColor="#E3E3E3"
+                android:textSize="24sp" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/ic_twitter" />
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="50dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/ic_suspicion" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="50dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/ic_hospitals" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
