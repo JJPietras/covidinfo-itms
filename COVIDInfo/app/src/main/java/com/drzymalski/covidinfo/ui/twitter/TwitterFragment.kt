@@ -22,10 +22,7 @@ class TwitterFragment : Fragment() {
         twitterViewModel =
                 ViewModelProviders.of(this).get(TwitterViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_tweeter, container, false)
-        val textView: TextView = root.findViewById(R.id.text_tweeter)
-        twitterViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        twitterViewModel.text.observe(viewLifecycleOwner, Observer { })
         return root
     }
 }
