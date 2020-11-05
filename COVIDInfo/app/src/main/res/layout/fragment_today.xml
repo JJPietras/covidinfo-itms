@@ -258,11 +258,12 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="110dp"
+                    android:layout_marginStart="100dp"
                     android:layout_marginTop="27dp"
-                    android:layout_marginEnd="110dp"
+                    android:layout_marginEnd="100dp"
                     android:fontFamily="@font/roboto"
                     android:text="Zachorowania"
+                    android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="30sp" />
 
@@ -287,13 +288,16 @@
                 android:id="@+id/countriesLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/colorBackground"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/selectCountry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="35dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
                     android:text="Wybierz Państwo"
@@ -301,13 +305,15 @@
                     android:textSize="30sp" />
 
                 <LinearLayout
+                    android:id="@+id/choicePolska"
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingLeft="20px">
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/polskaButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -320,10 +326,10 @@
                         android:textSize="22sp" />
 
                     <LinearLayout
-                        android:layout_width="1dp"
+                        android:layout_width="10dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10sp"
-                        android:layout_weight="0.5"
+                        android:layout_weight="0.4"
                         android:orientation="vertical">
 
                         <TextView
@@ -332,7 +338,7 @@
                             android:layout_height="20sp"
                             android:layout_marginTop="10dp"
                             android:layout_weight="0.25"
-                            android:fontFamily="@font/roboto_medium"
+                            android:fontFamily="@font/roboto"
                             android:gravity="bottom|left"
                             android:text="Polska"
                             android:textColor="#373737"
@@ -343,7 +349,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="20sp"
                             android:layout_weight="0.25"
-                            android:fontFamily="@font/roboto_medium"
+                            android:fontFamily="@font/roboto"
                             android:gravity="top|left"
                             android:text="Europa"
                             android:textColor="#707070"
@@ -352,18 +358,311 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/textView8"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/polskaInfections"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="0.25"
-                        android:fontFamily="@font/roboto_medium"
-                        android:gravity="bottom|left"
-                        android:text="24132"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="0.52"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="bottom|right"
+                        android:text="24132 zakarzeń"
                         android:textColor="#4C4C4C"
-                        android:textSize="22sp" />
+                        android:textSize="20sp" />
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/choiceNiemcy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20px">
+
+                    <Button
+                        android:id="@+id/niemcyButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.18"
+                        android:background="@drawable/sphere"
+                        android:backgroundTint="#F44336"
+                        android:fontFamily="@font/roboto_bold"
+                        android:maxWidth="58dp"
+                        android:text="DE"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp" />
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10sp"
+                        android:layout_weight="0.4"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/niemcyName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="0.25"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="bottom|left"
+                            android:text="Niemcy"
+                            android:textColor="#373737"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/niemcyContinent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20sp"
+                            android:layout_weight="0.25"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top|left"
+                            android:text="Europa"
+                            android:textColor="#707070"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/niemcyInfetions"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="0.52"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="bottom|right"
+                        android:text="16730 zakarzeń"
+                        android:textColor="#4C4C4C"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/choiceWlochy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20px">
+
+                    <Button
+                        android:id="@+id/wlochyButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.18"
+                        android:background="@drawable/sphere"
+                        android:backgroundTint="#009688"
+                        android:fontFamily="@font/roboto_bold"
+                        android:maxWidth="58dp"
+                        android:text="IT"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp" />
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10sp"
+                        android:layout_weight="0.4"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/wlochyText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="0.25"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="bottom|left"
+                            android:text="Włochy"
+                            android:textColor="#373737"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/wlochyContinent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20sp"
+                            android:layout_weight="0.25"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top|left"
+                            android:text="Europa"
+                            android:textColor="#707070"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/wlochyInfections"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="0.52"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="bottom|right"
+                        android:text="18329 zakarzeń"
+                        android:textColor="#4C4C4C"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/choiceUSA"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20px">
+
+                    <Button
+                        android:id="@+id/usaButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.18"
+                        android:background="@drawable/sphere"
+                        android:backgroundTint="#FFC107"
+                        android:fontFamily="@font/roboto_bold"
+                        android:maxWidth="58dp"
+                        android:text="US"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp" />
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10sp"
+                        android:layout_weight="0.4"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/usaText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="0.25"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="bottom|left"
+                            android:text="USA"
+                            android:textColor="#373737"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/usaContinent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20sp"
+                            android:layout_weight="0.25"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="top|left"
+                            android:text="Ameryka Północna"
+                            android:textColor="#707070"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/usaInfections"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="0.52"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="bottom|right"
+                        android:text="243569 zakarzeń"
+                        android:textColor="#4C4C4C"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/graphs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Wykres Zachorowań"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="35dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="Wykres Zachorowań"
+                    android:textColor="#303F9F"
+                    android:textSize="30sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorLightGray"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:src="@drawable/ic_graph" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/wykres Zachorowań"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="35dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="Wykres Ozdrowień"
+                    android:textColor="#303F9F"
+                    android:textSize="30sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorLightGray"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:src="@drawable/ic_graph" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/wykres Zachorowań2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="35dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="Wykres Ofiar Smiertelnych"
+                    android:textColor="#303F9F"
+                    android:textSize="30sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="20dp">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorLightGray"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:src="@drawable/ic_graph" />
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
         </LinearLayout>
