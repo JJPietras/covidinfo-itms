@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
-import com.drzymalski.covidinfo.ui.twitter.TwitterViewModel
 
 class IllnessSuspicionFragment : Fragment() {
 

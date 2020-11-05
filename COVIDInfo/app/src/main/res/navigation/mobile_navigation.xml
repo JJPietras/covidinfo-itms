@@ -28,4 +28,9 @@
         android:name="com.drzymalski.covidinfo.ui.illnessSuspicion.IllnessSuspicionFragment"
         android:label="@string/menu_suspicion"
         tools:layout="@layout/fragment_suspicion" />
+    <fragment
+        android:id="@+id/nav_test"
+        android:name="com.drzymalski.covidinfo.ui.twitter.TestFragment"
+        android:label="Test"
+        tools:layout="@layout/fragment_test" />
 </navigation>
