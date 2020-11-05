@@ -6,17 +6,383 @@
     android:layout_height="match_parent"
     tools:context=".ui.twitter.TwitterFragment">
 
-    <TextView
-        android:id="@+id/text_tweeter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <ScrollView
+        android:id="@+id/tweeterScroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#182075"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/titleCard"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="-45dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="50dp">
+
+                <RelativeLayout
+                    android:id="@+id/topLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/twitterBackground"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/side_nav_bar" />
+
+                    <ImageButton
+                        android:id="@+id/menuButton2"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="68dp"
+                        android:background="#00FFFFFF"
+                        app:layout_anchorGravity="end|bottom"
+                        app:srcCompat="@drawable/ic_menu_button" />
+
+                    <ImageButton
+                        android:id="@+id/menuButton3"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="68dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="#00FFFFFF"
+                        app:layout_anchorGravity="end|bottom"
+                        app:srcCompat="@drawable/ic_reload" />
+
+                    <TextView
+                        android:id="@+id/twitterTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="70dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Tweety"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/twitterTitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="150dp"
+                        android:layout_marginEnd="-1dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Ministerstwo Zdrowia"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:id="@+id/twitterTitle3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginTop="183dp"
+                        android:layout_marginEnd="60dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Oficjalny profil Ministerstwa Zdrowia"
+                        android:textAlignment="center"
+                        android:textColor="#59FFFFFF"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/twitterTitle4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginTop="207dp"
+                        android:layout_marginEnd="60dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@MZ_GOV_PL"
+                        android:textAlignment="center"
+                        android:textColor="#59FFFFFF"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/twitterTitle5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="254dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Obserwowanych:"
+                        android:textAlignment="center"
+                        android:textColor="#59FFFFFF"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/twitterTitle7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="145dp"
+                        android:layout_marginTop="255dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="1107"
+                        android:textAlignment="center"
+                        android:textColor="#B0FFFFFF"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/twitterTitle8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="255dp"
+                        android:layout_marginEnd="30dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="353132"
+                        android:textAlignment="center"
+                        android:textColor="#B0FFFFFF"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/twitterTitle6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="254dp"
+                        android:layout_marginEnd="90dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Obserwyjących:"
+                        android:textAlignment="center"
+                        android:textColor="#59FFFFFF"
+                        android:textSize="14sp" />
+
+                    <ImageButton
+                        android:id="@+id/prevDayBt2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="180dp"
+                        android:background="#00FFFFFF"
+                        android:src="@drawable/ic_left_day"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/nextDayBt2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="180dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#00FFFFFF"
+                        android:src="@drawable/ic_right_day"
+                        app:layout_constraintEnd_toStartOf="@+id/twitterBackground"
+                        app:layout_constraintTop_toBottomOf="@+id/twitterBackground" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tweetOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="-10dp"
+                android:layout_marginBottom="0dp"
+                app:cardCornerRadius="50dp">
+
+                <ImageView
+                    android:id="@+id/twitterBackground2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/side_nav_bar"
+                    app:srcCompat="@drawable/side_nav_bar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/twitterTitle10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="0dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Ministerstwo Zdrowia"
+                            android:textAlignment="center"
+                            android:textColor="#7EFFFFFF"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/twitterTitle13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="0dp"
+                            android:layout_weight="0.1"
+                            android:fontFamily="@font/roboto"
+                            android:text="10:30 AM * 5 lis"
+                            android:textAlignment="center"
+                            android:textColor="#C4FFFFFF"
+                            android:textSize="16sp" />
+
+                        <ImageButton
+                            android:id="@+id/menuButton4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="17dp"
+                            android:layout_marginEnd="40dp"
+                            android:background="#00FFFFFF"
+                            app:layout_anchorGravity="end|bottom"
+                            app:srcCompat="@drawable/ic_twitter_small" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/twitterTitle11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Liczba zakażonych koronawirusem: 466 679/6 842 (wszystkie pozytywne przypadki/w tym osoby zmarłe)."
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tweetTwo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="-10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="-10dp"
+                android:layout_marginBottom="0dp"
+                app:cardCornerRadius="50dp">
+
+                <ImageView
+                    android:id="@+id/twitterBackground2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/side_nav_bar"
+                    app:srcCompat="@drawable/side_nav_bar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/twitterTitle10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="0dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Ministerstwo Zdrowia"
+                            android:textAlignment="center"
+                            android:textColor="#7EFFFFFF"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/twitterTitle13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="0dp"
+                            android:layout_weight="0.1"
+                            android:fontFamily="@font/roboto"
+                            android:text="10:30 AM * 5 lis"
+                            android:textAlignment="center"
+                            android:textColor="#C4FFFFFF"
+                            android:textSize="16sp" />
+
+                        <ImageButton
+                            android:id="@+id/menuButton4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="17dp"
+                            android:layout_marginEnd="40dp"
+                            android:background="#00FFFFFF"
+                            app:layout_anchorGravity="end|bottom"
+                            app:srcCompat="@drawable/ic_twitter_small" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/twitterTitle11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Przestrzegaj zasad bezpieczeństwa ❗ \nDystans \nDezynfekcja \nMaseczka \nAplikacja #StopCovid \nWietrzenie pomieszczeń  \n\nTelefon  22 25 00 115 - Infolinia Głównego Inspektoratu Sanitarnego w sprawie \n#koronawirus. "
+                        android:textColor="#CBFFFFFF"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
