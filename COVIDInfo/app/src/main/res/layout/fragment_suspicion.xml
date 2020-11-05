@@ -6,17 +6,460 @@
     android:layout_height="match_parent"
     tools:context=".ui.illnessSuspicion.IllnessSuspicionFragment">
 
-    <TextView
-        android:id="@+id/text_suspicion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <ScrollView
+        android:id="@+id/suspicionScroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/titleCard"
+                android:layout_width="fill_parent"
+                android:layout_height="380dp"
+                android:layout_marginTop="-45dp"
+                app:cardBackgroundColor="#00FFFFFF"
+                app:cardCornerRadius="50dp">
+
+                <RelativeLayout
+                    android:id="@+id/topLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/twitterBackground"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/side_nav_bar" />
+
+                    <ImageButton
+                        android:id="@+id/menuButton2"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="68dp"
+                        android:background="#00FFFFFF"
+                        app:layout_anchorGravity="end|bottom"
+                        app:srcCompat="@drawable/ic_menu_button" />
+
+                    <TextView
+                        android:id="@+id/suspicionTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="70dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="Podejrzenie Infekcji"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/twitterTitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="150dp"
+                        android:layout_marginEnd="1dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Istnieje możliwość, że jesteś zarażony/na wirusem SARS-CoV-2"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/twitterTitle9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="-3dp"
+                        android:layout_marginTop="220dp"
+                        android:layout_marginEnd="3dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Niniejszy panel wskaże ci wszystkie niezbędne czynności, które należy podjąć aby zminimalizować ryzyko zarażenia innych, a także przedstawi niezbędne kroki umożliwiające uzyskanie fachowej pomocy specjalistów w jak najkrótszym czasie."
+                        android:textAlignment="center"
+                        android:textColor="#ABFFFFFF"
+                        android:textSize="18sp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:id="@+id/symptoms"
+                android:layout_width="fill_parent"
+                android:layout_height="443dp"
+                android:layout_marginTop="-50dp"
+                android:background="#3F51B5">
+
+                <TextView
+                    android:id="@+id/symptomsTitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/imageView3"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="197dp"
+                    android:layout_marginTop="265dp"
+                    android:layout_marginEnd="48dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center|left"
+                    android:text="Występowanie tych symptomów MOŻE oznaczać zarażenie chorobą COVID-19"
+                    android:textColor="#ABFFFFFF"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="277dp"
+                    android:scaleX="-1"
+                    android:src="@drawable/ic_symptom"
+                    app:srcCompat="@drawable/ic_symptom_2" />
+
+                <TextView
+                    android:id="@+id/symptomsTitle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/imageView3"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="173dp"
+                    android:layout_marginTop="361dp"
+                    android:layout_marginEnd="32dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center|left"
+                    android:text="Nie należy samemu stawiać diagnozy, gdyż część z dolegliwości dotyczy także zarażenia zwykłym wirusem grypy."
+                    android:textColor="#90FFFFFF"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/symptomsContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/twitterBackground"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="109dp"
+                    android:layout_marginEnd="180dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="- Gorączka \n- Złe samopoczucie\n- Suchy Kaszel\n- Utrata smaku\n- Utrata węchu"
+                    android:textColor="#ABFFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/symptomsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/twitterBackground"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="66dp"
+                    android:layout_marginEnd="262dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Symptomy"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="85dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_symptom" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/actions"
+                android:layout_width="fill_parent"
+                android:layout_height="540dp"
+                android:background="#00838F">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="75dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_symptom"
+                    app:srcCompat="@drawable/ic_mask" />
+
+                <TextView
+                    android:id="@+id/actions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/twitterBackground"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="129dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Zadbaj o zdrowie innych"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/symptomsContent2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/symptomsTitle6"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginEnd="180dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="W przypadku wystąpienia jakichkolwiek symptomów pamiętaj, że nie tylko ty możesz zachorować."
+                    android:textColor="#ABFFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/symptomsContent3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/symptomsTitle6"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="172dp"
+                    android:layout_marginEnd="182dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Aby zadbać o ludzi w swoim otoczeniu noś maseczkę, by ograniczyć rosprzestrzenianie się wirusa."
+                    android:textColor="#ABFFFFFF"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="320dp"
+                    android:scaleX="-1"
+                    android:src="@drawable/ic_symptom"
+                    app:srcCompat="@drawable/ic_liquids" />
+
+                <TextView
+                    android:id="@+id/symptomsTitle5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/imageView3"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="160dp"
+                    android:layout_marginTop="265dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center|left"
+                    android:text="Pamiętaj o dezynfekcji rąk"
+                    android:textColor="#ABFFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/symptomsTitle6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/symptomsTitle5"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="445dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center|left"
+                    android:text="Pamiętaj aby dotykając takich rzeczy w miarę możliwości je dezynfekować, a także by myć ręce środkami dezynfekcyjnymi."
+                    android:textColor="#90FFFFFF"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/symptomsTitle7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/symptomsTitle5"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="303dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center|left"
+                    android:text="Dotykając klamek, uchwytów, czy elementów takich jak baterie kranowe umożliwiamy wirusowi łatwiejsze rozprzestrzenianie się."
+                    android:textColor="#90FFFFFF"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/actions"
+                android:layout_width="fill_parent"
+                android:layout_height="540dp"
+                android:background="#C2185B">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="75dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_symptom"
+                    app:srcCompat="@drawable/ic_tele" />
+
+                <TextView
+                    android:id="@+id/poz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/twitterBackground"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="129dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Umów się na teleporadę"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/symptomsContent2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/symptomsTitle6"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="67dp"
+                    android:layout_marginEnd="180dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="W przypadku wystąpienia jakichkolwiek symptomów pamiętaj, że nie tylko ty możesz zachorować."
+                    android:textColor="#ABFFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/symptomsContent3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/symptomsTitle6"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="172dp"
+                    android:layout_marginEnd="182dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Aby zadbać o ludzi w swoim otoczeniu noś maseczkę, by ograniczyć rosprzestrzenianie się wirusa."
+                    android:textColor="#ABFFFFFF"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="320dp"
+                    android:scaleX="-1"
+                    android:src="@drawable/ic_symptom"
+                    app:srcCompat="@drawable/ic_poz" />
+
+                <TextView
+                    android:id="@+id/symptomsTitle5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/imageView3"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="160dp"
+                    android:layout_marginTop="265dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center|left"
+                    android:text="Pamiętaj o dezynfekcji rąk"
+                    android:textColor="#ABFFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/symptomsTitle6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/symptomsTitle5"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="445dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center|left"
+                    android:text="Pamiętaj aby dotykając takich rzeczy w miarę możliwości je dezynfekować, a także by myć ręce środkami dezynfekcyjnymi."
+                    android:textColor="#90FFFFFF"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/symptomsTitle7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/symptomsTitle5"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="303dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center|left"
+                    android:text="Dotykając klamek, uchwytów, czy elementów takich jak baterie kranowe umożliwiamy wirusowi łatwiejsze rozprzestrzenianie się."
+                    android:textColor="#90FFFFFF"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
