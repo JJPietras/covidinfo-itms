@@ -313,7 +313,7 @@
                 app:cardCornerRadius="50dp">
 
                 <ImageView
-                    android:id="@+id/twitterBackground2"
+                    android:id="@+id/twitterBackgroundOne"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:src="@drawable/side_nav_bar"
@@ -330,7 +330,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/twitterTitle10"
+                            android:id="@+id/twitterTitleTwo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="30dp"
@@ -343,7 +343,7 @@
                             android:textSize="20sp" />
 
                         <TextView
-                            android:id="@+id/twitterTitle13"
+                            android:id="@+id/tweetDateTwo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="0dp"
@@ -357,7 +357,7 @@
                             android:textSize="16sp" />
 
                         <ImageButton
-                            android:id="@+id/menuButton4"
+                            android:id="@+id/tweetLinkTwo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="17dp"
@@ -368,7 +368,7 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/twitterTitle11"
+                        android:id="@+id/tweetContentTwo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
