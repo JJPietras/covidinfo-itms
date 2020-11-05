@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
+import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 
 class TodayIllnessFragment : Fragment() {
 

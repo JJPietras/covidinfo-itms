@@ -583,7 +583,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
+              <!--  <TextView
                     android:id="@+id/Wykres Zachorowań"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -592,9 +592,9 @@
                     android:gravity="center"
                     android:text="Wykres Zachorowań"
                     android:textColor="#303F9F"
-                    android:textSize="30sp" />
+                    android:textSize="30sp" />-->
 
-                <androidx.cardview.widget.CardView
+         <!--       <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="20dp"
@@ -608,9 +608,9 @@
                         android:paddingTop="20dp"
                         android:paddingBottom="20dp"
                         android:src="@drawable/ic_graph" />
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
-                <TextView
+          <!--      <TextView
                     android:id="@+id/wykres Zachorowań"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -619,7 +619,7 @@
                     android:gravity="center"
                     android:text="Wykres Ozdrowień"
                     android:textColor="#303F9F"
-                    android:textSize="30sp" />
+                    android:textSize="30sp" />-->
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -627,17 +627,17 @@
                     android:layout_marginBottom="20dp"
                     app:cardCornerRadius="20dp">
 
-                    <ImageView
+               <!--     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/colorLightGray"
                         android:paddingTop="20dp"
                         android:paddingBottom="20dp"
-                        android:src="@drawable/ic_graph" />
+                        android:src="@drawable/ic_graph" />-->
                 </androidx.cardview.widget.CardView>
 
-                <TextView
+                <!--<TextView
                     android:id="@+id/wykres Zachorowań2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -646,7 +646,7 @@
                     android:gravity="center"
                     android:text="Wykres Ofiar Smiertelnych"
                     android:textColor="#303F9F"
-                    android:textSize="30sp" />
+                    android:textSize="30sp" />-->
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
