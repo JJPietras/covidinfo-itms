@@ -22,10 +22,10 @@ class IllnessSuspicionFragment : Fragment() {
         illnessSuspicionViewModel =
                 ViewModelProviders.of(this).get(IllnessSuspicionViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_suspicion, container, false)
-        val textView: TextView = root.findViewById(R.id.text_suspicion)
-        illnessSuspicionViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        //val textView: TextView = root.findViewById(R.id.text_suspicion)
+        //illnessSuspicionViewModel.text.observe(viewLifecycleOwner, Observer {
+        //    textView.text = it
+        //})
         return root
     }
 }

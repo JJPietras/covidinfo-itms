@@ -1,4 +1,4 @@
-package com.drzymalski.covidinfo.ui.twitter
+package com.drzymalski.covidinfo.ui.test
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

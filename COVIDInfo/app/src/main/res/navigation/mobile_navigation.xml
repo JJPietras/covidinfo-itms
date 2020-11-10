@@ -30,7 +30,7 @@
         tools:layout="@layout/fragment_suspicion" />
     <fragment
         android:id="@+id/nav_test"
-        android:name="com.drzymalski.covidinfo.ui.twitter.TestFragment"
-        android:label="Test"
+        android:name="com.drzymalski.covidinfo.ui.test.TestFragment"
+        android:label="@string/menu_test"
         tools:layout="@layout/fragment_test" />
 </navigation>
