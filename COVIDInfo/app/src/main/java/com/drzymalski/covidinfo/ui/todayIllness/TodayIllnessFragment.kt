@@ -27,22 +27,23 @@ class TodayIllnessFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_today, container, false)
         todayIllnessViewModel.text.observe(viewLifecycleOwner, Observer { })
 
-        plotInitialiserToday.loadMainScreenResouces("2020-10-01", "2020-11-10")
+        plotInitialiserToday.loadMainScreenResouces("2020-10-01", "2020-11-11")
 
         val aaChartViewNewCases = root.findViewById<AAChartView>(R.id.aaChartViewNewCases)
-        aaChartViewNewCases.aa_drawChartWithChartModel(plotInitialiserToday.configureNewCasesBarChart())
+
+        aaChartViewNewCases.aa_drawChartWithChartOptions(plotInitialiserToday.configureNewCasesBarChart())
 
         val aaChartViewTotalCases = root.findViewById<AAChartView>(R.id.aaChartViewTotalCases)
-        aaChartViewTotalCases.aa_drawChartWithChartModel(plotInitialiserToday.configureTotalCasesBarChart())
+        aaChartViewTotalCases.aa_drawChartWithChartOptions(plotInitialiserToday.configureTotalCasesBarChart())
 
         val aaChartActiveTotalCases = root.findViewById<AAChartView>(R.id.aaChartViewActiveCases)
-        aaChartActiveTotalCases.aa_drawChartWithChartModel(plotInitialiserToday.configureAvtiveBarChart())
+        aaChartActiveTotalCases.aa_drawChartWithChartOptions(plotInitialiserToday.configureAvtiveBarChart())
 
         val aaChartRecovered = root.findViewById<AAChartView>(R.id.aaChartViewRecovered)
-        aaChartRecovered.aa_drawChartWithChartModel(plotInitialiserToday.configureRecoveredBarChart())
+        aaChartRecovered.aa_drawChartWithChartOptions(plotInitialiserToday.configureRecoveredBarChart())
 
         val aaChartDeadlyCases = root.findViewById<AAChartView>(R.id.aaChartViewDied)
-        aaChartDeadlyCases.aa_drawChartWithChartModel(plotInitialiserToday.configureDeathsBarChart())
+        aaChartDeadlyCases.aa_drawChartWithChartOptions(plotInitialiserToday.configureDeathsBarChart())
 
 
         return root

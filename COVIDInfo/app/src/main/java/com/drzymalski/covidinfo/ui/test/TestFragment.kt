@@ -26,10 +26,10 @@ class TestFragment : Fragment() {
                 ViewModelProviders.of(this).get(TestViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_test, container, false)
         val textView: TextView = root.findViewById(R.id.text_test)
-        plotInitialiserTest.loadMainScreenResouces("2020-10-01", "2020-11-10")
+        plotInitialiserTest.loadMainScreenResouces("2020-10-01", "2020-11-11")
 
         val aaChartView = root.findViewById<AAChartView>(R.id.aa_chart_view)
-        aaChartView.aa_drawChartWithChartModel(plotInitialiserTest.configureTotalCasesBarChart())
+        aaChartView.aa_drawChartWithChartOptions(plotInitialiserTest.configureTotalCasesBarChart())
 
         val aaChartView2 = root.findViewById<AAChartView>(R.id.aa_chart_view2)
         aaChartView2.aa_drawChartWithChartModel(PlotInitializer.configureAAChartModel2())

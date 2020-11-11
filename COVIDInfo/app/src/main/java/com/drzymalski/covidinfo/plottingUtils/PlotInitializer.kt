@@ -3,20 +3,24 @@ package com.drzymalski.covidinfo.plottingUtils
 import android.content.Context
 import com.drzymalski.covidinfo.apiUtils.ApiManager.Companion.getCovidDataFromApi
 import com.drzymalski.covidinfo.apiUtils.Models.CovidDay
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartSymbolStyleType
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
-import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
+import com.github.aachartmodel.aainfographics.aachartcreator.*
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AADataLabels
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AALabel
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
+import com.github.aachartmodel.aainfographics.aatools.AAColor
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import java.io.IOException
+import java.lang.ref.PhantomReference
 
 class PlotInitializer {
 
     private var covidData: List<CovidDay>  = mutableListOf()
 
     private val totalCasesList = mutableListOf<Int>()
-    private val totalDeathsList = mutableListOf<Int>()
-    private val totalRecoveredList = mutableListOf<Int>()
+
+    private val newDeathsList = mutableListOf<Int>()
+    private val newRecoveredList = mutableListOf<Int>()
 
     private val activeCasesList = mutableListOf<Int>()
 
@@ -26,21 +30,36 @@ class PlotInitializer {
 
     fun loadMainScreenResouces(dateFrom: String, dateTo: String){
         clearData()
-        var last = 0
+        var lastCases = 0
+        var lastDeaths = 0
+        var lastRecovered = 0
         covidData= getCovidDataFromApi(dateFrom, dateTo)
         covidData.forEach { casesOnDay ->
             run {
                 totalCasesList += casesOnDay.Confirmed
-                totalDeathsList += casesOnDay.Deaths
-                totalRecoveredList += casesOnDay.Recovered
+                //newDeathsList += casesOnDay.Deaths
+                //newRecoveredList += casesOnDay.Recovered
 
                 activeCasesList += casesOnDay.Active
-                datesList += casesOnDay.Date.day.toString()
+                @Suppress("DEPRECATION")
+                datesList += casesOnDay.Date.toString()
 
-                if (last==0) {last = casesOnDay.Confirmed}
+                if (lastDeaths==0) {lastDeaths = casesOnDay.Deaths}
                 else {
-                    newCasesList += (casesOnDay.Confirmed - last)
-                    last = casesOnDay.Confirmed
+                    newDeathsList += (casesOnDay.Deaths - lastDeaths)
+                    lastDeaths = casesOnDay.Deaths
+                }
+
+                if (lastRecovered==0) {lastRecovered = casesOnDay.Recovered}
+                else {
+                    newRecoveredList += (casesOnDay.Recovered - lastRecovered)
+                    lastRecovered = casesOnDay.Recovered
+                }
+
+                if (lastCases==0) {lastCases = casesOnDay.Confirmed}
+                else {
+                    newCasesList += (casesOnDay.Confirmed - lastCases)
+                    lastCases = casesOnDay.Confirmed
                 }
             }
         }
@@ -48,8 +67,8 @@ class PlotInitializer {
 
     private fun clearData(){
         totalCasesList.clear()
-        totalDeathsList.clear()
-        totalRecoveredList.clear()
+        newDeathsList.clear()
+        newRecoveredList.clear()
 
         activeCasesList.clear()
 
@@ -57,122 +76,123 @@ class PlotInitializer {
         newCasesList.clear()
     }
 
-    fun configureTotalCasesBarChart(): AAChartModel {
-        return AAChartModel()
-            .chartType(AAChartType.Column)
+    fun configureTotalCasesBarChart(): AAOptions {
+        val aaChartModel = AAChartModel()
+            .chartType(AAChartType.Spline)
             .title("")
             .yAxisTitle("")
-            .dataLabelsEnabled(false)
-            .tooltipEnabled(false)
-            .markerRadius(0f)
-            .xAxisVisible(true)
-            .yAxisVisible(true)
+            .categories(datesList.toTypedArray())
             .series(
                 arrayOf(
                     AASeriesElement()
-                        .name("COVIDIUM TOTAL Data")
+                        .name("Przypadki potwierdzone")
                         .lineWidth(2f)
                         .data(totalCasesList.toTypedArray())
                     .color(AAGradientColor.berrySmoothieColor())
                 )
             )
+        return getChartOptions(aaChartModel)
     }
 
-    fun configureNewCasesBarChart(): AAChartModel {
-        return AAChartModel()
+    fun configureNewCasesBarChart(): AAOptions {
+
+        val aaChartModel = AAChartModel()
             .chartType(AAChartType.Spline)
             .title("")
+            .subtitle("")
+            .categories(datesList.drop(1).toTypedArray())
             .yAxisTitle("")
-            .dataLabelsEnabled(false)
-            .tooltipEnabled(false)
-            .markerRadius(0f)
-            .xAxisVisible(true)
-            .yAxisVisible(true)
+            .yAxisGridLineWidth(0f)
+            .markerRadius(2f)
+            .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .series(
                 arrayOf(
                     AASeriesElement()
-                        .name("7 day avg")
-                        .lineWidth(5.0f)
+                        .name("Średnia z 7 dni")
+                        .lineWidth(2.0f)
                         .color("rgba(220,20,60,1)")
                         .data(newCasesList.toTypedArray()),
                     AASeriesElement()
                         .type(AAChartType.Column)
-                        .name("Cases")
+                        .name("Przypadki")
                         .color("#25547c")
                         .data(newCasesList.toTypedArray())
                 )
             )
+        return getChartOptions(aaChartModel)
     }
 
-    fun configureDeathsBarChart(): AAChartModel {
-        return AAChartModel()
+    fun configureDeathsBarChart(): AAOptions {
+        val aaChartModel = AAChartModel()
             .chartType(AAChartType.Column)
             .title("")
             .yAxisTitle("")
-            .dataLabelsEnabled(false)
-            .tooltipEnabled(false)
             .markerRadius(0f)
-            .xAxisVisible(true)
-            .yAxisVisible(true)
+            .categories(datesList.drop(1).toTypedArray())
             .series(
                 arrayOf(
                     AASeriesElement()
-                        .name("COVIDIUM DEATHS Data")
+                        .name("Ilość zgonów")
                         .lineWidth(2f)
-                        .data(totalDeathsList.toTypedArray())
-                    .color(AAGradientColor.firebrickColor())
+                        .data(newDeathsList.toTypedArray())
+                        .color(AAGradientColor.firebrickColor())
                 )
             )
+        return getChartOptions(aaChartModel)
     }
 
-    fun configureRecoveredBarChart(): AAChartModel {
-        return AAChartModel()
+    fun configureRecoveredBarChart(): AAOptions {
+        val aaChartModel = AAChartModel()
             .chartType(AAChartType.Column)
             .title("")
             .yAxisTitle("")
-            .dataLabelsEnabled(false)
-            .tooltipEnabled(false)
-            .markerRadius(0f)
-            .xAxisVisible(true)
-            .yAxisVisible(true)
+            .categories(datesList.drop(1).toTypedArray())
             .series(
                 arrayOf(
                     AASeriesElement()
-                        .name("COVIDIUM RECOVERED Data")
+                        .name("Ilość ozdrowień")
                         .lineWidth(2f)
-                        .data(totalRecoveredList.toTypedArray())
+                        .data(newRecoveredList.toTypedArray())
                     .color(AAGradientColor.oceanBlueColor())
                 )
             )
+        return getChartOptions(aaChartModel)
     }
 
-    fun configureAvtiveBarChart(): AAChartModel {
-        return AAChartModel()
+    fun configureAvtiveBarChart(): AAOptions {
+        val aaChartModel = AAChartModel()
             .chartType(AAChartType.Spline)
             .title("")
             .yAxisTitle("")
-            .dataLabelsEnabled(false)
-            .tooltipEnabled(false)
-            .markerRadius(0f)
-            .xAxisVisible(true)
-            .yAxisVisible(true)
+            .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .categories(datesList.toTypedArray())
+            .animationType(AAChartAnimationType.Bounce)
             .series(
                 arrayOf(
                     AASeriesElement()
-                        .type(AAChartType.Spline)
-                        .name("7 day avg")
+                        .name("Aktywne przypadki")
                         .lineWidth(5.0f)
                         .color("rgba(220,20,60,1)")
-                        .data(activeCasesList.toTypedArray()),
-                    AASeriesElement()
-                        .type(AAChartType.Column)
-                        .name("Active")
-                        .color("#25547c")
                         .data(activeCasesList.toTypedArray())
                 )
             )
+        return getChartOptions(aaChartModel)
     }
 
+    private fun getChartOptions(aaChartModel: AAChartModel): AAOptions {
+        val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
+        aaOptions.tooltip!!
+            .shared(true)
+            /*.useHTML(true)
+            .headerFormat("<small style=\\\"color: brown;\\\">{point.key}</small><table style=\\\"color: brown;\\\">")
+            .pointFormat(
+                "<tr><td><li></li></td><td><small>{point.series.name}: </small></td> <td><small>{point.y}</small></td></tr>"
+            )
+            .footerFormat("</table>")*/
+            //.backgroundColor(AAColor.grayColor())
+            .valueDecimals(0)
+        return aaOptions
+    }
 
     companion object {
 
