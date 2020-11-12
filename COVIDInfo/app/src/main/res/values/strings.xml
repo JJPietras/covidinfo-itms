@@ -16,4 +16,44 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="table_sum_text">Wykres sumy zachorowań</string>
     <string name="table_new_text">Wykres nowych zachorowań</string>
+    <string name="suspicion_main_title">Podejrzenie Infekcji</string>
+    <string name="suspicion_main_subtitle">Istnieje możliwość, że jesteś zarażony/na wirusem SARS-CoV-2</string>
+    <string name="suspicion_main_content">Niniejszy panel wskaże ci wszystkie niezbędne czynności, które należy podjąć aby zminimalizować ryzyko zarażenia innych, a także przedstawi niezbędne kroki umożliwiające uzyskanie fachowej pomocy specjalistów w jak najkrótszym czasie.</string>
+    <string name="symptoms_subtitle_two">Występowanie tych symptomów MOŻE oznaczać zarażenie chorobą COVID-19</string>
+    <string name="symptoms_content_two">Nie należy samemu stawiać diagnozy, gdyż część z dolegliwości dotyczy także zarażenia zwykłym wirusem grypy.</string>
+    <string name="symptoms_content_one">- Gorączka \n- Złe samopoczucie\n- Suchy Kaszel\n- Utrata smaku\n- Utrata węchu</string>
+    <string name="symptoms_title">Symptomy</string>
+    <string name="actions_title">Zadbaj o zdrowie innych</string>
+    <string name="actions_content_one">W przypadku wystąpienia jakichkolwiek symptomów pamiętaj, że nie tylko ty możesz zachorować.</string>
+    <string name="actions_subcontent_ont">Aby zadbać o ludzi w swoim otoczeniu noś maseczkę, by ograniczyć rosprzestrzenianie się wirusa.</string>
+    <string name="actions_subtitle">Pamiętaj o dezynfekcji rąk</string>
+    <string name="actions_subcontent_two">Pamiętaj aby dotykając takich rzeczy w miarę możliwości je dezynfekować, a także by myć ręce środkami dezynfekcyjnymi.</string>
+    <string name="actions_content_two">Dotykając klamek, uchwytów, czy elementów takich jak baterie kranowe umożliwiamy wirusowi łatwiejsze rozprzestrzenianie się.</string>
+    <string name="teleHelp_title">Umów się na teleporadę</string>
+    <string name="teleHelp_content_one">Jeśli to możliwe należy w pierwszej kolejności skontaktować się z lekażem pierwszego kontaktu.</string>
+    <string name="teleHelp_subcontent_one">W przypadku, gdy kontakt nie może zostać nawiązany należy umówić się na teleporadę klikając w poniższy przycisk.</string>
+    <string name="teleHelp_content_two">Udając się w miejsca zatłoczone możesz stanowić zagrożenie dla innych. Zadbaj o bezpieczeństwo ludzi w swoim otoczeniu.</string>
+    <string name="teleHelp_subcontent_two">Teleporada nie wymaga przybycia do żadnej placówki i może, a co więcej powinna być zrealizowana na przykład poprzez rozmowę telefoniczną.</string>
+    <string name="teleHelp_subtitle">Nie przychodź do przychodni ani na SOR</string>
+    <string name="teleHelp_teleButton">Teleporada</string>
+    <string name="usefulTelephones_title">Przydatne telefony</string>
+    <string name="usefulTelephones_subtitle_one">Jeśli miałeś kontakt z osobą chorą lub zakażoną koronawirusem, to bezzwłocznie powiadom:</string>
+    <string name="usefulTelephones_subtitle_two">Jeśli masz pytania związane z koronawirusem, zadzwoń na:</string>
+    <string name="usefulTelephones_subtitle_three">Jeżeli masz pytania, a jesteś za granicą, to dzwoń pod numer:</string>
+    <string name="usefulTelephones_subcontent">połączenia płatne zgodne z cennikiem operatora</string>
+    <string name="usefulTelephones_title_one">Poniżej znajdują się odnośniki z przydatnymi telefonami.</string>
+    <string name="usefulTelephones_title_two">W przypadku opisanych sytuacji nie wachaj się pod nie dzwonić.</string>
+    <string name="usefulTelephones_telephone_sanitary">Stacja sanitarno-epidemiologiczna</string>
+    <string name="usefulTelephones_telephone_info">Infolinia dla przebywających za granicą</string>
+    <string name="usefulTelephones_telephone_nfz">Infolinia Narodowego Funduszu Zdrowia</string>
+
+
+    <string-array name="age">
+        <item>&lt;50</item>
+        <item>&gt;50</item>
+        <item>&gt;60</item>
+        <item>&gt;70</item>
+        <item>&gt;80</item>
+    </string-array>
+
 </resources>
