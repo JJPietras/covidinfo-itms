@@ -1,6 +1,7 @@
 package com.drzymalski.covidinfo.apiUtils
 
-import com.drzymalski.covidinfo.apiUtils.Models.CovidDay
+import com.drzymalski.covidinfo.apiUtils.models.CovidDay
+import com.drzymalski.covidinfo.apiUtils.models.SummaryData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.*
@@ -50,8 +51,13 @@ class ApiManager {
             val listPersonType = object : TypeToken<List<CovidDay>>() {}.type
             return  gson.fromJson(getJSONFromApi(url), listPersonType)
         }
-//https://api.covid19api.com/country/Poland?from=2020-10-01T00:00:00Z&to=2020-12-01T00:00:00Z ACTIVE
-    }
 
+        fun getSummaryFromApi(): SummaryData {
+            val url= "$BASE_URL/summary"
+            val gson = Gson()
+            val listPersonType = object : TypeToken<SummaryData>() {}.type
+            return  gson.fromJson(getJSONFromApi(url), listPersonType)
+        }
+    }
 
 }
