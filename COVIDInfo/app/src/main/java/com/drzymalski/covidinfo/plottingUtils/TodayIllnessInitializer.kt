@@ -128,10 +128,6 @@ class TodayIllnessInitializer {
 
     companion object {
 
-        fun formatDate(date: Date): String{
-           return date.date.toString() + "-" + (date.month + 1).toString() //+ "-" + (date.year + 1900).toString()
-        }
-
         fun configureAAChartModel2(): AAChartModel {
 
             return AAChartModel()

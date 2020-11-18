@@ -1,13 +1,14 @@
 package com.drzymalski.covidinfo.plottingUtils
 
 import com.drzymalski.covidinfo.apiUtils.ApiManager
+import com.drzymalski.covidinfo.apiUtils.models.Country
 import com.drzymalski.covidinfo.apiUtils.models.CovidDay
 import com.drzymalski.covidinfo.apiUtils.models.SummaryData
 
 class DataHolder {
 
     private var covidData: List<CovidDay>  = mutableListOf()
-    private lateinit var summaryData: SummaryData
+    lateinit var summaryData: SummaryData
     val totalCasesList = mutableListOf<Int>()
 
     val newDeathsList = mutableListOf<Int>()
@@ -19,30 +20,34 @@ class DataHolder {
     val newCasesWeeklyList = mutableListOf<Float>()
 
     val datesList = mutableListOf<String>()
+    val datesFullList = mutableListOf<String>()
 
-    fun loadMainScreenResouces(dateFrom: String, dateTo: String){
+    val pickedCountries = listOf("PL", "GE", "IT", "US")
+
+    var selectedCountry = "Poland"
+
+    fun loadMainScreenResouces(dateFrom: String){
         clearData()
         var lastCases = 0
         var lastDeaths = 0
         var lastRecovered = 0
-        covidData = ApiManager.getCovidDataFromApi(dateFrom, dateTo)
 
-        /*try {
+        try {
             summaryData = ApiManager.getSummaryFromApi()
+            summaryData.Countries = summaryData.Countries.filter{pickedCountries.contains(it.CountryCode)}
         }catch (ex:Exception){
-            println(ex.message)
-        }*/ //Works but not used yet and needs country filtering
-
-
+            println(ex.message) //need to see the errors xd
+        }
+        println(DateConverter.formatDateFull(summaryData.Date))
+        covidData = ApiManager.getCovidDataFromApi(dateFrom, DateConverter.formatDateFull(summaryData.Date))
         covidData.forEach { casesOnDay ->
             run {
                 totalCasesList += casesOnDay.Confirmed
-                //newDeathsList += casesOnDay.Deaths
-                //newRecoveredList += casesOnDay.Recovered
 
                 activeCasesList += casesOnDay.Active
                 @Suppress("DEPRECATION")
-                datesList += TodayIllnessInitializer.formatDate(casesOnDay.Date)
+                datesList += DateConverter.formatDateShort(casesOnDay.Date)
+                datesFullList += DateConverter.formatDateFull(casesOnDay.Date)
 
                 if (lastDeaths==0) {lastDeaths = casesOnDay.Deaths}
                 else {
@@ -63,6 +68,7 @@ class DataHolder {
                 }
             }
         }
+
         getWeeklyAverage()
     }
 

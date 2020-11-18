@@ -1,6 +1,7 @@
 package com.drzymalski.covidinfo.apiUtils.models
 
-data class SummaryData(val Global: Global, val Countries: List<Country> )  {
+import java.util.*
 
+data class SummaryData(val Global: Global, var Countries: List<Country>, var Date: Date)  {
 
 }

@@ -170,7 +170,7 @@
                     android:textSize="56dp" />
 
                 <TextView
-                    android:id="@+id/died2"
+                    android:id="@+id/recovered"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
