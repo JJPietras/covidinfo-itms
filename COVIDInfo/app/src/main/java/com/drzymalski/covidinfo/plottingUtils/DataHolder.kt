@@ -26,7 +26,7 @@ class DataHolder {
 
     var selectedCountry = "Poland"
 
-    fun loadMainScreenResouces(dateFrom: String){
+    fun loadMainScreenResouces(dateFrom: String, country: String){
         clearData()
         var lastCases = 0
         var lastDeaths = 0
@@ -39,7 +39,7 @@ class DataHolder {
             println(ex.message) //need to see the errors xd
         }
         println(DateConverter.formatDateFull(summaryData.Date))
-        covidData = ApiManager.getCovidDataFromApi(dateFrom, DateConverter.formatDateFull(summaryData.Date))
+        covidData = ApiManager.getCovidDataFromApi(dateFrom, DateConverter.formatDateFull(summaryData.Date), country)
         covidData.forEach { casesOnDay ->
             run {
                 totalCasesList += casesOnDay.Confirmed

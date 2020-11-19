@@ -77,7 +77,7 @@ class TodayIllnessFragment : Fragment() {
             buttonVisibility()
         }
 
-        todayIllnessInitializer.data.loadMainScreenResouces("2020-10-01")
+        todayIllnessInitializer.data.loadMainScreenResouces("2020-10-01", "Poland")
 
         aaChartViewNewCases = root.findViewById(R.id.aaChartViewNewCases)
         aaChartViewNewCases.aa_drawChartWithChartOptions(todayIllnessInitializer.configureNewCasesBarChart())
@@ -122,11 +122,11 @@ class TodayIllnessFragment : Fragment() {
 
     private fun setData(){
         if (selectedDay > 0 && selectedDay < todayIllnessInitializer.data.datesFullList.lastIndex)  {
-            todayIllnessViewModel.selectedDayData.date.value = todayIllnessInitializer.data.datesFullList[selectedDay + 1]
+            todayIllnessViewModel.dateLive.value = todayIllnessInitializer.data.datesFullList[selectedDay + 1]
 
-            todayIllnessViewModel.selectedDayData.confirmed.value = todayIllnessInitializer.data.newCasesList[selectedDay]
-            todayIllnessViewModel.selectedDayData.deaths.value = todayIllnessInitializer.data.newDeathsList[selectedDay]
-            todayIllnessViewModel.selectedDayData.recovered.value = todayIllnessInitializer.data.newRecoveredList[selectedDay]
+            todayIllnessViewModel.confirmedLive.value = todayIllnessInitializer.data.newCasesList[selectedDay]
+            todayIllnessViewModel.deathsLive.value = todayIllnessInitializer.data.newDeathsList[selectedDay]
+            todayIllnessViewModel.recoveredLive.value = todayIllnessInitializer.data.newRecoveredList[selectedDay]
 
             todayIllnessViewModel.calcIncrease(todayIllnessInitializer.data.newCasesList[selectedDay],  todayIllnessInitializer.data.newCasesList[selectedDay-1])
         }

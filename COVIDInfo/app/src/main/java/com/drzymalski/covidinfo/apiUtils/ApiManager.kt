@@ -43,8 +43,8 @@ class ApiManager {
             return  gson.fromJson(getJSONFromApi(url), listPersonType)
         }
 
-        fun getCovidDataFromApi(dateFrom: String, dateTo: String): List<CovidDay> {
-            val url= "$BASE_URL/country/Poland?from=${dateFrom}T00:00:00Z&to=${dateTo}T00:00:00Z"
+        fun getCovidDataFromApi(dateFrom: String, dateTo: String, country: String): List<CovidDay> {
+            val url= "$BASE_URL/country/${country}?from=${dateFrom}T00:00:00Z&to=${dateTo}T00:00:00Z"
             //if (dateTo!="") url+= "$BASE_URL/country/Poland?from=${dateFrom}T00:00:00Z&to=${dateTo}T00:00:00Z"
 
             val gson = Gson()
