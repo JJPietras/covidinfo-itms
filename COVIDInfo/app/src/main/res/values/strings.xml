@@ -56,4 +56,13 @@
         <item>&gt;80</item>
     </string-array>
 
+    <string name="vitali"><a href="https://www.flaticon.com/authors/vitaly-gorbachev" title="Vitaly Gorbachev">Vitaly Gorbachev</a></string>
+    <string name="bqlqn"><a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">bqlqn</a></string>
+    <string name="roundicons"><a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a></string>
+    <string name="dimitri13"><a href="https://www.flaticon.com/authors/dmitri13" title="dmitri13">dmitri13</a></string>
+    <string name="vectors_market"><a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a></string>
+    <string name="monkik"><a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a></string>
+    <string name="freepik"><a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a></string>
+    <string name="pixel_meetup"><a href="https://www.flaticon.com/authors/pixelmeetup" title="Pixelmeetup">Pixelmeetup</a></string>
+
 </resources>

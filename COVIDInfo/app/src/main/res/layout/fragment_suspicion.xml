@@ -26,7 +26,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="380dp"
                 android:layout_marginTop="-45dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:cardBackgroundColor="#00FFFFFF"
                 app:cardCornerRadius="50dp">
 
@@ -139,8 +139,7 @@
                     android:layout_marginStart="35dp"
                     android:layout_marginTop="277dp"
                     android:scaleX="-1"
-                    android:src="@drawable/ic_symptom"
-                    app:srcCompat="@drawable/ic_symptom_2" />
+                    android:src="@drawable/ic_symptom_2" />
 
                 <TextView
                     android:id="@+id/symptomsTitle3"
@@ -430,8 +429,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="75dp"
                     android:layout_marginEnd="35dp"
-                    android:src="@drawable/ic_symptom"
-                    app:srcCompat="@drawable/ic_mask" />
+                    android:src="@drawable/ic_mask" />
 
                 <TextView
                     android:id="@+id/actionsSubTitleOne"
@@ -489,8 +487,7 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="320dp"
                     android:scaleX="-1"
-                    android:src="@drawable/ic_symptom"
-                    app:srcCompat="@drawable/ic_liquids" />
+                    android:src="@drawable/ic_liquids" />
 
                 <TextView
                     android:id="@+id/actionsSubtitleTwo"
@@ -555,8 +552,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="75dp"
                     android:layout_marginEnd="35dp"
-                    android:src="@drawable/ic_symptom"
-                    app:srcCompat="@drawable/ic_tele" />
+                    android:src="@drawable/ic_tele" />
 
                 <TextView
                     android:id="@+id/teleHelpSubTitleOne"
@@ -630,8 +626,7 @@
                     android:layout_marginStart="35dp"
                     android:layout_marginTop="389dp"
                     android:scaleX="-1"
-                    android:src="@drawable/ic_symptom"
-                    app:srcCompat="@drawable/ic_poz" />
+                    android:src="@drawable/ic_poz" />
 
                 <TextView
                     android:id="@+id/teleHelpSubContentTwo"
@@ -699,8 +694,7 @@
                     android:layout_marginStart="145dp"
                     android:layout_marginTop="70dp"
                     android:rotation="30"
-                    android:src="@drawable/ic_symptom"
-                    app:srcCompat="@drawable/ic_phone" />
+                    android:src="@drawable/ic_phone" />
 
                 <TextView
                     android:id="@+id/usefulTelephonesTitle"
@@ -892,8 +886,7 @@
                     android:layout_marginStart="140dp"
                     android:layout_marginTop="75dp"
                     android:layout_marginEnd="140dp"
-                    android:src="@drawable/ic_symptom"
-                    app:srcCompat="@drawable/ic_hospitals" />
+                    android:src="@drawable/ic_hospitals" />
 
                 <TextView
                     android:id="@+id/nearestHospitalTitle"
@@ -973,8 +966,7 @@
                     android:layout_marginEnd="-60dp"
                     android:layout_marginBottom="-60dp"
                     android:backgroundTint="#00ACC1"
-                    android:src="@drawable/sphere"
-                    app:srcCompat="@drawable/sub_sphere" />
+                    android:src="@drawable/sub_sphere" />
 
                 <ImageButton
                     android:id="@+id/imageButton5"

@@ -5,168 +5,272 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#283593"
     tools:context=".ui.selector.SelectorFragment">
 
-    <ImageView
-        android:id="@+id/categoriesBackground"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:foregroundGravity="center"
-        android:src="@drawable/full_gradient"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="44dp"
-        app:cardCornerRadius="30dp"
+        android:id="@+id/title_card"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:cardCornerRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/categoriesText"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/dark_green_gradient"
+            android:id="@+id/title_text"
+            android:layout_width="fill_parent"
+            android:layout_height="70dp"
+            android:background="#3949AB"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center"
             android:shadowRadius="30"
-            android:text="Wybierz Funkcjonalność"
+            android:text="Wybierz Zakładkę"
             android:textColor="#EAEAEA"
             android:textSize="34dp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/stats_card"
         android:layout_width="340dp"
-        android:layout_height="400dp"
-        android:layout_marginBottom="70dp"
-        android:backgroundTint="#303F9F"
-        app:cardCornerRadius="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#3949AB"
+        app:cardCornerRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_card">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:src="@drawable/dark_green_gradient" />
-
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/stats_frag_img_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
                 android:background="#00FFFFFF"
                 android:src="@drawable/ic_statistics" />
 
             <TextView
-                android:id="@+id/categoriesText2"
+                android:id="@+id/stats_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="159dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
                 android:fontFamily="@font/roboto_medium"
                 android:gravity="center"
                 android:shadowRadius="30"
                 android:text="Statystyki"
                 android:textColor="#E3E3E3"
-                android:textSize="24sp" />
+                android:textSize="26sp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/twitter_card"
+        android:layout_width="340dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#3949AB"
+        app:cardCornerRadius="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stats_card">
+
+        <RelativeLayout
+            android:id="@+id/twitter_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/categoriesText4"
+                android:id="@+id/twiter_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="41dp"
-                android:layout_marginBottom="11dp"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="center"
-                android:shadowRadius="30"
-                android:text="Szpitale"
-                android:textColor="#E3E3E3"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/categoriesText3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="157dp"
-                android:layout_marginEnd="29dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
                 android:fontFamily="@font/roboto_medium"
                 android:gravity="center"
                 android:shadowRadius="30"
                 android:text="Tweety MZ"
                 android:textColor="#E3E3E3"
-                android:textSize="24sp" />
+                android:textSize="26sp" />
 
-            <TextView
-                android:id="@+id/categoriesText5"
+            <ImageButton
+                android:id="@+id/twitter_frag_img_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="358dp"
-                android:layout_marginEnd="26dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/ic_twitter" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/hospitals_card"
+        android:layout_width="340dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#3949AB"
+        app:cardCornerRadius="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/twitter_card">
+
+        <RelativeLayout
+            android:id="@+id/hospitals_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/hospitals_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:shadowRadius="30"
+                android:text="Szpitale"
+                android:textColor="#E3E3E3"
+                android:textSize="26sp" />
+
+            <ImageButton
+                android:id="@+id/hospital_frag_img_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/ic_hospital_large" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/suspicion_card"
+        android:layout_width="340dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#3949AB"
+        app:cardCornerRadius="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hospitals_card">
+
+        <RelativeLayout
+            android:id="@+id/suspicion_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/suspicion_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
                 android:fontFamily="@font/roboto_medium"
                 android:gravity="center"
                 android:shadowRadius="30"
                 android:text="Jest mi źle"
                 android:textColor="#E3E3E3"
-                android:textSize="24sp" />
+                android:textSize="26sp" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="#00FFFFFF"
-                android:src="@drawable/ic_twitter" />
-
-            <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="50dp"
-                android:background="#00FFFFFF"
-                android:src="@drawable/ic_suspicion" />
-
-            <ImageButton
-                android:id="@+id/imageButton3"
+                android:id="@+id/suspicion_frag_img_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="50dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
                 android:background="#00FFFFFF"
-                android:src="@drawable/ic_hospitals" />
+                android:src="@drawable/ic_suspicion" />
         </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/authors_card"
+        android:layout_width="340dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#3949AB"
+        app:cardCornerRadius="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/suspicion_card">
+
+        <RelativeLayout
+            android:id="@+id/authors_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/authors_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:shadowRadius="30"
+                android:text="O autorach"
+                android:textColor="#E3E3E3"
+                android:textSize="26sp" />
+
+            <ImageButton
+                android:id="@+id/authors_frag_img_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/ic_programmer" />
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
