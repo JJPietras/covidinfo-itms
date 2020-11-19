@@ -91,7 +91,7 @@ class TodayIllnessInitializer {
         return getChartOptions(aaChartModel)
     }
 
-    fun configureAvtiveBarChart(): AAOptions {
+    fun configureActiveBarChart(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Spline)
             .title("")
