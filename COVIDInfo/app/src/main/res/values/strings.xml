@@ -15,7 +15,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="table_sum_text">Wykres sumy zachorowań</string>
-    <string name="table_new_text">Wykres nowych zachorowań</string>
+    <string name="text_new_plot">Wykres nowych zachorowań</string>
     <string name="suspicion_main_title">Podejrzenie Infekcji</string>
     <string name="suspicion_main_subtitle">Istnieje możliwość, że jesteś zarażony/na wirusem SARS-CoV-2</string>
     <string name="suspicion_main_content">Niniejszy panel wskaże ci wszystkie niezbędne czynności, które należy podjąć aby zminimalizować ryzyko zarażenia innych, a także przedstawi niezbędne kroki umożliwiające uzyskanie fachowej pomocy specjalistów w jak najkrótszym czasie.</string>
@@ -64,5 +64,26 @@
     <string name="monkik"><a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a></string>
     <string name="freepik"><a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a></string>
     <string name="pixel_meetup"><a href="https://www.flaticon.com/authors/pixelmeetup" title="Pixelmeetup">Pixelmeetup</a></string>
+    <string name="loading">666</string>
+    <string name="recovered">wyzdrowiało</string>
+    <string name="next">Następny</string>
+    <string name="previous">Poprzedni</string>
+    <string name="change_country">Zmień Kraj</string>
+    <string name="poland">Polska</string>
+    <string name="change_poland">Zmien kraj na Polskę</string>
+    <string name="topbackground">topBackground</string>
+    <string name="change_country">Zmień Kraj</string>
+    <string name="menu">MENU</string>
+    <string name="new_cases">nowe zakażenia</string>
+    <string name="died">zmarło</string>
+    <string name="text_cases">Zachorowania</string>
+    <string name="pl">PL</string>
+    <string name="select_country">Wybierz Państwo</string>
+    <string name="pl">PL</string>
+    <string name="polska">Polska</string>
+    <string name="europe">Europa</string>
+    <string name="text_recovered_plot">Wykres Ozdrowień</string>
+    <string name="text_died_plot">Wykres Ofiar Smiertelnych</string>
+    <string name="text_active_plot">Wykres aktywnych przypadków</string>
 
 </resources>
