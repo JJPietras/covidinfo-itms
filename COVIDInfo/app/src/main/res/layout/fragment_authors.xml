@@ -1,228 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/selectorAuthorsLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#3949AB"
-    tools:context=".ui.authors.AuthorsFragment" >
+    tools:context=".ui.authors.AuthorsFragment">
 
-    <TextView
-        android:id="@+id/authorsProjectSub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/authors_project"
-        android:textColor="#9CFFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/authorsProjectTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/authors_title"
-        android:textColor="#D8FFFFFF"
-        android:textSize="60sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/authorsJarek"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/authors_jarek"
-        android:textColor="#D8FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+            <TextView
+                android:id="@+id/authorsJakub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/authorsPatryk"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="100dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/authors_jakub"
+                android:textAlignment="center"
+                android:textColor="#D8FFFFFF"
+                android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/authorsPatryk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/authors_patryk"
-        android:textColor="#D8FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsJarek" />
+            <TextView
+                android:id="@+id/icon6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/authorsIcons"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/icon8"
+                android:fontFamily="@font/roboto"
+                android:text="@string/bqlqn"
+                android:textAlignment="center"
+                android:textColor="#7CB342"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/authorsJakub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/authors_jakub"
-        android:textColor="#D8FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsPatryk" />
+            <TextView
+                android:id="@+id/icon4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/icon6"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/icon5"
+                android:fontFamily="@font/roboto"
+                android:text="@string/freepik"
+                android:textColor="#7CB342"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/authorsIcons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/authors_icons"
-        android:textColor="#A4FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsPatryk" />
+            <TextView
+                android:id="@+id/authorsProjectSub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="150dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/authors_project"
+                android:textAlignment="center"
+                android:textColor="#9CFFFFFF"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/icon1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/vitali"
-        android:textColor="#7CB342"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
+            <TextView
+                android:id="@+id/icon1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/authorsIcons"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/vitali"
+                android:textAlignment="center"
+                android:textColor="#7CB342"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/icon2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/vectors_market"
-        android:textColor="#7CB342"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
+            <TextView
+                android:id="@+id/icon5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/icon8"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/icon2"
+                android:fontFamily="@font/roboto"
+                android:text="@string/pixel_meetup"
+                android:textColor="#7CB342"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/icon3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/monkik"
-        android:textColor="#7CB342"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
+            <TextView
+                android:id="@+id/icon2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/icon7"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/icon3"
+                android:fontFamily="@font/roboto"
+                android:text="@string/vectors_market"
+                android:textAlignment="center"
+                android:textColor="#7CB342"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/icon4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/freepik"
-        android:textColor="#7CB342"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.641"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/authorsProjectTitle"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="78dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="82dp"
+                android:contentDescription="@string/authors_description_logo"
+                android:scaleX="1"
+                android:scaleY="1"
+                android:src="@drawable/ic_covid_info"
+                tools:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/icon5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/pixel_meetup"
-        android:textColor="#7CB342"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
+            <TextView
+                android:id="@+id/icon3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/icon1"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto"
+                android:text="@string/monkik"
+                android:textColor="#7CB342"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/icon6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/bqlqn"
-        android:textColor="#7CB342"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
+            <TextView
+                android:id="@+id/icon8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/authorsIcons"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/icon7"
+                android:fontFamily="@font/roboto"
+                android:text="@string/dimitri13"
+                android:textAlignment="center"
+                android:textColor="#7CB342"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/icon7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/roundicons"
-        android:textColor="#7CB342"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.685"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
+            <TextView
+                android:id="@+id/authorsPatryk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/authorsJarek"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="100dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/authors_patryk"
+                android:textAlignment="center"
+                android:textColor="#D8FFFFFF"
+                android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/icon8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/dimitri13"
-        android:textColor="#7CB342"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
+            <TextView
+                android:id="@+id/authorsIcons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/authorsJakub"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/authors_icons"
+                android:textAlignment="center"
+                android:textColor="#A4FFFFFF"
+                android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/authorsYear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/authors_year"
-        android:textColor="#D8FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/authorsJarek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logo"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="65dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/authors_jarek"
+                android:textAlignment="center"
+                android:textColor="#D8FFFFFF"
+                android:textSize="30sp" />
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:scaleX="1"
-        android:scaleY="1"
-        android:src="@drawable/ic_programmer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/authorsProjectTitle"
-        app:srcCompat="@drawable/ic_covid_info"
-        tools:scaleType="centerCrop"
-        android:contentDescription="@string/authors_description_logo" />
+            <TextView
+                android:id="@+id/authorsYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/authorsIcons"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="75dp"
+                android:layout_marginEnd="100dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/authors_year"
+                android:textAlignment="center"
+                android:textColor="#D8FFFFFF"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/icon7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/authorsIcons"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/icon1"
+                android:fontFamily="@font/roboto"
+                android:text="@string/roundicons"
+                android:textAlignment="center"
+                android:textColor="#7CB342"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/authorsProjectTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/authorsProjectSub"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="-15dp"
+                android:layout_marginEnd="55dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/authors_title"
+                android:textAlignment="center"
+                android:textColor="#D8FFFFFF"
+                android:textSize="60sp" />
+        </RelativeLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
