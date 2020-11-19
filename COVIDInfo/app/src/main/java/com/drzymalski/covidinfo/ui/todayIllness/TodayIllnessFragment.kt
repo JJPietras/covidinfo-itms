@@ -1,24 +1,19 @@
 package com.drzymalski.covidinfo.ui.todayIllness
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
-import com.drzymalski.covidinfo.apiUtils.models.Country
-import com.drzymalski.covidinfo.apiUtils.models.CovidDay
 import com.drzymalski.covidinfo.plottingUtils.TodayIllnessInitializer
+import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-import kotlinx.android.synthetic.main.nav_header_main.*
 import kotlin.properties.Delegates
 
 class TodayIllnessFragment : Fragment() {
@@ -55,15 +50,15 @@ class TodayIllnessFragment : Fragment() {
                 ViewModelProviders.of(this).get(TodayIllnessViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_today, container, false)
 
-        tDate = root.findViewById(R.id.date)
-        tInfections = root.findViewById(R.id.infections)
-        tDied = root.findViewById(R.id.died)
-        tRecovered = root.findViewById(R.id.recovered)
+        tDate = root.findViewById(R.id.statisticsDate)
+        tInfections = root.findViewById(R.id.statisticsCount)
+        tDied = root.findViewById(R.id.statisticsDied)
+        tRecovered = root.findViewById(R.id.statisticsCured)
 
-        tIncreaseNum = root.findViewById(R.id.increaseNum)
-        tIncreasePercent = root.findViewById(R.id.increasePercent)
+        tIncreaseNum = root.findViewById(R.id.statisticsIncreaseNum)
+        tIncreasePercent = root.findViewById(R.id.statisticsIncreasePercent)
 
-        prevDayBt = root.findViewById(R.id.prevDayBt)
+        prevDayBt = root.findViewById(R.id.statisticsPrevDay)
         prevDayBt.setOnClickListener {
             if (selectedDay > 1){
                 selectedDay -= 1
@@ -72,7 +67,7 @@ class TodayIllnessFragment : Fragment() {
             buttonVisibility()
         }
 
-        nextDayBt = root.findViewById(R.id.nextDayBt)
+        nextDayBt = root.findViewById(R.id.statisticsNextDay)
         nextDayBt.setOnClickListener {
             if (selectedDay < todayIllnessInitializer.data.datesFullList.lastIndex){
                 selectedDay += 1
@@ -83,19 +78,19 @@ class TodayIllnessFragment : Fragment() {
 
         todayIllnessInitializer.data.loadMainScreenResouces("2020-10-01")
 
-        aaChartViewNewCases = root.findViewById<AAChartView>(R.id.aaChartViewNewCases)
+        aaChartViewNewCases = root.findViewById(R.id.aaChartViewNewCases)
         aaChartViewNewCases.aa_drawChartWithChartOptions(todayIllnessInitializer.configureNewCasesBarChart())
 
-        aaChartViewTotalCases = root.findViewById<AAChartView>(R.id.aaChartViewTotalCases)
+        aaChartViewTotalCases = root.findViewById(R.id.aaChartViewTotalCases)
         aaChartViewTotalCases.aa_drawChartWithChartOptions(todayIllnessInitializer.configureTotalCasesBarChart())
 
-        aaChartActiveTotalCases = root.findViewById<AAChartView>(R.id.aaChartViewActiveCases)
+        aaChartActiveTotalCases = root.findViewById(R.id.aaChartViewActiveCases)
         aaChartActiveTotalCases.aa_drawChartWithChartOptions(todayIllnessInitializer.configureAvtiveBarChart())
 
-        aaChartRecovered = root.findViewById<AAChartView>(R.id.aaChartViewRecovered)
+        aaChartRecovered = root.findViewById(R.id.aaChartViewRecovered)
         aaChartRecovered.aa_drawChartWithChartOptions(todayIllnessInitializer.configureRecoveredBarChart())
 
-        aaChartDeadlyCases = root.findViewById<AAChartView>(R.id.aaChartViewDied)
+        aaChartDeadlyCases = root.findViewById(R.id.aaChartViewDied)
         aaChartDeadlyCases.aa_drawChartWithChartOptions(todayIllnessInitializer.configureDeathsBarChart())
 
         todayIllnessViewModel.confirmed.observe(viewLifecycleOwner, Observer { tInfections.text = it.toString() })
@@ -133,6 +128,16 @@ class TodayIllnessFragment : Fragment() {
             todayIllnessViewModel.selectedDayData.recovered.value = todayIllnessInitializer.data.newRecoveredList[selectedDay]
 
             todayIllnessViewModel.calcIncrease(todayIllnessInitializer.data.newCasesList[selectedDay],  todayIllnessInitializer.data.newCasesList[selectedDay-1])
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val statisticsMenuBtn = view.findViewById<ImageButton>(R.id.statisticsMenuBtn)
+        statisticsMenuBtn.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment, SelectorFragment())
+                .addToBackStack(null).commit()
         }
     }
 }

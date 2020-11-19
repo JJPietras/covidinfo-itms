@@ -2,11 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hospital_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.hospitals.HospitalsFragment">
 
     <ScrollView
+        android:id="@+id/hospital_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -14,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/hospital_linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -24,13 +27,13 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/topBackground"
+                    android:id="@+id/hospitalsBackground"
                     android:layout_width="match_parent"
                     android:layout_height="550dp"
                     android:src="@drawable/side_nav_bar" />
 
                 <ImageButton
-                    android:id="@+id/menuButton"
+                    android:id="@+id/hospitalsMenuBtn"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_alignParentStart="true"
@@ -42,7 +45,7 @@
                     app:srcCompat="@drawable/ic_menu_button" />
 
                 <ImageButton
-                    android:id="@+id/polandBtn"
+                    android:id="@+id/hospitalsShowAll"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -56,10 +59,10 @@
                     app:srcCompat="@drawable/ic_reset_to_pl" />
 
                 <TextView
-                    android:id="@+id/unravel"
+                    android:id="@+id/hospitalsShowAllTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/topBackground"
+                    android:layout_alignBottom="@+id/hospitalsBackground"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="130dp"
@@ -71,10 +74,10 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/hospitalName"
+                    android:id="@+id/hospitalsHospitalName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/topBackground"
+                    android:layout_alignBottom="@+id/hospitalsBackground"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="130dp"
@@ -86,10 +89,10 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/hospitalTitle"
+                    android:id="@+id/hospitalsHospitalTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/topBackground"
+                    android:layout_alignBottom="@+id/hospitalsBackground"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="129dp"
@@ -101,10 +104,10 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/hospitalContact"
+                    android:id="@+id/hospitalsMainContact"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/topBackground"
+                    android:layout_alignBottom="@+id/hospitalsBackground"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="130dp"
@@ -116,7 +119,7 @@
                     android:textSize="14sp" />
 
                 <ImageButton
-                    android:id="@+id/prevDayBt"
+                    android:id="@+id/hospitalsPrevHospital"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -127,7 +130,7 @@
                     android:src="@drawable/ic_left_day" />
 
                 <ImageButton
-                    android:id="@+id/nextDayBt"
+                    android:id="@+id/hospitalsNextHospital"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -138,7 +141,7 @@
                     android:src="@drawable/ic_right_day" />
 
                 <TextView
-                    android:id="@+id/count"
+                    android:id="@+id/hospitalsCountTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -154,7 +157,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/infections"
+                    android:id="@+id/hospitalsCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -170,7 +173,7 @@
                     android:textSize="56dp" />
 
                 <TextView
-                    android:id="@+id/recovered"
+                    android:id="@+id/hospitalsUsedLSM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -186,7 +189,7 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/curedText"
+                    android:id="@+id/hospitalsUsedLSMTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -202,7 +205,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/diedText"
+                    android:id="@+id/hospitalsUsedBedsTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -218,7 +221,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/died"
+                    android:id="@+id/hospitalsUsedBeds"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -237,7 +240,7 @@
                     android:id="@+id/hospitalsTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/topBackground"
+                    android:layout_alignTop="@id/hospitalsBackground"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
@@ -251,7 +254,7 @@
                     android:textSize="30sp" />
 
                 <EditText
-                    android:id="@+id/districtInput"
+                    android:id="@+id/hospitalsRegionInput"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -268,7 +271,7 @@
                     android:textColor="#FFFFFF" />
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/hospitalsMainIcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"

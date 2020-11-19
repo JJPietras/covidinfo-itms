@@ -9,19 +9,29 @@
         android:id="@+id/nav_today"
         android:name="com.drzymalski.covidinfo.ui.todayIllness.TodayIllnessFragment"
         android:label="@string/menu_today"
-        tools:layout="@layout/fragment_today" />
+        tools:layout="@layout/fragment_today" >
+        <action
+            android:id="@+id/action_nav_today_to_nav_selector"
+            app:destination="@id/nav_selector"
+            app:enterAnim="@anim/fragment_close_enter" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_tweeter"
         android:name="com.drzymalski.covidinfo.ui.twitter.TwitterFragment"
         android:label="@string/menu_tweeter"
-        tools:layout="@layout/fragment_hospitals" />
+        tools:layout="@layout/fragment_tweeter" />
 
     <fragment
         android:id="@+id/nav_hospitals"
         android:name="com.drzymalski.covidinfo.ui.hospitals.HospitalsFragment"
         android:label="@string/menu_suspicion"
-        tools:layout="@layout/fragment_tweeter" />
+        tools:layout="@layout/fragment_hospitals" >
+        <action
+            android:id="@+id/action_nav_hospitals_to_nav_selector"
+            app:destination="@id/nav_selector"
+            app:enterAnim="@anim/fragment_close_enter" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_suspicion"
@@ -33,4 +43,14 @@
         android:name="com.drzymalski.covidinfo.ui.test.TestFragment"
         android:label="@string/menu_test"
         tools:layout="@layout/fragment_test" />
+    <fragment
+        android:id="@+id/nav_selector"
+        android:name="com.drzymalski.covidinfo.ui.selector.SelectorFragment"
+        android:label="SELECTOR"
+        tools:layout="@layout/fragment_selector" />
+    <fragment
+        android:id="@+id/nav_authors"
+        android:name="com.drzymalski.covidinfo.ui.authors.AuthorsFragment"
+        android:label="AUTHORS"
+        tools:layout="@layout/fragment_authors" />
 </navigation>

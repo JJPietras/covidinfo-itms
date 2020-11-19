@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
+    android:id="@+id/selectorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#283593"
     tools:context=".ui.selector.SelectorFragment">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/title_card"
+        android:id="@+id/selectorTitleCard"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/title_text"
+            android:id="@+id/selectorTitleText"
             android:layout_width="fill_parent"
             android:layout_height="70dp"
             android:background="#3949AB"
@@ -32,7 +32,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/stats_card"
+        android:id="@+id/selectorStatsCard"
         android:layout_width="340dp"
         android:layout_height="70dp"
         android:layout_marginTop="100dp"
@@ -41,14 +41,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_card">
+        app:layout_constraintTop_toBottomOf="@+id/selectorTitleCard">
 
         <RelativeLayout
+            android:id="@+id/selectorStatsLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageButton
-                android:id="@+id/stats_frag_img_btn"
+                android:id="@+id/selectorStatsFragBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -61,7 +62,7 @@
                 android:src="@drawable/ic_statistics" />
 
             <TextView
-                android:id="@+id/stats_text"
+                android:id="@+id/selectorStatsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -82,7 +83,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/twitter_card"
+        android:id="@+id/selectorTwitterCard"
         android:layout_width="340dp"
         android:layout_height="70dp"
         android:layout_marginTop="20dp"
@@ -90,15 +91,15 @@
         app:cardCornerRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stats_card">
+        app:layout_constraintTop_toBottomOf="@+id/selectorStatsCard">
 
         <RelativeLayout
-            android:id="@+id/twitter_layout"
+            android:id="@+id/selectorTwitterLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/twiter_text"
+                android:id="@+id/selectorTwitterText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -115,7 +116,7 @@
                 android:textSize="26sp" />
 
             <ImageButton
-                android:id="@+id/twitter_frag_img_btn"
+                android:id="@+id/selectorTwitterFragBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -130,7 +131,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/hospitals_card"
+        android:id="@+id/selectorHospitalsCard"
         android:layout_width="340dp"
         android:layout_height="70dp"
         android:layout_marginTop="20dp"
@@ -138,15 +139,15 @@
         app:cardCornerRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/twitter_card">
+        app:layout_constraintTop_toBottomOf="@id/selectorTwitterCard">
 
         <RelativeLayout
-            android:id="@+id/hospitals_layout"
+            android:id="@+id/selectorHospitalsLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/hospitals_text"
+                android:id="@+id/selectorHospitalsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -163,7 +164,7 @@
                 android:textSize="26sp" />
 
             <ImageButton
-                android:id="@+id/hospital_frag_img_btn"
+                android:id="@+id/selectorHospitalFragBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -178,7 +179,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/suspicion_card"
+        android:id="@+id/selectorSuspicionCard"
         android:layout_width="340dp"
         android:layout_height="70dp"
         android:layout_marginTop="20dp"
@@ -186,15 +187,15 @@
         app:cardCornerRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hospitals_card">
+        app:layout_constraintTop_toBottomOf="@id/selectorHospitalsCard">
 
         <RelativeLayout
-            android:id="@+id/suspicion_layout"
+            android:id="@+id/selectorSusupicionLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/suspicion_text"
+                android:id="@+id/selectorSuspicionText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -211,7 +212,7 @@
                 android:textSize="26sp" />
 
             <ImageButton
-                android:id="@+id/suspicion_frag_img_btn"
+                android:id="@+id/selectorSuspicionFragBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -226,7 +227,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/authors_card"
+        android:id="@+id/selectorAuthorsCard"
         android:layout_width="340dp"
         android:layout_height="70dp"
         android:layout_marginTop="20dp"
@@ -234,15 +235,15 @@
         app:cardCornerRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/suspicion_card">
+        app:layout_constraintTop_toBottomOf="@id/selectorSuspicionCard">
 
         <RelativeLayout
-            android:id="@+id/authors_layout"
+            android:id="@+id/selectorAuthorsLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/authors_text"
+                android:id="@+id/selectorAuthorsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -259,7 +260,7 @@
                 android:textSize="26sp" />
 
             <ImageButton
-                android:id="@+id/authors_frag_img_btn"
+                android:id="@+id/selectorAuthorsFragBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"

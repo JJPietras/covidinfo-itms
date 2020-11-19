@@ -17,32 +17,35 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/suspicionLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/titleCard"
+                android:id="@+id/suspicionTitleCard"
                 android:layout_width="fill_parent"
                 android:layout_height="380dp"
                 android:layout_marginTop="-45dp"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:cardBackgroundColor="#00FFFFFF"
                 app:cardCornerRadius="50dp">
 
                 <RelativeLayout
-                    android:id="@+id/topLayout"
+                    android:id="@+id/suspicionTopLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:id="@+id/twitterBackground"
+                        android:id="@+id/suspicionTopBackground"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:src="@drawable/side_nav_bar" />
+                        android:src="@drawable/side_nav_bar"
+                        tools:visibility="visible"
+                        android:contentDescription="@string/suspicion_content_desc_background" />
 
                     <ImageButton
-                        android:id="@+id/menuButton2"
+                        android:id="@+id/suspicionMenuBtn"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_alignParentStart="true"
@@ -51,13 +54,14 @@
                         android:layout_marginTop="68dp"
                         android:background="#00FFFFFF"
                         app:layout_anchorGravity="end|bottom"
-                        app:srcCompat="@drawable/ic_menu_button" />
+                        app:srcCompat="@drawable/ic_menu_button"
+                        android:contentDescription="@string/suspicion_content_desc_menu_btn" />
 
                     <TextView
                         android:id="@+id/suspicionTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignTop="@id/suspicionTopBackground"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
@@ -69,10 +73,10 @@
                         android:textSize="30sp" />
 
                     <TextView
-                        android:id="@+id/twitterTitle2"
+                        android:id="@+id/suspicionSubTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignTop="@id/suspicionTopBackground"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
@@ -86,10 +90,10 @@
                         android:textSize="24sp" />
 
                     <TextView
-                        android:id="@+id/twitterTitle9"
+                        android:id="@+id/suspicionSubTitleDesc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/twitterBackground"
+                        android:layout_alignTop="@id/suspicionTopBackground"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
@@ -107,123 +111,15 @@
             </androidx.cardview.widget.CardView>
 
             <RelativeLayout
-                android:id="@+id/symptoms"
+                android:id="@+id/suspicionSymptoms"
                 android:layout_width="fill_parent"
                 android:layout_height="1000dp"
                 android:layout_marginTop="-50dp"
-                android:background="#3F51B5">
+                android:background="#3F51B5"
+                tools:visibility="gone">
 
                 <TextView
-                    android:id="@+id/symptomsTitle2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/imageView3"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="197dp"
-                    android:layout_marginTop="265dp"
-                    android:layout_marginEnd="48dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:gravity="center"
-                    android:text="@string/symptoms_subtitle_two"
-                    android:textColor="#ABFFFFFF"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:id="@+id/symptomsContentBackground"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginTop="277dp"
-                    android:scaleX="-1"
-                    android:src="@drawable/ic_symptom_2" />
-
-                <TextView
-                    android:id="@+id/symptomsTitle3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/imageView3"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="173dp"
-                    android:layout_marginTop="361dp"
-                    android:layout_marginEnd="32dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="@string/symptoms_content_two"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/symptomsTitle6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="Na podstawie https://www.bma.org.uk/media/2768/bma-covid-19-risk-assessment-tool-july2020.pdf"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/symptomsContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/symptomsContentBackground"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="109dp"
-                    android:layout_marginEnd="180dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_content_one"
-                    android:textColor="#ABFFFFFF"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/symptomsContent2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/symptomsContentBackground"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="484dp"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Klikaj na przyciski poniżej zmieniając ich wartość aby sprawdzić w jakiej grupie ryzyka się znajdujesz."
-                    android:textAlignment="center"
-                    android:textColor="#ABFFFFFF"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/symptomsContent3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/button9"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="false"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="30dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Grupa ryzyka:"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="28sp" />
-
-                <TextView
-                    android:id="@+id/symptomsTitle"
+                    android:id="@+id/suspicionSymptomsFirstTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -239,7 +135,81 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/symptomsTitle5"
+                    android:id="@+id/suspicionSymptomsFirstContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/suspicionSymptomsFirstTitle"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="109dp"
+                    android:layout_marginEnd="180dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/symptoms_first_content"
+                    android:textColor="#ABFFFFFF"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/suspicionSymptomsImageOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="85dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_symptom"
+                    android:contentDescription="@string/symptoms_content_desc_first_img" />
+
+                <ImageView
+                    android:id="@+id/suspicionSymptomsImageTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="277dp"
+                    android:scaleX="-1"
+                    android:src="@drawable/ic_symptom_2"
+                    android:contentDescription="@string/symptoms_content_desc_second_img" />
+
+                <TextView
+                    android:id="@+id/suspicionSymptomsSecondTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/suspicionSymptomsImageOne"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="197dp"
+                    android:layout_marginTop="265dp"
+                    android:layout_marginEnd="48dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center"
+                    android:text="@string/symptoms_second_subtitle"
+                    android:textColor="#ABFFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/suspicionSymptomsSecondContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/suspicionSymptomsImageOne"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="173dp"
+                    android:layout_marginTop="361dp"
+                    android:layout_marginEnd="32dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="@string/symptoms_second_content"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/suspicionSymptomsThirdTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -249,155 +219,178 @@
                     android:layout_marginTop="450dp"
                     android:layout_marginEnd="70dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Kalkulator grupy ryzyka"
+                    android:text="@string/symptoms_third_title"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp" />
 
-                <ImageView
-                    android:id="@+id/imageView3"
+                <TextView
+                    android:id="@+id/suspicionSymptomsThirdDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/suspicionSymptomsThirdTitle"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="85dp"
-                    android:layout_marginEnd="35dp"
-                    android:src="@drawable/ic_symptom" />
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="484dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/symptoms_third_description"
+                    android:textAlignment="center"
+                    android:textColor="#ABFFFFFF"
+                    android:textSize="18sp" />
+
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/suspicionSymptomsAgeBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/symptomsContent2"
+                    android:layout_below="@+id/suspicionSymptomsThirdDesc"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="#5C6BC0"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="wiek"
+                    android:text="@string/symptoms_age_btn"
                     android:textColor="#D5FFFFFF" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/suspicionSymptomsSexBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/symptomsContent2"
+                    android:layout_below="@+id/suspicionSymptomsThirdDesc"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="30dp"
-                    android:layout_toEndOf="@+id/button2"
+                    android:layout_toEndOf="@+id/suspicionSymptomsAgeBtn"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="#5C6BC0"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="płeć"
+                    android:text="@string/symptoms_sex_btn"
                     android:textColor="#D5FFFFFF" />
 
                 <Button
-                    android:id="@+id/button4"
+                    android:id="@+id/suspicionSymptomsEthnicsBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/symptomsContent2"
+                    android:layout_below="@+id/suspicionSymptomsThirdDesc"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="30dp"
-                    android:layout_toEndOf="@+id/button3"
+                    android:layout_toEndOf="@+id/suspicionSymptomsSexBtn"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="#5C6BC0"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="pochodzenie etniczne"
+                    android:text="@string/symptoms_ethnics_btn"
                     android:textColor="#D5FFFFFF" />
 
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/suspicionSymptomsDiabetesBtn"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/button2"
+                    android:layout_below="@+id/suspicionSymptomsAgeBtn"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="20dp"
-                    android:layout_toStartOf="@+id/button6"
+                    android:layout_toStartOf="@+id/suspicionSymptomsHeartBtn"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="#5C6BC0"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="cukrzyca i otyłość"
+                    android:text="@string/symptoms_diabetes_btn"
                     android:textColor="#D5FFFFFF" />
 
                 <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/suspicionSymptomsHeartBtn"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/suspicionSymptomsEthnicsBtn"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="#5C6BC0"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/symptoms_heart_btn"
+                    android:textColor="#D5FFFFFF" />
+
+                <Button
+                    android:id="@+id/suspicionSymptomsLungsBtn"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/button5"
+                    android:layout_below="@+id/suspicionSymptomsDiabetesBtn"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="20dp"
-                    android:layout_toStartOf="@+id/button6"
+                    android:layout_toStartOf="@+id/suspicionSymptomsHeartBtn"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="#5C6BC0"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Choroba płuc"
+                    android:text="@string/symptoms_lungs_btn"
                     android:textColor="#D5FFFFFF" />
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/suspicionSymptomsCancerBtn"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/suspicionSymptomsHeartBtn"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="#5C6BC0"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/symptoms_cancer_btn"
+                    android:textColor="#D5FFFFFF" />
+
+                <Button
+                    android:id="@+id/suspicionSymptomsRheumatoidBtn"
                     android:layout_width="155dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/button8"
+                    android:layout_below="@id/suspicionSymptomsCancerBtn"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="#5C6BC0"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="stany reumatologiczne"
+                    android:text="@string/symptoms_rheumatologic_btn"
                     android:textColor="#D5FFFFFF" />
 
                 <Button
-                    android:id="@+id/button6"
+                    android:id="@+id/suspicionSymptomsImmunityBtn"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/button4"
+                    android:layout_below="@+id/suspicionSymptomsCancerBtn"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="30dp"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="#5C6BC0"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="choroba sercowo-naczyniowa"
+                    android:text="@string/symptoms_immunity_btn"
                     android:textColor="#D5FFFFFF" />
 
-                <Button
-                    android:id="@+id/button8"
-                    android:layout_width="180dp"
+                <TextView
+                    android:id="@+id/suspicionSymptomsFourthTitle"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/button6"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="nowotwór złośliwy"
-                    android:textColor="#D5FFFFFF" />
+                    android:layout_below="@+id/suspicionSymptomsRheumatoidBtn"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="false"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/symptoms_risk_text"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp" />
 
                 <Button
-                    android:id="@+id/button10"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/button8"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="terapia immunosupresyjna"
-                    android:textColor="#D5FFFFFF" />
-
-                <Button
-                    android:id="@+id/button11"
+                    android:id="@+id/suspicionSymptomsCalculateRiskBtn"
                     android:layout_width="180dp"
                     android:layout_height="70sp"
                     android:layout_alignParentStart="true"
@@ -409,30 +402,37 @@
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="#5C6BC0"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Wyznacz grupę ryzyka"
+                    android:text="@string/symptoms_calculate_btn"
                     android:textColor="#D5FFFFFF"
                     android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/suspicionSymptomsSource"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="@string/symptoms_source"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="12sp" />
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/actions"
+                android:id="@+id/suspicionActionsLayout"
                 android:layout_width="fill_parent"
                 android:layout_height="540dp"
-                android:background="#00838F">
-
-                <ImageView
-                    android:id="@+id/maskIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="75dp"
-                    android:layout_marginEnd="35dp"
-                    android:src="@drawable/ic_mask" />
+                android:background="#00838F"
+                tools:visibility="gone">
 
                 <TextView
-                    android:id="@+id/actionsSubTitleOne"
+                    android:id="@+id/suspicionActionsFirstTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -447,10 +447,10 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/actionsContentOne"
+                    android:id="@+id/suspicionsActionsFirstContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/actionsSubTitleOne"
+                    android:layout_alignTop="@id/suspicionActionsFirstTitle"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
@@ -458,15 +458,26 @@
                     android:layout_marginTop="67dp"
                     android:layout_marginEnd="180dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="@string/actions_content_one"
+                    android:text="@string/actions_first_content"
                     android:textColor="#ABFFFFFF"
                     android:textSize="18sp" />
 
-                <TextView
-                    android:id="@+id/actionsSubContentOne"
+                <ImageView
+                    android:id="@+id/suspicionsActionsMaskIcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/actionsContentOne"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="75dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_mask"
+                    android:contentDescription="@string/actions_content_desc_first_img" />
+
+                <TextView
+                    android:id="@+id/suspicionActionsFirstSubContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/suspicionsActionsFirstContent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
@@ -474,12 +485,12 @@
                     android:layout_marginTop="172dp"
                     android:layout_marginEnd="182dp"
                     android:fontFamily="@font/roboto"
-                    android:text="@string/actions_subcontent_ont"
+                    android:text="@string/actions_first_sub_content"
                     android:textColor="#ABFFFFFF"
                     android:textSize="12sp" />
 
                 <ImageView
-                    android:id="@+id/handSanitizer"
+                    android:id="@+id/suspicionsActionsHandSanitizer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -487,10 +498,11 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="320dp"
                     android:scaleX="-1"
-                    android:src="@drawable/ic_liquids" />
+                    android:src="@drawable/ic_liquids"
+                    android:contentDescription="@string/actions_content_desc_second_img" />
 
                 <TextView
-                    android:id="@+id/actionsSubtitleTwo"
+                    android:id="@+id/suspicionsActionsSecondTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -506,23 +518,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/actionsSubContentTwo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="170dp"
-                    android:layout_marginTop="445dp"
-                    android:layout_marginEnd="10dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="@string/actions_subcontent_two"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/actionsContentTwo"
+                    android:id="@+id/suspicionActionsSecondContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -533,29 +529,36 @@
                     android:layout_marginEnd="10dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
-                    android:text="@string/actions_content_two"
+                    android:text="@string/actions_second_content"
                     android:textColor="#90FFFFFF"
                     android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/suspicionActionsSecondSubContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="445dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="@string/actions_second_sub_content"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="12sp" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/teleHelp"
+                android:id="@+id/suspicionTeleHelpLayout"
                 android:layout_width="fill_parent"
                 android:layout_height="600dp"
-                android:background="#C2185B">
-
-                <ImageView
-                    android:id="@+id/teleHelpTelephone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="75dp"
-                    android:layout_marginEnd="35dp"
-                    android:src="@drawable/ic_tele" />
+                android:background="#C2185B"
+                tools:visibility="gone">
 
                 <TextView
-                    android:id="@+id/teleHelpSubTitleOne"
+                    android:id="@+id/suspicionTeleHelpFirstTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -570,10 +573,10 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/teleHelpContentOne"
+                    android:id="@+id/suspicionteleHelpFirstContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/teleHelpSubTitleOne"
+                    android:layout_alignTop="@id/suspicionTeleHelpFirstTitle"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
@@ -581,15 +584,15 @@
                     android:layout_marginTop="67dp"
                     android:layout_marginEnd="180dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="@string/teleHelp_content_one"
+                    android:text="@string/teleHelp_first_content"
                     android:textColor="#ABFFFFFF"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/teleHelpSubContentOne"
+                    android:id="@+id/suspicionTeleHelpFirstSubContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/teleHelpContentOne"
+                    android:layout_alignTop="@id/suspicionteleHelpFirstContent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
@@ -597,28 +600,41 @@
                     android:layout_marginTop="172dp"
                     android:layout_marginEnd="182dp"
                     android:fontFamily="@font/roboto"
-                    android:text="@string/teleHelp_subcontent_one"
+                    android:text="@string/teleHelp_first_sub_content"
                     android:textColor="#ABFFFFFF"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/teleHelpContentTwo"
+                <ImageView
+                    android:id="@+id/suspicionTeleHelpTelephone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/teleHelpSubTitleTwo"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="75dp"
+                    android:layout_marginEnd="35dp"
+                    android:src="@drawable/ic_tele"
+                    android:contentDescription="@string/teleHelp_content_desc_first_img" />
+
+                <Button
+                    android:id="@+id/suspicionTeleHelpBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="170dp"
-                    android:layout_marginTop="373dp"
-                    android:layout_marginEnd="9dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/teleHelp_content_two"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="18sp" />
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="250dp"
+                    android:layout_marginEnd="120dp"
+                    android:height="55dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="#EC407A"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/teleHelp_tele_btn"
+                    android:textColor="#C1FFFFFF"
+                    android:textSize="20sp" />
 
                 <ImageView
-                    android:id="@+id/teleHelpComputer"
+                    android:id="@+id/suspicionTeleHelpComputer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -626,26 +642,11 @@
                     android:layout_marginStart="35dp"
                     android:layout_marginTop="389dp"
                     android:scaleX="-1"
-                    android:src="@drawable/ic_poz" />
+                    android:src="@drawable/ic_poz"
+                    android:contentDescription="@string/teleHelp_content_desc_second_img" />
 
                 <TextView
-                    android:id="@+id/teleHelpSubContentTwo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/teleHelpSubTitleTwo"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="170dp"
-                    android:layout_marginTop="512dp"
-                    android:layout_marginEnd="9dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/teleHelp_subcontent_two"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/teleHelpSubTitleTwo"
+                    android:id="@+id/suspicionTeleHelpSecondTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -659,45 +660,49 @@
                     android:textColor="#ABFFFFFF"
                     android:textSize="18sp" />
 
-                <Button
-                    android:id="@+id/button"
+                <TextView
+                    android:id="@+id/suspicionTeleHelpSecondContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/suspicionTeleHelpSecondTitle"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="120dp"
-                    android:layout_marginTop="250dp"
-                    android:layout_marginEnd="120dp"
-                    android:height="55dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="#EC407A"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/teleHelp_teleButton"
-                    android:textColor="#C1FFFFFF"
-                    android:textSize="20sp" />
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="373dp"
+                    android:layout_marginEnd="9dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/teleHelp_second_content"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/suspicionTeleHelpSecondSubContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/suspicionTeleHelpSecondTitle"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="170dp"
+                    android:layout_marginTop="512dp"
+                    android:layout_marginEnd="9dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/teleHelp_second_sub_content"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="12sp" />
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/telephones"
+                android:id="@+id/telephonesLayout"
                 android:layout_width="match_parent"
                 android:layout_height="700dp"
-                android:background="#388E3C">
-
-                <ImageView
-                    android:id="@+id/usefulTelephonesIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="145dp"
-                    android:layout_marginTop="70dp"
-                    android:rotation="30"
-                    android:src="@drawable/ic_phone" />
+                android:background="#388E3C"
+                tools:visibility="gone">
 
                 <TextView
-                    android:id="@+id/usefulTelephonesTitle"
+                    android:id="@+id/telephonesUsefulTelephonesTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -713,74 +718,7 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/symptomsTitle7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/usefulTelephonesIcon"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="10dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/usefulTelephones_subtitle_one"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/symptomsTitle4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/sanitaryEpidemicTelephoneButton"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="@string/usefulTelephones_subtitle_two"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/abroadTelephone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/usefulTelephonesNFZBtn"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="@string/usefulTelephones_subtitle_three"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/telephoneDisclaimer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/usefulTelephonesInfoBtn"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="50dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="@string/usefulTelephones_subcontent"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/usefulTelephonesTitleOne"
+                    android:id="@+id/telephonesUsefulTelephonesFirstTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -790,13 +728,25 @@
                     android:layout_marginTop="90dp"
                     android:layout_marginEnd="265dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="@string/usefulTelephones_title_one"
+                    android:text="@string/usefulTelephones_first_title"
                     android:textAlignment="center"
                     android:textColor="#90FFFFFF"
                     android:textSize="18sp" />
 
+                <ImageView
+                    android:id="@+id/telephonesUsefulTelephonesIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="145dp"
+                    android:layout_marginTop="70dp"
+                    android:rotation="30"
+                    android:src="@drawable/ic_phone"
+                    android:contentDescription="@string/usefulTelephones_content_desc_img" />
+
                 <TextView
-                    android:id="@+id/usefulTelephonesTitleTwo"
+                    android:id="@+id/telephonesUsefulTelephonesSecondTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -807,15 +757,31 @@
                     android:layout_marginEnd="0dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
-                    android:text="@string/usefulTelephones_title_two"
+                    android:text="@string/usefulTelephones_second_title"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/telephonesSymptomsFirstContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/telephonesUsefulTelephonesIcon"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/usefulTelephones_first_subtitle"
+                    android:textAlignment="center"
                     android:textColor="#90FFFFFF"
                     android:textSize="18sp" />
 
                 <Button
-                    android:id="@+id/sanitaryEpidemicTelephoneButton"
+                    android:id="@+id/telephonesSanitaryEpidemicTelephoneButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/symptomsTitle7"
+                    android:layout_below="@+id/telephonesSymptomsFirstContent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="22dp"
@@ -830,30 +796,28 @@
                     android:textColor="#C1FFFFFF"
                     android:textSize="15sp" />
 
-                <Button
-                    android:id="@+id/usefulTelephonesInfoBtn"
+                <TextView
+                    android:id="@+id/telephonesSymptomsSecondContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/abroadTelephone"
+                    android:layout_below="@+id/telephonesSanitaryEpidemicTelephoneButton"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="22dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="28dp"
-                    android:height="55dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="#4CAF50"
-                    android:fontFamily="@font/roboto_bold"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto"
                     android:gravity="center"
-                    android:text="@string/usefulTelephones_telephone_info"
-                    android:textColor="#C1FFFFFF"
-                    android:textSize="15sp" />
+                    android:text="@string/usefulTelephones_second_subtitle"
+                    android:textAlignment="center"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/usefulTelephonesNFZBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/symptomsTitle4"
+                    android:layout_below="@+id/telephonesSymptomsSecondContent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="22dp"
@@ -868,16 +832,69 @@
                     android:textColor="#C1FFFFFF"
                     android:textSize="15sp" />
 
+                <TextView
+                    android:id="@+id/telephonesSymptomsThirdContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/usefulTelephonesNFZBtn"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="@string/usefulTelephones_third_subtitle"
+                    android:textAlignment="center"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/usefulTelephonesInfoBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/telephonesSymptomsThirdContent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="28dp"
+                    android:height="55dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="#4CAF50"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center"
+                    android:text="@string/usefulTelephones_telephone_info"
+                    android:textColor="#C1FFFFFF"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/telephonesSymptomsSubContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/usefulTelephonesInfoBtn"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="50dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="@string/usefulTelephones_sub_content"
+                    android:textAlignment="center"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="12sp" />
+
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/nearestHospital"
+                android:id="@+id/suspicionNearestHospitalLayout"
                 android:layout_width="match_parent"
                 android:layout_height="640dp"
                 android:background="#0097A7">
 
                 <ImageView
-                    android:id="@+id/nearestHospitalIcon"
+                    android:id="@+id/suspicionNearestHospitalIcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -886,10 +903,11 @@
                     android:layout_marginStart="140dp"
                     android:layout_marginTop="75dp"
                     android:layout_marginEnd="140dp"
-                    android:src="@drawable/ic_hospitals" />
+                    android:src="@drawable/ic_hospitals"
+                    android:contentDescription="@string/nearestHospital_content_desc_first_img" />
 
                 <TextView
-                    android:id="@+id/nearestHospitalTitle"
+                    android:id="@+id/suspicionNearestHospitalTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -899,16 +917,16 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="60dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Najbliższy szpital zakaźny"
+                    android:text="@string/nearestHospital_title"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/nearestHospitalDisclaimer"
+                    android:id="@+id/suspicionNearestHospitalDisclaimer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/imageButton5"
+                    android:layout_below="@+id/suspicionNearestHospitalButtonSphere"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="8dp"
@@ -916,13 +934,13 @@
                     android:layout_marginEnd="11dp"
                     android:fontFamily="@font/roboto"
                     android:gravity="center"
-                    android:text="Aby użyć przycisku należy zezwolić na udostępnienie swojej lokacji. Dane NIE są przechowywane ani przekazywane żadnym osobom trzecim."
+                    android:text="@string/nearestHospital_disclaimer"
                     android:textAlignment="center"
                     android:textColor="#90FFFFFF"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/nearestHospitalSubtitleOne"
+                    android:id="@+id/suspicionNearestHospitalFirstSubTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -933,12 +951,12 @@
                     android:layout_marginEnd="265dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
-                    android:text="Możesz wyszukać najbliżej połoszony od ciebie szpital zakaźny."
+                    android:text="@string/nearestHospital_first_subtitle"
                     android:textColor="#90FFFFFF"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/nearestHospitalTitleTwo"
+                    android:id="@+id/suspicionNearestHospitalSecondSubTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -949,35 +967,36 @@
                     android:layout_marginEnd="15dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
-                    android:text="Użycie tej funkcji wymaga posiadania połączenia z GPS bądź internetem."
+                    android:text="@string/nearestHospital_second_subtitle"
                     android:textColor="#90FFFFFF"
                     android:textSize="18sp" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/suspicionNearestHospitalGoogleImg"
                     android:layout_width="132dp"
                     android:layout_height="153dp"
-                    android:layout_alignStart="@+id/imageButton5"
-                    android:layout_alignTop="@+id/imageButton5"
-                    android:layout_alignEnd="@+id/imageButton5"
-                    android:layout_alignBottom="@+id/imageButton5"
+                    android:layout_alignStart="@+id/suspicionNearestHospitalButtonSphere"
+                    android:layout_alignTop="@+id/suspicionNearestHospitalButtonSphere"
+                    android:layout_alignEnd="@+id/suspicionNearestHospitalButtonSphere"
+                    android:layout_alignBottom="@+id/suspicionNearestHospitalButtonSphere"
                     android:layout_marginStart="-60dp"
                     android:layout_marginTop="-60dp"
                     android:layout_marginEnd="-60dp"
                     android:layout_marginBottom="-60dp"
                     android:backgroundTint="#00ACC1"
-                    android:src="@drawable/sub_sphere" />
+                    android:src="@drawable/sub_sphere"
+                    android:contentDescription="@string/nearestHospital_content_desc_second_img" />
 
                 <ImageButton
-                    android:id="@+id/imageButton5"
+                    android:id="@+id/suspicionNearestHospitalButtonSphere"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_below="@+id/nearestHospitalIcon"
+                    android:layout_below="@+id/suspicionNearestHospitalIcon"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="100dp"
                     android:background="@drawable/sphere"
                     android:backgroundTint="#00BCD4"
-                    android:contentDescription="NONE"
+                    android:contentDescription="@string/nearestHospital_content_desc_third_img"
                     android:scaleX="2"
                     android:scaleY="2"
                     android:src="@drawable/ic_map_point" />

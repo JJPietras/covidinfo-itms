@@ -1,7 +1,10 @@
 package com.drzymalski.covidinfo
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
+import android.widget.Button
+import android.widget.ImageButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -13,6 +16,9 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.replace
+import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,11 +42,16 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_today, R.id.nav_tweeter, R.id.nav_hospitals, R.id.nav_suspicion, R.id.nav_test
+                R.id.nav_today,
+                R.id.nav_tweeter,
+                R.id.nav_hospitals,
+                R.id.nav_suspicion,
+                R.id.nav_test
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
