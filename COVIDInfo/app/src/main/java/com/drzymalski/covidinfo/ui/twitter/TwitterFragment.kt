@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
+import com.drzymalski.covidinfo.lib.FragmentBinder
+import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 
 class TwitterFragment : Fragment() {
 
@@ -20,10 +21,15 @@ class TwitterFragment : Fragment() {
     ): View? {
         twitterViewModel =
                 ViewModelProviders.of(this).get(TwitterViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_tweeter, container, false)
-        twitterViewModel.text.observe(viewLifecycleOwner, Observer { })
-        return root
+        return inflater.inflate(R.layout.fragment_tweeter, container, false)
     }
 
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        FragmentBinder.bindToButton(
+            view.findViewById(R.id.twitterMenuBtn),
+            SelectorFragment(),
+            requireActivity()
+        )
+    }
 }

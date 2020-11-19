@@ -8,6 +8,7 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
+import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 
 
@@ -27,11 +28,10 @@ class HospitalsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val hospitalsMenuBtn = view.findViewById<ImageButton>(R.id.hospitalsMenuBtn)
-        hospitalsMenuBtn.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment, SelectorFragment())
-                .addToBackStack(null).commit()
-        }
+        FragmentBinder.bindToButton(
+            view.findViewById(R.id.hospitalsMenuBtn),
+            SelectorFragment(),
+            requireActivity()
+        )
     }
 }

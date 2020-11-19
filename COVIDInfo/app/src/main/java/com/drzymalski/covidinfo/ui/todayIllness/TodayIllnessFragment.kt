@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
+import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.plottingUtils.TodayIllnessInitializer
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
@@ -133,11 +134,10 @@ class TodayIllnessFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val statisticsMenuBtn = view.findViewById<ImageButton>(R.id.statisticsMenuBtn)
-        statisticsMenuBtn.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment, SelectorFragment())
-                .addToBackStack(null).commit()
-        }
+        FragmentBinder.bindToButton(
+            view.findViewById(R.id.statisticsMenuBtn),
+            SelectorFragment(),
+            requireActivity()
+        )
     }
 }

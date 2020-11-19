@@ -27,7 +27,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="380dp"
                 android:layout_marginTop="-45dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:cardBackgroundColor="#00FFFFFF"
                 app:cardCornerRadius="50dp">
 
@@ -40,9 +40,9 @@
                         android:id="@+id/suspicionTopBackground"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
+                        android:contentDescription="@string/suspicion_content_desc_background"
                         android:src="@drawable/side_nav_bar"
-                        tools:visibility="visible"
-                        android:contentDescription="@string/suspicion_content_desc_background" />
+                        tools:visibility="visible" />
 
                     <ImageButton
                         android:id="@+id/suspicionMenuBtn"
@@ -53,9 +53,9 @@
                         android:layout_marginStart="28dp"
                         android:layout_marginTop="68dp"
                         android:background="#00FFFFFF"
+                        android:contentDescription="@string/suspicion_content_desc_menu_btn"
                         app:layout_anchorGravity="end|bottom"
-                        app:srcCompat="@drawable/ic_menu_button"
-                        android:contentDescription="@string/suspicion_content_desc_menu_btn" />
+                        app:srcCompat="@drawable/ic_menu_button" />
 
                     <TextView
                         android:id="@+id/suspicionTitle"
@@ -116,7 +116,7 @@
                 android:layout_height="1000dp"
                 android:layout_marginTop="-50dp"
                 android:background="#3F51B5"
-                tools:visibility="gone">
+                tools:visibility="visible">
 
                 <TextView
                     android:id="@+id/suspicionSymptomsFirstTitle"
@@ -158,8 +158,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="85dp"
                     android:layout_marginEnd="35dp"
-                    android:src="@drawable/ic_symptom"
-                    android:contentDescription="@string/symptoms_content_desc_first_img" />
+                    android:contentDescription="@string/symptoms_content_desc_first_img"
+                    android:src="@drawable/ic_symptom" />
 
                 <ImageView
                     android:id="@+id/suspicionSymptomsImageTwo"
@@ -169,9 +169,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="35dp"
                     android:layout_marginTop="277dp"
+                    android:contentDescription="@string/symptoms_content_desc_second_img"
                     android:scaleX="-1"
-                    android:src="@drawable/ic_symptom_2"
-                    android:contentDescription="@string/symptoms_content_desc_second_img" />
+                    android:src="@drawable/ic_symptom_2" />
 
                 <TextView
                     android:id="@+id/suspicionSymptomsSecondTitle"
@@ -429,7 +429,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="540dp"
                 android:background="#00838F"
-                tools:visibility="gone">
+                tools:visibility="visible">
 
                 <TextView
                     android:id="@+id/suspicionActionsFirstTitle"
@@ -470,8 +470,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="75dp"
                     android:layout_marginEnd="35dp"
-                    android:src="@drawable/ic_mask"
-                    android:contentDescription="@string/actions_content_desc_first_img" />
+                    android:contentDescription="@string/actions_content_desc_first_img"
+                    android:src="@drawable/ic_mask" />
 
                 <TextView
                     android:id="@+id/suspicionActionsFirstSubContent"
@@ -497,9 +497,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="320dp"
+                    android:contentDescription="@string/actions_content_desc_second_img"
                     android:scaleX="-1"
-                    android:src="@drawable/ic_liquids"
-                    android:contentDescription="@string/actions_content_desc_second_img" />
+                    android:src="@drawable/ic_liquids" />
 
                 <TextView
                     android:id="@+id/suspicionsActionsSecondTitle"
@@ -555,7 +555,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="600dp"
                 android:background="#C2185B"
-                tools:visibility="gone">
+                tools:visibility="visible">
 
                 <TextView
                     android:id="@+id/suspicionTeleHelpFirstTitle"
@@ -612,8 +612,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="75dp"
                     android:layout_marginEnd="35dp"
-                    android:src="@drawable/ic_tele"
-                    android:contentDescription="@string/teleHelp_content_desc_first_img" />
+                    android:contentDescription="@string/teleHelp_content_desc_first_img"
+                    android:src="@drawable/ic_tele" />
 
                 <Button
                     android:id="@+id/suspicionTeleHelpBtn"
@@ -641,9 +641,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="35dp"
                     android:layout_marginTop="389dp"
+                    android:contentDescription="@string/teleHelp_content_desc_second_img"
                     android:scaleX="-1"
-                    android:src="@drawable/ic_poz"
-                    android:contentDescription="@string/teleHelp_content_desc_second_img" />
+                    android:src="@drawable/ic_poz" />
 
                 <TextView
                     android:id="@+id/suspicionTeleHelpSecondTitle"
@@ -699,7 +699,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="700dp"
                 android:background="#388E3C"
-                tools:visibility="gone">
+                tools:visibility="visible">
 
                 <TextView
                     android:id="@+id/telephonesUsefulTelephonesTitle"
@@ -741,9 +741,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="145dp"
                     android:layout_marginTop="70dp"
+                    android:contentDescription="@string/usefulTelephones_content_desc_img"
                     android:rotation="30"
-                    android:src="@drawable/ic_phone"
-                    android:contentDescription="@string/usefulTelephones_content_desc_img" />
+                    android:src="@drawable/ic_phone" />
 
                 <TextView
                     android:id="@+id/telephonesUsefulTelephonesSecondTitle"
