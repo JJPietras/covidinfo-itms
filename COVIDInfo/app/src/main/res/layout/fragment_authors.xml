@@ -86,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/authorsPatryk" />
 
     <TextView
-        android:id="@+id/authorsIconsGorbachev"
+        android:id="@+id/icon1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/authorsIconsVectors"
+        android:id="@+id/icon2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -114,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/authorsIconsMonkik"
+        android:id="@+id/icon3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -128,7 +128,7 @@
         app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/authorsIconsFreepik"
+        android:id="@+id/icon4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -142,7 +142,7 @@
         app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/authorsIconsPixelmeetup"
+        android:id="@+id/icon5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -156,7 +156,7 @@
         app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/authorsIconsBqlqn"
+        android:id="@+id/icon6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -170,7 +170,7 @@
         app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/authorsIconsRoundicons"
+        android:id="@+id/icon7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -184,7 +184,7 @@
         app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/authorsIconsDimitri13"
+        android:id="@+id/icon8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"

@@ -8,14 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
-import kotlinx.android.synthetic.main.fragment_authors.icons2
-import kotlinx.android.synthetic.main.fragment_authors.icons3
-import kotlinx.android.synthetic.main.fragment_authors.icons4
-import kotlinx.android.synthetic.main.fragment_authors.icons5
-import kotlinx.android.synthetic.main.fragment_authors.icons6
-import kotlinx.android.synthetic.main.fragment_authors.icons7
-import kotlinx.android.synthetic.main.fragment_authors.icons8
-import kotlinx.android.synthetic.main.fragment_authors.icons9
+import kotlinx.android.synthetic.main.fragment_authors.icon1
+import kotlinx.android.synthetic.main.fragment_authors.icon2
+import kotlinx.android.synthetic.main.fragment_authors.icon3
+import kotlinx.android.synthetic.main.fragment_authors.icon4
+import kotlinx.android.synthetic.main.fragment_authors.icon5
+import kotlinx.android.synthetic.main.fragment_authors.icon6
+import kotlinx.android.synthetic.main.fragment_authors.icon7
+import kotlinx.android.synthetic.main.fragment_authors.icon8
 
 
 class AuthorsFragment : Fragment() {
@@ -35,7 +35,7 @@ class AuthorsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val texts = arrayOf(icons2, icons3, icons4, icons5, icons6, icons7, icons8, icons9)
+        val texts = arrayOf(icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8)
         for (text in texts) text.movementMethod = LinkMovementMethod.getInstance()
     }
 }
