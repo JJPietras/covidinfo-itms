@@ -9,12 +9,12 @@
     tools:context=".ui.authors.AuthorsFragment" >
 
     <TextView
-        android:id="@+id/proj_sub"
+        android:id="@+id/authorsProjectSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/roboto"
-        android:text="PROJEKT"
+        android:text="@string/authors_project"
         android:textColor="#9CFFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,12 +22,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/proj_title"
+        android:id="@+id/authorsProjectTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="COVID Info"
+        android:text="@string/authors_title"
         android:textColor="#D8FFFFFF"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,12 +35,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/jarek"
+        android:id="@+id/authorsJarek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/roboto_medium"
-        android:text="Jarosław Drzymalski"
+        android:text="@string/authors_jarek"
         android:textColor="#D8FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,44 +49,44 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <TextView
-        android:id="@+id/patryk"
+        android:id="@+id/authorsPatryk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
-        android:text="Patryk Amsolik"
+        android:text="@string/authors_patryk"
         android:textColor="#D8FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jarek" />
+        app:layout_constraintTop_toBottomOf="@+id/authorsJarek" />
 
     <TextView
-        android:id="@+id/jakub"
+        android:id="@+id/authorsJakub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
-        android:text="Jakub Pietras"
+        android:text="@string/authors_jakub"
         android:textColor="#D8FFFFFF"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/patryk" />
+        app:layout_constraintTop_toBottomOf="@+id/authorsPatryk" />
 
     <TextView
-        android:id="@+id/icons"
+        android:id="@+id/authorsIcons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:fontFamily="@font/roboto_medium"
-        android:text="Wykorzystano ikony ze strony www.flaticon.com"
+        android:text="@string/authors_icons"
         android:textColor="#A4FFFFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/patryk" />
+        app:layout_constraintTop_toBottomOf="@+id/authorsPatryk" />
 
     <TextView
-        android:id="@+id/icons2"
+        android:id="@+id/authorsIconsGorbachev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -97,10 +97,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icons" />
+        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/icons6"
+        android:id="@+id/authorsIconsVectors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -111,10 +111,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icons" />
+        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/icons7"
+        android:id="@+id/authorsIconsMonkik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -125,10 +125,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icons" />
+        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/icons8"
+        android:id="@+id/authorsIconsFreepik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -139,10 +139,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.641"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icons" />
+        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/icons9"
+        android:id="@+id/authorsIconsPixelmeetup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -153,10 +153,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icons" />
+        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/icons3"
+        android:id="@+id/authorsIconsBqlqn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -167,10 +167,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icons" />
+        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/icons4"
+        android:id="@+id/authorsIconsRoundicons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -181,10 +181,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.685"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icons" />
+        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/icons5"
+        android:id="@+id/authorsIconsDimitri13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -195,15 +195,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.908"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icons" />
+        app:layout_constraintTop_toBottomOf="@+id/authorsIcons" />
 
     <TextView
-        android:id="@+id/year"
+        android:id="@+id/authorsYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/roboto_medium"
-        android:text="2020"
+        android:text="@string/authors_year"
         android:textColor="#D8FFFFFF"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -221,7 +221,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/proj_title"
+        app:layout_constraintTop_toBottomOf="@+id/authorsProjectTitle"
         app:srcCompat="@drawable/ic_covid_info"
-        tools:scaleType="centerCrop" />
+        tools:scaleType="centerCrop"
+        android:contentDescription="@string/authors_description_logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

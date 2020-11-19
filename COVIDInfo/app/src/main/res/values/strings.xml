@@ -95,6 +95,19 @@
     <string name="nearestHospital_content_desc_second_img">TODO</string>
     <string name="nearestHospital_content_desc_third_img">NONE</string>
 
+    <!-- AUTHORS -->
+
+    <string name="authors_project">PROJEKT</string>
+    <string name="authors_title">COVID Info</string>
+    <string name="authors_jarek">Jarosław Drzymalski</string>
+    <string name="authors_patryk">Patryk Amsolik</string>
+    <string name="authors_jakub">Jakub Pietras</string>
+    <string name="authors_icons">Wykorzystano ikony ze strony www.flaticon.com</string>
+    <string name="authors_year">2020</string>
+    <string name="authors_description_logo">TODO</string>
+
+    <!-- AGES -->
+
     <string-array name="age">
         <item>&lt;50</item>
         <item>&gt;50</item>
@@ -113,6 +126,5 @@
     <string name="monkik"><a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a></string>
     <string name="freepik"><a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a></string>
     <string name="pixel_meetup"><a href="https://www.flaticon.com/authors/pixelmeetup" title="Pixelmeetup">Pixelmeetup</a></string>
-
 
 </resources>
