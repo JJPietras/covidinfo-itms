@@ -106,7 +106,7 @@
     <string name="authors_year">2020</string>
     <string name="authors_description_logo">TODO</string>
 
-    <!-- AGES -->
+    <!-- TABLES -->
 
     <string-array name="age">
         <item>&lt;50</item>
@@ -114,6 +114,61 @@
         <item>&gt;60</item>
         <item>&gt;70</item>
         <item>&gt;80</item>
+    </string-array>
+
+    <string-array name="sex">
+        <item>Kobieta</item>
+        <item>Mężczyzna</item>
+    </string-array>
+
+    <string-array name="ethnics">
+        <item>kaukaskie</item>
+        <item>afrykańskie</item>
+        <item>hinduskie</item>
+        <item>filipińskie</item>
+        <item>inne pochodzenie</item>
+    </string-array>
+
+    <string-array name="diabetes">
+        <item>cukrzyca typu 1 lub 2</item>
+        <item>cukrzyca (1,2) z powikłaniami mikronaczyniowymi</item>
+        <item>BMI≥35kg/m<sup>2</sup></item>
+        <item>brak</item>
+    </string-array>
+    
+    <string-array name="cardio">
+        <item>angina lub zawał</item>
+        <item>niewydolność serca</item>
+        <item>brak</item>
+    </string-array>
+    
+    <string-array name="lungs">
+        <item>astma</item>
+        <item>inna chroniczna choroba pulmonologiczna</item>
+        <item>którekolwiek leczone kortykosterydami</item>
+        <item>brak</item>
+    </string-array>
+    
+    <string-array name="cancer">
+        <item>aktywny nowotwór</item>
+        <item>reemisja nowotwora</item>
+        <item>brak</item>
+    </string-array>
+    
+    <string-array name="rheumatologic">
+        <item>aktywnie leczone\nzmiany reumatoidalne</item>
+        <item>brak</item>
+    </string-array>
+    
+    <string-array name="immuno">
+        <item>jakakolwiek terapia immunosupresantami</item>
+        <item>brak</item>
+    </string-array>
+
+    <string-array name="risk">
+        <item>niskie ryzyko</item>
+        <item>przeciętne ryzyko</item>
+        <item>wysokie ryzyko</item>
     </string-array>
 
     <!-- ICONS AUTHORS -->

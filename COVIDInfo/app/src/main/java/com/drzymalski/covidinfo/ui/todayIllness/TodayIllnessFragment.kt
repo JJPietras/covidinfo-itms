@@ -1,5 +1,6 @@
 package com.drzymalski.covidinfo.ui.todayIllness
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -48,6 +49,7 @@ class TodayIllnessFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_today, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
