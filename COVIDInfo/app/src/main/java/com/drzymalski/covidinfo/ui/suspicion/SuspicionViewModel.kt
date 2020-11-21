@@ -1,10 +1,10 @@
-package com.drzymalski.covidinfo.ui.illnessSuspicion
+package com.drzymalski.covidinfo.ui.suspicion
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class IllnessSuspicionViewModel : ViewModel() {
+class SuspicionViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is Illness Suspicion Fragment"

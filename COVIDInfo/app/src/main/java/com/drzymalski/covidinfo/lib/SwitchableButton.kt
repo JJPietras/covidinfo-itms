@@ -13,5 +13,5 @@ class SwitchableButton(button: Button, strings: Array<String>, private val value
         }
     }
 
-     fun getValue() = if (currentIndex != -1) values[currentIndex] else 0
+    fun getValue() = if (currentIndex != -1) values[currentIndex] else 0
 }
