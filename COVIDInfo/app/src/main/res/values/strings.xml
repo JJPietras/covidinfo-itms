@@ -90,7 +90,7 @@
     <string name="nearestHospital_title">Najbliższy szpital zakaźny</string>
     <string name="nearestHospital_disclaimer">Aby użyć przycisku należy zezwolić na udostępnienie swojej lokacji, a także ustawienie wysokiej dokładności. Dane NIE są przechowywane ani przekazywane żadnym osobom trzecim.</string>
     <string name="nearestHospital_first_subtitle">Możesz wyszukać najbliżej połoszony od ciebie szpital zakaźny.</string>
-    <string name="nearestHospital_second_subtitle">Użycie tej funkcji wymaga posiadania połączenia z GPS bądź internetem.</string>
+    <string name="nearestHospital_second_subtitle">Użycie tej funkcji wymaga posiadania połączenia z internetem.</string>
     <string name="nearestHospital_go_to_map">Pokaż na mapie</string>
     <string name="nearestHospital_content_desc_first_img">TODO</string>
     <string name="nearestHospital_content_desc_second_img">TODO</string>

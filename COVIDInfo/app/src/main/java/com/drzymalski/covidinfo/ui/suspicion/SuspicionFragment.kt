@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProviders
@@ -60,21 +61,27 @@ class SuspicionFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     fun reactOnChange(closestHospital: Hospital) {
         suspicionNearestHospitalMoveToMap.setOnClickListener {
-            val location =
-                Uri.parse("geo:0,0?q=1600+${closestHospital.city},+${closestHospital.name},+${closestHospital.title},+${closestHospital.contact.substring(0, closestHospital.contact.indexOf(','))}")
+            val contact = closestHospital.contact
+            val route = contact.substring(0, contact.indexOf(','))
+            val output = StringBuilder("geo:0,0?q=1600+")
+            val s = ",+"
+
+            output.append(closestHospital.city).append(s).append(closestHospital.name).append(s)
+            output.append(closestHospital.title).append(s).append(route).append(s)
+            val location = Uri.parse(output.toString())
             val mapIntent = Intent(Intent.ACTION_VIEW, location)
             val intentTitle = "Open with:"
             val chooser = Intent.createChooser(mapIntent, intentTitle)
             startActivity(chooser)
         }
-        suspicionNearestHospitalMoveToMap.visibility = View.VISIBLE
+        suspicionNearestHospitalMoveToMap.isVisible = true
 
+        val displayText = StringBuilder(closestHospital.city).append("\n")
+        displayText.append(closestHospital.name).append("\n")
+        displayText.append(closestHospital.title).append("\n")
+        displayText.append(closestHospital.contact)
         suspicionNearestHospitalDisclaimer.setTextColor(Color.WHITE)
-        suspicionNearestHospitalDisclaimer.text =
-            closestHospital.city + ' ' +
-                    closestHospital.name + ' ' +
-                    closestHospital.title + ' ' +
-                    closestHospital.contact
+        suspicionNearestHospitalDisclaimer.text = displayText.toString()
     }
 
     private fun configureSwitchButtons(view: View) {
