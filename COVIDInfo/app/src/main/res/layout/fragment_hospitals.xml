@@ -5,12 +5,15 @@
     android:id="@+id/hospital_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:backgroundTint="@color/colorBackground"
     tools:context=".ui.hospitals.HospitalsFragment">
 
     <ScrollView
         android:id="@+id/hospital_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

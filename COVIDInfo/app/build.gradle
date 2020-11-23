@@ -52,5 +52,7 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'org.twitter4j:twitter4j-core:4.0.7'
 
 }
+

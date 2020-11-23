@@ -9,6 +9,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
+import twitter4j.Status
+import twitter4j.Twitter
 
 class TwitterFragment : Fragment() {
 
@@ -32,4 +34,5 @@ class TwitterFragment : Fragment() {
             requireActivity()
         )
     }
+
 }
