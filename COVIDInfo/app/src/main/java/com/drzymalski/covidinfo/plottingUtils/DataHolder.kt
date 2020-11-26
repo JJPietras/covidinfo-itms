@@ -22,11 +22,9 @@ class DataHolder {
     val datesList = mutableListOf<String>()
     val datesFullList = mutableListOf<String>()
 
-    val pickedCountries = listOf("PL", "GE", "IT", "US")
+    private val config: Configuration = Configuration()
 
-    var selectedCountry = "Poland"
-
-    fun loadMainScreenResouces(dateFrom: String, country: String){
+    fun loadMainScreenResouces(dateFrom: String){
         clearData()
         var lastCases = 0
         var lastDeaths = 0
@@ -34,12 +32,11 @@ class DataHolder {
 
         try {
             summaryData = ApiManager.getSummaryFromApi()
-            summaryData.Countries = summaryData.Countries.filter{pickedCountries.contains(it.CountryCode)}
+            summaryData.Countries = summaryData.Countries.filter{config.pickedCountries.contains(it.CountryCode)}
         }catch (ex:Exception){
             println(ex.message) //need to see the errors xd
         }
-        println(DateConverter.formatDateFull(summaryData.Date))
-        covidData = ApiManager.getCovidDataFromApi(dateFrom, DateConverter.formatDateFull(summaryData.Date), country)
+        covidData = ApiManager.getCovidDataFromApi(dateFrom, DateConverter.formatDateFull(summaryData.Date), config.selectedCountry)
         covidData.forEach { casesOnDay ->
             run {
                 totalCasesList += casesOnDay.Confirmed
@@ -68,7 +65,6 @@ class DataHolder {
                 }
             }
         }
-
         getWeeklyAverage()
     }
 
