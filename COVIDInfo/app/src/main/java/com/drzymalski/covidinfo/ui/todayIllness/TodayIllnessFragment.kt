@@ -4,10 +4,11 @@ import android.annotation.SuppressLint
 import android.app.ActionBar
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
+import android.opengl.Visibility
 import android.os.Bundle
-import android.view.Gravity
+import android.view.Gravity.CENTER
 import android.view.Gravity.END
-import android.view.Gravity.RIGHT
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,20 +16,23 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.view.marginLeft
+import androidx.core.view.marginStart
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
+import com.drzymalski.covidinfo.plottingUtils.CountryConfig
 import com.drzymalski.covidinfo.plottingUtils.TodayIllnessInitializer
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import kotlinx.android.synthetic.main.fragment_today.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Runnable
+import kotlinx.coroutines.launch
 
 
 class TodayIllnessFragment : Fragment() {
@@ -52,23 +56,35 @@ class TodayIllnessFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         GlobalScope.launch {
-            try { // Prevents crashing when data was loaded after changing or refreshing the fragment
-                loadData()
-                selectedDay = initializer.data.datesFullList.lastIndex - 1
-                setData()
-                buttonVisibility()
-                configurateCharts()
-                generateCountryButtons()
-            }catch (ex: Exception){ // No action will be taken
-                println(ex)
-            }
+            loadDataAndRefresh()
+            generateCountryButtons()
         }
 
         configureObserver(viewModel.confirmed, statisticsCount)
         configureObserver(viewModel.died, statisticsDied)
         configureObserver(viewModel.recovered, statisticsCured)
         configureObserver(viewModel.date, statisticsDate)
+        configureObserver(viewModel.countryCode, statisticsCountry)
 
+        statisticsChangeCountryBtn.setOnClickListener{
+            if (statisticsCountriesLayout.visibility == View.VISIBLE)
+                statisticsCountriesLayout.visibility = View.GONE
+            else
+                statisticsCountriesLayout.visibility = View.VISIBLE
+        }
+
+        statisticsShowPoland.setOnClickListener {
+            changeCountry(
+                CountryConfig().apply {
+                    slug = "poland"
+                    name = "Polska"
+                    continent = "Europa"
+                    color = "#6f79fc"
+                    code = "PL"
+                }
+            )
+        }
+        //statisticsCountriesLayout
         viewModel.nIncreaseCount.observe(viewLifecycleOwner, Observer {
             statisticsIncreaseNum.text = "${if (it > 0) "+" else ""}${it}"
             statisticsIncreaseNum.setTextColor(
@@ -94,6 +110,7 @@ class TodayIllnessFragment : Fragment() {
 
     private fun configureButton(button: ImageButton, dayValue: Int, greater: Boolean) =
         button.setOnClickListener {
+
             val lastIndex = initializer.data.datesFullList.lastIndex
             val calculatedCondition = if (greater) selectedDay > 1 else selectedDay < lastIndex
 
@@ -109,7 +126,6 @@ class TodayIllnessFragment : Fragment() {
             chart.aa_drawChartWithChartOptions(options)
         })
     }
-
 
     private fun configureObserver(liveData: LiveData<*>, textView: TextView) =
         liveData.observe(viewLifecycleOwner, Observer { textView.text = it.toString() })
@@ -165,60 +181,102 @@ class TodayIllnessFragment : Fragment() {
     }
 
     private fun generateCountryButtons(){
+        initializer.data.config.config.countries.forEach{ countryConfig ->
+            val data = initializer.data.summaryData.Countries.find { countryConfig.slug == it.Slug }
+            if (data != null){
+                val button = Button(this.context).apply {
+                    layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
+                        ActionBar.LayoutParams.WRAP_CONTENT, 0.6f)
+                    val shape = GradientDrawable()
 
-        val button = Button(this.context)
-        button.setBackgroundResource(R.drawable.sphere)
-        button.textSize = 22f
-        button.text = "PL"
-        button.maxWidth = 58
-        button.width = 100
-        button.height = 100
-        button.setTextColor(Color.parseColor("#FFFFFF"))
-        button.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F44336"))
+                    shape.cornerRadius = 100f
+                    background = shape
+                    //setBackgroundResource(R.drawable.sphere) //Looks stretched when you rotate or have a weird aspect ratio
+                    textSize = 22f
+                    text = data.CountryCode
+                    setTextColor(Color.parseColor("#FFFFFF"))
+                    backgroundTintList = ColorStateList.valueOf(Color.parseColor(countryConfig.color))
+                    setOnClickListener{
+                        statisticsCountriesLayout.visibility = View.GONE
+                        changeCountry(countryConfig)
+                    }
+                }
 
-        val parent = LinearLayout(context)
-        parent.layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,
-            ActionBar.LayoutParams.WRAP_CONTENT)
-        parent.orientation = LinearLayout.HORIZONTAL
+                val parent = LinearLayout(context).apply {
+                    layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
+                        ActionBar.LayoutParams.WRAP_CONTENT, 0.2f)
+                    orientation = LinearLayout.HORIZONTAL
+                    setPadding(20,5,5,5)
+                }
 
-        val child = LinearLayout(context)
+                val child = LinearLayout(context).apply {
+                    layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
+                        ActionBar.LayoutParams.WRAP_CONTENT, 0.4f)
+                    orientation = LinearLayout.VERTICAL
+                    setPadding(30,0, 30,0)
+                }
 
-        child.layoutParams = LinearLayout.LayoutParams(300,
-            ActionBar.LayoutParams.WRAP_CONTENT)
+                val tvCountry = TextView(this.context).apply {
+                    textSize = 20f
+                    text = countryConfig.name
+                    setTextColor(Color.parseColor("#373737"))
+                }
 
-        child.orientation = LinearLayout.VERTICAL
+                val tvContinent = TextView(this.context).apply {
+                    textSize = 14f
+                    text = countryConfig.continent
+                }
 
-        val tvCountry = TextView(this.context)
+                val tvCases = TextView(this.context).apply {
+                    layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
+                        ActionBar.LayoutParams.WRAP_CONTENT, 0.4f)
+                    gravity = CENTER
+                    textSize = 20f
+                    text = "${data.NewConfirmed} zakażeń"
+                }
 
-        tvCountry.textSize = 20f
-        tvCountry.text = "Polska"
+                child.addView(tvCountry)
+                child.addView(tvContinent)
 
+                parent.addView(button)
+                parent.addView(child)
+                parent.addView(tvCases)
 
-        val tvContinent = TextView(this.context)
-
-        tvContinent.textSize = 16f
-        tvContinent.text = "Europa"
-
-        val tvCases = TextView(this.context)
-
-        tvCases.textSize = 20f
-        tvCases.text = "24132 zakażeń"
-        tvCases.gravity = RIGHT
-
-
-        child.addView(tvCountry)
-        child.addView(tvContinent)
-
-        parent.addView(button)
-        parent.addView(child)
-        parent.addView(tvCases)
-
-        statisticsCountriesLayout.post(Runnable {
-            statisticsCountriesLayout.addView(parent)
-        })
+                statisticsCountriesLayout.post(Runnable {
+                    statisticsCountriesLayout.addView(parent)
+                })
+            }
+        }
     }
 
-    private fun loadData() {
-        initializer.data.loadMainScreenResouces("2020-10-01")
+    private fun loadDataAndRefresh(){
+        try { // Prevents crashing when data was loaded after changing or refreshing the fragment
+            initializer.data.loadMainScreenResouces()
+            selectedDay = initializer.data.datesFullList.lastIndex - 1
+            setData()
+            buttonVisibility()
+            configurateCharts()
+
+        }catch (ex: Exception){ // No action will be taken
+            println(ex)
+        }
     }
+
+    private fun changeCountry(countryConfig: CountryConfig){
+        initializer.data.config.config.selectedCountry = countryConfig
+        viewModel.codeLive.postValue(countryConfig.code)
+
+        viewModel.dateLive.postValue("Wczytywanie")
+        viewModel.confirmedLive.postValue(0)
+        viewModel.deathsLive.postValue(0)
+        viewModel.recoveredLive.postValue(0)
+        viewModel.increaseCountLive.postValue(0)
+        viewModel.increasePercentLive.postValue(0f)
+        viewModel.calcIncrease(1, 1)
+
+        GlobalScope.launch {
+            loadDataAndRefresh()
+        }
+    }
+
 }

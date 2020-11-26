@@ -8,12 +8,14 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import io.paperdb.Paper
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Paper.init(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -32,7 +34,6 @@ class MainActivity : AppCompatActivity() {
             ), drawerLayout
         )
         navView.setupWithNavController(navController)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

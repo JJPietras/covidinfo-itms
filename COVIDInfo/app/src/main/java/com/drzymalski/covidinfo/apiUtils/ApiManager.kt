@@ -2,6 +2,7 @@ package com.drzymalski.covidinfo.apiUtils
 
 import com.drzymalski.covidinfo.apiUtils.models.CovidDay
 import com.drzymalski.covidinfo.apiUtils.models.SummaryData
+import com.drzymalski.covidinfo.plottingUtils.CountryConfig
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.*

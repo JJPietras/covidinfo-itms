@@ -53,7 +53,7 @@
                     app:srcCompat="@drawable/ic_select_country" />
 
                 <ImageButton
-                    android:id="@+id/statisticsShowAll"
+                    android:id="@+id/statisticsShowPoland"
                     android:layout_width="58dp"
                     android:layout_height="58dp"
                     android:layout_alignParentStart="true"
@@ -121,10 +121,11 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginStart="140dp"
-                    android:layout_marginTop="80dp"
-                    android:layout_marginEnd="140dp"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="90dp"
+                    android:layout_marginEnd="120dp"
                     android:fontFamily="@font/roboto"
+
                     android:text="04.11.2020"
                     android:textAlignment="center"
                     android:textColor="#59FFFFFF"
@@ -293,22 +294,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:background="@color/colorBackground"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:animateLayoutChanges="true"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/statisticsSelectCountry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="35dp"
+                    android:layout_marginBottom="10dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
                     android:text="Wybierz Państwo"
                     android:textColor="#303F9F"
                     android:textSize="30sp" />
 
-                <LinearLayout
+                <!--<LinearLayout
                     android:id="@+id/statisticsChoicePolska"
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
@@ -578,7 +581,7 @@
                         android:textColor="#4C4C4C"
                         android:textSize="20sp" />
 
-                </LinearLayout>
+                </LinearLayout>-->
 
             </LinearLayout>
 

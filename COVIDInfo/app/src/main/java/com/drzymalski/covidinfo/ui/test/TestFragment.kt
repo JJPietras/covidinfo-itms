@@ -27,7 +27,7 @@ class TestFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_test, container, false)
         val textView: TextView = root.findViewById(R.id.text_test)
 
-        plotInitialiserTest.data.loadMainScreenResouces("2020-10-01")
+        plotInitialiserTest.data.loadMainScreenResouces()
 
         val aaChartView = root.findViewById<AAChartView>(R.id.aa_chart_view)
         aaChartView.aa_drawChartWithChartOptions(plotInitialiserTest.configureTotalCasesBarChart())

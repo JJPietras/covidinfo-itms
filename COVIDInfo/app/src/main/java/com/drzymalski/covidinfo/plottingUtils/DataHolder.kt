@@ -1,7 +1,6 @@
 package com.drzymalski.covidinfo.plottingUtils
 
 import com.drzymalski.covidinfo.apiUtils.ApiManager
-import com.drzymalski.covidinfo.apiUtils.models.Country
 import com.drzymalski.covidinfo.apiUtils.models.CovidDay
 import com.drzymalski.covidinfo.apiUtils.models.SummaryData
 
@@ -22,9 +21,9 @@ class DataHolder {
     val datesList = mutableListOf<String>()
     val datesFullList = mutableListOf<String>()
 
-    private val config: Configuration = Configuration()
+    val config: ConfigurationManager = ConfigurationManager()
 
-    fun loadMainScreenResouces(dateFrom: String){
+    fun loadMainScreenResouces(){
         clearData()
         var lastCases = 0
         var lastDeaths = 0
@@ -32,11 +31,12 @@ class DataHolder {
 
         try {
             summaryData = ApiManager.getSummaryFromApi()
-            summaryData.Countries = summaryData.Countries.filter{config.pickedCountries.contains(it.CountryCode)}
+            summaryData.Countries = summaryData.Countries.filter{config.config.countries
+                .map{ countryConfig -> countryConfig.slug }.contains(it.Slug)}
         }catch (ex:Exception){
             println(ex.message) //need to see the errors xd
         }
-        covidData = ApiManager.getCovidDataFromApi(dateFrom, DateConverter.formatDateFull(summaryData.Date), config.selectedCountry)
+        covidData = ApiManager.getCovidDataFromApi(config.config.dateFrom, DateConverter.formatDateFull(summaryData.Date), config.config.selectedCountry.slug )
         covidData.forEach { casesOnDay ->
             run {
                 totalCasesList += casesOnDay.Confirmed
@@ -70,13 +70,17 @@ class DataHolder {
 
     private fun clearData(){
         totalCasesList.clear()
+
         newDeathsList.clear()
         newRecoveredList.clear()
 
         activeCasesList.clear()
 
-        datesList.clear()
         newCasesList.clear()
+        newCasesWeeklyList.clear()
+
+        datesList.clear()
+        datesFullList.clear()
     }
 
     private fun getWeeklyAverage(){

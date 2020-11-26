@@ -6,7 +6,8 @@ import androidx.lifecycle.ViewModel
 
 class TodayIllnessViewModel : ViewModel() {
 
-    var dateLive: MutableLiveData<String> = MutableLiveData("...")
+    var dateLive: MutableLiveData<String> = MutableLiveData("Wczytywanie")
+    var codeLive: MutableLiveData<String> = MutableLiveData("PL")
     var confirmedLive: MutableLiveData<Int> = MutableLiveData(0)
     var deathsLive: MutableLiveData<Int> = MutableLiveData(0)
     var recoveredLive: MutableLiveData<Int> = MutableLiveData(0)
@@ -15,6 +16,7 @@ class TodayIllnessViewModel : ViewModel() {
     var increasePercentLive: MutableLiveData<Float> = MutableLiveData(0f)
 
     val date: LiveData<String> = dateLive
+    val countryCode: LiveData<String> = codeLive
     val confirmed: LiveData<Int> = confirmedLive
 
     val died: LiveData<Int> = deathsLive
