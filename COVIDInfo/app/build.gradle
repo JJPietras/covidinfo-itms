@@ -52,7 +52,7 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-    implementation 'org.twitter4j:twitter4j-core:4.0.7'
+    implementation 'com.github.NandanDesai:TwitterScraper4J:v1.2.1-beta'
     implementation 'io.paperdb:paperdb:2.7.1'
 }
 
