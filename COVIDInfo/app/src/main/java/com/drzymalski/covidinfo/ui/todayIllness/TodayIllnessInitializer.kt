@@ -1,25 +1,24 @@
-package com.drzymalski.covidinfo.plottingUtils
+package com.drzymalski.covidinfo.ui.todayIllness
 
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
-import java.util.*
 
 class TodayIllnessInitializer {
-    val data:DataHolder = DataHolder()
+    val data: MainScreenData = MainScreenData()
 
     fun configureTotalCasesBarChart(): AAOptions {
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Spline)
             .title("")
             .yAxisTitle("")
-            .categories(data.datesList.toTypedArray())
+            .categories(data.stats.datesList.toTypedArray())
             .series(
                 arrayOf(
                     AASeriesElement()
                         .name("Przypadki potwierdzone")
                         .lineWidth(4f)
-                        .data(data.totalCasesList.toTypedArray())
+                        .data(data.stats.totalCasesList.toTypedArray())
                     .color(AAGradientColor.berrySmoothieColor())
                 )
             )
@@ -32,7 +31,7 @@ class TodayIllnessInitializer {
             .chartType(AAChartType.Spline)
             .title("")
             .subtitle("")
-            .categories(data.datesList.drop(1).toTypedArray())
+            .categories(data.stats.datesList.drop(1).toTypedArray())
             .yAxisTitle("")
             .yAxisGridLineWidth(0f)
             .markerRadius(2f)
@@ -43,12 +42,12 @@ class TodayIllnessInitializer {
                         .name("Średnia z 7 dni")
                         .lineWidth(2f)
                         .color("rgba(220,20,60,1)")
-                        .data(data.newCasesWeeklyList.toTypedArray()),
+                        .data(data.stats.newCasesWeeklyList.toTypedArray()),
                     AASeriesElement()
                         .type(AAChartType.Column)
                         .name("Przypadki")
                         .color("#25547c")
-                        .data(data.newCasesList.toTypedArray())
+                        .data(data.stats.newCasesList.toTypedArray())
                 )
             )
         return getChartOptions(aaChartModel)
@@ -60,13 +59,13 @@ class TodayIllnessInitializer {
             .title("")
             .yAxisTitle("")
             .markerRadius(0f)
-            .categories(data.datesList.drop(1).toTypedArray())
+            .categories(data.stats.datesList.drop(1).toTypedArray())
             .series(
                 arrayOf(
                     AASeriesElement()
                         .name("Ilość zgonów")
                         .lineWidth(2f)
-                        .data(data.newDeathsList.toTypedArray())
+                        .data(data.stats.newDeathsList.toTypedArray())
                         .color(AAGradientColor.firebrickColor())
                 )
             )
@@ -78,13 +77,13 @@ class TodayIllnessInitializer {
             .chartType(AAChartType.Column)
             .title("")
             .yAxisTitle("")
-            .categories(data.datesList.drop(1).toTypedArray())
+            .categories(data.stats.datesList.drop(1).toTypedArray())
             .series(
                 arrayOf(
                     AASeriesElement()
                         .name("Ilość ozdrowień")
                         .lineWidth(2f)
-                        .data(data.newRecoveredList.toTypedArray())
+                        .data(data.stats.newRecoveredList.toTypedArray())
                     .color(AAGradientColor.oceanBlueColor())
                 )
             )
@@ -97,7 +96,7 @@ class TodayIllnessInitializer {
             .title("")
             .yAxisTitle("")
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
-            .categories(data.datesList.toTypedArray())
+            .categories(data.stats.datesList.toTypedArray())
             .animationType(AAChartAnimationType.Bounce)
             .series(
                 arrayOf(
@@ -105,7 +104,7 @@ class TodayIllnessInitializer {
                         .name("Aktywne przypadki")
                         .lineWidth(4f)
                         .color("rgba(220,20,60,1)")
-                        .data(data.activeCasesList.toTypedArray())
+                        .data(data.stats.activeCasesList.toTypedArray())
                 )
             )
         return getChartOptions(aaChartModel)

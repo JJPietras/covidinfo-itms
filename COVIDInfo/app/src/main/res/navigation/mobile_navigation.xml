@@ -3,13 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_today">
+    app:startDestination="@id/nav_today">
 
     <fragment
         android:id="@+id/nav_today"
         android:name="com.drzymalski.covidinfo.ui.todayIllness.TodayIllnessFragment"
         android:label="@string/menu_today"
         tools:layout="@layout/fragment_today" >
+        <action
+            android:id="@+id/action_nav_today_to_nav_selector2"
+            app:destination="@id/nav_selector" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_compare"
+        android:name="com.drzymalski.covidinfo.ui.todayIllness.CompareFragment"
+        android:label="menu_compare"
+        tools:layout="@layout/fragment_compare" >
         <action
             android:id="@+id/action_nav_today_to_nav_selector"
             app:destination="@id/nav_selector"
@@ -20,7 +30,11 @@
         android:id="@+id/nav_tweeter"
         android:name="com.drzymalski.covidinfo.ui.twitter.TwitterFragment"
         android:label="@string/menu_tweeter"
-        tools:layout="@layout/fragment_tweeter" />
+        tools:layout="@layout/fragment_tweeter" >
+        <action
+            android:id="@+id/action_nav_tweeter_to_nav_selector"
+            app:destination="@id/nav_selector" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_hospitals"
@@ -37,7 +51,11 @@
         android:id="@+id/nav_suspicion"
         android:name="com.drzymalski.covidinfo.ui.suspicion.SuspicionFragment"
         android:label="@string/menu_suspicion"
-        tools:layout="@layout/fragment_suspicion" />
+        tools:layout="@layout/fragment_suspicion" >
+        <action
+            android:id="@+id/action_nav_suspicion_to_nav_selector"
+            app:destination="@id/nav_selector" />
+    </fragment>
     <fragment
         android:id="@+id/nav_test"
         android:name="com.drzymalski.covidinfo.ui.test.TestFragment"
@@ -52,5 +70,9 @@
         android:id="@+id/nav_authors"
         android:name="com.drzymalski.covidinfo.ui.authors.AuthorsFragment"
         android:label="AUTHORS"
-        tools:layout="@layout/fragment_authors" />
+        tools:layout="@layout/fragment_authors" >
+        <action
+            android:id="@+id/action_nav_authors_to_nav_selector"
+            app:destination="@id/nav_selector" />
+    </fragment>
 </navigation>

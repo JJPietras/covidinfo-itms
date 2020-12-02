@@ -11,40 +11,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.config.CountryConfig
+import com.drzymalski.covidinfo.ui.compare.CompareInitializer
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import kotlinx.android.synthetic.main.fragment_today.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
-class TodayIllnessFragment : Fragment() {
+class CompareFragment : Fragment() {
 
-    private lateinit var viewModel: TodayIllnessViewModel
-
-    private var initializer: TodayIllnessInitializer = TodayIllnessInitializer()
-    private var selectedDay: Int = 0
+    private lateinit var viewModel: CompareViewModel
+    private var initializer: CompareInitializer = CompareInitializer()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(this).get(TodayIllnessViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_today, container, false)
+        viewModel = ViewModelProviders.of(this).get(CompareViewModel::class.java)
+        return inflater.inflate(R.layout.fragment_compare, container, false)
     }
 
     @SuppressLint("SetTextI18n")
@@ -56,12 +53,6 @@ class TodayIllnessFragment : Fragment() {
             generateCountryButtons()
         }
 
-        configureObserver(viewModel.confirmed, statisticsCount)
-        configureObserver(viewModel.died, statisticsDied)
-        configureObserver(viewModel.recovered, statisticsCured)
-        configureObserver(viewModel.date, statisticsDate)
-        configureObserver(viewModel.countryCode, statisticsCountry)
-
         statisticsChangeCountryBtn.setOnClickListener{
             if (statisticsCountriesLayout.visibility == View.VISIBLE)
                 statisticsCountriesLayout.visibility = View.GONE
@@ -69,6 +60,11 @@ class TodayIllnessFragment : Fragment() {
                 statisticsCountriesLayout.visibility = View.VISIBLE
         }
 
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        val formatted = current.format(formatter)
+
+        statisticsDate.text = formatted
         statisticsShowPoland.setOnClickListener {
             changeCountry(
                 CountryConfig().apply {
@@ -80,22 +76,6 @@ class TodayIllnessFragment : Fragment() {
                 }
             )
         }
-        //statisticsCountriesLayout
-        viewModel.nIncreaseCount.observe(viewLifecycleOwner, Observer {
-            statisticsIncreaseNum.text = "${if (it > 0) "+" else ""}${it}"
-            statisticsIncreaseNum.setTextColor(
-                Color.parseColor(if (it < 0) "#388E3C" else "#C2185B")
-            )
-        })
-        viewModel.pIncreaseCount.observe(viewLifecycleOwner, Observer {
-            statisticsIncreasePercent.text = "${if (it > 0f) "+" else ""}${"%.1f".format(it)}%"
-            statisticsIncreasePercent.setTextColor(
-                Color.parseColor(if (it < 0f) "#388E3C" else "#C2185B")
-            )
-        })
-
-        configureButton(statisticsPrevDay, -1, true)
-        configureButton(statisticsNextDay, 1, false)
 
         FragmentBinder.bindToButton(
             view.findViewById(R.id.statisticsMenuBtn),
@@ -104,33 +84,12 @@ class TodayIllnessFragment : Fragment() {
         )
     }
 
-    private fun configureButton(button: ImageButton, dayValue: Int, greater: Boolean) =
-        button.setOnClickListener {
-
-            val lastIndex = initializer.data.stats.datesFullList.lastIndex
-            val calculatedCondition = if (greater) selectedDay > 1 else selectedDay < lastIndex
-
-            if (calculatedCondition) {
-                selectedDay += dayValue
-                setData()
-            }
-            buttonVisibility()
-        }
-
     private fun configureChart(chart: AAChartView, options: AAOptions) {
         chart.post(Runnable {
             chart.aa_drawChartWithChartOptions(options)
         })
     }
 
-    private fun configureObserver(liveData: LiveData<*>, textView: TextView) =
-        liveData.observe(viewLifecycleOwner, Observer { textView.text = it.toString() })
-
-    private fun buttonVisibility() {
-        val currentDay = selectedDay == initializer.data.stats.datesFullList.lastIndex - 1
-        statisticsNextDay.visibility = if (currentDay) View.INVISIBLE else View.VISIBLE
-        statisticsPrevDay.visibility = if (selectedDay == 1) View.INVISIBLE else View.VISIBLE
-    }
 
     private fun configurateCharts(){
         configureChart(aaChartViewNewCases, initializer.configureNewCasesBarChart())
@@ -140,41 +99,6 @@ class TodayIllnessFragment : Fragment() {
         configureChart(aaChartViewDied, initializer.configureDeathsBarChart())
     }
 
-    private fun setData() {
-        if (selectedDay > 0 && selectedDay < initializer.data.stats.datesFullList.lastIndex) {
-
-            val data = initializer.data
-            val newCasesList = data.stats.newCasesList
-
-            viewModel.dateLive.postValue(data.stats.datesFullList[selectedDay + 1])
-            viewModel.confirmedLive.postValue(data.stats.newCasesList[selectedDay])
-            viewModel.deathsLive.postValue(data.stats.newDeathsList[selectedDay])
-            viewModel.recoveredLive.postValue(data.stats.newRecoveredList[selectedDay])
-
-            viewModel.calcIncrease(
-                newCasesList[selectedDay],
-                newCasesList[selectedDay - 1]
-            )
-        }
-    }
-
-    private fun refresh(chart: AAChartView, data: MutableList<Int>){ // way to asynchronously refresh chart data plz do not delet
-        val aaSeriesElementsArr: Array<AASeriesElement> = arrayOf(AASeriesElement()
-            .data(data.toTypedArray()))
-        chart.post(Runnable {
-            chart.aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray( //aa_chart function does not work
-                aaSeriesElementsArr
-            )
-        })
-    }
-
-    private fun refresh(chart: AAChartView, options: AAOptions){
-        chart.post(Runnable {
-            chart.aa_refreshChartWithChartOptions( //aa_chart function does not work
-                initializer.configureNewCasesBarChart()
-            )
-        })
-    }
 
     private fun generateCountryButtons(){
         initializer.data.config.config.countries.forEach{ countryConfig ->
@@ -247,10 +171,9 @@ class TodayIllnessFragment : Fragment() {
 
     private fun loadDataAndRefresh(){
         try { // Prevents crashing when data was loaded after changing or refreshing the fragment
-            initializer.data.loadMainScreenResouces()
-            selectedDay = initializer.data.stats.datesFullList.lastIndex - 1
-            setData()
-            buttonVisibility()
+            initializer.data.loadScreenResouces()
+            //selectedDay = initializer.data.stats.datesFullList.lastIndex - 1
+
             configurateCharts()
 
         }catch (ex: Exception){ // No action will be taken
@@ -260,15 +183,6 @@ class TodayIllnessFragment : Fragment() {
 
     private fun changeCountry(countryConfig: CountryConfig){
         initializer.data.config.config.selectedCountry = countryConfig
-        viewModel.codeLive.postValue(countryConfig.code)
-
-        viewModel.dateLive.postValue("Wczytywanie")
-        viewModel.confirmedLive.postValue(0)
-        viewModel.deathsLive.postValue(0)
-        viewModel.recoveredLive.postValue(0)
-        viewModel.increaseCountLive.postValue(0)
-        viewModel.increasePercentLive.postValue(0f)
-        viewModel.calcIncrease(1, 1)
 
         GlobalScope.launch {
             loadDataAndRefresh()

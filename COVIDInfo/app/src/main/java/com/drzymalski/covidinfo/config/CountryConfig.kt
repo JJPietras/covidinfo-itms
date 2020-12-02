@@ -1,4 +1,4 @@
-package com.drzymalski.covidinfo.plottingUtils
+package com.drzymalski.covidinfo.config
 
 class CountryConfig {
     var slug: String = ""

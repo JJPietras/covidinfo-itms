@@ -12,11 +12,13 @@ import kotlinx.android.synthetic.main.fragment_selector.selectorTwitterFragBtn
 import kotlinx.android.synthetic.main.fragment_selector.selectorHospitalFragBtn
 import kotlinx.android.synthetic.main.fragment_selector.selectorSuspicionFragBtn
 import kotlinx.android.synthetic.main.fragment_selector.selectorAuthorsFragBtn
+import kotlinx.android.synthetic.main.fragment_selector.selectorCompareBtn
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.ui.authors.AuthorsFragment
 import com.drzymalski.covidinfo.ui.hospitals.HospitalsFragment
 import com.drzymalski.covidinfo.ui.suspicion.SuspicionFragment
+import com.drzymalski.covidinfo.ui.todayIllness.CompareFragment
 import com.drzymalski.covidinfo.ui.todayIllness.TodayIllnessFragment
 import com.drzymalski.covidinfo.ui.twitter.TwitterFragment
 
@@ -47,12 +49,12 @@ class SelectorFragment : Fragment() {
     }
 
     private fun collectButtons(): Array<ImageButton> = arrayOf(
-        selectorStatsFragBtn, selectorTwitterFragBtn, selectorHospitalFragBtn,
+        selectorStatsFragBtn, selectorCompareBtn, selectorTwitterFragBtn, selectorHospitalFragBtn,
         selectorSuspicionFragBtn, selectorAuthorsFragBtn
     )
 
     private fun collectFragments(): Array<Fragment> = arrayOf(
-        TodayIllnessFragment(), TwitterFragment(), HospitalsFragment(),
+        TodayIllnessFragment(), CompareFragment(), TwitterFragment(), HospitalsFragment(),
         SuspicionFragment(), AuthorsFragment()
     )
 }

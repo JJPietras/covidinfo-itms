@@ -35,7 +35,7 @@
         android:id="@+id/selectorStatsCard"
         android:layout_width="340dp"
         android:layout_height="70dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#3949AB"
         app:cardCornerRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +83,55 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/selectorCompareCard"
+        android:layout_width="340dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#3949AB"
+        app:cardCornerRadius="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectorStatsCard">
+
+
+        <RelativeLayout
+            android:id="@+id/selectorCompareLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/selectorCompareText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:shadowRadius="30"
+                android:text="Porównanie"
+                android:textColor="#E3E3E3"
+                android:textSize="26sp" />
+
+            <ImageButton
+                android:id="@+id/selectorCompareBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#00FFFFFF"
+                android:src="@drawable/ic_statistics" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/selectorTwitterCard"
         android:layout_width="340dp"
         android:layout_height="70dp"
@@ -91,7 +140,7 @@
         app:cardCornerRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectorStatsCard">
+        app:layout_constraintTop_toBottomOf="@+id/selectorCompareCard">
 
         <RelativeLayout
             android:id="@+id/selectorTwitterLayout"
@@ -272,6 +321,7 @@
                 android:background="#00FFFFFF"
                 android:src="@drawable/ic_programmer" />
         </RelativeLayout>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

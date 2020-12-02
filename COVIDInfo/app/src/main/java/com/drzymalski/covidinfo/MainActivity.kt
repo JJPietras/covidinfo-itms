@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_today,
+                R.id.nav_compare,
                 R.id.nav_tweeter,
                 R.id.nav_hospitals,
                 R.id.nav_suspicion,

@@ -1,4 +1,4 @@
-package com.drzymalski.covidinfo.plottingUtils
+package com.drzymalski.covidinfo.config
 
 import io.paperdb.Paper
 
@@ -7,7 +7,7 @@ class ConfigurationManager {
 
     init {
         try {
-            loadConfig()
+            //loadConfig()
         } catch (ex: Exception){
             initializeAndSaveTheBasicConfig()
         }
@@ -60,6 +60,29 @@ class ConfigurationManager {
             color = "#6f79fc"
             code = "PL"
         }
+
+        config.countriesToCompare = mutableListOf(
+            CountryConfig().apply {
+                slug = "poland"
+                name = "Polska"
+                continent = "Europa"
+                color = "#6f79fc"
+                code = "PL"
+            },
+            CountryConfig().apply {
+                slug = "germany"
+                name = "Niemcy"
+                continent = "Europa"
+                color = "#F44336"
+                code = "DE"
+            },
+            CountryConfig().apply {
+                slug = "italy"
+                name = "Włochy"
+                continent = "Europa"
+                color = "#009688"
+                code = "IT"
+            })
         saveConfig()
     }
 

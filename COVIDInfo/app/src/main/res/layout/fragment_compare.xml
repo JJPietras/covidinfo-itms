@@ -62,7 +62,7 @@
                     android:layout_marginTop="280dp"
                     android:background="#00FFFFFF"
                     app:layout_anchorGravity="end|bottom"
-                    app:srcCompat="@drawable/ic_reset_to_pl" />
+                    app:srcCompat="@drawable/ic_reload_btn" />
 
                 <TextView
                     android:id="@+id/statisticsPoland"
@@ -70,10 +70,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/statisticsBackground"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="39dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginBottom="26dp"
                     android:fontFamily="@font/roboto"
-                    android:text="Polska"
+                    android:text="Odśwież"
                     android:textColor="#73FFFFFF"
                     android:textSize="20sp" />
 
@@ -86,33 +86,9 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="26dp"
                     android:fontFamily="@font/roboto"
-                    android:text="Zmień Kraj"
+                    android:text="Wybierz kraje"
                     android:textColor="#73FFFFFF"
-                    android:textSize="20sp" />
-
-                <ImageButton
-                    android:id="@+id/statisticsPrevDay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="143dp"
-                    android:background="#00FFFFFF"
-                    android:padding="20dp"
-                    android:src="@drawable/ic_left_day" />
-
-                <ImageButton
-                    android:id="@+id/statisticsNextDay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="143dp"
-                    android:layout_marginEnd="10dp"
-                    android:background="#00FFFFFF"
-                    android:padding="20dp"
-                    android:src="@drawable/ic_right_day" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/statisticsDate"
@@ -126,134 +102,10 @@
                     android:layout_marginEnd="120dp"
                     android:fontFamily="@font/roboto"
 
-                    android:text="04.11.2020"
+                    android:text=""
                     android:textAlignment="center"
                     android:textColor="#59FFFFFF"
                     android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/statisticsCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="125dp"
-                    android:layout_marginTop="140dp"
-                    android:layout_marginEnd="125dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="24132"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="48sp" />
-
-                <TextView
-                    android:id="@+id/statisticsCured"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="155dp"
-                    android:layout_marginTop="319dp"
-                    android:layout_marginEnd="155dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="476"
-                    android:textAlignment="center"
-                    android:textColor="#388E3C"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/statisticsCuredTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="135dp"
-                    android:layout_marginTop="349dp"
-                    android:layout_marginEnd="134dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="wyzdrowiało"
-                    android:textAlignment="center"
-                    android:textColor="#59FFFFFF"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/statisticsIncreaseNum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="55dp"
-                    android:layout_marginTop="160dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="+243"
-                    android:textAlignment="center"
-                    android:textColor="#D8F44336"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/statisticsIncreasePercent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginEnd="55dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="+5%"
-                    android:textAlignment="center"
-                    android:textColor="#D8F44336"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/statisticsInfectionsText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="110dp"
-                    android:layout_marginTop="200dp"
-                    android:layout_marginEnd="110dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="nowe zakażenia"
-                    android:textAlignment="center"
-                    android:textColor="#59FFFFFF"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/statisticsDiedTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="150dp"
-                    android:layout_marginTop="277dp"
-                    android:layout_marginEnd="150dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="zmarło"
-                    android:textAlignment="center"
-                    android:textColor="#59FFFFFF"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/statisticsDied"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="155dp"
-                    android:layout_marginTop="247dp"
-                    android:layout_marginEnd="155dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="301"
-                    android:textAlignment="center"
-                    android:textColor="#C2185B"
-                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/statisticsTitle"
@@ -267,7 +119,7 @@
                     android:layout_marginTop="27dp"
                     android:layout_marginEnd="100dp"
                     android:fontFamily="@font/roboto"
-                    android:text="Zachorowania"
+                    android:text="Porównanie"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="30sp" />
