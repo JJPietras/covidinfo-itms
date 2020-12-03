@@ -1,8 +1,7 @@
-package com.drzymalski.covidinfo.ui.todayIllness
+package com.drzymalski.covidinfo.ui.compare
 
 import com.drzymalski.covidinfo.apiUtils.ApiManager
 import com.drzymalski.covidinfo.apiUtils.models.SummaryData
-import com.drzymalski.covidinfo.dataUtils.TodayCasesStats
 import com.drzymalski.covidinfo.config.ConfigurationManager
 import com.drzymalski.covidinfo.dataUtils.CompareCasesStats
 import com.drzymalski.covidinfo.dataUtils.DateConverter
@@ -15,7 +14,7 @@ class CompareScreenData {
 
     val config: ConfigurationManager = ConfigurationManager()
 
-    fun loadScreenResouces(){
+    fun loadScreenResources(){
         stats.clear()
         try {
             summaryData = ApiManager.getSummaryFromApi()
@@ -32,6 +31,5 @@ class CompareScreenData {
                 country = cntry
             }
         }
-
     }
 }

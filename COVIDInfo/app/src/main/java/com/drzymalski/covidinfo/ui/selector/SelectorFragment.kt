@@ -18,7 +18,7 @@ import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.ui.authors.AuthorsFragment
 import com.drzymalski.covidinfo.ui.hospitals.HospitalsFragment
 import com.drzymalski.covidinfo.ui.suspicion.SuspicionFragment
-import com.drzymalski.covidinfo.ui.todayIllness.CompareFragment
+import com.drzymalski.covidinfo.ui.compare.CompareFragment
 import com.drzymalski.covidinfo.ui.todayIllness.TodayIllnessFragment
 import com.drzymalski.covidinfo.ui.twitter.TwitterFragment
 

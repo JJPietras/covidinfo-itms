@@ -2,6 +2,9 @@ package com.drzymalski.covidinfo.ui.todayIllness
 
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAScrollablePlotArea
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
+import com.github.aachartmodel.aainfographics.aatools.AAColor
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 
 class TodayIllnessInitializer {
@@ -12,6 +15,7 @@ class TodayIllnessInitializer {
             .chartType(AAChartType.Spline)
             .title("")
             .yAxisTitle("")
+            .zoomType(AAChartZoomType.X)
             .categories(data.stats.datesList.toTypedArray())
             .series(
                 arrayOf(
@@ -33,6 +37,7 @@ class TodayIllnessInitializer {
             .subtitle("")
             .categories(data.stats.datesList.drop(1).toTypedArray())
             .yAxisTitle("")
+            .zoomType(AAChartZoomType.X)
             .yAxisGridLineWidth(0f)
             .markerRadius(2f)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
@@ -59,6 +64,7 @@ class TodayIllnessInitializer {
             .title("")
             .yAxisTitle("")
             .markerRadius(0f)
+            .zoomType(AAChartZoomType.X)
             .categories(data.stats.datesList.drop(1).toTypedArray())
             .series(
                 arrayOf(
@@ -77,6 +83,7 @@ class TodayIllnessInitializer {
             .chartType(AAChartType.Column)
             .title("")
             .yAxisTitle("")
+            .zoomType(AAChartZoomType.X)
             .categories(data.stats.datesList.drop(1).toTypedArray())
             .series(
                 arrayOf(
@@ -95,9 +102,11 @@ class TodayIllnessInitializer {
             .chartType(AAChartType.Spline)
             .title("")
             .yAxisTitle("")
+            .zoomType(AAChartZoomType.X)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .categories(data.stats.datesList.toTypedArray())
             .animationType(AAChartAnimationType.Bounce)
+
             .series(
                 arrayOf(
                     AASeriesElement()
@@ -114,6 +123,9 @@ class TodayIllnessInitializer {
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
         aaOptions.tooltip!!
             .shared(true)
+
+            .style(AAStyle().color(AAColor.blackColor()))
+            .backgroundColor(AAColor.rgbaColor(180, 180, 180, 0.9f))
             /*.useHTML(true)
             .headerFormat("<small style=\\\"color: brown;\\\">{point.key}</small><table style=\\\"color: brown;\\\">")
             .pointFormat(

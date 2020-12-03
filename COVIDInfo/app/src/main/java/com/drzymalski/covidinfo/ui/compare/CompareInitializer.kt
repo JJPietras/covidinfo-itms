@@ -1,8 +1,10 @@
 package com.drzymalski.covidinfo.ui.compare
 
-import com.drzymalski.covidinfo.ui.todayIllness.CompareScreenData
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAScrollablePlotArea
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
+import com.github.aachartmodel.aainfographics.aatools.AAColor
 
 class CompareInitializer {
     val data = CompareScreenData()
@@ -12,6 +14,8 @@ class CompareInitializer {
             .chartType(AAChartType.Spline)
             .title("")
             .yAxisTitle("")
+            .zoomType(AAChartZoomType.X)
+            .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .categories(data.stats.first().datesList.toTypedArray())
             .series(
                 data.stats.map { stats ->
@@ -34,8 +38,9 @@ class CompareInitializer {
             .subtitle("")
             .categories(data.stats.first().datesList.drop(1).toTypedArray())
             .yAxisTitle("")
+            .zoomType(AAChartZoomType.X)
             .yAxisGridLineWidth(0f)
-            .markerRadius(2f)
+            //.markerRadius(2f)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .series(
                 data.stats.map { stats ->
@@ -54,7 +59,8 @@ class CompareInitializer {
             .chartType(AAChartType.Spline)
             .title("")
             .yAxisTitle("")
-            .markerRadius(0f)
+            .zoomType(AAChartZoomType.X)
+            .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .categories(data.stats.first().datesList.drop(1).toTypedArray())
             .series(
                 data.stats.map { stats ->
@@ -62,7 +68,7 @@ class CompareInitializer {
                         .name(stats.country.name)
                         .lineWidth(2f)
                         .color(stats.country.color)
-                        .data(stats.newDeathsList.toTypedArray())
+                        .data(stats.newDeathsWeeklyList.toTypedArray())
                 }.toTypedArray()
             )
         return getChartOptions(aaChartModel)
@@ -74,13 +80,15 @@ class CompareInitializer {
             .title("")
             .yAxisTitle("")
             .categories(data.stats.first().datesList.drop(1).toTypedArray())
+            .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .zoomType(AAChartZoomType.X)
             .series(
                 data.stats.map { stats ->
                     AASeriesElement()
                         .name(stats.country.name)
                         .lineWidth(2f)
                         .color(stats.country.color)
-                        .data(stats.newRecoveredList.toTypedArray())
+                        .data(stats.newRecoveredWeeklyList.toTypedArray())
                 }.toTypedArray()
             )
         return getChartOptions(aaChartModel)
@@ -94,6 +102,7 @@ class CompareInitializer {
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .categories(data.stats.first().datesList.toTypedArray())
             .animationType(AAChartAnimationType.Bounce)
+            .zoomType(AAChartZoomType.X)
             .series(
                 data.stats.map { stats ->
                     AASeriesElement()
@@ -110,6 +119,8 @@ class CompareInitializer {
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
         aaOptions.tooltip!!
             .shared(true)
+            .style(AAStyle().color(AAColor.blackColor()))
+            .backgroundColor(AAColor.rgbaColor(180, 180, 180, 0.9f))
             /*.useHTML(true)
             .headerFormat("<small style=\\\"color: brown;\\\">{point.key}</small><table style=\\\"color: brown;\\\">")
             .pointFormat(

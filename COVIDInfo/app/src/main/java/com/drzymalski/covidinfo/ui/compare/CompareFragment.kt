@@ -1,4 +1,4 @@
-package com.drzymalski.covidinfo.ui.todayIllness
+package com.drzymalski.covidinfo.ui.compare
 
 import android.annotation.SuppressLint
 import android.app.ActionBar
@@ -13,12 +13,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.config.CountryConfig
-import com.drzymalski.covidinfo.ui.compare.CompareInitializer
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
@@ -171,7 +171,7 @@ class CompareFragment : Fragment() {
 
     private fun loadDataAndRefresh(){
         try { // Prevents crashing when data was loaded after changing or refreshing the fragment
-            initializer.data.loadScreenResouces()
+            initializer.data.loadScreenResources()
             //selectedDay = initializer.data.stats.datesFullList.lastIndex - 1
 
             configurateCharts()

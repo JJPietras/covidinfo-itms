@@ -14,8 +14,8 @@
     <string name="menu_test">TEST</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="table_sum_text">Wykres sumy zachorowań</string>
-    <string name="table_new_text">Wykres nowych zachorowań</string>
+    <string name="table_sum_text">Suma zachorowań</string>
+    <string name="table_new_text">Nowe zakażenia</string>
 
     <!-- ### SUSPICION MAIN ### -->
 

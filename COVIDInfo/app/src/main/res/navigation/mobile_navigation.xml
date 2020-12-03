@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/nav_compare"
-        android:name="com.drzymalski.covidinfo.ui.todayIllness.CompareFragment"
+        android:name="com.drzymalski.covidinfo.ui.compare.CompareFragment"
         android:label="menu_compare"
         tools:layout="@layout/fragment_compare" >
         <action

@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.todayIllness.CompareFragment">
+    tools:context=".ui.compare.CompareFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackground">
+        android:background="@color/colorBackgroundDark">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -160,7 +160,7 @@
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
                     android:text="Wybierz Państwo"
-                    android:textColor="#303F9F"
+                    android:textColor="@color/colorTextOnBlack"
                     android:textSize="30sp" />
 
                 <!--<LinearLayout
@@ -450,8 +450,8 @@
                     android:layout_marginBottom="35dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
-                    android:text="@string/table_new_text"
-                    android:textColor="#303F9F"
+                    android:text="Średnia nowych zakażeń"
+                    android:textColor="@color/colorTextOnBlack"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -478,8 +478,8 @@
                     android:layout_marginBottom="35dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
-                    android:text="@string/table_sum_text"
-                    android:textColor="#303F9F"
+                    android:text="Suma zachorowań"
+                    android:textColor="@color/colorTextOnBlack"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -506,8 +506,8 @@
                     android:layout_marginBottom="35dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
-                    android:text="Wykres aktywnych przypadków"
-                    android:textColor="#303F9F"
+                    android:text="Aktywne przypadki"
+                    android:textColor="@color/colorTextOnBlack"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -534,8 +534,8 @@
                     android:layout_marginBottom="35dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
-                    android:text="Wykres Ozdrowień"
-                    android:textColor="#303F9F"
+                    android:text="Średnia Ozdrowień"
+                    android:textColor="@color/colorTextOnBlack"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -562,8 +562,8 @@
                     android:layout_marginBottom="35dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
-                    android:text="Wykres Ofiar Smiertelnych"
-                    android:textColor="#303F9F"
+                    android:text="Średnia Ofiar Smiertelnych"
+                    android:textColor="@color/colorTextOnBlack"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView

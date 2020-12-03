@@ -15,7 +15,8 @@ class CompareCasesStats {
 
     val newCasesList = mutableListOf<Int>()
     val newCasesWeeklyList = mutableListOf<Float>()
-
+    val newDeathsWeeklyList = mutableListOf<Float>()
+    val newRecoveredWeeklyList = mutableListOf<Float>()
     val datesList = mutableListOf<String>()
     val datesFullList = mutableListOf<String>()
 
@@ -38,13 +39,24 @@ class CompareCasesStats {
 
     private fun getWeeklyAverage(){
         newCasesWeeklyList.clear()
+        newDeathsWeeklyList.clear()
+        newRecoveredWeeklyList.clear()
+
         for (i in 0 until newCasesList.size){
             val from = if (i-3<0) 0 else i-3
             val to = if (i+3>=newCasesList.size-1) newCasesList.size-1 else i+3
-            var sum = 0f
+            var sumNew = 0f
+            var sumDeaths = 0f
+            var sumRecovered = 0f
             val count = to - from + 1f
-            for (j in from..to) sum += newCasesList[j].toFloat()
-            newCasesWeeklyList += (sum/count)
+            for (j in from..to) {
+                sumNew += newCasesList[j].toFloat()
+                sumDeaths += newDeathsList[j].toFloat()
+                sumRecovered += newRecoveredList[j].toFloat()
+            }
+            newCasesWeeklyList += (sumNew/count)
+            newDeathsWeeklyList += (sumNew/count)
+            newRecoveredWeeklyList += (sumNew/count)
         }
     }
 
