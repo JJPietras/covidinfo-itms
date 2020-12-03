@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -21,11 +22,18 @@ import com.drzymalski.covidinfo.lib.buttonManagers.CalculateButtonManager
 import com.drzymalski.covidinfo.lib.buttonManagers.SwitchButtonManager
 import com.drzymalski.covidinfo.lib.buttonManagers.TeleHelpButtonManager
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
+import com.github.ybq.android.spinkit.sprite.Sprite
+import com.github.ybq.android.spinkit.style.ChasingDots
+import com.github.ybq.android.spinkit.style.CubeGrid
+import com.github.ybq.android.spinkit.style.DoubleBounce
+import com.github.ybq.android.spinkit.style.RotatingCircle
 import kotlinx.android.synthetic.main.fragment_suspicion.*
+
 
 class SuspicionFragment : Fragment() {
 
     private lateinit var viewModel: SuspicionViewModel
+    private lateinit var progressBar: ProgressBar
     private val switches = mutableListOf<SwitchableButton>()
 
     private val epidemicButtons = arrayOf(
@@ -46,6 +54,11 @@ class SuspicionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val id = R.id.suspicionNearestHospitalLoadingImg
+        progressBar = requireView().findViewById(id) as ProgressBar
+        val style: Sprite = DoubleBounce()
+        progressBar.indeterminateDrawable = style
+        progressBar.visibility = View.INVISIBLE
 //
         configureSwitchButtons(view)
         configureCalculateButton(view)
@@ -60,10 +73,12 @@ class SuspicionFragment : Fragment() {
     //TODO: refactor
     @SuppressLint("SetTextI18n")
     fun reactOnChange(closestHospital: Hospital) {
+
         suspicionNearestHospitalMoveToMap.setOnClickListener {
             val contact = closestHospital.contact
+            val cords = closestHospital.location
             val route = contact.substring(0, contact.indexOf(','))
-            val output = StringBuilder("geo:0,0?q=1600+")
+            val output = StringBuilder("geo:${cords[0]},${cords[1]}?q=")
             val s = ",+"
 
             output.append(closestHospital.city).append(s).append(closestHospital.name).append(s)
@@ -82,6 +97,8 @@ class SuspicionFragment : Fragment() {
         displayText.append(closestHospital.contact)
         suspicionNearestHospitalDisclaimer.setTextColor(Color.WHITE)
         suspicionNearestHospitalDisclaimer.text = displayText.toString()
+        suspicionNearestHospitalButtonSphere.visibility = View.VISIBLE
+        progressBar.visibility = View.INVISIBLE
     }
 
     private fun configureSwitchButtons(view: View) {
@@ -110,7 +127,12 @@ class SuspicionFragment : Fragment() {
     private fun configureNearestHospitalButton(view: View) {
         val locationManager = LocationManager(this)
         val findBtn = suspicionNearestHospitalButtonSphere
-        locationManager.configureFindNearestHospitalButton(findBtn, view, requireActivity())
+        locationManager.configureFindNearestHospitalButton(
+            findBtn,
+            view,
+            requireActivity(),
+            progressBar
+        )
     }
 
     private fun configureBinder(view: View) =

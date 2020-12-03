@@ -986,6 +986,40 @@
                     android:contentDescription="@string/nearestHospital_content_desc_second_img"
                     android:src="@drawable/sub_sphere" />
 
+                <com.github.ybq.android.spinkit.SpinKitView
+                    android:id="@+id/suspicionNearestHospitalLoadingImg"
+                    style="@style/SpinKitView.Large.Circle"
+
+                    android:scaleY="0.92"
+                    android:scaleX="0.92"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_alignStart="@+id/suspicionNearestHospitalButtonSphere"
+                    android:layout_alignTop="@+id/suspicionNearestHospitalButtonSphere"
+                    android:layout_alignEnd="@+id/suspicionNearestHospitalButtonSphere"
+                    android:layout_alignBottom="@+id/suspicionNearestHospitalButtonSphere"
+                    android:layout_marginStart="-60dp"
+                    android:layout_marginTop="-60dp"
+                    android:layout_marginEnd="-60dp"
+                    android:layout_marginBottom="-60dp"
+                    app:SpinKit_Color="#97E7FF" />
+
+                <!--<ImageView
+
+
+
+                    android:layout_alignStart="@+id/suspicionNearestHospitalButtonSphere"
+                    android:layout_alignTop="@+id/suspicionNearestHospitalButtonSphere"
+                    android:layout_alignEnd="@+id/suspicionNearestHospitalButtonSphere"
+                    android:layout_alignBottom="@+id/suspicionNearestHospitalButtonSphere"
+                    android:layout_marginStart="-60dp"
+                    android:layout_marginTop="-60dp"
+                    android:layout_marginEnd="-60dp"
+                    android:layout_marginBottom="-60dp"
+                    android:backgroundTint="#00ACC1"
+                    android:contentDescription="@string/nearestHospital_content_desc_second_img"
+                    android:src="@drawable/sub_sphere" />-->
+
                 <ImageButton
                     android:id="@+id/suspicionNearestHospitalButtonSphere"
                     android:layout_width="100dp"

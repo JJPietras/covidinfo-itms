@@ -9,6 +9,7 @@ import android.location.LocationManager
 import android.provider.Settings
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentActivity
 import com.drzymalski.covidinfo.lib.Hospital
@@ -17,12 +18,19 @@ class LocationManager(private val suspicionFragment: SuspicionFragment) {
 
     var requested: Boolean = false
 
-    fun configureFindNearestHospitalButton(btn: ImageButton, view: View, act: FragmentActivity) {
+    fun configureFindNearestHospitalButton(
+        btn: ImageButton,
+        view: View,
+        act: FragmentActivity,
+        progressBar: ProgressBar
+    ) {
         btn.setOnClickListener {
+            progressBar.visibility = View.VISIBLE
+            btn.visibility = View.INVISIBLE
             val manager = act.getSystemService(Context.LOCATION_SERVICE) as LocationManager
             checkIfProviderEnabled(manager, act)
             if (checkIfPermissionsNotGranted(view, act)) return@setOnClickListener
-            else listen(manager)
+            else listen(manager, progressBar)
         }
     }
 
@@ -30,12 +38,14 @@ class LocationManager(private val suspicionFragment: SuspicionFragment) {
         suspicionFragment.reactOnChange(closestHospital)
 
     @SuppressLint("MissingPermission")
-    private fun listen(manager: LocationManager) {
+    private fun listen(manager: LocationManager, progressBar: ProgressBar) {
         if (!requested) {
             requested = true
             val provider = LocationManager.NETWORK_PROVIDER
             val listener = SingularListener(this)
             manager.requestSingleUpdate(provider, listener, null)
+        } else {
+            progressBar.visibility = View.INVISIBLE
         }
     }
 
