@@ -15,6 +15,5 @@ class DateConverter {
             val day = if (date.date < 10) "0" + date.date.toString() else date.date.toString()
             return "$month-$day"
         }
-
     }
 }

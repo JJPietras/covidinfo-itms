@@ -16,6 +16,7 @@ class TodayIllnessInitializer {
             .title("")
             .yAxisTitle("")
             .zoomType(AAChartZoomType.X)
+            .markerRadius(0f)
             .categories(data.stats.datesList.toTypedArray())
             .series(
                 arrayOf(
@@ -104,6 +105,7 @@ class TodayIllnessInitializer {
             .yAxisTitle("")
             .zoomType(AAChartZoomType.X)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .markerRadius(0f)
             .categories(data.stats.datesList.toTypedArray())
             .animationType(AAChartAnimationType.Bounce)
 

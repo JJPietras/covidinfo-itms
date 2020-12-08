@@ -8,12 +8,12 @@ import com.drzymalski.covidinfo.config.CountryConfig
 class CompareCasesStats {
     val totalCasesList = mutableListOf<Int>()
 
-    val newDeathsList = mutableListOf<Int>()
-    val newRecoveredList = mutableListOf<Int>()
+    private val newDeathsList = mutableListOf<Int>()
+    private val newRecoveredList = mutableListOf<Int>()
 
     val activeCasesList = mutableListOf<Int>()
 
-    val newCasesList = mutableListOf<Int>()
+    private val newCasesList = mutableListOf<Int>()
     val newCasesWeeklyList = mutableListOf<Float>()
     val newDeathsWeeklyList = mutableListOf<Float>()
     val newRecoveredWeeklyList = mutableListOf<Float>()
@@ -55,45 +55,49 @@ class CompareCasesStats {
                 sumRecovered += newRecoveredList[j].toFloat()
             }
             newCasesWeeklyList += (sumNew/count)
-            newDeathsWeeklyList += (sumNew/count)
-            newRecoveredWeeklyList += (sumNew/count)
+            newDeathsWeeklyList += (sumDeaths/count)
+            newRecoveredWeeklyList += (sumRecovered/count)
         }
     }
 
     fun calculateStats(covidData: List<CovidDay>){
-        clearData()
-        var lastCases = 0
-        var lastDeaths = 0
-        var lastRecovered = 0
+        try {
+            clearData()
+            var lastCases = 0
+            var lastDeaths = 0
+            var lastRecovered = 0
 
-        covidData.forEach { casesOnDay ->
-            run {
-                totalCasesList += casesOnDay.Confirmed
+            covidData.forEach { casesOnDay ->
+                run {
+                    totalCasesList += casesOnDay.Confirmed
 
-                activeCasesList += casesOnDay.Active
-                @Suppress("DEPRECATION")
-                datesList += DateConverter.formatDateShort(casesOnDay.Date)
-                datesFullList += DateConverter.formatDateFull(casesOnDay.Date)
+                    activeCasesList += casesOnDay.Active
+                    @Suppress("DEPRECATION")
+                    datesList += DateConverter.formatDateShort(casesOnDay.Date)
+                    datesFullList += DateConverter.formatDateFull(casesOnDay.Date)
 
-                if (lastDeaths==0) {lastDeaths = casesOnDay.Deaths}
-                else {
-                    newDeathsList += (casesOnDay.Deaths - lastDeaths)
-                    lastDeaths = casesOnDay.Deaths
-                }
+                    if (lastDeaths==0) {lastDeaths = casesOnDay.Deaths}
+                    else {
+                        newDeathsList += (casesOnDay.Deaths - lastDeaths)
+                        lastDeaths = casesOnDay.Deaths
+                    }
 
-                if (lastRecovered==0) {lastRecovered = casesOnDay.Recovered}
-                else {
-                    newRecoveredList += (casesOnDay.Recovered - lastRecovered)
-                    lastRecovered = casesOnDay.Recovered
-                }
+                    if (lastRecovered==0) {lastRecovered = casesOnDay.Recovered}
+                    else {
+                        newRecoveredList += (casesOnDay.Recovered - lastRecovered)
+                        lastRecovered = casesOnDay.Recovered
+                    }
 
-                if (lastCases==0) {lastCases = casesOnDay.Confirmed}
-                else {
-                    newCasesList += (casesOnDay.Confirmed - lastCases)
-                    lastCases = casesOnDay.Confirmed
+                    if (lastCases==0) {lastCases = casesOnDay.Confirmed}
+                    else {
+                        newCasesList += (casesOnDay.Confirmed - lastCases)
+                        lastCases = casesOnDay.Confirmed
+                    }
                 }
             }
+            getWeeklyAverage()
+        }catch (ex:Exception){
+            println(ex.message) //need to see the errors xd
         }
-        getWeeklyAverage()
     }
 }

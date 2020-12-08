@@ -16,6 +16,7 @@ class CompareInitializer {
             .yAxisTitle("")
             .zoomType(AAChartZoomType.X)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .markerRadius(0f)
             .categories(data.stats.first().datesList.toTypedArray())
             .series(
                 data.stats.map { stats ->
@@ -42,6 +43,7 @@ class CompareInitializer {
             .yAxisGridLineWidth(0f)
             //.markerRadius(2f)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .markerRadius(0f)
             .series(
                 data.stats.map { stats ->
                     AASeriesElement()
@@ -61,6 +63,7 @@ class CompareInitializer {
             .yAxisTitle("")
             .zoomType(AAChartZoomType.X)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .markerRadius(0f)
             .categories(data.stats.first().datesList.drop(1).toTypedArray())
             .series(
                 data.stats.map { stats ->
@@ -81,6 +84,7 @@ class CompareInitializer {
             .yAxisTitle("")
             .categories(data.stats.first().datesList.drop(1).toTypedArray())
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .markerRadius(0f)
             .zoomType(AAChartZoomType.X)
             .series(
                 data.stats.map { stats ->
@@ -100,6 +104,7 @@ class CompareInitializer {
             .title("")
             .yAxisTitle("")
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .markerRadius(0f)
             .categories(data.stats.first().datesList.toTypedArray())
             .animationType(AAChartAnimationType.Bounce)
             .zoomType(AAChartZoomType.X)

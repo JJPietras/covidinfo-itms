@@ -15,21 +15,12 @@ class CompareScreenData {
     val config: ConfigurationManager = ConfigurationManager()
 
     fun loadScreenResources(){
-        stats.clear()
         try {
             summaryData = ApiManager.getSummaryFromApi()
             summaryData.Countries = summaryData.Countries.filter{config.config.countries
                 .map{ countryConfig -> countryConfig.slug }.contains(it.Slug)}
         }catch (ex:Exception){
             println(ex.message) //need to see the errors xd
-        }
-        config.config.countriesToCompare.forEach { cntry ->
-            val covidData = ApiManager.getCovidDataFromApi(config.config.dateFrom,
-                DateConverter.formatDateFull(summaryData.Date), cntry.slug )
-            stats += CompareCasesStats().apply {
-                calculateStats(covidData)
-                country = cntry
-            }
         }
     }
 }

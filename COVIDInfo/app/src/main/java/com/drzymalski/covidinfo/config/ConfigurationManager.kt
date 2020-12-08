@@ -7,14 +7,14 @@ class ConfigurationManager {
 
     init {
         try {
-            //loadConfig()
+            loadConfig()
         } catch (ex: Exception){
             initializeAndSaveTheBasicConfig()
         }
         if (config.countries.size == 0) initializeAndSaveTheBasicConfig()
     }
 
-    private fun saveConfig(){
+    fun saveConfig(){
         Paper.book().write("config.json", config)
     }
 
@@ -82,7 +82,14 @@ class ConfigurationManager {
                 continent = "Europa"
                 color = "#009688"
                 code = "IT"
-            })
+            }/*,
+            CountryConfig().apply {
+                slug = "united-states"
+                name = "USA"
+                continent = "Ameryka Północna"
+                color = "#FFC107"
+                code = "US"
+            }*/)
         saveConfig()
     }
 

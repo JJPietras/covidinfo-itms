@@ -7,6 +7,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyNumberPickerTheme" parent="@android:style/Widget.Material.NumberPicker">
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:colorControlNormal">@color/colorPrimaryDark</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

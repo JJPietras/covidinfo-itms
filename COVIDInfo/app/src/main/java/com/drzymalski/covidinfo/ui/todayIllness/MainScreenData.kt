@@ -24,7 +24,7 @@ class MainScreenData {
         }catch (ex:Exception){
             println(ex.message) //need to see the errors xd
         }
-        covidData = ApiManager.getCovidDataFromApi(config.config.dateFrom,
+        covidData = ApiManager.getCovidDataFromApi(config.config.getDateFromMain(),
             DateConverter.formatDateFull(summaryData.Date), config.config.selectedCountry.slug )
         stats.calculateStats(covidData)
     }
