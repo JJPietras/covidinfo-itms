@@ -1,6 +1,4 @@
-package com.drzymalski.covidinfo.apiUtils.models;
+package com.drzymalski.covidinfo.apiUtils.models
 
 data class Global(val NewConfirmed: Int,val TotalConfirmed: Int, val NewDeaths: Int,
-                  val TotalDeaths: Int, val NewRecovered: Int, val TotalRecovered: Int) {
-
-}
+                  val TotalDeaths: Int, val NewRecovered: Int, val TotalRecovered: Int)

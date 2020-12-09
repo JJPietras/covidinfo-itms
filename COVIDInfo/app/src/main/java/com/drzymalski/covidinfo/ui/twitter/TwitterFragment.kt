@@ -71,7 +71,7 @@ class TwitterFragment : Fragment() {
             card_view.layoutParams = cv_layoutParams
             card_view.setContentPadding(25,25,25,25)
 
-            card_view.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary));
+            card_view.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
             card_view.radius = 50F
             twitterLayout.addView(card_view)
             //tło
@@ -93,7 +93,7 @@ class TwitterFragment : Fragment() {
                 LayoutParams.MATCH_PARENT
             )
 
-            linearLayout.setOrientation(LinearLayout.VERTICAL)
+            linearLayout.orientation = LinearLayout.VERTICAL
 
             card_view.addView(linearLayout)
 
@@ -105,7 +105,7 @@ class TwitterFragment : Fragment() {
                 LayoutParams.MATCH_PARENT,
                 LayoutParams.WRAP_CONTENT
             )
-            linearLayout2.setOrientation(LinearLayout.HORIZONTAL)
+            linearLayout2.orientation = LinearLayout.HORIZONTAL
             linearLayout.addView(linearLayout2)
             //1 textView w drugim LL
             val textView12 = TextView(requireContext())
@@ -117,8 +117,8 @@ class TwitterFragment : Fragment() {
             tv12_layoutParams.setMargins(25,20,0,0)
             textView12.layoutParams = tv12_layoutParams
             val typeface = ResourcesCompat.getFont(requireContext(), R.font.roboto_medium)
-            textView12.setTypeface(typeface)
-            textView12.setTextSize(TypedValue.COMPLEX_UNIT_SP,20F);
+            textView12.typeface = typeface
+            textView12.setTextSize(TypedValue.COMPLEX_UNIT_SP,20F)
             textView12.setTextColor(Color.parseColor("#7EFFFFFF"))
             textView12.text = "Ministerstwo Zdrowia"
             linearLayout2.addView(textView12)
@@ -134,8 +134,8 @@ class TwitterFragment : Fragment() {
             tv22_layoutParams.setMargins(50,20,0,0)
             textView22.layoutParams = tv22_layoutParams
             val typeface2 = ResourcesCompat.getFont(requireContext(), R.font.roboto)
-            textView22.setTypeface(typeface2)
-            textView22.setTextSize(TypedValue.COMPLEX_UNIT_SP,16F);
+            textView22.typeface = typeface2
+            textView22.setTextSize(TypedValue.COMPLEX_UNIT_SP,16F)
             textView22.setTextColor(Color.parseColor("#C4FFFFFF"))
             textView22.text = tweet.timestamp
             linearLayout2.addView(textView22)
@@ -167,7 +167,7 @@ class TwitterFragment : Fragment() {
             )
             textView.setPadding(25,10,25,10)
             textView.layoutParams = tv_layoutParams
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,18F);
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,18F)
             textView.setTextColor(Color.parseColor("#CBFFFFFF"))
             textView.text = tweet.tweetText
             linearLayout.addView(textView)

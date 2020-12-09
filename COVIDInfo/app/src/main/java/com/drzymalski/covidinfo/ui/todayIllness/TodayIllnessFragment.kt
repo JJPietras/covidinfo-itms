@@ -22,10 +22,19 @@ import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.config.CountryConfig
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
+import com.drzymalski.covidinfo.ui.settings.SettingsView
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
+
 import kotlinx.android.synthetic.main.fragment_today.*
+import kotlinx.android.synthetic.main.fragment_today.aaChartViewActiveCases
+import kotlinx.android.synthetic.main.fragment_today.aaChartViewDied
+import kotlinx.android.synthetic.main.fragment_today.aaChartViewNewCases
+import kotlinx.android.synthetic.main.fragment_today.aaChartViewRecovered
+import kotlinx.android.synthetic.main.fragment_today.aaChartViewTotalCases
+import kotlinx.android.synthetic.main.fragment_today.statisticsSettingsBtn
+import kotlinx.android.synthetic.main.fragment_today.root_layout
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch
@@ -80,6 +89,13 @@ class TodayIllnessFragment : Fragment() {
                 }
             )
         }
+
+        statisticsSettingsBtn.setOnClickListener{
+            val settingsView = SettingsView(requireContext(), root_layout)
+            settingsView.show()
+            println("AA")
+        }
+
         //statisticsCountriesLayout
         viewModel.nIncreaseCount.observe(viewLifecycleOwner, Observer {
             statisticsIncreaseNum.text = "${if (it > 0) "+" else ""}${it}"

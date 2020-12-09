@@ -32,6 +32,7 @@ class ApiManager {
                                      countDown()
                                  }catch (ex:OutOfMemoryError){//some memory alocation errors when the format does't match
                                      println(ex.message)
+                                     print(finalJsonContent)
                                  }
                              }
                          })

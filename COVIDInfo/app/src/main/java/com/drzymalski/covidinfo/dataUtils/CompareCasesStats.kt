@@ -10,31 +10,34 @@ class CompareCasesStats {
 
     private val newDeathsList = mutableListOf<Int>()
     private val newRecoveredList = mutableListOf<Int>()
+    private val newCasesList = mutableListOf<Int>()
 
     val activeCasesList = mutableListOf<Int>()
 
-    private val newCasesList = mutableListOf<Int>()
     val newCasesWeeklyList = mutableListOf<Float>()
     val newDeathsWeeklyList = mutableListOf<Float>()
     val newRecoveredWeeklyList = mutableListOf<Float>()
+
     val datesList = mutableListOf<String>()
-    val datesFullList = mutableListOf<String>()
+    //val datesFullList = mutableListOf<String>()
 
     var country: CountryConfig = CountryConfig()
 
-    private fun clearData(){
+    fun clearData(){
         totalCasesList.clear()
 
         newDeathsList.clear()
         newRecoveredList.clear()
+        newCasesList.clear()
 
         activeCasesList.clear()
 
-        newCasesList.clear()
         newCasesWeeklyList.clear()
+        newDeathsWeeklyList.clear()
+        newRecoveredWeeklyList.clear()
 
         datesList.clear()
-        datesFullList.clear()
+        //datesFullList.clear()
     }
 
     private fun getWeeklyAverage(){
@@ -58,6 +61,10 @@ class CompareCasesStats {
             newDeathsWeeklyList += (sumDeaths/count)
             newRecoveredWeeklyList += (sumRecovered/count)
         }
+
+        newCasesList.clear()
+        newDeathsList.clear()
+        newRecoveredList.clear()
     }
 
     fun calculateStats(covidData: List<CovidDay>){
@@ -74,7 +81,7 @@ class CompareCasesStats {
                     activeCasesList += casesOnDay.Active
                     @Suppress("DEPRECATION")
                     datesList += DateConverter.formatDateShort(casesOnDay.Date)
-                    datesFullList += DateConverter.formatDateFull(casesOnDay.Date)
+                    //datesFullList += DateConverter.formatDateFull(casesOnDay.Date)
 
                     if (lastDeaths==0) {lastDeaths = casesOnDay.Deaths}
                     else {
