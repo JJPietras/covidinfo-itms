@@ -1,13 +1,32 @@
 package com.drzymalski.covidinfo.ui.compare
 
+import com.drzymalski.covidinfo.apiUtils.ApiManager
+import com.drzymalski.covidinfo.apiUtils.models.SummaryData
+import com.drzymalski.covidinfo.config.ConfigurationManager
+import com.drzymalski.covidinfo.dataUtils.CompareCasesStats
+import com.drzymalski.covidinfo.interfaces.DataInitializer
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAScrollablePlotArea
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
 import com.github.aachartmodel.aainfographics.aatools.AAColor
 
-class CompareInitializer {
-    val data = CompareScreenData()
+class CompareInitializer: DataInitializer {
+    lateinit var summaryData: SummaryData
+
+    val stats = mutableListOf<CompareCasesStats>()
+
+    override val config: ConfigurationManager = ConfigurationManager()
+
+    fun loadScreenResources(){
+        try {
+            summaryData = ApiManager.getSummaryFromApi()
+            summaryData.Countries = summaryData.Countries.filter{config.config.countries
+                .map{ countryConfig -> countryConfig.slug }.contains(it.Slug)}
+        }catch (ex:Exception){
+            println(ex.message) //need to see the errors xd
+        }
+    }
 
     fun configureTotalCasesBarChart(): AAOptions {
         val aaChartModel = AAChartModel()
@@ -17,9 +36,9 @@ class CompareInitializer {
             .zoomType(AAChartZoomType.X)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
-            .categories(data.stats.first().datesList.toTypedArray())
+            .categories(stats.first().datesList.toTypedArray())
             .series(
-                data.stats.map { stats ->
+                stats.map { stats ->
                     AASeriesElement()
                         .name(stats.country.name)
                         .lineWidth(2f)
@@ -37,7 +56,7 @@ class CompareInitializer {
             .chartType(AAChartType.Spline)
             .title("")
             .subtitle("")
-            .categories(data.stats.first().datesList.drop(1).toTypedArray())
+            .categories(stats.first().datesList.drop(1).toTypedArray())
             .yAxisTitle("")
             .zoomType(AAChartZoomType.X)
             .yAxisGridLineWidth(0f)
@@ -45,7 +64,7 @@ class CompareInitializer {
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
             .series(
-                data.stats.map { stats ->
+                stats.map { stats ->
                     AASeriesElement()
                         .name(stats.country.name)
                         .lineWidth(2f)
@@ -64,9 +83,9 @@ class CompareInitializer {
             .zoomType(AAChartZoomType.X)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
-            .categories(data.stats.first().datesList.drop(1).toTypedArray())
+            .categories(stats.first().datesList.drop(1).toTypedArray())
             .series(
-                data.stats.map { stats ->
+                stats.map { stats ->
                     AASeriesElement()
                         .name(stats.country.name)
                         .lineWidth(2f)
@@ -82,12 +101,12 @@ class CompareInitializer {
             .chartType(AAChartType.Spline)
             .title("")
             .yAxisTitle("")
-            .categories(data.stats.first().datesList.drop(1).toTypedArray())
+            .categories(stats.first().datesList.drop(1).toTypedArray())
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
             .zoomType(AAChartZoomType.X)
             .series(
-                data.stats.map { stats ->
+                stats.map { stats ->
                     AASeriesElement()
                         .name(stats.country.name)
                         .lineWidth(2f)
@@ -105,11 +124,11 @@ class CompareInitializer {
             .yAxisTitle("")
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
-            .categories(data.stats.first().datesList.toTypedArray())
+            .categories(stats.first().datesList.toTypedArray())
             .animationType(AAChartAnimationType.Bounce)
             .zoomType(AAChartZoomType.X)
             .series(
-                data.stats.map { stats ->
+                stats.map { stats ->
                     AASeriesElement()
                         .name(stats.country.name)
                         .lineWidth(2f)
@@ -118,23 +137,6 @@ class CompareInitializer {
                 }.toTypedArray()
             )
         return getChartOptions(aaChartModel)
-    }
-
-    private fun getChartOptions(aaChartModel: AAChartModel): AAOptions {
-        val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
-        aaOptions.tooltip!!
-            .shared(true)
-            .style(AAStyle().color(AAColor.blackColor()))
-            .backgroundColor(AAColor.rgbaColor(180, 180, 180, 0.9f))
-            /*.useHTML(true)
-            .headerFormat("<small style=\\\"color: brown;\\\">{point.key}</small><table style=\\\"color: brown;\\\">")
-            .pointFormat(
-                "<tr><td><li></li></td><td><small>{point.series.name}: </small></td> <td><small>{point.y}</small></td></tr>"
-            )
-            .footerFormat("</table>")*/
-            //.backgroundColor(AAColor.grayColor())
-            .valueDecimals(0)
-        return aaOptions
     }
 
 }

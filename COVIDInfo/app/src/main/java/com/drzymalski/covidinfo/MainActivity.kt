@@ -1,6 +1,7 @@
 package com.drzymalski.covidinfo
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.drawerlayout.widget.DrawerLayout
@@ -31,13 +32,16 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_compare,
                 R.id.nav_tweeter,
                 R.id.nav_hospitals,
-                R.id.nav_suspicion,
-                R.id.nav_test
+                R.id.nav_suspicion
             ), drawerLayout
         )
         navView.setupWithNavController(navController)
     }
 
+   /* override fun onBackPressed() {
+        Toast.makeText(this, "Back Press", Toast.LENGTH_SHORT).show()
+        super.onBackPressed()
+    }*/
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()

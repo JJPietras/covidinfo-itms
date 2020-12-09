@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<ScrollView
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linear_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackgroundDark">
+
+<LinearLayout
+    android:id="@+id/linear_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/colorBackgroundDark"
     android:padding="20dp"
@@ -34,7 +40,7 @@
                 android:textSize="22sp" />
 
             <NumberPicker
-                android:id="@+id/daysPickerToday"
+                android:id="@+id/daysPicker"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
 
@@ -72,27 +78,85 @@
                     android:layout_weight="0.5"
                     android:background="#00FFFFFF"
                     android:gravity="end"
-                    android:scaleX="-1.0"
+                    android:scaleY="-1.0"
                     app:srcCompat="@drawable/ic_less" />
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Settings bich"
-                android:textColor="@color/colorTextOnBlack"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                />
+            <LinearLayout
+                android:id="@+id/statisticsCountriesLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"
+                android:animateLayoutChanges="true"
+
+                android:visibility="gone">
+
+
+            </LinearLayout>
 
             <Button
-                android:id="@+id/button_popup"
+                android:id="@+id/addCountryBtn"
                 android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="#5C6BC0"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Dodaj kraj"
+                android:textColor="#D5FFFFFF"
+                android:textSize="20sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kill Me"
-                />
+                android:gravity="center"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/closeBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="#F44336"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Anuluj"
+                    android:textColor="#D5FFFFFF"
+                    android:textSize="20sp" />
+                <Button
+                    android:id="@+id/saveBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="#5C6BC0"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Zapisz"
+                    android:textColor="#D5FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
         </LinearLayout>
 
-
 </LinearLayout>
+
+</ScrollView>

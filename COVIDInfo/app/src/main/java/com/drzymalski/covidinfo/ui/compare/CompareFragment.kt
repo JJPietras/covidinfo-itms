@@ -5,13 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.apiUtils.ApiManager
+import com.drzymalski.covidinfo.config.CountryConfig
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.dataUtils.CompareCasesStats
 import com.drzymalski.covidinfo.dataUtils.DateConverter
+import com.drzymalski.covidinfo.interfaces.FragmentSettings
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.drzymalski.covidinfo.ui.settings.SettingsView
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
@@ -28,7 +31,7 @@ import kotlinx.android.synthetic.main.fragment_compare.daysPicker
 import kotlinx.coroutines.*
 import kotlin.math.abs
 
-class CompareFragment : Fragment() {
+class CompareFragment : Fragment(), FragmentSettings {
 
     private lateinit var viewModel: CompareViewModel
     private var initializer: CompareInitializer = CompareInitializer()
@@ -49,7 +52,7 @@ class CompareFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val job = GlobalScope.launch {
-            initializer.data.loadScreenResources()
+            initializer.loadScreenResources()
             loadComparison()
         }
         jobs.plusAssign(job)
@@ -61,19 +64,22 @@ class CompareFragment : Fragment() {
         )
 
         statisticsSettingsBtn.setOnClickListener{
-            val settingsView = SettingsView(requireContext(), root_layout)
-            settingsView.show()
+            val settingsView = SettingsView(requireContext(), root_layout, initializer.config.config.countriesToCompare, initializer.config.config.daysBackCompare, this)
+            val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+                settingsView.close()
+            }
+            settingsView.show(callback)
         }
 
         statisticsReload.setOnClickListener {
-            initializer.data.config.config.daysBackCompare = daysPicker.value.toLong()
-            initializer.data.config.saveConfig()
+            initializer.config.config.daysBackCompare = daysPicker.value.toLong()
+            initializer.config.saveConfig()
             loadComparison()
             daysChanged = false
         }
         daysPicker.minValue = 7
         daysPicker.maxValue = 365
-        daysPicker.value = initializer.data.config.config.daysBackCompare.toInt()
+        daysPicker.value = initializer.config.config.daysBackCompare.toInt()
         daysPicker.setOnValueChangedListener { _, _, _ ->
             daysChanged = true
         }
@@ -103,13 +109,13 @@ class CompareFragment : Fragment() {
         try{
             clearJobs()
             dataSize = 0
-            initializer.data.stats.clear()
-            initializer.data.config.config.countriesToCompare.forEach { cntry ->
+            initializer.stats.clear()
+            initializer.config.config.countriesToCompare.forEach { cntry ->
                     val job = GlobalScope.launch {
                     var refresh = false
-                    val covidData = ApiManager.getCovidDataFromApi(initializer.data.config.config.getDateFromCompare(),
-                    DateConverter.formatDateFull(initializer.data.summaryData.Date), cntry.slug )
-                    initializer.data.stats += CompareCasesStats().apply {
+                    val covidData = ApiManager.getCovidDataFromApi(initializer.config.config.getDateFromCompare(),
+                    DateConverter.formatDateFull(initializer.summaryData.Date), cntry.slug )
+                    initializer.stats += CompareCasesStats().apply {
                         if (dataSize==0) dataSize = covidData.size
                         if (abs(dataSize-covidData.size) < 5){
                             if (dataSize<covidData.size) dataSize = covidData.size
@@ -138,6 +144,17 @@ class CompareFragment : Fragment() {
             }
         }
         jobs.clear()
+    }
+
+    override fun applySettings(countries: MutableList<CountryConfig>, daysBack: Long){
+        this.initializer.config.config.countriesToCompare = countries
+        this.initializer.config.config.daysBackCompare = daysBack
+        this.initializer.config.saveConfig()
+        daysPicker.value = daysBack.toInt()
+
+        GlobalScope.launch {
+            loadComparison()
+        }
     }
 
 }

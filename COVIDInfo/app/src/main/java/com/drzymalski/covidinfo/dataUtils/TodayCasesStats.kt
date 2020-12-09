@@ -2,7 +2,7 @@ package com.drzymalski.covidinfo.dataUtils
 
 import com.drzymalski.covidinfo.apiUtils.models.CovidDay
 
-class TodayCasesStats {
+class TodayCasesStats{
     val totalCasesList = mutableListOf<Int>()
 
     val newDeathsList = mutableListOf<Int>()

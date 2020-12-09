@@ -57,11 +57,6 @@
             app:destination="@id/nav_selector" />
     </fragment>
     <fragment
-        android:id="@+id/nav_test"
-        android:name="com.drzymalski.covidinfo.ui.test.TestFragment"
-        android:label="@string/menu_test"
-        tools:layout="@layout/fragment_test" />
-    <fragment
         android:id="@+id/nav_selector"
         android:name="com.drzymalski.covidinfo.ui.selector.SelectorFragment"
         android:label="SELECTOR"

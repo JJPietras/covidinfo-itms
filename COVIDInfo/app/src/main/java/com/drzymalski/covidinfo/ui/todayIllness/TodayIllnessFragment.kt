@@ -10,10 +10,9 @@ import android.view.Gravity.CENTER
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
+import androidx.activity.addCallback
+import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -21,10 +20,10 @@ import androidx.lifecycle.ViewModelProviders
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.config.CountryConfig
+import com.drzymalski.covidinfo.interfaces.FragmentSettings
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.drzymalski.covidinfo.ui.settings.SettingsView
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 
 import kotlinx.android.synthetic.main.fragment_today.*
@@ -40,7 +39,7 @@ import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch
 
 
-class TodayIllnessFragment : Fragment() {
+class TodayIllnessFragment : Fragment(), FragmentSettings {
 
     private lateinit var viewModel: TodayIllnessViewModel
 
@@ -91,9 +90,12 @@ class TodayIllnessFragment : Fragment() {
         }
 
         statisticsSettingsBtn.setOnClickListener{
-            val settingsView = SettingsView(requireContext(), root_layout)
-            settingsView.show()
-            println("AA")
+            val settingsView = SettingsView(requireContext(), root_layout, initializer.config.config.countries, initializer.config.config.daysBackToday, this)
+
+            val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+                settingsView.close()
+            }
+            settingsView.show(callback)
         }
 
         //statisticsCountriesLayout
@@ -122,8 +124,7 @@ class TodayIllnessFragment : Fragment() {
 
     private fun configureButton(button: ImageButton, dayValue: Int, greater: Boolean) =
         button.setOnClickListener {
-
-            val lastIndex = initializer.data.stats.datesFullList.lastIndex
+            val lastIndex = initializer.stats.datesFullList.lastIndex
             val calculatedCondition = if (greater) selectedDay > 1 else selectedDay < lastIndex
 
             if (calculatedCondition) {
@@ -143,12 +144,12 @@ class TodayIllnessFragment : Fragment() {
         liveData.observe(viewLifecycleOwner, Observer { textView.text = it.toString() })
 
     private fun buttonVisibility() {
-        val currentDay = selectedDay == initializer.data.stats.datesFullList.lastIndex - 1
+        val currentDay = selectedDay == initializer.stats.datesFullList.lastIndex - 1
         statisticsNextDay.visibility = if (currentDay) View.INVISIBLE else View.VISIBLE
         statisticsPrevDay.visibility = if (selectedDay == 1) View.INVISIBLE else View.VISIBLE
     }
 
-    private fun configurateCharts(){
+    private fun configureCharts(){
         try {
             configureChart(aaChartViewNewCases, initializer.configureNewCasesBarChart())
             configureChart(aaChartViewTotalCases, initializer.configureTotalCasesBarChart())
@@ -161,15 +162,14 @@ class TodayIllnessFragment : Fragment() {
     }
 
     private fun setData() {
-        if (selectedDay > 0 && selectedDay < initializer.data.stats.datesFullList.lastIndex) {
+        if (selectedDay > 0 && selectedDay < initializer.stats.datesFullList.lastIndex) {
 
-            val data = initializer.data
-            val newCasesList = data.stats.newCasesList
+            val newCasesList = initializer.stats.newCasesList
 
-            viewModel.dateLive.postValue(data.stats.datesFullList[selectedDay + 1])
-            viewModel.confirmedLive.postValue(data.stats.newCasesList[selectedDay])
-            viewModel.deathsLive.postValue(data.stats.newDeathsList[selectedDay])
-            viewModel.recoveredLive.postValue(data.stats.newRecoveredList[selectedDay])
+            viewModel.dateLive.postValue(initializer.stats.datesFullList[selectedDay + 1])
+            viewModel.confirmedLive.postValue(initializer.stats.newCasesList[selectedDay])
+            viewModel.deathsLive.postValue(initializer.stats.newDeathsList[selectedDay])
+            viewModel.recoveredLive.postValue(initializer.stats.newRecoveredList[selectedDay])
 
             viewModel.calcIncrease(
                 newCasesList[selectedDay],
@@ -178,32 +178,25 @@ class TodayIllnessFragment : Fragment() {
         }
     }
 
-    private fun refresh(chart: AAChartView, data: MutableList<Int>){ // way to asynchronously refresh chart data plz do not delet
-        val aaSeriesElementsArr: Array<AASeriesElement> = arrayOf(AASeriesElement()
-            .data(data.toTypedArray()))
-        chart.post(Runnable {
-            chart.aa_onlyRefreshTheChartDataWithChartOptionsSeriesArray( //aa_chart function does not work
-                aaSeriesElementsArr
-            )
-        })
-    }
-
-    private fun refresh(chart: AAChartView, options: AAOptions){
-        chart.post(Runnable {
-            chart.aa_refreshChartWithChartOptions( //aa_chart function does not work
-                initializer.configureNewCasesBarChart()
-            )
-        })
-    }
-
     private fun generateCountryButtons(){
         try{
-            initializer.data.config.config.countries.forEach{ countryConfig ->
-                val data = initializer.data.summaryData.Countries.find { countryConfig.slug == it.Slug }
+            val tvBanner = TextView(this.context).apply {
+                textSize = 30f
+                text = "Wybierz kraj"
+                setTextColor(Color.parseColor("#91ABED"))
+                gravity = CENTER
+            }
+            statisticsCountriesLayout.post(Runnable {
+                statisticsCountriesLayout.addView(tvBanner)
+            })
+
+            initializer.config.config.countries.forEach{ countryConfig ->
+                val data = initializer.summaryData.Countries.find { countryConfig.slug == it.Slug }
                 if (data != null){
                     val button = Button(this.context).apply {
                         layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
                             ActionBar.LayoutParams.WRAP_CONTENT, 0.6f)
+
                         val shape = GradientDrawable()
 
                         shape.cornerRadius = 100f
@@ -271,19 +264,18 @@ class TodayIllnessFragment : Fragment() {
 
     private fun loadDataAndRefresh(){
         try { // Prevents crashing when data was loaded after changing or refreshing the fragment
-            initializer.data.loadMainScreenResouces()
-            selectedDay = initializer.data.stats.datesFullList.lastIndex - 1
+            initializer.loadMainScreenResources()
+            selectedDay = initializer.stats.datesFullList.lastIndex - 1
             setData()
             buttonVisibility()
-            configurateCharts()
-
+            configureCharts()
         }catch (ex: Exception){ // No action will be taken
             println(ex)
         }
     }
 
     private fun changeCountry(countryConfig: CountryConfig){
-        initializer.data.config.config.selectedCountry = countryConfig
+        initializer.config.config.selectedCountry = countryConfig
         viewModel.codeLive.postValue(countryConfig.code)
 
         viewModel.dateLive.postValue("Wczytywanie")
@@ -299,4 +291,16 @@ class TodayIllnessFragment : Fragment() {
         }
     }
 
+    override fun applySettings(countries: MutableList<CountryConfig>, daysBack: Long){
+        this.initializer.config.config.countries = countries
+        this.initializer.config.config.daysBackToday = daysBack
+        this.initializer.config.saveConfig()
+        GlobalScope.launch {
+            loadDataAndRefresh()
+        }
+        statisticsCountriesLayout.post(Runnable {
+            statisticsCountriesLayout.removeAllViews()
+        })
+        generateCountryButtons()
+    }
 }

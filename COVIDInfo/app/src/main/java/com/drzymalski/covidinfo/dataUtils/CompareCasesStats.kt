@@ -1,16 +1,14 @@
 package com.drzymalski.covidinfo.dataUtils
 
-import android.media.audiofx.DynamicsProcessing
 import com.drzymalski.covidinfo.apiUtils.models.CovidDay
-import com.drzymalski.covidinfo.config.Config
 import com.drzymalski.covidinfo.config.CountryConfig
 
-class CompareCasesStats {
+class CompareCasesStats{
     val totalCasesList = mutableListOf<Int>()
 
-    private val newDeathsList = mutableListOf<Int>()
-    private val newRecoveredList = mutableListOf<Int>()
-    private val newCasesList = mutableListOf<Int>()
+    val newDeathsList = mutableListOf<Int>()
+    val newRecoveredList = mutableListOf<Int>()
+    val newCasesList = mutableListOf<Int>()
 
     val activeCasesList = mutableListOf<Int>()
 
