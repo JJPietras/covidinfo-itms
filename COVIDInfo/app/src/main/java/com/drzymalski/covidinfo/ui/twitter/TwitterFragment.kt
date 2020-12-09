@@ -10,8 +10,6 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -54,26 +52,26 @@ class TwitterFragment : Fragment() {
         getPosts()
     }
 
-    fun getPosts(): Unit {
+    private fun getPosts() {
         val twitterScraper = TwitterScraper.builder().build()
         val tweets = twitterScraper.getUserTimeline("MZ_GOV_PL")
         for (tweet in tweets) {
             println(tweet)
-            val card_view = CardView(requireContext())
+            val cardView = CardView(requireContext())
 
             // Initialize a new LayoutParams instance, CardView width and height
-            val cv_layoutParams = LayoutParams(
+            val cvLayoutParams = LayoutParams(
                 LayoutParams.MATCH_PARENT, // CardView width
                 LayoutParams.WRAP_CONTENT // CardView height
             )
 
-            cv_layoutParams.setMargins(0,40,0,0)
-            card_view.layoutParams = cv_layoutParams
-            card_view.setContentPadding(25,25,25,25)
+            cvLayoutParams.setMargins(0,40,0,0)
+            cardView.layoutParams = cvLayoutParams
+            //cardView.setContentPadding(25,25,25,25)
 
-            card_view.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
-            card_view.radius = 50F
-            twitterLayout.addView(card_view)
+            cardView.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
+            cardView.radius = 170F
+            twitterLayout.addView(cardView)
             //tło
             val imageView = ImageView(requireContext())
 
@@ -84,7 +82,7 @@ class TwitterFragment : Fragment() {
                 LayoutParams.MATCH_PARENT
             )
 
-            card_view.addView(imageView)
+            cardView.addView(imageView)
             //pierwszy LL
             val linearLayout = LinearLayout(requireContext())
 
@@ -95,7 +93,7 @@ class TwitterFragment : Fragment() {
 
             linearLayout.orientation = LinearLayout.VERTICAL
 
-            card_view.addView(linearLayout)
+            cardView.addView(linearLayout)
 
 
             //drugi LL
@@ -107,15 +105,16 @@ class TwitterFragment : Fragment() {
             )
             linearLayout2.orientation = LinearLayout.HORIZONTAL
             linearLayout.addView(linearLayout2)
+
             //1 textView w drugim LL
             val textView12 = TextView(requireContext())
-            val tv12_layoutParams = LayoutParams(
+            val tv12LayoutParams = LayoutParams(
                 LayoutParams.WRAP_CONTENT, // CardView width
                 LayoutParams.WRAP_CONTENT // CardView height
             )
+            tv12LayoutParams.setMargins(80, 60, 0, 0)
 //            textView12.setPadding(25,10,25,10)
-            tv12_layoutParams.setMargins(25,20,0,0)
-            textView12.layoutParams = tv12_layoutParams
+            textView12.layoutParams = tv12LayoutParams
             val typeface = ResourcesCompat.getFont(requireContext(), R.font.roboto_medium)
             textView12.typeface = typeface
             textView12.setTextSize(TypedValue.COMPLEX_UNIT_SP,20F)
@@ -125,14 +124,15 @@ class TwitterFragment : Fragment() {
 
             //2 textView w drugim LL
             val textView22 = TextView(requireContext())
-            val tv22_layoutParams = LayoutParams(
+            val tv22LayoutParams = LayoutParams(
                 0, // CardView width
                 LayoutParams.WRAP_CONTENT,
                 0.1F // CardView height
             )
-//            textView12.setPadding(25,10,25,10)
-            tv22_layoutParams.setMargins(50,20,0,0)
-            textView22.layoutParams = tv22_layoutParams
+            tv22LayoutParams.setMargins(40, 60, 0, 0)
+            tv22LayoutParams.weight = 0.1F
+            textView22.layoutParams = tv22LayoutParams
+
             val typeface2 = ResourcesCompat.getFont(requireContext(), R.font.roboto)
             textView22.typeface = typeface2
             textView22.setTextSize(TypedValue.COMPLEX_UNIT_SP,16F)
@@ -142,31 +142,35 @@ class TwitterFragment : Fragment() {
 
             //ikonka Twittera
             val imageButton = ImageButton(requireContext())
-            val imgbtn_params = LayoutParams(
+            val imgBtnParams = LayoutParams(
                 LayoutParams.WRAP_CONTENT, // CardView width
                 LayoutParams.WRAP_CONTENT
             )
-//            textView12.setPadding(25,10,25,10)
-            imgbtn_params.setMargins(0,0,20,-10)
-            imgbtn_params.gravity = Gravity.END or Gravity.BOTTOM  // bottom-right
-            imageButton.layoutParams = imgbtn_params
+            imgBtnParams.setMargins(0,30,100,0)
+            imgBtnParams.gravity = Gravity.END or Gravity.BOTTOM  // bottom-right
+            imageButton.layoutParams = imgBtnParams
             imageButton.setImageResource(R.drawable.ic_twitter_small)
             imageButton.setBackgroundColor(Color.parseColor("#00FFFFFF"))
 
-            imageButton.setOnClickListener(View.OnClickListener {
+            imageButton.setOnClickListener {
                 val browserIntent =
-                    Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/MZ_GOV_PL/status/" + tweet.tweetID))
-                startActivity(browserIntent) })
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://twitter.com/MZ_GOV_PL/status/" + tweet.tweetID)
+                    )
+                startActivity(browserIntent)
+            }
             linearLayout2.addView(imageButton)
 
             //textview do pierwszego LL
             val textView = TextView(requireContext())
-            val tv_layoutParams = LayoutParams(
+            val tvLayoutParams = LayoutParams(
                 LayoutParams.MATCH_PARENT, // CardView width
                 LayoutParams.WRAP_CONTENT // CardView height
             )
-            textView.setPadding(25,10,25,10)
-            textView.layoutParams = tv_layoutParams
+            tvLayoutParams.setMargins(80, 0, 80, 0)
+            textView.setPadding(0,0,0,100)
+            textView.layoutParams = tvLayoutParams
             textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,18F)
             textView.setTextColor(Color.parseColor("#CBFFFFFF"))
             textView.text = tweet.tweetText
