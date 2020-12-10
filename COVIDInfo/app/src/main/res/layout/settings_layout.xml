@@ -32,7 +32,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/roboto_medium"
                 android:gravity="center"
                 android:text="Dni wstecz"
@@ -46,7 +47,7 @@
 
                 android:layout_marginStart="50dp"
                 android:layout_marginEnd="50dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
 
 
                 android:theme="@style/MyNumberPickerTheme" />
@@ -78,7 +79,7 @@
                     android:layout_weight="0.5"
                     android:background="#00FFFFFF"
                     android:gravity="end"
-                    android:scaleY="-1.0"
+                    android:scaleY="1.0"
                     app:srcCompat="@drawable/ic_less" />
 
             </LinearLayout>
@@ -92,8 +93,57 @@
                 android:orientation="vertical"
                 android:animateLayoutChanges="true"
 
-                android:visibility="gone">
+                android:visibility="visible">
 
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:text="Dodawanie kraju"
+                android:textColor="@color/colorTextOnBlack"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                style="@android:style/Widget.Spinner.DropDown"
+
+                android:id="@+id/spinner_view"
+                android:layout_width="200dp"
+                android:layout_height="50sp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+                <Button
+                    android:id="@+id/addColorBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50sp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="#5C6BC0"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Wybierz kolor"
+                    android:textColor="#D5FFFFFF"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -105,7 +155,7 @@
                 android:paddingEnd="30dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="40dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="#5C6BC0"
@@ -113,6 +163,7 @@
                 android:text="Dodaj kraj"
                 android:textColor="#D5FFFFFF"
                 android:textSize="20sp" />
+
 
 
             <LinearLayout

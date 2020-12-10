@@ -90,7 +90,13 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         }
 
         statisticsSettingsBtn.setOnClickListener{
-            val settingsView = SettingsView(requireContext(), root_layout, initializer.config.config.countries, initializer.config.config.daysBackToday, this)
+            val settingsView = SettingsView(
+                requireContext(),
+                root_layout,
+                initializer.config.config.countries,
+                initializer.config.config.daysBackToday,
+                this
+            )
 
             val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
                 settingsView.close()
@@ -98,7 +104,6 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
             settingsView.show(callback)
         }
 
-        //statisticsCountriesLayout
         viewModel.nIncreaseCount.observe(viewLifecycleOwner, Observer {
             statisticsIncreaseNum.text = "${if (it > 0) "+" else ""}${it}"
             statisticsIncreaseNum.setTextColor(
@@ -180,6 +185,10 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
 
     private fun generateCountryButtons(){
         try{
+            statisticsCountriesLayout.post(Runnable {
+                statisticsCountriesLayout.removeAllViews()
+            })
+
             val tvBanner = TextView(this.context).apply {
                 textSize = 30f
                 text = "Wybierz kraj"
@@ -297,10 +306,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         this.initializer.config.saveConfig()
         GlobalScope.launch {
             loadDataAndRefresh()
+            generateCountryButtons()
         }
-        statisticsCountriesLayout.post(Runnable {
-            statisticsCountriesLayout.removeAllViews()
-        })
-        generateCountryButtons()
     }
 }
