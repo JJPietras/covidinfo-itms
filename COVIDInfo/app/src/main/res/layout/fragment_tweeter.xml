@@ -95,7 +95,7 @@
                         android:layout_marginTop="150dp"
                         android:layout_marginEnd="-1dp"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="Ministerstwo Zdrowia"
+                        android:text="Ładowanie..."
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"
                         android:textSize="22sp" />
@@ -112,7 +112,7 @@
                         android:layout_marginTop="183dp"
                         android:layout_marginEnd="60dp"
                         android:fontFamily="@font/roboto"
-                        android:text="Oficjalny profil Ministerstwa Zdrowia"
+                        android:text="Ładowanie..."
                         android:textAlignment="center"
                         android:textColor="#59FFFFFF"
                         android:textSize="18sp" />
@@ -129,7 +129,7 @@
                         android:layout_marginTop="207dp"
                         android:layout_marginEnd="60dp"
                         android:fontFamily="@font/roboto_medium"
-                        android:text="#@MZ_GOV_PL"
+                        android:text="Ładowanie..."
                         android:textAlignment="center"
                         android:textColor="#59FFFFFF"
                         android:textSize="18sp" />
@@ -159,7 +159,7 @@
                         android:layout_marginStart="145dp"
                         android:layout_marginTop="255dp"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="1107"
+                        android:text="..."
                         android:textAlignment="center"
                         android:textColor="#B0FFFFFF"
                         android:textSize="14sp" />
@@ -174,7 +174,7 @@
                         android:layout_marginTop="255dp"
                         android:layout_marginEnd="30dp"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="353132"
+                        android:text="..."
                         android:textAlignment="center"
                         android:textColor="#B0FFFFFF"
                         android:textSize="14sp" />
@@ -189,7 +189,7 @@
                         android:layout_marginTop="254dp"
                         android:layout_marginEnd="90dp"
                         android:fontFamily="@font/roboto"
-                        android:text="Obserwyjących:"
+                        android:text="Obserwujących:"
                         android:textAlignment="center"
                         android:textColor="#59FFFFFF"
                         android:textSize="14sp" />
@@ -225,88 +225,88 @@
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-            android:id="@+id/tweetOne"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="-10dp"
-            android:layout_marginBottom="0dp"
-            app:cardCornerRadius="50dp">
+<!--            <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/tweetOne"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="-10dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginEnd="-10dp"-->
+<!--            android:layout_marginBottom="0dp"-->
+<!--            app:cardCornerRadius="50dp">-->
 
-            <ImageView
-                android:id="@+id/twitterBackground2"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:src="@drawable/side_nav_bar"
-                app:srcCompat="@drawable/side_nav_bar"
-                android:contentDescription="TODO" />
+<!--            <ImageView-->
+<!--                android:id="@+id/twitterBackground2"-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="fill_parent"-->
+<!--                android:src="@drawable/side_nav_bar"-->
+<!--                app:srcCompat="@drawable/side_nav_bar"-->
+<!--                android:contentDescription="TODO" />-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical">-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <TextView
-                        android:id="@+id/twitterTitle10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="0dp"
-                        android:fontFamily="@font/roboto_medium"
-                        android:text="Ministerstwo Zdrowia"
-                        android:textAlignment="center"
-                        android:textColor="#7EFFFFFF"
-                        android:textSize="20sp" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/twitterTitle10"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="30dp"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:layout_marginEnd="0dp"-->
+<!--                        android:fontFamily="@font/roboto_medium"-->
+<!--                        android:text="Ministerstwo Zdrowia"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="#7EFFFFFF"-->
+<!--                        android:textSize="20sp" />-->
 
-                    <TextView
-                        android:id="@+id/twitterTitle13"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="0dp"
-                        android:layout_weight="0.1"
-                        android:fontFamily="@font/roboto"
-                        android:text="10:30 AM * 5 lis"
-                        android:textAlignment="center"
-                        android:textColor="#C4FFFFFF"
-                        android:textSize="16sp" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/twitterTitle13"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="0dp"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:layout_marginEnd="0dp"-->
+<!--                        android:layout_weight="0.1"-->
+<!--                        android:fontFamily="@font/roboto"-->
+<!--                        android:text="10:30 AM * 5 lis"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="#C4FFFFFF"-->
+<!--                        android:textSize="16sp" />-->
 
-                    <ImageButton
-                        android:id="@+id/menuButton4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="17dp"
-                        android:layout_marginEnd="40dp"
-                        android:background="#00FFFFFF"
-                        app:layout_anchorGravity="end|bottom"
-                        app:srcCompat="@drawable/ic_twitter_small"
-                        android:contentDescription="TODO" />
-                </LinearLayout>
+<!--                    <ImageButton-->
+<!--                        android:id="@+id/menuButton4"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="17dp"-->
+<!--                        android:layout_marginEnd="40dp"-->
+<!--                        android:background="#00FFFFFF"-->
+<!--                        app:layout_anchorGravity="end|bottom"-->
+<!--                        app:srcCompat="@drawable/ic_twitter_small"-->
+<!--                        android:contentDescription="TODO" />-->
+<!--                </LinearLayout>-->
 
-                <TextView
-                    android:id="@+id/twitterTitle11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="Liczba zakażonych koronawirusem: 466 679/6 842 (wszystkie pozytywne przypadki/w tym osoby zmarłe)."
-                    android:textColor="#CBFFFFFF"
-                    android:textSize="18sp" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/twitterTitle11"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="30dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    android:layout_marginBottom="20dp"-->
+<!--                    android:fontFamily="@font/roboto"-->
+<!--                    android:text="Liczba zakażonych koronawirusem: 466 679/6 842 (wszystkie pozytywne przypadki/w tym osoby zmarłe)."-->
+<!--                    android:textColor="#CBFFFFFF"-->
+<!--                    android:textSize="18sp" />-->
+<!--            </LinearLayout>-->
 
-        </androidx.cardview.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
 
 
         </LinearLayout>
