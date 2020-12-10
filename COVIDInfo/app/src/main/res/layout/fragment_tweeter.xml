@@ -20,293 +20,298 @@
             android:id="@+id/twitterLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="250dp"
             android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/twitterTopLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/side_nav_bar">
+
+                <ImageButton
+                    android:id="@+id/twitterMenuBtn"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="TODO"
+                    app:srcCompat="@drawable/ic_menu_button" />
+
+                <ImageButton
+                    android:id="@+id/twitterRefreshBtn"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="28dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="TODO"
+                    app:srcCompat="@drawable/ic_reload" />
+
+                <TextView
+                    android:id="@+id/twitterTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Twitty"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/twitterAccountTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/twitterTitle"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="-1dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Ładowanie..."
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/twitterAccountDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/twitterAccountTitle"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="60dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Ładowanie..."
+                    android:textAlignment="center"
+                    android:textColor="#59FFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/twitterAccountUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/twitterAccountDescription"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="60dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Ładowanie..."
+                    android:textAlignment="center"
+                    android:textColor="#59FFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/twitterObservedText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/twitterAccountUsername"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="29dp"
+                    android:fontFamily="@font/roboto"
+                    android:paddingBottom="20dp"
+                    android:text="Obserwowanych:"
+                    android:textAlignment="center"
+                    android:textColor="#59FFFFFF"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/twitterObservedCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/twitterAccountUsername"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="29dp"
+                    android:layout_toEndOf="@+id/twitterObservedText"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingBottom="20dp"
+                    android:text="..."
+                    android:textAlignment="center"
+                    android:textColor="#B0FFFFFF"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/twitterObservesCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/twitterAccountUsername"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="29dp"
+                    android:layout_marginEnd="50dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingBottom="20dp"
+                    android:text="..."
+                    android:textColor="#B0FFFFFF"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/twitterObservesText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/twitterAccountUsername"
+                    android:layout_marginTop="29dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/twitterObservesCount"
+                    android:fontFamily="@font/roboto"
+                    android:paddingBottom="20dp"
+                    android:text="Obserwujących:"
+                    android:textAlignment="center"
+                    android:textColor="#59FFFFFF"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/twitterPreviousAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/twitterAccountTitle"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="0dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/ic_left_day"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/twitterNextAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/twitterAccountTitle"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="#00FFFFFF"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/ic_right_day"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+            </RelativeLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/twitterSelectorTitleCard"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="-45dp"
+                android:background="@drawable/side_nav_bar"
+                android:minHeight="300dp"
+                android:visibility="gone"
                 app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="50dp">
 
-                <RelativeLayout
-                    android:id="@+id/twitterTopLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/twitterBackground"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:src="@drawable/side_nav_bar"
-                        android:contentDescription="TODO" />
-
-                    <ImageButton
-                        android:id="@+id/twitterMenuBtn"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="28dp"
-                        android:layout_marginTop="68dp"
-                        android:background="#00FFFFFF"
-                        app:layout_anchorGravity="end|bottom"
-                        app:srcCompat="@drawable/ic_menu_button"
-                        android:contentDescription="TODO" />
-
-                    <ImageButton
-                        android:id="@+id/twitterRefreshBtn"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="68dp"
-                        android:layout_marginEnd="28dp"
-                        android:background="#00FFFFFF"
-                        app:layout_anchorGravity="end|bottom"
-                        app:srcCompat="@drawable/ic_reload"
-                        android:contentDescription="TODO" />
-
-                    <TextView
-                        android:id="@+id/twitterTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/twitterBackground"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="70dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="Twitty"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="30sp" />
-
-                    <TextView
-                        android:id="@+id/twitterAccountTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/twitterBackground"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="1dp"
-                        android:layout_marginTop="150dp"
-                        android:layout_marginEnd="-1dp"
-                        android:fontFamily="@font/roboto_bold"
-                        android:text="Ładowanie..."
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="22sp" />
-
-                    <TextView
-                        android:id="@+id/twitterAccountDescription"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/twitterBackground"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginTop="183dp"
-                        android:layout_marginEnd="60dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="Ładowanie..."
-                        android:textAlignment="center"
-                        android:textColor="#59FFFFFF"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/twitterAccountUsername"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/twitterBackground"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="60dp"
-                        android:layout_marginTop="207dp"
-                        android:layout_marginEnd="60dp"
-                        android:fontFamily="@font/roboto_medium"
-                        android:text="Ładowanie..."
-                        android:textAlignment="center"
-                        android:textColor="#59FFFFFF"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/twitterObservedText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/twitterBackground"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="254dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="Obserwowanych:"
-                        android:textAlignment="center"
-                        android:textColor="#59FFFFFF"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/twitterObservedCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/twitterBackground"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="145dp"
-                        android:layout_marginTop="255dp"
-                        android:fontFamily="@font/roboto_bold"
-                        android:text="..."
-                        android:textAlignment="center"
-                        android:textColor="#B0FFFFFF"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/twitterObservesCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/twitterBackground"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="255dp"
-                        android:layout_marginEnd="30dp"
-                        android:fontFamily="@font/roboto_bold"
-                        android:text="..."
-                        android:textAlignment="center"
-                        android:textColor="#B0FFFFFF"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/twitterObservesText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/twitterBackground"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="254dp"
-                        android:layout_marginEnd="90dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="Obserwujących:"
-                        android:textAlignment="center"
-                        android:textColor="#59FFFFFF"
-                        android:textSize="14sp" />
-
-                    <ImageButton
-                        android:id="@+id/twitterPreviousAccount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="180dp"
-                        android:background="#00FFFFFF"
-                        android:src="@drawable/ic_left_day"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:contentDescription="TODO" />
-
-                    <ImageButton
-                        android:id="@+id/twitterNextAccount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="180dp"
-                        android:layout_marginEnd="20dp"
-                        android:background="#00FFFFFF"
-                        android:src="@drawable/ic_right_day"
-                        app:layout_constraintEnd_toStartOf="@+id/twitterBackground"
-                        app:layout_constraintTop_toBottomOf="@+id/twitterBackground"
-                        android:contentDescription="TODO" />
-                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/twitterBackground"
+                    android:layout_width="fill_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:contentDescription="TODO"
+                    android:minHeight="300dp"
+                    android:src="@drawable/side_nav_bar"
+                    android:visibility="gone" />
 
             </androidx.cardview.widget.CardView>
 
-<!--            <androidx.cardview.widget.CardView-->
-<!--            android:id="@+id/tweetOne"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="-10dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:layout_marginEnd="-10dp"-->
-<!--            android:layout_marginBottom="0dp"-->
-<!--            app:cardCornerRadius="50dp">-->
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--            android:id="@+id/tweetOne"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginStart="-10dp"-->
+            <!--            android:layout_marginTop="20dp"-->
+            <!--            android:layout_marginEnd="-10dp"-->
+            <!--            android:layout_marginBottom="0dp"-->
+            <!--            app:cardCornerRadius="50dp">-->
 
-<!--            <ImageView-->
-<!--                android:id="@+id/twitterBackground2"-->
-<!--                android:layout_width="fill_parent"-->
-<!--                android:layout_height="fill_parent"-->
-<!--                android:src="@drawable/side_nav_bar"-->
-<!--                app:srcCompat="@drawable/side_nav_bar"-->
-<!--                android:contentDescription="TODO" />-->
+            <!--            <ImageView-->
+            <!--                android:id="@+id/twitterBackground2"-->
+            <!--                android:layout_width="fill_parent"-->
+            <!--                android:layout_height="fill_parent"-->
+            <!--                android:src="@drawable/side_nav_bar"-->
+            <!--                app:srcCompat="@drawable/side_nav_bar"-->
+            <!--                android:contentDescription="TODO" />-->
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="vertical">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:orientation="vertical">-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal">-->
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal">-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/twitterTitle10"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginStart="30dp"-->
-<!--                        android:layout_marginTop="20dp"-->
-<!--                        android:layout_marginEnd="0dp"-->
-<!--                        android:fontFamily="@font/roboto_medium"-->
-<!--                        android:text="Ministerstwo Zdrowia"-->
-<!--                        android:textAlignment="center"-->
-<!--                        android:textColor="#7EFFFFFF"-->
-<!--                        android:textSize="20sp" />-->
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/twitterTitle10"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="30dp"-->
+            <!--                        android:layout_marginTop="20dp"-->
+            <!--                        android:layout_marginEnd="0dp"-->
+            <!--                        android:fontFamily="@font/roboto_medium"-->
+            <!--                        android:text="Ministerstwo Zdrowia"-->
+            <!--                        android:textAlignment="center"-->
+            <!--                        android:textColor="#7EFFFFFF"-->
+            <!--                        android:textSize="20sp" />-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/twitterTitle13"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginStart="0dp"-->
-<!--                        android:layout_marginTop="20dp"-->
-<!--                        android:layout_marginEnd="0dp"-->
-<!--                        android:layout_weight="0.1"-->
-<!--                        android:fontFamily="@font/roboto"-->
-<!--                        android:text="10:30 AM * 5 lis"-->
-<!--                        android:textAlignment="center"-->
-<!--                        android:textColor="#C4FFFFFF"-->
-<!--                        android:textSize="16sp" />-->
+            <!--                    <TextView-->
+            <!--                        android:id="@+id/twitterTitle13"-->
+            <!--                        android:layout_width="0dp"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginStart="0dp"-->
+            <!--                        android:layout_marginTop="20dp"-->
+            <!--                        android:layout_marginEnd="0dp"-->
+            <!--                        android:layout_weight="0.1"-->
+            <!--                        android:fontFamily="@font/roboto"-->
+            <!--                        android:text="10:30 AM * 5 lis"-->
+            <!--                        android:textAlignment="center"-->
+            <!--                        android:textColor="#C4FFFFFF"-->
+            <!--                        android:textSize="16sp" />-->
 
-<!--                    <ImageButton-->
-<!--                        android:id="@+id/menuButton4"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginTop="17dp"-->
-<!--                        android:layout_marginEnd="40dp"-->
-<!--                        android:background="#00FFFFFF"-->
-<!--                        app:layout_anchorGravity="end|bottom"-->
-<!--                        app:srcCompat="@drawable/ic_twitter_small"-->
-<!--                        android:contentDescription="TODO" />-->
-<!--                </LinearLayout>-->
+            <!--                    <ImageButton-->
+            <!--                        android:id="@+id/menuButton4"-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginTop="17dp"-->
+            <!--                        android:layout_marginEnd="40dp"-->
+            <!--                        android:background="#00FFFFFF"-->
+            <!--                        app:layout_anchorGravity="end|bottom"-->
+            <!--                        app:srcCompat="@drawable/ic_twitter_small"-->
+            <!--                        android:contentDescription="TODO" />-->
+            <!--                </LinearLayout>-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/twitterTitle11"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="30dp"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:layout_marginEnd="20dp"-->
-<!--                    android:layout_marginBottom="20dp"-->
-<!--                    android:fontFamily="@font/roboto"-->
-<!--                    android:text="Liczba zakażonych koronawirusem: 466 679/6 842 (wszystkie pozytywne przypadki/w tym osoby zmarłe)."-->
-<!--                    android:textColor="#CBFFFFFF"-->
-<!--                    android:textSize="18sp" />-->
-<!--            </LinearLayout>-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/twitterTitle11"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="30dp"-->
+            <!--                    android:layout_marginTop="10dp"-->
+            <!--                    android:layout_marginEnd="20dp"-->
+            <!--                    android:layout_marginBottom="20dp"-->
+            <!--                    android:fontFamily="@font/roboto"-->
+            <!--                    android:text="Liczba zakażonych koronawirusem: 466 679/6 842 (wszystkie pozytywne przypadki/w tym osoby zmarłe)."-->
+            <!--                    android:textColor="#CBFFFFFF"-->
+            <!--                    android:textSize="18sp" />-->
+            <!--            </LinearLayout>-->
 
-<!--        </androidx.cardview.widget.CardView>-->
+            <!--        </androidx.cardview.widget.CardView>-->
 
 
         </LinearLayout>

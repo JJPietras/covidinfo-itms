@@ -97,7 +97,6 @@ class TwitterFragment : Fragment() {
 
                 cvLayoutParams.setMargins(0,40,0,0)
                 cardView.layoutParams = cvLayoutParams
-                //cardView.setContentPadding(25,25,25,25)
 
                 cardView.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
                 cardView.radius = 100F
@@ -143,7 +142,7 @@ class TwitterFragment : Fragment() {
                     LayoutParams.WRAP_CONTENT // CardView height
                 )
                 tv12LayoutParams.setMargins(60, 60, 0, 0)
-//            textView12.setPadding(25,10,25,10)
+
                 textView12.layoutParams = tv12LayoutParams
                 val typeface = ResourcesCompat.getFont(requireContext(), R.font.roboto_medium)
                 textView12.typeface = typeface
