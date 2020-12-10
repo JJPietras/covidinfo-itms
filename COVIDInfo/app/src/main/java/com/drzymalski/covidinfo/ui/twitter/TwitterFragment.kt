@@ -185,7 +185,7 @@ class TwitterFragment : Fragment() {
                     val browserIntent =
                         Intent(
                             Intent.ACTION_VIEW,
-                            Uri.parse("https://twitter.com/MZ_GOV_PL/status/" + tweet.tweetID)
+                            Uri.parse("https://twitter.com/"+ curTTacc +"/status/" + tweet.tweetID)
                         )
                     startActivity(browserIntent)
                 }
