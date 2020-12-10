@@ -124,7 +124,6 @@ class SettingsView(
                     countries.add(config)
                     generateCountryButtons()
                     Toast.makeText(context, "Dodano", Toast.LENGTH_SHORT).show()
-                    spinner.setSelection(-1)
                 }
             }
         }
@@ -170,10 +169,27 @@ class SettingsView(
                         text = country.code
                         setTextColor(Color.parseColor("#FFFFFF"))
                         backgroundTintList = ColorStateList.valueOf(Color.parseColor(country.color))
-                        /*setOnClickListener{
-                            statisticsCountriesLayout.visibility = View.GONE
-                            changeCountry(country)
-                        }*/
+                        setOnClickListener{
+                            ColorPickerDialogBuilder
+                                .with(context)
+                                .setTitle("Zmień kolor")
+                                //.initialColor(Color.parseColor(selectedColor))
+                                .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
+                                .density(12)
+                                .lightnessSliderOnly()
+                                .setOnColorSelectedListener { selectedColor ->
+                                    //toast("onColorSelected: 0x" + Integer.toHexString(selectedColor))
+                                }
+                                .setPositiveButton("OK"
+                                ) { dialog, selectedColor, allColors ->
+                                    country.color = "#" + Integer.toHexString(selectedColor).substring(2)
+                                    backgroundTintList = ColorStateList.valueOf(selectedColor)
+                                }
+                                .setNegativeButton("Anuluj"
+                                ) { dialog, which -> }
+                                .build()
+                                .show()
+                        }
                     }
 
                     val parent = LinearLayout(context).apply {
@@ -193,25 +209,22 @@ class SettingsView(
                     val tvCountry = TextView(this.context).apply {
                         textSize = 20f
                         text = country.name
-                        setTextColor(Color.parseColor("#373737"))
+                        setTextColor(Color.parseColor("#FFFFFF"))
                     }
 
                     val tvContinent = TextView(this.context).apply {
                         textSize = 14f
                         text = country.continent
+                        setTextColor(Color.parseColor("#AAAAAA"))
                     }
 
                     val buttonDel = ImageButton(this.context).apply {
                         layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
-                            ActionBar.LayoutParams.MATCH_PARENT, 0.7f)
-                        val shape = GradientDrawable()
+                            ActionBar.LayoutParams.MATCH_PARENT, 0.75f)
 
-                        //shape.cornerRadius = 100f
-                        //background = shape
-                        setBackgroundResource(R.drawable.ic_delete)
-
+                        setBackgroundResource(R.drawable.ic_delete2)
+                        backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F44336"))
                         setOnClickListener{
-                            //statisticsCountriesLayout.visibility = View.GONE
                             deleteCountry(country.slug)
                         }
                     }
@@ -249,7 +262,6 @@ class SettingsView(
             Countries.clist.map { "${it.name} ( ${it.code} )" }.toTypedArray())
         searchmethod.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = searchmethod
-        spinner.setSelection(-1)
     }
 
     fun close(){
@@ -271,7 +283,7 @@ class SettingsView(
             }
             .setPositiveButton("OK"
             ) { dialog, selectedColor, allColors ->
-                this.selectedColor = "#" +  Integer.toHexString(selectedColor)
+                this.selectedColor = "#" + Integer.toHexString(selectedColor).substring(2)
                 colorBtn.backgroundTintList = ColorStateList.valueOf(selectedColor)
             }
             .setNegativeButton("Anuluj"

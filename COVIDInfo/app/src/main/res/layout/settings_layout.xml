@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
+
+<RelativeLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackgroundDark">
+    android:background="@drawable/side_nav_bar">
+
+<ScrollView
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
 
 <LinearLayout
     android:id="@+id/linear_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/colorBackgroundDark"
+
     android:padding="20dp"
     >
 
@@ -37,7 +45,7 @@
                 android:fontFamily="@font/roboto_medium"
                 android:gravity="center"
                 android:text="Dni wstecz"
-                android:textColor="@color/colorTextOnBlack"
+                android:textColor="@color/white"
                 android:textSize="22sp" />
 
             <NumberPicker
@@ -51,11 +59,22 @@
 
 
                 android:theme="@style/MyNumberPickerTheme" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:orientation="horizontal">
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -68,8 +87,13 @@
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
                     android:text="Wybrane kraje"
-                    android:textColor="@color/colorTextOnBlack"
+                    android:textColor="@color/white"
                     android:textSize="22sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray" />
 
                 <ImageButton
                     android:id="@+id/statisticsChangeCountryBtn"
@@ -82,31 +106,49 @@
                     android:scaleY="1.0"
                     app:srcCompat="@drawable/ic_less" />
 
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/darker_gray" />
+
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                />
 
             <LinearLayout
                 android:id="@+id/statisticsCountriesLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="10dp"
+
                 android:orientation="vertical"
                 android:animateLayoutChanges="true"
 
                 android:visibility="visible">
 
-
             </LinearLayout>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginBottom="20dp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="15dp"
                 android:fontFamily="@font/roboto_medium"
                 android:gravity="center"
                 android:text="Dodawanie kraju"
-                android:textColor="@color/colorTextOnBlack"
+                android:textColor="@color/white"
                 android:textSize="22sp" />
 
             <LinearLayout
@@ -142,7 +184,7 @@
                     android:backgroundTint="#5C6BC0"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Wybierz kolor"
-                    android:textColor="#D5FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="16sp" />
 
             </LinearLayout>
@@ -155,16 +197,21 @@
                 android:paddingEnd="30dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/rounded_button"
                 android:backgroundTint="#5C6BC0"
                 android:fontFamily="@font/roboto_bold"
                 android:text="Dodaj kraj"
-                android:textColor="#D5FFFFFF"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
 
-
+            <View
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -186,7 +233,7 @@
                     android:paddingEnd="30dp"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Anuluj"
-                    android:textColor="#D5FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
                 <Button
                     android:id="@+id/saveBtn"
@@ -202,7 +249,7 @@
                     android:backgroundTint="#5C6BC0"
                     android:fontFamily="@font/roboto_bold"
                     android:text="Zapisz"
-                    android:textColor="#D5FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -211,3 +258,4 @@
 </LinearLayout>
 
 </ScrollView>
+</RelativeLayout>

@@ -32,7 +32,8 @@ class TodayIllnessInitializer: DataInitializer {
         }
         covidData = ApiManager.getCovidDataFromApi(config.config.getDateFromMain(),
             DateConverter.formatDateFull(summaryData.Date), config.config.selectedCountry.slug )
-        stats.calculateStats(covidData)
+        if (covidData.size < 366)
+            stats.calculateStats(covidData)
     }
 
 

@@ -11,5 +11,5 @@
     <color name="colorAccent">#B4C5E4</color>
     <color name="colorButton">#1976D2</color>
     <color name="colorTextOnBlack">#91abed</color>
-
+    <color name="white">#FFFFFF</color>
 </resources>

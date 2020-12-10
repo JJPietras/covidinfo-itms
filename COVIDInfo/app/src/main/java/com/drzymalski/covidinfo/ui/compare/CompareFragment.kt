@@ -117,18 +117,15 @@ class CompareFragment : Fragment(), FragmentSettings {
                     DateConverter.formatDateFull(initializer.summaryData.Date), cntry.slug )
                     initializer.stats += CompareCasesStats().apply {
                         if (dataSize==0) dataSize = covidData.size
-                        if (abs(dataSize-covidData.size) < 5){
+                        if (abs(dataSize-covidData.size) < 5 && covidData.size < 366){
                             if (dataSize<covidData.size) dataSize = covidData.size
+
                             calculateStats(covidData)
                             country = cntry
                             refresh = true
                         }
                     }
                     if (refresh) configurateCharts()
-                    /*delay(2000L)
-                    if (this.isActive){
-                      this.cancel()
-                    }*/
                 }
                 jobs.plusAssign(job)
             }

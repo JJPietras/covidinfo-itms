@@ -313,7 +313,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
-                android:background="@color/colorBackground"
+                android:background="@color/colorBackgroundDark"
                 android:orientation="vertical"
                 android:animateLayoutChanges="true"
                 android:visibility="gone">

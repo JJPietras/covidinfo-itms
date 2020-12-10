@@ -167,19 +167,23 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
     }
 
     private fun setData() {
-        if (selectedDay > 0 && selectedDay < initializer.stats.datesFullList.lastIndex) {
+        try {
+            if (selectedDay > 0 && selectedDay < initializer.stats.datesFullList.lastIndex) {
 
-            val newCasesList = initializer.stats.newCasesList
+                val newCasesList = initializer.stats.newCasesList
 
-            viewModel.dateLive.postValue(initializer.stats.datesFullList[selectedDay + 1])
-            viewModel.confirmedLive.postValue(initializer.stats.newCasesList[selectedDay])
-            viewModel.deathsLive.postValue(initializer.stats.newDeathsList[selectedDay])
-            viewModel.recoveredLive.postValue(initializer.stats.newRecoveredList[selectedDay])
+                viewModel.dateLive.postValue(initializer.stats.datesFullList[selectedDay + 1])
+                viewModel.confirmedLive.postValue(initializer.stats.newCasesList[selectedDay])
+                viewModel.deathsLive.postValue(initializer.stats.newDeathsList[selectedDay])
+                viewModel.recoveredLive.postValue(initializer.stats.newRecoveredList[selectedDay])
 
-            viewModel.calcIncrease(
-                newCasesList[selectedDay],
-                newCasesList[selectedDay - 1]
-            )
+                viewModel.calcIncrease(
+                    newCasesList[selectedDay],
+                    newCasesList[selectedDay - 1]
+                )
+            }
+        }catch (ex: Exception){ // No action will be taken
+            println(ex)
         }
     }
 
@@ -201,70 +205,76 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
 
             initializer.config.config.countries.forEach{ countryConfig ->
                 val data = initializer.summaryData.Countries.find { countryConfig.slug == it.Slug }
-                if (data != null){
-                    val button = Button(this.context).apply {
-                        layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
-                            ActionBar.LayoutParams.WRAP_CONTENT, 0.6f)
 
-                        val shape = GradientDrawable()
+                val button = Button(this.context).apply {
+                    layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
+                        ActionBar.LayoutParams.WRAP_CONTENT, 0.6f)
 
-                        shape.cornerRadius = 100f
-                        background = shape
-                        //setBackgroundResource(R.drawable.sphere) //Looks stretched when you rotate or have a weird aspect ratio
-                        textSize = 22f
-                        text = data.CountryCode
-                        setTextColor(Color.parseColor("#FFFFFF"))
-                        backgroundTintList = ColorStateList.valueOf(Color.parseColor(countryConfig.color))
-                        setOnClickListener{
-                            statisticsCountriesLayout.visibility = View.GONE
-                            changeCountry(countryConfig)
-                        }
+                    val shape = GradientDrawable()
+
+                    shape.cornerRadius = 100f
+                    background = shape
+                    //setBackgroundResource(R.drawable.sphere) //Looks stretched when you rotate or have a weird aspect ratio
+                    textSize = 22f
+                    text = countryConfig.code
+                    setTextColor(Color.parseColor("#FFFFFF"))
+                    backgroundTintList = ColorStateList.valueOf(Color.parseColor(countryConfig.color))
+                    setOnClickListener{
+                        statisticsCountriesLayout.visibility = View.GONE
+                        changeCountry(countryConfig)
                     }
-
-                    val parent = LinearLayout(context).apply {
-                        layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
-                            ActionBar.LayoutParams.WRAP_CONTENT, 0.2f)
-                        orientation = LinearLayout.HORIZONTAL
-                        setPadding(20,5,5,5)
-                    }
-
-                    val child = LinearLayout(context).apply {
-                        layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
-                            ActionBar.LayoutParams.WRAP_CONTENT, 0.4f)
-                        orientation = LinearLayout.VERTICAL
-                        setPadding(30,0, 30,0)
-                    }
-
-                    val tvCountry = TextView(this.context).apply {
-                        textSize = 20f
-                        text = countryConfig.name
-                        setTextColor(Color.parseColor("#373737"))
-                    }
-
-                    val tvContinent = TextView(this.context).apply {
-                        textSize = 14f
-                        text = countryConfig.continent
-                    }
-
-                    val tvCases = TextView(this.context).apply {
-                        layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
-                            ActionBar.LayoutParams.WRAP_CONTENT, 0.4f)
-                        gravity = CENTER
-                        textSize = 20f
-                        text = "${data.NewConfirmed} zakażeń"
-                    }
-
-                    child.addView(tvCountry)
-                    child.addView(tvContinent)
-
-                    parent.addView(button)
-                    parent.addView(child)
-                    parent.addView(tvCases)
-
-                    statisticsCountriesLayout.post(Runnable {
-                        statisticsCountriesLayout.addView(parent)
-                    })
                 }
+
+                val parent = LinearLayout(context).apply {
+                    layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
+                        ActionBar.LayoutParams.WRAP_CONTENT, 0.2f)
+                    orientation = LinearLayout.HORIZONTAL
+                    setPadding(20,5,5,5)
+                    setOnClickListener{
+                        statisticsCountriesLayout.visibility = View.GONE
+                        changeCountry(countryConfig)
+                    }
+                }
+
+                val child = LinearLayout(context).apply {
+                    layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
+                        ActionBar.LayoutParams.WRAP_CONTENT, 0.4f)
+                    orientation = LinearLayout.VERTICAL
+                    setPadding(30,0, 30,0)
+                }
+
+                val tvCountry = TextView(this.context).apply {
+                    textSize = 20f
+                    text = countryConfig.name
+                    setTextColor(Color.parseColor("#FFFFFF"))
+                }
+
+                val tvContinent = TextView(this.context).apply {
+                    textSize = 14f
+                    text = countryConfig.continent
+                    setTextColor(Color.parseColor("#AAAAAA"))
+                }
+
+                val tvCases = TextView(this.context).apply {
+                    layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
+                        ActionBar.LayoutParams.WRAP_CONTENT, 0.4f)
+                    gravity = CENTER
+                    textSize = 20f
+                    setTextColor(Color.parseColor("#FFFFFF"))
+                    text = if (data == null) "brak danych" else "${data.NewConfirmed} zakażeń"
+                }
+
+                child.addView(tvCountry)
+                child.addView(tvContinent)
+
+                parent.addView(button)
+                parent.addView(child)
+                parent.addView(tvCases)
+
+                statisticsCountriesLayout.post(Runnable {
+                    statisticsCountriesLayout.addView(parent)
+                })
+
             }
         }catch (ex: Exception){ // No action will be taken
             println(ex)
