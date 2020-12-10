@@ -12,13 +12,13 @@ import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
 import com.github.aachartmodel.aainfographics.aatools.AAColor
 
 class CompareInitializer: DataInitializer {
-    lateinit var summaryData: SummaryData
+    //lateinit var summaryData: SummaryData
 
     val stats = mutableListOf<CompareCasesStats>()
 
     override val config: ConfigurationManager = ConfigurationManager()
 
-    fun loadScreenResources(){
+    /*fun loadScreenResources(){
         try {
             summaryData = ApiManager.getSummaryFromApi()
             summaryData.Countries = summaryData.Countries.filter{config.config.countries
@@ -26,7 +26,7 @@ class CompareInitializer: DataInitializer {
         }catch (ex:Exception){
             println(ex.message) //need to see the errors xd
         }
-    }
+    }*/
 
     fun configureTotalCasesBarChart(): AAOptions {
         val aaChartModel = AAChartModel()

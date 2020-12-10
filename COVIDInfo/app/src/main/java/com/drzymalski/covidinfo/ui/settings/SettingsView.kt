@@ -20,6 +20,7 @@ import com.drzymalski.covidinfo.data.Countries
 import com.drzymalski.covidinfo.interfaces.FragmentSettings
 import com.flask.colorpicker.ColorPickerView
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder
+import com.toptoche.searchablespinnerlibrary.SearchableSpinner
 
 
 class SettingsView(
@@ -41,7 +42,7 @@ class SettingsView(
     var countries:  MutableList<CountryConfig>
     var daysBack: Long
 
-    private var spinner: Spinner
+    private var spinner: SearchableSpinner
     private var addCountryBtn: Button
     private var saveBtn: Button
     private var closeBtn: Button
@@ -50,6 +51,9 @@ class SettingsView(
     private var selectedColor: String = "#5C6BC0"
     private var colorBtn: Button
 
+    var countriesPrev:  MutableList<CountryConfig>
+    var daysBackPrev: Int
+
     init {
         val inflater: LayoutInflater = LayoutInflater.from(context)
         val settingsView = inflater.inflate(R.layout.settings_layout, null)
@@ -57,7 +61,11 @@ class SettingsView(
         this.rootLayout = rootLayout
         this.context = context
         this.daysBack = daysBack
+        this.countries = countries
         this.fragmentSettings = fragmentSettings
+
+        countriesPrev = countries.toMutableList()
+        daysBackPrev = daysBack.toInt()
 
         daysPicker = settingsView.findViewById(R.id.daysPicker)
         colorBtn = settingsView.findViewById(R.id.addColorBtn)
@@ -70,7 +78,7 @@ class SettingsView(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.MATCH_PARENT
         )
-        this.countries = countries
+        spinner.setTitle("Wybierz kraj")
         popupWindow.elevation = 10.0F
         popupWindow.enterTransition = Slide().apply {
             slideEdge = Gravity.TOP
@@ -83,7 +91,7 @@ class SettingsView(
         closeBtn = settingsView.findViewById(R.id.closeBtn)
 
         closeBtn.setOnClickListener{
-            close()
+            close(revertChanges = true)
             isClosed = true
         }
 
@@ -264,10 +272,11 @@ class SettingsView(
         spinner.adapter = searchmethod
     }
 
-    fun close(){
+    fun close(revertChanges: Boolean=false){
         isClosed = true
         popupWindow.dismiss()
         callback.remove()
+        if (revertChanges) this.fragmentSettings.applySettings(this.countriesPrev, this.daysBackPrev.toLong())
     }
 
     private fun displayColorPicker(){

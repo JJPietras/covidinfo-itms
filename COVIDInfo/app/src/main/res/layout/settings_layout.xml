@@ -159,6 +159,7 @@
 
             <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 style="@android:style/Widget.Spinner.DropDown"
+                app:hintText="Wybierz kraj"
 
                 android:id="@+id/spinner_view"
                 android:layout_width="200dp"

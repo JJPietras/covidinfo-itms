@@ -23,6 +23,13 @@ class TodayIllnessInitializer: DataInitializer {
     override val config: ConfigurationManager = ConfigurationManager()
 
     fun loadMainScreenResources(){
+        covidData = ApiManager.getCovidDataFromApi(config.config.getDateFromMain(),
+            DateConverter.getTodayDate(), config.config.selectedCountry.slug )
+        if (covidData.size < 366)
+            stats.calculateStats(covidData)
+    }
+
+    fun loadSummaryData(){
         try {
             summaryData = ApiManager.getSummaryFromApi()
             summaryData.Countries = summaryData.Countries.filter{config.config.countries
@@ -30,13 +37,7 @@ class TodayIllnessInitializer: DataInitializer {
         }catch (ex:Exception){
             println(ex.message) //need to see the errors xd
         }
-        covidData = ApiManager.getCovidDataFromApi(config.config.getDateFromMain(),
-            DateConverter.formatDateFull(summaryData.Date), config.config.selectedCountry.slug )
-        if (covidData.size < 366)
-            stats.calculateStats(covidData)
     }
-
-
 
     fun configureTotalCasesBarChart(): AAOptions {
         val aaChartModel = AAChartModel()

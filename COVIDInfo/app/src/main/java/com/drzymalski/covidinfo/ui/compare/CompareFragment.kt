@@ -52,7 +52,7 @@ class CompareFragment : Fragment(), FragmentSettings {
         super.onViewCreated(view, savedInstanceState)
 
         val job = GlobalScope.launch {
-            initializer.loadScreenResources()
+            //initializer.loadScreenResources()
             loadComparison()
         }
         jobs.plusAssign(job)
@@ -114,7 +114,7 @@ class CompareFragment : Fragment(), FragmentSettings {
                     val job = GlobalScope.launch {
                     var refresh = false
                     val covidData = ApiManager.getCovidDataFromApi(initializer.config.config.getDateFromCompare(),
-                    DateConverter.formatDateFull(initializer.summaryData.Date), cntry.slug )
+                    DateConverter.getTodayDate(), cntry.slug )
                     initializer.stats += CompareCasesStats().apply {
                         if (dataSize==0) dataSize = covidData.size
                         if (abs(dataSize-covidData.size) < 5 && covidData.size < 366){

@@ -64,6 +64,11 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
             generateCountryButtons()
         }
 
+        GlobalScope.launch {
+            initializer.loadSummaryData()
+            generateCountryButtons()
+        }
+
         configureObserver(viewModel.confirmed, statisticsCount)
         configureObserver(viewModel.died, statisticsDied)
         configureObserver(viewModel.recovered, statisticsCured)
@@ -99,7 +104,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
             )
 
             val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-                settingsView.close()
+                settingsView.close(true)
             }
             settingsView.show(callback)
         }
