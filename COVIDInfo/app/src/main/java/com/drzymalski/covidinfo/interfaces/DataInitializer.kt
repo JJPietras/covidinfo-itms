@@ -1,6 +1,5 @@
 package com.drzymalski.covidinfo.interfaces
 
-import com.drzymalski.covidinfo.apiUtils.models.SummaryData
 import com.drzymalski.covidinfo.config.ConfigurationManager
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAOptionsConstructor

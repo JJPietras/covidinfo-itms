@@ -1,14 +1,16 @@
 package com.drzymalski.covidinfo.dataUtils
 
-import com.drzymalski.covidinfo.apiUtils.models.CovidDay
+import com.drzymalski.covidinfo.apiUtils.models.DataDay
+import com.drzymalski.covidinfo.apiUtils.models.DataProvider
+import com.drzymalski.covidinfo.apiUtils.models.old.CovidDay
 import com.drzymalski.covidinfo.config.CountryConfig
 
 class CompareCasesStats{
     val totalCasesList = mutableListOf<Int>()
 
-    val newDeathsList = mutableListOf<Int>()
-    val newRecoveredList = mutableListOf<Int>()
-    val newCasesList = mutableListOf<Int>()
+    private val newDeathsList = mutableListOf<Int>()
+    private val newRecoveredList = mutableListOf<Int>()
+    private val newCasesList = mutableListOf<Int>()
 
     val activeCasesList = mutableListOf<Int>()
 
@@ -16,12 +18,12 @@ class CompareCasesStats{
     val newDeathsWeeklyList = mutableListOf<Float>()
     val newRecoveredWeeklyList = mutableListOf<Float>()
 
-    val datesList = mutableListOf<String>()
+    var datesList = mutableListOf<String>()
     //val datesFullList = mutableListOf<String>()
 
     var country: CountryConfig = CountryConfig()
 
-    fun clearData(){
+    private fun clearData(){
         totalCasesList.clear()
 
         newDeathsList.clear()
@@ -51,9 +53,9 @@ class CompareCasesStats{
             var sumRecovered = 0f
             val count = to - from + 1f
             for (j in from..to) {
-                sumNew += newCasesList[j].toFloat()
-                sumDeaths += newDeathsList[j].toFloat()
-                sumRecovered += newRecoveredList[j].toFloat()
+                if (j<newCasesList.size) sumNew += newCasesList[j].toFloat()
+                if (j<newDeathsList.size) sumDeaths += newDeathsList[j].toFloat()
+                if (j<newRecoveredList.size) sumRecovered += newRecoveredList[j].toFloat()
             }
             newCasesWeeklyList += (sumNew/count)
             newDeathsWeeklyList += (sumDeaths/count)
@@ -65,44 +67,39 @@ class CompareCasesStats{
         newRecoveredList.clear()
     }
 
-    fun calculateStats(covidData: List<CovidDay>){
-        try {
-            clearData()
-            var lastCases = 0
-            var lastDeaths = 0
-            var lastRecovered = 0
+    fun calculateStats(covidData: List<DataDay>){
+        clearData()
+        var lastCases = 0
+        var lastDeaths = 0
+        var lastRecovered = 0
 
-            covidData.forEach { casesOnDay ->
-                run {
-                    totalCasesList += casesOnDay.Confirmed
+        covidData.forEach { casesOnDay ->
+            run {
+                totalCasesList += casesOnDay.cnt_confirmed
 
-                    activeCasesList += casesOnDay.Active
-                    @Suppress("DEPRECATION")
-                    datesList += DateConverter.formatDateShort(casesOnDay.Date)
-                    //datesFullList += DateConverter.formatDateFull(casesOnDay.Date)
+                activeCasesList += casesOnDay.cnt_active
 
-                    if (lastDeaths==0) {lastDeaths = casesOnDay.Deaths}
-                    else {
-                        newDeathsList += (casesOnDay.Deaths - lastDeaths)
-                        lastDeaths = casesOnDay.Deaths
-                    }
+                datesList.plusAssign(DateConverter.formatDateShort(casesOnDay.date_stamp))
 
-                    if (lastRecovered==0) {lastRecovered = casesOnDay.Recovered}
-                    else {
-                        newRecoveredList += (casesOnDay.Recovered - lastRecovered)
-                        lastRecovered = casesOnDay.Recovered
-                    }
+                if (lastDeaths==0) {lastDeaths = casesOnDay.cnt_death}
+                else {
+                    newDeathsList += (casesOnDay.cnt_death - lastDeaths)
+                    lastDeaths = casesOnDay.cnt_death
+                }
 
-                    if (lastCases==0) {lastCases = casesOnDay.Confirmed}
-                    else {
-                        newCasesList += (casesOnDay.Confirmed - lastCases)
-                        lastCases = casesOnDay.Confirmed
-                    }
+                if (lastRecovered==0) {lastRecovered = casesOnDay.cnt_recovered}
+                else {
+                    newRecoveredList += (casesOnDay.cnt_recovered - lastRecovered)
+                    lastRecovered = casesOnDay.cnt_recovered
+                }
+
+                if (lastCases==0) {lastCases = casesOnDay.cnt_confirmed}
+                else {
+                    newCasesList += (casesOnDay.cnt_confirmed - lastCases)
+                    lastCases = casesOnDay.cnt_confirmed
                 }
             }
-            getWeeklyAverage()
-        }catch (ex:Exception){
-            println(ex.message) //need to see the errors xd
         }
+        getWeeklyAverage()
     }
 }

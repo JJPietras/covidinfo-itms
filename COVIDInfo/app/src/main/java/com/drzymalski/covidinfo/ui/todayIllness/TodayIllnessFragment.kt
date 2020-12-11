@@ -59,10 +59,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        GlobalScope.launch {
-            loadDataAndRefresh()
-            generateCountryButtons()
-        }
+        loadDataAndRefresh()
 
         GlobalScope.launch {
             initializer.loadSummaryData()
@@ -287,14 +284,16 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
     }
 
     private fun loadDataAndRefresh(){
-        try { // Prevents crashing when data was loaded after changing or refreshing the fragment
-            initializer.loadMainScreenResources()
-            selectedDay = initializer.stats.datesFullList.lastIndex - 1
-            setData()
-            buttonVisibility()
-            configureCharts()
-        }catch (ex: Exception){ // No action will be taken
-            println(ex)
+        GlobalScope.launch {
+            try { // Prevents crashing when data was loaded after changing or refreshing the fragment
+                initializer.loadMainScreenResources()
+                selectedDay = initializer.stats.datesFullList.lastIndex - 1
+                setData()
+                buttonVisibility()
+                configureCharts()
+            }catch (ex: Exception){ // No action will be taken
+                println(ex)
+            }
         }
     }
 
@@ -310,17 +309,20 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         viewModel.increasePercentLive.postValue(0f)
         viewModel.calcIncrease(1, 1)
 
-        GlobalScope.launch {
-            loadDataAndRefresh()
-        }
+
+        loadDataAndRefresh()
+
     }
 
     override fun applySettings(countries: MutableList<CountryConfig>, daysBack: Long){
         this.initializer.config.config.countries = countries
         this.initializer.config.config.daysBackToday = daysBack
         this.initializer.config.saveConfig()
+
+        loadDataAndRefresh()
+
         GlobalScope.launch {
-            loadDataAndRefresh()
+            initializer.loadSummaryData()
             generateCountryButtons()
         }
     }

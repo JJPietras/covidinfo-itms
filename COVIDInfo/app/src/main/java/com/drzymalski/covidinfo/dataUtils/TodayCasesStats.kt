@@ -1,6 +1,7 @@
 package com.drzymalski.covidinfo.dataUtils
 
-import com.drzymalski.covidinfo.apiUtils.models.CovidDay
+import com.drzymalski.covidinfo.apiUtils.models.DataProvider
+import com.drzymalski.covidinfo.apiUtils.models.old.CovidDay
 
 class TodayCasesStats{
     val totalCasesList = mutableListOf<Int>()
@@ -44,37 +45,37 @@ class TodayCasesStats{
         }
     }
 
-    fun calculateStats(covidData: List<CovidDay>){
+    fun calculateStats(covidData: DataProvider){
         clearData()
         var lastCases = 0
         var lastDeaths = 0
         var lastRecovered = 0
 
-        covidData.forEach { casesOnDay ->
+        covidData.dataProvider.forEach { casesOnDay ->
             run {
-                totalCasesList += casesOnDay.Confirmed
+                totalCasesList += casesOnDay.cnt_confirmed
 
-                activeCasesList += casesOnDay.Active
+                activeCasesList += casesOnDay.cnt_active
                 @Suppress("DEPRECATION")
-                datesList += DateConverter.formatDateShort(casesOnDay.Date)
-                datesFullList += DateConverter.formatDateFull(casesOnDay.Date)
+                datesList += DateConverter.formatDateShort(casesOnDay.date_stamp)
+                datesFullList += DateConverter.formatDateFull(casesOnDay.date_stamp)
 
-                if (lastDeaths==0) {lastDeaths = casesOnDay.Deaths}
+                if (lastDeaths==0) {lastDeaths = casesOnDay.cnt_death}
                 else {
-                    newDeathsList += (casesOnDay.Deaths - lastDeaths)
-                    lastDeaths = casesOnDay.Deaths
+                    newDeathsList += (casesOnDay.cnt_death - lastDeaths)
+                    lastDeaths = casesOnDay.cnt_death
                 }
 
-                if (lastRecovered==0) {lastRecovered = casesOnDay.Recovered}
+                if (lastRecovered==0) {lastRecovered = casesOnDay.cnt_recovered}
                 else {
-                    newRecoveredList += (casesOnDay.Recovered - lastRecovered)
-                    lastRecovered = casesOnDay.Recovered
+                    newRecoveredList += (casesOnDay.cnt_recovered - lastRecovered)
+                    lastRecovered = casesOnDay.cnt_recovered
                 }
 
-                if (lastCases==0) {lastCases = casesOnDay.Confirmed}
+                if (lastCases==0) {lastCases = casesOnDay.cnt_confirmed}
                 else {
-                    newCasesList += (casesOnDay.Confirmed - lastCases)
-                    lastCases = casesOnDay.Confirmed
+                    newCasesList += (casesOnDay.cnt_confirmed - lastCases)
+                    lastCases = casesOnDay.cnt_confirmed
                 }
             }
         }

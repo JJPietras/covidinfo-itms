@@ -35,9 +35,9 @@ class CompareFragment : Fragment(), FragmentSettings {
 
     private lateinit var viewModel: CompareViewModel
     private var initializer: CompareInitializer = CompareInitializer()
-    private var dataSize = 0
+
     private var daysChanged = false
-    private var jobs =  mutableListOf<Job>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,11 +51,7 @@ class CompareFragment : Fragment(), FragmentSettings {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val job = GlobalScope.launch {
-            //initializer.loadScreenResources()
-            loadComparison()
-        }
-        jobs.plusAssign(job)
+        loadDataAndRefresh()
 
         FragmentBinder.bindToButton(
             view.findViewById(R.id.statisticsMenuBtn),
@@ -74,7 +70,7 @@ class CompareFragment : Fragment(), FragmentSettings {
         statisticsReload.setOnClickListener {
             initializer.config.config.daysBackCompare = daysPicker.value.toLong()
             initializer.config.saveConfig()
-            loadComparison()
+            loadDataAndRefresh()
             daysChanged = false
         }
         daysPicker.minValue = 7
@@ -93,7 +89,7 @@ class CompareFragment : Fragment(), FragmentSettings {
         })
     }
 
-    private fun configurateCharts(){
+    private fun configureCharts(){
         try{
             configureChart(aaChartViewNewCases, initializer.configureNewCasesBarChart())
             configureChart(aaChartViewTotalCases, initializer.configureTotalCasesBarChart())
@@ -105,42 +101,18 @@ class CompareFragment : Fragment(), FragmentSettings {
         }
     }
 
-    private fun loadComparison(){
-        try{
-            clearJobs()
-            dataSize = 0
-            initializer.stats.clear()
-            initializer.config.config.countriesToCompare.forEach { cntry ->
-                    val job = GlobalScope.launch {
-                    var refresh = false
-                    val covidData = ApiManager.getCovidDataFromApi(initializer.config.config.getDateFromCompare(),
-                    DateConverter.getTodayDate(), cntry.slug )
-                    initializer.stats += CompareCasesStats().apply {
-                        if (dataSize==0) dataSize = covidData.size
-                        if (abs(dataSize-covidData.size) < 5 && covidData.size < 366){
-                            if (dataSize<covidData.size) dataSize = covidData.size
 
-                            calculateStats(covidData)
-                            country = cntry
-                            refresh = true
-                        }
-                    }
-                    if (refresh) configurateCharts()
-                }
-                jobs.plusAssign(job)
-            }
-        }catch (ex: Exception){ // No action will be taken
-            println(ex)
-        }
-    }
-
-    private fun clearJobs(){
-        jobs.forEach { job ->
-            if (job.isActive){
-                job.cancel()
+    private fun loadDataAndRefresh(){
+        GlobalScope.launch {
+            try { // Prevents crashing when data was loaded after changing or refreshing the fragment
+                initializer.loadScreenResources()
+                initializer.normalizeLenghts()
+                configureCharts()
+                initializer.stats.clear()
+            }catch (ex: Exception){ // No action will be taken
+                println(ex)
             }
         }
-        jobs.clear()
     }
 
     override fun applySettings(countries: MutableList<CountryConfig>, daysBack: Long){
@@ -149,9 +121,7 @@ class CompareFragment : Fragment(), FragmentSettings {
         this.initializer.config.saveConfig()
         daysPicker.value = daysBack.toInt()
 
-        GlobalScope.launch {
-            loadComparison()
-        }
+        loadDataAndRefresh()
     }
 
 }

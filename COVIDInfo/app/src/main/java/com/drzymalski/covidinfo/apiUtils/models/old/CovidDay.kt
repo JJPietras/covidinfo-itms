@@ -1,4 +1,4 @@
-package com.drzymalski.covidinfo.apiUtils.models
+package com.drzymalski.covidinfo.apiUtils.models.old
 
 import java.util.*
 

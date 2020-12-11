@@ -1,21 +1,17 @@
 package com.drzymalski.covidinfo.ui.todayIllness
 
 import com.drzymalski.covidinfo.apiUtils.ApiManager
-import com.drzymalski.covidinfo.apiUtils.models.CovidDay
+import com.drzymalski.covidinfo.apiUtils.models.DataProvider
 import com.drzymalski.covidinfo.apiUtils.models.SummaryData
 import com.drzymalski.covidinfo.config.ConfigurationManager
-import com.drzymalski.covidinfo.dataUtils.DateConverter
 import com.drzymalski.covidinfo.dataUtils.TodayCasesStats
 import com.drzymalski.covidinfo.interfaces.DataInitializer
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAScrollablePlotArea
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
-import com.github.aachartmodel.aainfographics.aatools.AAColor
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 
 class TodayIllnessInitializer: DataInitializer {
-    private var covidData: List<CovidDay>  = mutableListOf()
+    private lateinit var covidData: DataProvider
     lateinit var summaryData: SummaryData
 
     val stats = TodayCasesStats()
@@ -23,9 +19,8 @@ class TodayIllnessInitializer: DataInitializer {
     override val config: ConfigurationManager = ConfigurationManager()
 
     fun loadMainScreenResources(){
-        covidData = ApiManager.getCovidDataFromApi(config.config.getDateFromMain(),
-            DateConverter.getTodayDate(), config.config.selectedCountry.slug )
-        if (covidData.size < 366)
+        covidData = ApiManager.getCovidDataFromNewApi(config.config.getDateFromMain(), config.config.selectedCountry.code )
+        if (covidData.dataProvider.size < 366)
             stats.calculateStats(covidData)
     }
 
@@ -47,6 +42,7 @@ class TodayIllnessInitializer: DataInitializer {
             .zoomType(AAChartZoomType.X)
             .markerRadius(0f)
             .categories(stats.datesList.toTypedArray())
+
             .series(
                 arrayOf(
                     AASeriesElement()
