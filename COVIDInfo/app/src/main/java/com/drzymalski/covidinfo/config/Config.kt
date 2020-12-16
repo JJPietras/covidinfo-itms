@@ -6,6 +6,7 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.*
 
+const val backColor: String = "#000000"
 class Config {
     var countries = mutableListOf<CountryConfig>()
     var countriesToCompare = mutableListOf<CountryConfig>()

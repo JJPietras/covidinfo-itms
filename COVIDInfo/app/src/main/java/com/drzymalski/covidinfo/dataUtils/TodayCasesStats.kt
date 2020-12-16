@@ -62,19 +62,25 @@ class TodayCasesStats{
 
                 if (lastDeaths==0) {lastDeaths = casesOnDay.cnt_death}
                 else {
-                    newDeathsList += (casesOnDay.cnt_death - lastDeaths)
+                    var temp = casesOnDay.cnt_death - lastDeaths
+                    if (temp < 0) temp = 0
+                    newDeathsList += temp
                     lastDeaths = casesOnDay.cnt_death
                 }
 
                 if (lastRecovered==0) {lastRecovered = casesOnDay.cnt_recovered}
                 else {
-                    newRecoveredList += (casesOnDay.cnt_recovered - lastRecovered)
+                    var temp = casesOnDay.cnt_recovered - lastRecovered
+                    if (temp < 0) temp = 0
+                    newRecoveredList += temp
                     lastRecovered = casesOnDay.cnt_recovered
                 }
 
                 if (lastCases==0) {lastCases = casesOnDay.cnt_confirmed}
                 else {
-                    newCasesList += (casesOnDay.cnt_confirmed - lastCases)
+                    var temp = casesOnDay.cnt_confirmed - lastCases
+                    if (temp < 0) temp = 0
+                    newCasesList += temp
                     lastCases = casesOnDay.cnt_confirmed
                 }
             }

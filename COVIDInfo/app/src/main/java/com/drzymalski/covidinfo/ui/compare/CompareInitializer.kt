@@ -1,11 +1,13 @@
 package com.drzymalski.covidinfo.ui.compare
 
+import com.drzymalski.covidinfo.config.backColor
 import com.drzymalski.covidinfo.apiUtils.ApiManager
 import com.drzymalski.covidinfo.config.ConfigurationManager
 import com.drzymalski.covidinfo.dataUtils.CompareCasesStats
 import com.drzymalski.covidinfo.interfaces.DataInitializer
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
+
 
 class CompareInitializer: DataInitializer {
     //lateinit var summaryData: SummaryData
@@ -67,6 +69,7 @@ class CompareInitializer: DataInitializer {
             .zoomType(AAChartZoomType.X)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
+            .backgroundColor(backColor)
             .categories(stats.first().datesList.toTypedArray())
             .series(
                 stats.map { stats ->
@@ -90,6 +93,7 @@ class CompareInitializer: DataInitializer {
             .categories(stats.first().datesList.drop(1).toTypedArray())
             .yAxisTitle("")
             .zoomType(AAChartZoomType.X)
+            .backgroundColor(backColor)
             .yAxisGridLineWidth(0f)
             //.markerRadius(2f)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
@@ -114,6 +118,7 @@ class CompareInitializer: DataInitializer {
             .zoomType(AAChartZoomType.X)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
+            .backgroundColor(backColor)
             .categories(stats.first().datesList.drop(1).toTypedArray())
             .series(
                 stats.map { stats ->
@@ -135,6 +140,7 @@ class CompareInitializer: DataInitializer {
             .categories(stats.first().datesList.drop(1).toTypedArray())
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
+            .backgroundColor(backColor)
             .zoomType(AAChartZoomType.X)
             .series(
                 stats.map { stats ->
@@ -158,6 +164,7 @@ class CompareInitializer: DataInitializer {
             .categories(stats.first().datesList.toTypedArray())
             .animationType(AAChartAnimationType.Bounce)
             .zoomType(AAChartZoomType.X)
+            .backgroundColor(backColor)
             .series(
                 stats.map { stats ->
                     AASeriesElement()

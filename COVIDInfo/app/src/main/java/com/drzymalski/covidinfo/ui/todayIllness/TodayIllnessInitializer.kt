@@ -9,7 +9,9 @@ import com.drzymalski.covidinfo.interfaces.DataInitializer
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
+import com.drzymalski.covidinfo.config.backColor
 
+const val backColor: String = "#000000"
 class TodayIllnessInitializer: DataInitializer {
     private lateinit var covidData: DataProvider
     lateinit var summaryData: SummaryData
@@ -42,7 +44,7 @@ class TodayIllnessInitializer: DataInitializer {
             .zoomType(AAChartZoomType.X)
             .markerRadius(0f)
             .categories(stats.datesList.toTypedArray())
-
+            .backgroundColor(backColor)
             .series(
                 arrayOf(
                     AASeriesElement()
@@ -67,6 +69,7 @@ class TodayIllnessInitializer: DataInitializer {
             .yAxisGridLineWidth(0f)
             .markerRadius(2f)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
+            .backgroundColor(backColor)
             .series(
                 arrayOf(
                     AASeriesElement()
@@ -92,6 +95,7 @@ class TodayIllnessInitializer: DataInitializer {
             .markerRadius(0f)
             .zoomType(AAChartZoomType.X)
             .categories(stats.datesList.drop(1).toTypedArray())
+            .backgroundColor(backColor)
             .series(
                 arrayOf(
                     AASeriesElement()
@@ -111,6 +115,7 @@ class TodayIllnessInitializer: DataInitializer {
             .yAxisTitle("")
             .zoomType(AAChartZoomType.X)
             .categories(stats.datesList.drop(1).toTypedArray())
+            .backgroundColor(backColor)
             .series(
                 arrayOf(
                     AASeriesElement()
@@ -133,7 +138,7 @@ class TodayIllnessInitializer: DataInitializer {
             .markerRadius(0f)
             .categories(stats.datesList.toTypedArray())
             .animationType(AAChartAnimationType.Bounce)
-
+            .backgroundColor(backColor)
             .series(
                 arrayOf(
                     AASeriesElement()

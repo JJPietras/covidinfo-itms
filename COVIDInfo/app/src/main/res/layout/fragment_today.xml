@@ -349,6 +349,7 @@
                         android:id="@+id/aaChartViewNewCases"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
+                        android:background="@color/plotBgColor"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -379,6 +380,7 @@
                         android:layout_height="250dp"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@color/plotBgColor"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -409,6 +411,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
+                        android:background="@color/plotBgColor"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.cardview.widget.CardView>
 
@@ -435,6 +438,7 @@
                         android:layout_height="250dp"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@color/plotBgColor"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -463,6 +467,7 @@
                         android:layout_height="250dp"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@color/plotBgColor"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

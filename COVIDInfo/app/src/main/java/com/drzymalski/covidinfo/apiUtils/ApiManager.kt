@@ -12,8 +12,6 @@ import java.util.concurrent.CountDownLatch
 
 class ApiManager {
 
-    private val client = OkHttpClient()
-
     companion object {
         private const val BASE_URL = "https://api.covid19api.com"
         private const val BASE_URL_NEW = "https://covid19.richdataservices.com/rds/api"
