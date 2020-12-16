@@ -44,18 +44,18 @@
                 <ImageButton
 
                     android:id="@+id/statisticsSettingsBtn"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
 
-                    android:layout_alignBottom="@+id/statisticsTitle"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="10dp"
+                    android:layout_below="@+id/statisticsTitle"
 
-                    android:layout_marginBottom="-25dp"
-                    android:padding="20dp"
+                    android:layout_marginTop="-53dp"
+                    android:layout_marginEnd="-5dp"
+                    android:layout_toStartOf="@+id/statisticsCountry"
+
                     android:background="#00FFFFFF"
+                    android:padding="20dp"
                     android:scaleType="fitCenter"
-
                     app:srcCompat="@drawable/ic_settings" />
 
                 <ImageButton
@@ -294,11 +294,11 @@
                     android:id="@+id/statisticsCountry"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/statisticsMenuBtn"
+                    android:layout_below="@+id/statisticsTitle"
 
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="-35dp"
+                    android:layout_marginEnd="20dp"
                     android:fontFamily="@font/roboto_medium"
                     android:text="PL"
                     android:textColor="#FFFFFF"
@@ -324,17 +324,19 @@
                 android:id="@+id/graphs"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="#182075"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/newCasesGraphText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
                     android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="#A5B2DF"
                     android:gravity="center"
                     android:text="@string/table_new_text"
-                    android:textColor="@color/colorTextOnBlack"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -359,10 +361,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="#A5B2DF"
                     android:gravity="center"
                     android:text="@string/table_sum_text"
-                    android:textColor="@color/colorTextOnBlack"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -387,10 +389,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="#A5B2DF"
                     android:gravity="center"
                     android:text="Aktywne przypadki"
-                    android:textColor="@color/colorTextOnBlack"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -415,10 +417,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="#A5B2DF"
                     android:gravity="center"
                     android:text="Ozdrowienia"
-                    android:textColor="@color/colorTextOnBlack"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -443,10 +445,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="#A5B2DF"
                     android:gravity="center"
                     android:text="Ofiary Smiertelne"
-                    android:textColor="@color/colorTextOnBlack"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
