@@ -44,17 +44,16 @@
                 <ImageButton
 
                     android:id="@+id/statisticsSettingsBtn"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-                    android:layout_below="@+id/statisticsTitle"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
 
-                    android:layout_marginTop="-53dp"
-                    android:layout_marginEnd="-5dp"
-                    android:layout_toStartOf="@+id/statisticsCountry"
-
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="10dp"
                     android:background="#00FFFFFF"
-                    android:padding="20dp"
+                    android:padding="30dp"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/ic_settings" />
 
@@ -292,19 +291,22 @@
 
                 <TextView
                     android:id="@+id/statisticsCountry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/statisticsTitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
 
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="-35dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_alignStart="@+id/statisticsChangeCountryBtn"
+                    android:layout_alignTop="@+id/statisticsChangeCountryBtn"
+                    android:layout_alignEnd="@+id/statisticsChangeCountryBtn"
+                    android:layout_alignBottom="@+id/statisticsChangeCountryBtn"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
                     android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
                     android:text="PL"
                     android:textColor="#FFFFFF"
-                    android:textSize="24sp"
-                    app:layout_constraintEnd_toStartOf="@+id/statisticsBackground"
-                    app:layout_constraintTop_toBottomOf="@+id/statisticsBackground" />
+                    android:textSize="24dp" />
             </RelativeLayout>
 
             <LinearLayout
