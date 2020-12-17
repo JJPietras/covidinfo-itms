@@ -11,7 +11,6 @@ import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.drzymalski.covidinfo.config.backColor
 
-const val backColor: String = "#000000"
 class TodayIllnessInitializer: DataInitializer {
     private lateinit var covidData: DataProvider
     lateinit var summaryData: SummaryData

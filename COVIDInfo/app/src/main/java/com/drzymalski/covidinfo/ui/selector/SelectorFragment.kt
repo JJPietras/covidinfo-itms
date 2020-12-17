@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_selector.selectorStatsFragBtn
 import kotlinx.android.synthetic.main.fragment_selector.selectorTwitterFragBtn
 import kotlinx.android.synthetic.main.fragment_selector.selectorHospitalFragBtn
@@ -33,7 +33,7 @@ class SelectorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         selectorViewModel =
-            ViewModelProviders.of(this).get(SelectorViewModel::class.java)
+            ViewModelProvider(this).get(SelectorViewModel::class.java)
         return inflater.inflate(R.layout.fragment_selector, container, false)
     }
 

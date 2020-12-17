@@ -12,11 +12,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.activity.addCallback
-import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.config.CountryConfig
@@ -39,6 +38,7 @@ import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch
 
 
+@Suppress("DEPRECATION")
 class TodayIllnessFragment : Fragment(), FragmentSettings {
 
     private lateinit var viewModel: TodayIllnessViewModel
@@ -46,12 +46,8 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
     private var initializer: TodayIllnessInitializer = TodayIllnessInitializer()
     private var selectedDay: Int = 0
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        viewModel = ViewModelProviders.of(this).get(TodayIllnessViewModel::class.java)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        viewModel = ViewModelProvider(this).get(TodayIllnessViewModel::class.java)
         return inflater.inflate(R.layout.fragment_today, container, false)
     }
 
@@ -60,11 +56,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         super.onViewCreated(view, savedInstanceState)
 
         loadDataAndRefresh()
-
-        GlobalScope.launch {
-            initializer.loadSummaryData()
-            generateCountryButtons()
-        }
+        refreshButtons()
 
         configureObserver(viewModel.confirmed, statisticsCount)
         configureObserver(viewModel.died, statisticsDied)
@@ -79,32 +71,8 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                 statisticsCountriesLayout.visibility = View.VISIBLE
         }
 
-        statisticsShowPoland.setOnClickListener {
-            changeCountry(
-                CountryConfig().apply {
-                    slug = "poland"
-                    name = "Polska"
-                    continent = "Europa"
-                    color = "#6f79fc"
-                    code = "PL"
-                }
-            )
-        }
-
-        statisticsSettingsBtn.setOnClickListener{
-            val settingsView = SettingsView(
-                requireContext(),
-                root_layout,
-                initializer.config.config.countries,
-                initializer.config.config.daysBackToday,
-                this
-            )
-
-            val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-                settingsView.close(true)
-            }
-            settingsView.show(callback)
-        }
+        statisticsShowPoland.setOnClickListener { showPoland() }
+        statisticsSettingsBtn.setOnClickListener{ showSettings() }
 
         viewModel.nIncreaseCount.observe(viewLifecycleOwner, Observer {
             statisticsIncreaseNum.text = "${if (it > 0) "+" else ""}${it}"
@@ -133,7 +101,6 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         button.setOnClickListener {
             val lastIndex = initializer.stats.datesFullList.lastIndex
             val calculatedCondition = if (greater) selectedDay > 1 else selectedDay < lastIndex
-
             if (calculatedCondition) {
                 selectedDay += dayValue
                 setData()
@@ -142,9 +109,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         }
 
     private fun configureChart(chart: AAChartView, options: AAOptions) {
-        chart.post(Runnable {
-            chart.aa_drawChartWithChartOptions(options)
-        })
+        chart.post(Runnable { chart.aa_drawChartWithChartOptions(options) })
     }
 
     private fun configureObserver(liveData: LiveData<*>, textView: TextView) =
@@ -197,7 +162,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
 
             val tvBanner = TextView(this.context).apply {
                 textSize = 30f
-                text = "Wybierz kraj"
+                text = context.getString(R.string.today_select_country)
                 setTextColor(Color.parseColor("#91ABED"))
                 gravity = CENTER
             }
@@ -213,10 +178,8 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                         ActionBar.LayoutParams.WRAP_CONTENT, 0.6f)
 
                     val shape = GradientDrawable()
-
                     shape.cornerRadius = 100f
                     background = shape
-                    //setBackgroundResource(R.drawable.sphere) //Looks stretched when you rotate or have a weird aspect ratio
                     textSize = 22f
                     text = countryConfig.code
                     setTextColor(Color.parseColor("#FFFFFF"))
@@ -297,6 +260,33 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         }
     }
 
+    private fun showPoland(){
+        var cnt = initializer.config.config.countries.find { it.code == "PL" }
+        if (cnt==null) cnt = CountryConfig().apply {
+            slug = "poland"
+            name = "Polska"
+            continent = "Europa"
+            color = "#6f79fc"
+            code = "PL"
+        }
+        changeCountry(cnt)
+    }
+
+    private fun showSettings(){
+        val settingsView = SettingsView(
+            requireContext(),
+            root_layout,
+            initializer.config.config.countries,
+            initializer.config.config.daysBackToday,
+            this
+        )
+
+        val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+            settingsView.close()
+        }
+        settingsView.show(callback)
+    }
+
     private fun changeCountry(countryConfig: CountryConfig){
         initializer.config.config.selectedCountry = countryConfig
         viewModel.codeLive.postValue(countryConfig.code)
@@ -309,9 +299,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         viewModel.increasePercentLive.postValue(0f)
         viewModel.calcIncrease(1, 1)
 
-
         loadDataAndRefresh()
-
     }
 
     override fun applySettings(countries: MutableList<CountryConfig>, daysBack: Long){
@@ -320,7 +308,10 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         this.initializer.config.saveConfig()
 
         loadDataAndRefresh()
+        refreshButtons()
+    }
 
+    private fun refreshButtons(){
         GlobalScope.launch {
             initializer.loadSummaryData()
             generateCountryButtons()

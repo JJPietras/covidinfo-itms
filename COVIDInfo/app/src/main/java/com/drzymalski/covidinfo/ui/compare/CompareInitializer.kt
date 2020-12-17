@@ -10,21 +10,9 @@ import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 
 
 class CompareInitializer: DataInitializer {
-    //lateinit var summaryData: SummaryData
-
     val stats = mutableListOf<CompareCasesStats>()
     var maxLen = 0
     override val config: ConfigurationManager = ConfigurationManager()
-
-    /*fun loadScreenResources(){
-        try {
-            summaryData = ApiManager.getSummaryFromApi()
-            summaryData.Countries = summaryData.Countries.filter{config.config.countries
-                .map{ countryConfig -> countryConfig.slug }.contains(it.Slug)}
-        }catch (ex:Exception){
-            println(ex.message) //need to see the errors xd
-        }
-    }*/
 
     fun loadScreenResources(){
         stats.clear()
@@ -40,23 +28,29 @@ class CompareInitializer: DataInitializer {
 
             stats += newStats
         }
+        normalizeLengths()
     }
 
-    fun normalizeLenghts(){
+    private fun normalizeLengths(){
         val topCnt = stats.find { it.datesList.size == maxLen}
         if (topCnt!=null){
             stats.forEach { countryStat ->
                 if (countryStat.datesList.size<maxLen){
-                    val diff: Int = maxLen-countryStat.datesList.size
+                    val diffNew: Int = topCnt.datesList.size-countryStat.newCasesWeeklyList.size
+                    val diffActive: Int = topCnt.datesList.size-countryStat.activeCasesList.size
+                    val diffTotal: Int = topCnt.datesList.size-countryStat.totalCasesList.size
+
                     countryStat.datesList = topCnt.datesList
-                    for (i in 1..diff){
-                        countryStat.newCasesWeeklyList.add(0,0f)
-                        countryStat.activeCasesList.add(0,0)
-                        countryStat.totalCasesList.add(0,0)
-                        countryStat.newRecoveredWeeklyList.add(0,0f)
-                        countryStat.newDeathsWeeklyList.add(0,0f)
-                    }
+                    for (i in 2..diffNew) {countryStat.newCasesWeeklyList.add(0,0f)}
+                    for (i in 1..diffActive) {countryStat.activeCasesList.add(0,0)}
+                    for (i in 1..diffTotal) {countryStat.totalCasesList.add(0,0)}
                 }
+
+                val diffRecovered: Int = topCnt.datesList.size-countryStat.newRecoveredWeeklyList.size
+                val diffDeath: Int = topCnt.datesList.size-countryStat.newDeathsWeeklyList.size
+
+                for (i in 2..diffRecovered) {countryStat.newRecoveredWeeklyList.add(0,0f)}
+                for (i in 2..diffDeath) {countryStat.newDeathsWeeklyList.add(0,0f)}
             }
         }
     }

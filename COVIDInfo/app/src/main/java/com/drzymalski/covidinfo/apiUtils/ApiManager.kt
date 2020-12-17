@@ -1,7 +1,6 @@
 package com.drzymalski.covidinfo.apiUtils
 
 import com.drzymalski.covidinfo.apiUtils.models.DataProvider
-import com.drzymalski.covidinfo.apiUtils.models.old.CovidDay
 import com.drzymalski.covidinfo.apiUtils.models.SummaryData
 import com.drzymalski.covidinfo.config.Config
 import com.google.gson.Gson
@@ -33,7 +32,6 @@ class ApiManager {
                                      countDown()
                                  }catch (ex:OutOfMemoryError){//some memory alocation errors when the format does't match
                                      println(ex.message)
-                                     print(finalJsonContent)
                                  }
                              }
                          })
@@ -41,20 +39,6 @@ class ApiManager {
                 await()
             }
             return finalJsonContent
-        }
-
-        fun getCovidDataFromApi(url: String): List<Any> {
-            val gson = Gson()
-            val listPersonType = object : TypeToken<List<Any>>() {}.type
-            return  gson.fromJson(getJSONFromApi(url), listPersonType)
-        }
-
-        fun getCovidDataFromApi(dateFrom: String, dateTo: String, country: String): List<CovidDay> {
-            val url= "$BASE_URL/country/${country}?from=${dateFrom}T00:00:00Z&to=${dateTo}T00:00:00Z"
-            //if (dateTo!="") url+= "$BASE_URL/country/Poland?from=${dateFrom}T00:00:00Z&to=${dateTo}T00:00:00Z"
-
-            val listPersonType = object : TypeToken<List<CovidDay>>() {}.type
-            return  Gson().fromJson(getJSONFromApi(url), listPersonType)
         }
 
         fun getCovidDataFromNewApi(dateFrom: String, country: String): DataProvider {
@@ -70,13 +54,10 @@ class ApiManager {
             return  Gson().fromJson(getJSONFromApi(url), listPersonType)
         }
 
-
-
         fun getSummaryFromApi(): SummaryData {
             val url= "$BASE_URL/summary"
             val listPersonType = object : TypeToken<SummaryData>() {}.type
             return  Gson().fromJson(getJSONFromApi(url), listPersonType)
         }
     }
-
 }
