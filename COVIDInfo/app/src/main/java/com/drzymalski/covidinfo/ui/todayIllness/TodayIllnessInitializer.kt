@@ -10,8 +10,8 @@ import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.drzymalski.covidinfo.config.backColor
+import com.drzymalski.covidinfo.config.fontColor
 
-const val backColor: String = "#000000"
 class TodayIllnessInitializer: DataInitializer {
     private lateinit var covidData: DataProvider
     lateinit var summaryData: SummaryData
@@ -45,6 +45,7 @@ class TodayIllnessInitializer: DataInitializer {
             .markerRadius(0f)
             .categories(stats.datesList.toTypedArray())
             .backgroundColor(backColor)
+            .axesTextColor(fontColor)
             .series(
                 arrayOf(
                     AASeriesElement()
@@ -70,6 +71,7 @@ class TodayIllnessInitializer: DataInitializer {
             .markerRadius(2f)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .backgroundColor(backColor)
+            .axesTextColor(fontColor)
             .series(
                 arrayOf(
                     AASeriesElement()
@@ -80,8 +82,9 @@ class TodayIllnessInitializer: DataInitializer {
                     AASeriesElement()
                         .type(AAChartType.Column)
                         .name("Przypadki")
-                        .color("#25547c")
+                        .color(AAGradientColor.reflexSilverColor())
                         .data(stats.newCasesList.toTypedArray())
+                        .borderWidth(0.0f)
                 )
             )
         return getChartOptions(aaChartModel)
@@ -96,6 +99,7 @@ class TodayIllnessInitializer: DataInitializer {
             .zoomType(AAChartZoomType.X)
             .categories(stats.datesList.drop(1).toTypedArray())
             .backgroundColor(backColor)
+            .axesTextColor(fontColor)
             .series(
                 arrayOf(
                     AASeriesElement()
@@ -116,6 +120,7 @@ class TodayIllnessInitializer: DataInitializer {
             .zoomType(AAChartZoomType.X)
             .categories(stats.datesList.drop(1).toTypedArray())
             .backgroundColor(backColor)
+            .axesTextColor(fontColor)
             .series(
                 arrayOf(
                     AASeriesElement()
@@ -139,6 +144,7 @@ class TodayIllnessInitializer: DataInitializer {
             .categories(stats.datesList.toTypedArray())
             .animationType(AAChartAnimationType.Bounce)
             .backgroundColor(backColor)
+            .axesTextColor(fontColor)
             .series(
                 arrayOf(
                     AASeriesElement()

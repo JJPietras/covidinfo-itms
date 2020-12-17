@@ -3,6 +3,7 @@ package com.drzymalski.covidinfo.ui.compare
 import com.drzymalski.covidinfo.config.backColor
 import com.drzymalski.covidinfo.apiUtils.ApiManager
 import com.drzymalski.covidinfo.config.ConfigurationManager
+import com.drzymalski.covidinfo.config.fontColor
 import com.drzymalski.covidinfo.dataUtils.CompareCasesStats
 import com.drzymalski.covidinfo.interfaces.DataInitializer
 import com.github.aachartmodel.aainfographics.aachartcreator.*
@@ -70,12 +71,13 @@ class CompareInitializer: DataInitializer {
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
             .backgroundColor(backColor)
+            .axesTextColor(fontColor)
             .categories(stats.first().datesList.toTypedArray())
             .series(
                 stats.map { stats ->
                     AASeriesElement()
                         .name(stats.country.name)
-                        .lineWidth(2f)
+                        .lineWidth(3f)
                         .color(stats.country.color)
                         .data(stats.totalCasesList.toTypedArray())
                 }.toTypedArray()
@@ -94,7 +96,8 @@ class CompareInitializer: DataInitializer {
             .yAxisTitle("")
             .zoomType(AAChartZoomType.X)
             .backgroundColor(backColor)
-            .yAxisGridLineWidth(0f)
+            .axesTextColor(fontColor)
+            //.yAxisGridLineWidth(0f)
             //.markerRadius(2f)
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
@@ -102,7 +105,7 @@ class CompareInitializer: DataInitializer {
                 stats.map { stats ->
                     AASeriesElement()
                         .name(stats.country.name)
-                        .lineWidth(2f)
+                        .lineWidth(3f)
                         .color(stats.country.color)
                         .data(stats.newCasesWeeklyList.toTypedArray())
                 }.toTypedArray()
@@ -119,12 +122,13 @@ class CompareInitializer: DataInitializer {
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
             .backgroundColor(backColor)
+            .axesTextColor(fontColor)
             .categories(stats.first().datesList.drop(1).toTypedArray())
             .series(
                 stats.map { stats ->
                     AASeriesElement()
                         .name(stats.country.name)
-                        .lineWidth(2f)
+                        .lineWidth(3f)
                         .color(stats.country.color)
                         .data(stats.newDeathsWeeklyList.toTypedArray())
                 }.toTypedArray()
@@ -141,12 +145,13 @@ class CompareInitializer: DataInitializer {
             .markerSymbolStyle(AAChartSymbolStyleType.InnerBlank)
             .markerRadius(0f)
             .backgroundColor(backColor)
+            .axesTextColor(fontColor)
             .zoomType(AAChartZoomType.X)
             .series(
                 stats.map { stats ->
                     AASeriesElement()
                         .name(stats.country.name)
-                        .lineWidth(2f)
+                        .lineWidth(3f)
                         .color(stats.country.color)
                         .data(stats.newRecoveredWeeklyList.toTypedArray())
                 }.toTypedArray()
@@ -165,11 +170,12 @@ class CompareInitializer: DataInitializer {
             .animationType(AAChartAnimationType.Bounce)
             .zoomType(AAChartZoomType.X)
             .backgroundColor(backColor)
+            .axesTextColor(fontColor)
             .series(
                 stats.map { stats ->
                     AASeriesElement()
                         .name(stats.country.name)
-                        .lineWidth(2f)
+                        .lineWidth(3f)
                         .color(stats.country.color)
                         .data(stats.activeCasesList.toTypedArray())
                 }.toTypedArray()

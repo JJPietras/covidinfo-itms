@@ -127,7 +127,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
                 android:background="#00FFFFFF"
-                android:src="@drawable/ic_statistics" />
+                android:src="@drawable/ic_compare" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
