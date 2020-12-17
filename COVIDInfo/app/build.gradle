@@ -29,6 +29,18 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
+    }
+
 
 }
 
@@ -58,5 +70,10 @@ dependencies {
     implementation 'io.paperdb:paperdb:2.7.1'
     implementation 'com.toptoche.searchablespinner:searchablespinnerlibrary:1.3.1'
     implementation 'com.github.QuadFlask:colorpicker:0.0.15'
+
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient' , version: '4.3'
+    implementation group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.3' //tak ma być xD
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.4.Final'
+
 }
 

@@ -25,11 +25,32 @@ import androidx.lifecycle.ViewModelProvider
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
-import io.github.nandandesai.twitterscraper4j.TwitterScraper
 import kotlinx.android.synthetic.main.fragment_tweeter.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.lang.Exception
+import org.apache.http.HttpEntity
+import org.apache.http.HttpResponse
+import org.apache.http.NameValuePair
+import org.apache.http.client.HttpClient
+import org.apache.http.client.config.CookieSpecs
+import org.apache.http.client.config.RequestConfig
+import org.apache.http.client.methods.HttpGet
+import org.apache.http.client.utils.URIBuilder
+import org.apache.http.impl.client.HttpClients
+import org.apache.http.message.BasicNameValuePair
+import org.apache.http.util.EntityUtils
+import org.json.JSONArray
+import org.json.JSONObject
+import org.ocpsoft.prettytime.PrettyTime
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStreamReader
+import java.net.URISyntaxException
+import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.LocalDateTime
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class TwitterFragment : Fragment() {
@@ -71,26 +92,32 @@ class TwitterFragment : Fragment() {
     }
 
     private fun loadData() {
-        Handler(Looper.getMainLooper()).post {
-            try {
-                val twitterScraper = TwitterScraper.builder().build()
-                val profile = twitterScraper.getProfile(curTTacc)
-                twitterAccountTitle.text = profile.name
-                twitterAccountDescription.text = profile.description
-                twitterAccountUsername.text = profile.username
-                twitterObservedCount.text = profile.noOfFollowers.toString()
-                twitterObservesCount.text = profile.noOfFriends.toString()
-            }catch (ex: NullPointerException){
-                println(ex.message)
-            }
-        }
+        getUsers()
     }
 
+    @Throws(IOException::class, URISyntaxException::class)
     private fun getPosts() {
+        val httpClient: HttpClient = HttpClients.custom()
+            .setDefaultRequestConfig(
+                RequestConfig.custom()
+                    .setCookieSpec(CookieSpecs.STANDARD).build()
+            )
+            .build()
+        val uriBuilder =
+            URIBuilder("https://api.twitter.com/2/tweets/search/recent?query=from:" + curTTacc + "&tweet.fields=created_at&user.fields=created_at")
+        val httpGet = HttpGet(uriBuilder.build())
+        httpGet.setHeader("Authorization", String.format("Bearer %s", "AAAAAAAAAAAAAAAAAAAAADd5KAEAAAAAQeoc0ThNUcEYfdvCcciuxZTho%2BE%3DNIHR9ZRTqpHWx37V9ukK6Vsua4NX4sS8Ari3sL4HUkNvRvaFrn"))
+        val response: HttpResponse = httpClient.execute(httpGet)
+        val entity: HttpEntity = response.getEntity()
+        val reader = BufferedReader(InputStreamReader(entity.getContent()))
+        var line: String = reader.readLine()
+
+
         Handler(Looper.getMainLooper()).post(Runnable(fun() {
-            val twitterScraper = TwitterScraper.builder().build()
-            val tweets = twitterScraper.getUserTimeline(curTTacc)
-            for (tweet in tweets) {
+            val jsonObject = JSONObject(line)
+            val jArray: JSONArray = jsonObject.getJSONArray("data")
+            for (i in 0 until jArray.length()) {
+                val jsonObject1: JSONObject = jArray.getJSONObject(i)
                 val cardView = CardView(requireContext())
                 // Initialize a new LayoutParams instance, CardView width and height
                 val cvLayoutParams = LayoutParams(
@@ -174,7 +201,9 @@ class TwitterFragment : Fragment() {
                 textView22.typeface = typeface2
                 textView22.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16F)
                 textView22.setTextColor(Color.parseColor("#C4FFFFFF"))
-                textView22.text = tweet.timestamp
+                val p = PrettyTime(Locale("pl"))
+                val ISO8601DATEFORMAT =  SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.ENGLISH)
+                textView22.text = p.format(Date.from(Instant.parse(jsonObject1.optString("created_at"))))
                 linearLayout2.addView(textView22)
 
                 //ikonka Twittera
@@ -193,7 +222,7 @@ class TwitterFragment : Fragment() {
                     val browserIntent =
                         Intent(
                             Intent.ACTION_VIEW,
-                            Uri.parse("https://twitter.com/" + curTTacc + "/status/" + tweet.tweetID)
+                            Uri.parse("https://twitter.com/" + curTTacc + "/status/" + jsonObject1.optString("id"))
                         )
                     startActivity(browserIntent)
                 }
@@ -210,7 +239,7 @@ class TwitterFragment : Fragment() {
                 textView.layoutParams = tvLayoutParams
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18F)
                 textView.setTextColor(Color.parseColor("#CBFFFFFF"))
-                textView.text = tweet.tweetText
+                textView.text = jsonObject1.optString("text")
                 linearLayout.addView(textView)
             }
         }))
@@ -243,6 +272,77 @@ class TwitterFragment : Fragment() {
         }
         refresh()
     }
+
+    @Throws(IOException::class, URISyntaxException::class)
+    private fun connectStream() {
+        val httpClient: HttpClient = HttpClients.custom()
+            .setDefaultRequestConfig(
+                RequestConfig.custom()
+                    .setCookieSpec(CookieSpecs.STANDARD).build()
+            )
+            .build()
+        val uriBuilder =
+            URIBuilder("https://api.twitter.com/2/tweets/search/recent?query=from:MZ_GOV_PL&tweet.fields=created_at&user.fields=created_at")
+        val httpGet = HttpGet(uriBuilder.build())
+        httpGet.setHeader("Authorization", String.format("Bearer %s", "AAAAAAAAAAAAAAAAAAAAADd5KAEAAAAAQeoc0ThNUcEYfdvCcciuxZTho%2BE%3DNIHR9ZRTqpHWx37V9ukK6Vsua4NX4sS8Ari3sL4HUkNvRvaFrn"))
+        val response: HttpResponse = httpClient.execute(httpGet)
+        val entity: HttpEntity = response.getEntity()
+        val reader = BufferedReader(InputStreamReader(entity.getContent()))
+        var line: String = reader.readLine()
+            println(line)
+
+    }
+
+    @Throws(IOException::class, URISyntaxException::class)
+    private fun getUsers() {
+        var userResponse: String? = null
+        val httpClient: HttpClient = HttpClients.custom()
+            .setDefaultRequestConfig(
+                RequestConfig.custom()
+                    .setCookieSpec(CookieSpecs.STANDARD).build()
+            )
+            .build()
+        val uriBuilder = URIBuilder("https://api.twitter.com/2/users/by")
+        val queryParameters: ArrayList<NameValuePair>
+        queryParameters = ArrayList()
+        queryParameters.add(BasicNameValuePair("usernames", curTTacc))
+        queryParameters.add(BasicNameValuePair("user.fields", "description,public_metrics"))
+        uriBuilder.addParameters(queryParameters)
+        val httpGet = HttpGet(uriBuilder.build())
+        httpGet.setHeader(
+            "Authorization",
+            String.format(
+                "Bearer %s",
+                "AAAAAAAAAAAAAAAAAAAAADd5KAEAAAAAQeoc0ThNUcEYfdvCcciuxZTho%2BE%3DNIHR9ZRTqpHWx37V9ukK6Vsua4NX4sS8Ari3sL4HUkNvRvaFrn"
+            )
+        )
+        httpGet.setHeader("Content-Type", "application/json")
+        val response = httpClient.execute(httpGet)
+        val entity = response.entity
+        if (null != entity) {
+            userResponse = EntityUtils.toString(entity, "UTF-8")
+        }
+
+        Handler(Looper.getMainLooper()).post {
+            try {
+                val jsonObject = JSONObject(userResponse)
+                val jArray: JSONArray = jsonObject.getJSONArray("data")
+                for (i in 0 until jArray.length()) {
+                    val jsonObject1: JSONObject = jArray.getJSONObject(i)
+                    twitterAccountTitle.text = jsonObject1.optString("name")
+                    twitterAccountDescription.text = jsonObject1.optString("description")
+                    twitterAccountUsername.text = jsonObject1.optString("username")
+                    val newjsonobj: JSONObject = jsonObject1.getJSONObject("public_metrics")
+                    twitterObservedCount.text = newjsonobj.getString("following_count");
+                    twitterObservesCount.text = newjsonobj.getString("followers_count");
+                    println(newjsonobj)
+                }
+            }catch (ex: NullPointerException){
+                println(ex.message)
+            }
+        }
+    }
+
 
 
 
