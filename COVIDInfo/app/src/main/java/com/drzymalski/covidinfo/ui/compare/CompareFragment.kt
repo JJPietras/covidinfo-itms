@@ -1,6 +1,8 @@
 package com.drzymalski.covidinfo.ui.compare
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +27,7 @@ import kotlinx.android.synthetic.main.fragment_compare.statisticsSettingsBtn
 import kotlinx.android.synthetic.main.fragment_compare.root_layout
 import kotlinx.android.synthetic.main.fragment_compare.statisticsReload
 import kotlinx.android.synthetic.main.fragment_compare.daysPicker
+import kotlinx.android.synthetic.main.fragment_compare.todaySource1
 import kotlinx.coroutines.*
 
 class CompareFragment : Fragment(), FragmentSettings {
@@ -70,6 +73,7 @@ class CompareFragment : Fragment(), FragmentSettings {
         daysPicker.maxValue = 365
         daysPicker.value = initializer.config.config.daysBackCompare.toInt()
         daysPicker.setOnValueChangedListener { _, _, _ -> daysChanged = true }
+        activateLinks()
     }
 
     private fun configureChart(chart: AAChartView, options: AAOptions) {
@@ -120,5 +124,11 @@ class CompareFragment : Fragment(), FragmentSettings {
 
         loadDataAndRefresh()
     }
-
+    private fun activateLinks(){
+        todaySource1.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://documenter.getpostman.com/view/2220438/SzYevv9u?version=latest"))
+            startActivity(browserIntent)
+        }
+    }
 }

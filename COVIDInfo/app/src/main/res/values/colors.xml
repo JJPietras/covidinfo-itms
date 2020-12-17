@@ -13,4 +13,5 @@
     <color name="colorTextOnBlack">#91abed</color>
     <color name="white">#FFFFFF</color>
     <color name="plotBgColor">#3D439B</color>
+    <color name="mainBgColor">#182075</color>
 </resources>

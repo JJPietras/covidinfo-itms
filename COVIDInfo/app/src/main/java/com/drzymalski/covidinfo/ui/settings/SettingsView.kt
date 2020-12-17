@@ -217,7 +217,7 @@ class SettingsView(
                         layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
                             ActionBar.LayoutParams.MATCH_PARENT, 0.75f)
 
-                        setBackgroundResource(R.drawable.ic_delete2)
+                        setBackgroundResource(R.drawable.ic_delete)
                         backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F44336"))
                         setOnClickListener{
                             deleteCountry(country.slug)

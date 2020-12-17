@@ -2,37 +2,34 @@ package com.drzymalski.covidinfo.ui.todayIllness
 
 import android.annotation.SuppressLint
 import android.app.ActionBar
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.Gravity.CENTER
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.drzymalski.covidinfo.R
-import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.config.CountryConfig
 import com.drzymalski.covidinfo.interfaces.FragmentSettings
+import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.drzymalski.covidinfo.ui.settings.SettingsView
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
-
 import kotlinx.android.synthetic.main.fragment_today.*
-import kotlinx.android.synthetic.main.fragment_today.aaChartViewActiveCases
-import kotlinx.android.synthetic.main.fragment_today.aaChartViewDied
-import kotlinx.android.synthetic.main.fragment_today.aaChartViewNewCases
-import kotlinx.android.synthetic.main.fragment_today.aaChartViewRecovered
-import kotlinx.android.synthetic.main.fragment_today.aaChartViewTotalCases
-import kotlinx.android.synthetic.main.fragment_today.statisticsSettingsBtn
-import kotlinx.android.synthetic.main.fragment_today.root_layout
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch
@@ -95,6 +92,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
             SelectorFragment(),
             requireActivity()
         )
+        activateLinks()
     }
 
     private fun configureButton(button: ImageButton, dayValue: Int, greater: Boolean) =
@@ -315,6 +313,19 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         GlobalScope.launch {
             initializer.loadSummaryData()
             generateCountryButtons()
+        }
+    }
+
+    private fun activateLinks(){
+        todaySource1.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://documenter.getpostman.com/view/2220438/SzYevv9u?version=latest"))
+            startActivity(browserIntent)
+        }
+        todaySource2.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://documenter.getpostman.com/view/10808728/SzS8rjbc"))
+            startActivity(browserIntent)
         }
     }
 }
