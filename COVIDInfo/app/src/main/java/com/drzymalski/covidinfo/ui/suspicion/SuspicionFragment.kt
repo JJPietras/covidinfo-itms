@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ProgressBar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -137,7 +138,7 @@ class SuspicionFragment : Fragment() {
 
     private fun configureBinder(view: View) =
         FragmentBinder.bindToButton(
-            view.findViewById(R.id.suspicionMenuBtn),
+            view.findViewById<ImageButton>(R.id.suspicionMenuBtn),
             SelectorFragment(),
             requireActivity()
         )

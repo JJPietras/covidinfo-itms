@@ -72,7 +72,7 @@ class TwitterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         FragmentBinder.bindToButton(
-            view.findViewById(R.id.twitterMenuBtn),
+            view.findViewById<ImageButton>(R.id.twitterMenuBtn),
             SelectorFragment(),
             requireActivity()
         )

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -53,7 +54,7 @@ class CompareFragment : Fragment(), FragmentSettings {
         loadDataAndRefresh()
 
         FragmentBinder.bindToButton(
-            view.findViewById(R.id.statisticsMenuBtn),
+            view.findViewById<ImageButton>(R.id.statisticsMenuBtn),
             SelectorFragment(),
             requireActivity()
         )

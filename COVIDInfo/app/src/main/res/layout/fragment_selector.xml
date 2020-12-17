@@ -48,8 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/selectorStatsFragBtn"
+            <ImageView
+                android:id="@+id/selectorStatsFragImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -59,7 +59,20 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
                 android:background="#00FFFFFF"
-                android:src="@drawable/ic_statistics" />
+                android:src="@drawable/ic_statistics"
+                android:contentDescription="TODO" />
+
+            <Button
+                android:id="@+id/selectorStatsFragBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:background="#00FFFFFF"/>
 
             <TextView
                 android:id="@+id/selectorStatsText"
@@ -116,8 +129,8 @@
                 android:textColor="#E3E3E3"
                 android:textSize="26sp" />
 
-            <ImageButton
-                android:id="@+id/selectorCompareBtn"
+            <ImageView
+                android:id="@+id/selectorCompareImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -127,7 +140,20 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
                 android:background="#00FFFFFF"
-                android:src="@drawable/ic_compare" />
+                android:src="@drawable/ic_compare"
+                android:contentDescription="TODO" />
+
+            <Button
+                android:id="@+id/selectorCompareBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:background="#00FFFFFF" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -164,8 +190,8 @@
                 android:textColor="#E3E3E3"
                 android:textSize="26sp" />
 
-            <ImageButton
-                android:id="@+id/selectorTwitterFragBtn"
+            <ImageView
+                android:id="@+id/selectorTwitterFragImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -175,7 +201,20 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
                 android:background="#00FFFFFF"
-                android:src="@drawable/ic_twitter" />
+                android:src="@drawable/ic_twitter"
+                android:contentDescription="TODO" />
+
+            <Button
+                android:id="@+id/selectorTwitterFragBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:background="#00FFFFFF" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -212,8 +251,8 @@
                 android:textColor="#E3E3E3"
                 android:textSize="26sp" />
 
-            <ImageButton
-                android:id="@+id/selectorHospitalFragBtn"
+            <ImageView
+                android:id="@+id/selectorHospitalFragImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -222,8 +261,20 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
-                android:background="#00FFFFFF"
-                android:src="@drawable/ic_hospital_large" />
+                android:src="@drawable/ic_hospital_large"
+                android:contentDescription="TODO" />
+
+            <Button
+                android:id="@+id/selectorHospitalFragBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:background="#00FFFFFF" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -260,8 +311,8 @@
                 android:textColor="#E3E3E3"
                 android:textSize="26sp" />
 
-            <ImageButton
-                android:id="@+id/selectorSuspicionFragBtn"
+            <ImageView
+                android:id="@+id/selectorSuspicionFragImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -270,8 +321,20 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
-                android:background="#00FFFFFF"
-                android:src="@drawable/ic_suspicion" />
+                android:src="@drawable/ic_suspicion"
+                android:contentDescription="TODO" />
+
+            <Button
+                android:id="@+id/selectorSuspicionFragBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:background="#00FFFFFF" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -308,8 +371,8 @@
                 android:textColor="#E3E3E3"
                 android:textSize="26sp" />
 
-            <ImageButton
-                android:id="@+id/selectorAuthorsFragBtn"
+            <ImageView
+                android:id="@+id/selectorAuthorsFragImg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -318,8 +381,20 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp"
-                android:background="#00FFFFFF"
-                android:src="@drawable/ic_programmer" />
+                android:src="@drawable/ic_programmer"
+                android:contentDescription="TODO" />
+
+            <Button
+                android:id="@+id/selectorAuthorsFragBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:background="#00FFFFFF" />
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
