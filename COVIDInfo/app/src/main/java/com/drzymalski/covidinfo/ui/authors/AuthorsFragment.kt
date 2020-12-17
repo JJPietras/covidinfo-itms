@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.drzymalski.covidinfo.R
 import kotlinx.android.synthetic.main.fragment_authors.icon1
 import kotlinx.android.synthetic.main.fragment_authors.icon2
@@ -28,7 +28,7 @@ class AuthorsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         authorsViewModel =
-                ViewModelProviders.of(this).get(AuthorsViewModel::class.java)
+                ViewModelProvider(this).get(AuthorsViewModel::class.java)
         return inflater.inflate(R.layout.fragment_authors, container, false)
     }
 

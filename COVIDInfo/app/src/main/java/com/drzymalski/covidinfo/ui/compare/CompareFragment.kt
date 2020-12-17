@@ -7,13 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.drzymalski.covidinfo.R
-import com.drzymalski.covidinfo.apiUtils.ApiManager
 import com.drzymalski.covidinfo.config.CountryConfig
 import com.drzymalski.covidinfo.lib.FragmentBinder
-import com.drzymalski.covidinfo.dataUtils.CompareCasesStats
-import com.drzymalski.covidinfo.dataUtils.DateConverter
 import com.drzymalski.covidinfo.interfaces.FragmentSettings
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.drzymalski.covidinfo.ui.settings.SettingsView
@@ -29,7 +26,6 @@ import kotlinx.android.synthetic.main.fragment_compare.root_layout
 import kotlinx.android.synthetic.main.fragment_compare.statisticsReload
 import kotlinx.android.synthetic.main.fragment_compare.daysPicker
 import kotlinx.coroutines.*
-import kotlin.math.abs
 
 class CompareFragment : Fragment(), FragmentSettings {
 
@@ -43,7 +39,7 @@ class CompareFragment : Fragment(), FragmentSettings {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(this).get(CompareViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(CompareViewModel::class.java)
         return inflater.inflate(R.layout.fragment_compare, container, false)
     }
 
@@ -60,11 +56,7 @@ class CompareFragment : Fragment(), FragmentSettings {
         )
 
         statisticsSettingsBtn.setOnClickListener{
-            val settingsView = SettingsView(requireContext(), root_layout, initializer.config.config.countriesToCompare, initializer.config.config.daysBackCompare, this)
-            val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-                settingsView.close()
-            }
-            settingsView.show(callback)
+            showSettings()
         }
 
         statisticsReload.setOnClickListener {
@@ -73,12 +65,11 @@ class CompareFragment : Fragment(), FragmentSettings {
             loadDataAndRefresh()
             daysChanged = false
         }
+
         daysPicker.minValue = 7
         daysPicker.maxValue = 365
         daysPicker.value = initializer.config.config.daysBackCompare.toInt()
-        daysPicker.setOnValueChangedListener { _, _, _ ->
-            daysChanged = true
-        }
+        daysPicker.setOnValueChangedListener { _, _, _ -> daysChanged = true }
     }
 
     private fun configureChart(chart: AAChartView, options: AAOptions) {
@@ -101,18 +92,24 @@ class CompareFragment : Fragment(), FragmentSettings {
         }
     }
 
-
     private fun loadDataAndRefresh(){
         GlobalScope.launch {
             try { // Prevents crashing when data was loaded after changing or refreshing the fragment
                 initializer.loadScreenResources()
-                initializer.normalizeLenghts()
                 configureCharts()
                 initializer.stats.clear()
             }catch (ex: Exception){ // No action will be taken
                 println(ex)
             }
         }
+    }
+
+    private fun showSettings(){
+        val settingsView = SettingsView(requireContext(), root_layout, initializer.config.config.countriesToCompare, initializer.config.config.daysBackCompare, this)
+        val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
+            settingsView.close()
+        }
+        settingsView.show(callback)
     }
 
     override fun applySettings(countries: MutableList<CountryConfig>, daysBack: Long){

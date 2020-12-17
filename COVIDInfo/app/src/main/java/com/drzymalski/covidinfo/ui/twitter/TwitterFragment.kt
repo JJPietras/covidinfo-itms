@@ -21,7 +21,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
@@ -29,20 +29,21 @@ import io.github.nandandesai.twitterscraper4j.TwitterScraper
 import kotlinx.android.synthetic.main.fragment_tweeter.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 
 class TwitterFragment : Fragment() {
 
     private lateinit var twitterViewModel: TwitterViewModel
-    public var curTTacc = "MZ_GOV_PL"
-    public var curTTcount = 0
+    private var curTTacc = "MZ_GOV_PL"
+    private var curTTcount = 0
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        twitterViewModel = ViewModelProviders.of(this).get(TwitterViewModel::class.java)
+        twitterViewModel = ViewModelProvider(this).get(TwitterViewModel::class.java)
         return inflater.inflate(R.layout.fragment_tweeter, container, false)
     }
 
@@ -65,26 +66,28 @@ class TwitterFragment : Fragment() {
 
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
         StrictMode.setThreadPolicy(policy)
-        GlobalScope.launch {
-            loadData()
-            getPosts()
-        }
+
+        refresh()
     }
 
     private fun loadData() {
-        Handler(Looper.getMainLooper()).post(Runnable {
-            val twitterScraper = TwitterScraper.builder().build()
-            val profile = twitterScraper.getProfile(curTTacc)
-            twitterAccountTitle.text = profile.name
-            twitterAccountDescription.text = profile.description
-            twitterAccountUsername.text = profile.username
-            twitterObservedCount.text = profile.noOfFollowers.toString()
-            twitterObservesCount.text = profile.noOfFriends.toString()
-        })
+        Handler(Looper.getMainLooper()).post {
+            try {
+                val twitterScraper = TwitterScraper.builder().build()
+                val profile = twitterScraper.getProfile(curTTacc)
+                twitterAccountTitle.text = profile.name
+                twitterAccountDescription.text = profile.description
+                twitterAccountUsername.text = profile.username
+                twitterObservedCount.text = profile.noOfFollowers.toString()
+                twitterObservesCount.text = profile.noOfFriends.toString()
+            }catch (ex: NullPointerException){
+                println(ex.message)
+            }
+        }
     }
 
     private fun getPosts() {
-        Handler(Looper.getMainLooper()).post(Runnable {
+        Handler(Looper.getMainLooper()).post(Runnable(fun() {
             val twitterScraper = TwitterScraper.builder().build()
             val tweets = twitterScraper.getUserTimeline(curTTacc)
             for (tweet in tweets) {
@@ -95,10 +98,15 @@ class TwitterFragment : Fragment() {
                     LayoutParams.WRAP_CONTENT // CardView height
                 )
 
-                cvLayoutParams.setMargins(0,70,0,35)
+                cvLayoutParams.setMargins(0, 70, 0, 35)
                 cardView.layoutParams = cvLayoutParams
 
-                cardView.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
+                cardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.colorPrimary
+                    )
+                )
                 cardView.radius = 100F
                 twitterLayout.addView(cardView)
                 //tło
@@ -146,9 +154,9 @@ class TwitterFragment : Fragment() {
                 textView12.layoutParams = tv12LayoutParams
                 val typeface = ResourcesCompat.getFont(requireContext(), R.font.roboto_medium)
                 textView12.typeface = typeface
-                textView12.setTextSize(TypedValue.COMPLEX_UNIT_SP,20F)
+                textView12.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20F)
                 textView12.setTextColor(Color.parseColor("#7EFFFFFF"))
-                textView12.text = "@" + curTTacc
+                textView12.text = "@$curTTacc"
                 linearLayout2.addView(textView12)
 
                 //2 textView w drugim LL
@@ -164,7 +172,7 @@ class TwitterFragment : Fragment() {
 
                 val typeface2 = ResourcesCompat.getFont(requireContext(), R.font.roboto)
                 textView22.typeface = typeface2
-                textView22.setTextSize(TypedValue.COMPLEX_UNIT_SP,16F)
+                textView22.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16F)
                 textView22.setTextColor(Color.parseColor("#C4FFFFFF"))
                 textView22.text = tweet.timestamp
                 linearLayout2.addView(textView22)
@@ -175,7 +183,7 @@ class TwitterFragment : Fragment() {
                     LayoutParams.WRAP_CONTENT, // CardView width
                     LayoutParams.WRAP_CONTENT
                 )
-                imgBtnParams.setMargins(0,30,100,0)
+                imgBtnParams.setMargins(0, 30, 100, 0)
                 imgBtnParams.gravity = Gravity.END or Gravity.BOTTOM  // bottom-right
                 imageButton.layoutParams = imgBtnParams
                 imageButton.setImageResource(R.drawable.ic_twitter_small)
@@ -185,7 +193,7 @@ class TwitterFragment : Fragment() {
                     val browserIntent =
                         Intent(
                             Intent.ACTION_VIEW,
-                            Uri.parse("https://twitter.com/"+ curTTacc +"/status/" + tweet.tweetID)
+                            Uri.parse("https://twitter.com/" + curTTacc + "/status/" + tweet.tweetID)
                         )
                     startActivity(browserIntent)
                 }
@@ -198,34 +206,40 @@ class TwitterFragment : Fragment() {
                     LayoutParams.WRAP_CONTENT // CardView height
                 )
                 tvLayoutParams.setMargins(80, 0, 80, 0)
-                textView.setPadding(0,0,0,50)
+                textView.setPadding(0, 0, 0, 50)
                 textView.layoutParams = tvLayoutParams
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,18F)
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18F)
                 textView.setTextColor(Color.parseColor("#CBFFFFFF"))
                 textView.text = tweet.tweetText
                 linearLayout.addView(textView)
-
             }
-
-        })
+        }))
     }
 
     private fun refresh(){
-        twitterLayout.removeViews(1,twitterLayout.getChildCount()-1)
-        loadData()
-        getPosts()
+        try {
+            twitterLayout.removeViews(1,twitterLayout.childCount -1)
+            GlobalScope.launch {
+                loadData()
+                getPosts()
+            }
+        }catch (ex: Exception){
+            println(ex.message)
+        }
     }
 
     private fun switch(value: Int) {
-        curTTcount=curTTcount+value
-        if (curTTcount % 3 == 0 ){
-            curTTacc = "MZ_GOV_PL"
-        }
-        else if (curTTcount % 3 == 1 ){
-            curTTacc = "GIS_gov"
-        }
-        else if (curTTcount % 3 == 2 ){
-            curTTacc = "WHO"
+        curTTcount += value
+        when {
+            curTTcount % 3 == 0 -> {
+                curTTacc = "MZ_GOV_PL"
+            }
+            curTTcount % 3 == 1 -> {
+                curTTacc = "GIS_gov"
+            }
+            curTTcount % 3 == 2 -> {
+                curTTacc = "WHO"
+            }
         }
         refresh()
     }

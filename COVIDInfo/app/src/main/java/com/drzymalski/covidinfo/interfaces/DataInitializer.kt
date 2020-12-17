@@ -22,7 +22,6 @@ interface DataInitializer {
                 "<tr><td><li></li></td><td><small>{point.series.name}: </small></td> <td><small>{point.y}</small></td></tr>"
             )
             .footerFormat("</table>")*/
-            //.backgroundColor(AAColor.grayColor())
             .valueDecimals(0)
         return aaOptions
     }

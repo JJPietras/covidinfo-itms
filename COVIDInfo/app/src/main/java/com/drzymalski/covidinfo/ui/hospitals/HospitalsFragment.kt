@@ -14,7 +14,7 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.data.Hospitals
 import com.drzymalski.covidinfo.lib.FragmentBinder
@@ -47,7 +47,7 @@ class HospitalsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         hospitalsViewModel =
-            ViewModelProviders.of(this).get(HospitalsViewModel::class.java)
+            ViewModelProvider(this).get(HospitalsViewModel::class.java)
         return inflater.inflate(R.layout.fragment_hospitals, container, false)
     }
 

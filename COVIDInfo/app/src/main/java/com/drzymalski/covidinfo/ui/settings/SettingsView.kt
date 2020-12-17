@@ -11,6 +11,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.ViewGroup
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.AppCompatImageButton
@@ -30,17 +31,13 @@ class SettingsView(
     daysBack: Long,
     fragmentSettings: FragmentSettings
 ) {
-
     private var popupWindow: PopupWindow
 
     private var rootLayout: LinearLayout
     private var statisticsCountriesLayout: LinearLayout
     private lateinit var callback: OnBackPressedCallback
-    var isClosed: Boolean = false
-    var fragmentSettings: FragmentSettings
-
-    var countries:  MutableList<CountryConfig>
-    var daysBack: Long
+    private var isClosed: Boolean = false
+    private var fragmentSettings: FragmentSettings
 
     private var spinner: SearchableSpinner
     private var addCountryBtn: Button
@@ -50,99 +47,62 @@ class SettingsView(
     private var context: Context
     private var selectedColor: String = "#5C6BC0"
     private var colorBtn: Button
+    private var statsButton: AppCompatImageButton
 
-    var countriesPrev:  MutableList<CountryConfig>
-    var daysBackPrev: Int
+    private var countriesNew:  MutableList<CountryConfig>
+    private var daysBackNew: Int
+    private val nullParent: ViewGroup? = null
 
     init {
         val inflater: LayoutInflater = LayoutInflater.from(context)
-        val settingsView = inflater.inflate(R.layout.settings_layout, null)
+        val settingsView = inflater.inflate(R.layout.settings_layout, nullParent)
 
         this.rootLayout = rootLayout
         this.context = context
-        this.daysBack = daysBack
-        this.countries = countries
         this.fragmentSettings = fragmentSettings
 
-        countriesPrev = countries.toMutableList()
-        daysBackPrev = daysBack.toInt()
+        countriesNew = countries.toMutableList()
+        daysBackNew = daysBack.toInt()
 
         daysPicker = settingsView.findViewById(R.id.daysPicker)
         colorBtn = settingsView.findViewById(R.id.addColorBtn)
         spinner = settingsView.findViewById(R.id.spinner_view)
         statisticsCountriesLayout = settingsView.findViewById(R.id.statisticsCountriesLayout)
         addCountryBtn = settingsView.findViewById(R.id.addCountryBtn)
+        statsButton = settingsView.findViewById(R.id.statisticsChangeCountryBtn)
 
         popupWindow = PopupWindow(
             settingsView,
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.MATCH_PARENT
-        )
-        spinner.setTitle("Wybierz kraj")
-        popupWindow.elevation = 10.0F
-        popupWindow.enterTransition = Slide().apply {
-            slideEdge = Gravity.TOP
-        }
-        popupWindow.exitTransition = Slide().apply {
-            slideEdge = Gravity.RIGHT
+        ).apply {
+            elevation = 10.0F
+            enterTransition = Slide().apply { slideEdge = Gravity.TOP }
+            exitTransition = Slide().apply { slideEdge = Gravity.END }
         }
 
+        spinner.setTitle("Wybierz kraj")
         saveBtn = settingsView.findViewById(R.id.saveBtn)
         closeBtn = settingsView.findViewById(R.id.closeBtn)
 
         closeBtn.setOnClickListener{
-            close(revertChanges = true)
+            close()
             isClosed = true
         }
 
         saveBtn.setOnClickListener{
             close()
             isClosed = true
-            this.daysBack = daysPicker.value.toLong()
-            this.fragmentSettings.applySettings(this.countries, this.daysBack)
+            this.daysBackNew = daysPicker.value
+            this.fragmentSettings.applySettings(this.countriesNew, this.daysBackNew.toLong())
         }
 
-        val statsButton = settingsView.findViewById<AppCompatImageButton>(R.id.statisticsChangeCountryBtn)
-        statsButton.setOnClickListener{
-            if (statsButton.scaleY == 1f) {
-                statsButton.scaleY = -1f
-                statisticsCountriesLayout.visibility = GONE
-            }
-            else {
-                statsButton.scaleY = 1f
-                statisticsCountriesLayout.visibility = VISIBLE
-            }
-        }
+        statsButton.setOnClickListener{ showCountries() }
+        colorBtn.setOnClickListener{ displayColorPicker() }
+        addCountryBtn.setOnClickListener{ addCountry() }
 
-        colorBtn.setOnClickListener{
-            displayColorPicker()
-        }
-
-        addCountryBtn.setOnClickListener{
-           val config = Countries.clist.find { "${it.name} ( ${it.code} )" == spinner.selectedItem }
-            config?.color = selectedColor
-            when {
-                config == null -> {
-                    Toast.makeText(context, "Nie znaleziono kraju", Toast.LENGTH_SHORT).show()
-                }
-                config.slug in countries.map { it.slug }.toTypedArray() -> {
-                    Toast.makeText(context, "Kraj jest już wybrany", Toast.LENGTH_SHORT).show()
-                }
-                else -> {
-                    countries.add(config)
-                    generateCountryButtons()
-                    Toast.makeText(context, "Dodano", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-
-
-
-        daysPicker.minValue = 7
-        daysPicker.maxValue = 365
-        daysPicker.value = daysBack.toInt()
         generateCountryButtons()
-        searchSpinner()
+        configurePickers()
     }
 
     fun show(callback: OnBackPressedCallback){
@@ -157,22 +117,53 @@ class SettingsView(
         )
     }
 
+    private fun showCountries(){
+        if (statsButton.scaleY == 1f) {
+            statsButton.scaleY = -1f
+            statisticsCountriesLayout.visibility = GONE
+        }
+        else {
+            statsButton.scaleY = 1f
+            statisticsCountriesLayout.visibility = VISIBLE
+        }
+    }
+
+    private fun addCountry(){
+        val config =
+            Countries.clist.find { "${it.name} ( ${it.code} )" == spinner.selectedItem }
+        config?.color = selectedColor
+        when {
+            config == null -> {
+                Toast.makeText(context, "Nie znaleziono kraju", Toast.LENGTH_SHORT).show()
+            }
+            config.slug in countriesNew.map { it.slug }.toTypedArray() -> {
+                Toast.makeText(context, "Kraj jest już wybrany", Toast.LENGTH_SHORT).show()
+            }
+            countriesNew.size>8 -> {
+                Toast.makeText(context, "Maksymalna liczba państw (9)", Toast.LENGTH_SHORT).show()
+            }
+            else -> {
+                countriesNew.add(config)
+                generateCountryButtons()
+                Toast.makeText(context, "Dodano", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     private fun generateCountryButtons(){
         try{
             statisticsCountriesLayout.post(kotlinx.coroutines.Runnable {
                 statisticsCountriesLayout.removeAllViews()
             })
 
-            countries.forEach{ country ->
+            countriesNew.forEach{ country ->
 
                     val button = Button(this.context).apply {
                         layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
                             ActionBar.LayoutParams.WRAP_CONTENT, 0.6f)
                         val shape = GradientDrawable()
-
                         shape.cornerRadius = 100f
                         background = shape
-                        //setBackgroundResource(R.drawable.sphere) //Looks stretched when you rotate or have a weird aspect ratio
                         textSize = 22f
                         text = country.code
                         setTextColor(Color.parseColor("#FFFFFF"))
@@ -181,20 +172,16 @@ class SettingsView(
                             ColorPickerDialogBuilder
                                 .with(context)
                                 .setTitle("Zmień kolor")
-                                //.initialColor(Color.parseColor(selectedColor))
+                                .initialColor(Color.parseColor(country.color))
                                 .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
                                 .density(12)
                                 .lightnessSliderOnly()
-                                .setOnColorSelectedListener { selectedColor ->
-                                    //toast("onColorSelected: 0x" + Integer.toHexString(selectedColor))
-                                }
                                 .setPositiveButton("OK"
-                                ) { dialog, selectedColor, allColors ->
+                                ) { _, selectedColor, _ ->
                                     country.color = "#" + Integer.toHexString(selectedColor).substring(2)
                                     backgroundTintList = ColorStateList.valueOf(selectedColor)
                                 }
-                                .setNegativeButton("Anuluj"
-                                ) { dialog, which -> }
+                                .setNegativeButton("Anuluj") { _, _ -> }
                                 .build()
                                 .show()
                         }
@@ -255,8 +242,8 @@ class SettingsView(
     }
 
     private fun deleteCountry(slug: String){
-        if (countries.count()>1) {
-            countries.removeAll{it.slug == slug }
+        if (countriesNew.count()>1) {
+            countriesNew.removeAll{it.slug == slug }
             generateCountryButtons()
         }
         else{
@@ -264,41 +251,38 @@ class SettingsView(
         }
     }
 
-    private fun searchSpinner()  {
-        val searchmethod = ArrayAdapter(context,
+    private fun configurePickers()  {
+        daysPicker.minValue = 7
+        daysPicker.maxValue = 365
+        daysPicker.value = daysBackNew
+
+        val searchMethod = ArrayAdapter(context,
             android.R.layout.simple_spinner_item,
             Countries.clist.map { "${it.name} ( ${it.code} )" }.toTypedArray())
-        searchmethod.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = searchmethod
+        searchMethod.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = searchMethod
     }
 
-    fun close(revertChanges: Boolean=false){
+    fun close(){
         isClosed = true
         popupWindow.dismiss()
         callback.remove()
-        if (revertChanges) this.fragmentSettings.applySettings(this.countriesPrev, this.daysBackPrev.toLong())
     }
 
     private fun displayColorPicker(){
         ColorPickerDialogBuilder
             .with(context)
             .setTitle("Wybierz kolor")
-            //.initialColor(Color.parseColor(selectedColor))
             .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
             .density(12)
             .lightnessSliderOnly()
-            .setOnColorSelectedListener { selectedColor ->
-                //toast("onColorSelected: 0x" + Integer.toHexString(selectedColor))
-            }
             .setPositiveButton("OK"
-            ) { dialog, selectedColor, allColors ->
+            ) { _, selectedColor, _ ->
                 this.selectedColor = "#" + Integer.toHexString(selectedColor).substring(2)
                 colorBtn.backgroundTintList = ColorStateList.valueOf(selectedColor)
             }
-            .setNegativeButton("Anuluj"
-            ) { dialog, which -> }
+            .setNegativeButton("Anuluj") { _, _ -> }
             .build()
             .show()
     }
-
 }

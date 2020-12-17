@@ -1,7 +1,6 @@
 package com.drzymalski.covidinfo.dataUtils
 
 import com.drzymalski.covidinfo.apiUtils.models.DataProvider
-import com.drzymalski.covidinfo.apiUtils.models.old.CovidDay
 
 class TodayCasesStats{
     val totalCasesList = mutableListOf<Int>()
@@ -54,9 +53,8 @@ class TodayCasesStats{
         covidData.dataProvider.forEach { casesOnDay ->
             run {
                 totalCasesList += casesOnDay.cnt_confirmed
-
                 activeCasesList += casesOnDay.cnt_active
-                @Suppress("DEPRECATION")
+
                 datesList += DateConverter.formatDateShort(casesOnDay.date_stamp)
                 datesFullList += DateConverter.formatDateFull(casesOnDay.date_stamp)
 
