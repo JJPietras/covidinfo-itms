@@ -15,7 +15,7 @@ interface DataInitializer {
         aaOptions.tooltip!!
             .shared(true)
             .style(AAStyle().color(AAColor.blackColor()))
-            .backgroundColor(AAColor.rgbaColor(180, 180, 180, 0.9f))
+            .backgroundColor(AAColor.rgbaColor(200, 200, 200, 0.9f))
             /*.useHTML(true)
             .headerFormat("<small style=\\\"color: brown;\\\">{point.key}</small><table style=\\\"color: brown;\\\">")
             .pointFormat(
