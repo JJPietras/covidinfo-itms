@@ -90,7 +90,8 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         FragmentBinder.bindToButton(
             view.findViewById<ImageButton>(R.id.statisticsMenuBtn),
             SelectorFragment(),
-            requireActivity()
+            requireActivity(),
+            true
         )
         activateLinks()
     }

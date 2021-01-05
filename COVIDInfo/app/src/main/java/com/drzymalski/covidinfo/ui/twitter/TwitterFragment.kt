@@ -74,7 +74,8 @@ class TwitterFragment : Fragment() {
         FragmentBinder.bindToButton(
             view.findViewById<ImageButton>(R.id.twitterMenuBtn),
             SelectorFragment(),
-            requireActivity()
+            requireActivity(),
+            true
         )
         twitterRefreshBtn.setOnClickListener {
             refresh()

@@ -56,7 +56,8 @@ class CompareFragment : Fragment(), FragmentSettings {
         FragmentBinder.bindToButton(
             view.findViewById<ImageButton>(R.id.statisticsMenuBtn),
             SelectorFragment(),
-            requireActivity()
+            requireActivity(),
+            true
         )
 
         statisticsSettingsBtn.setOnClickListener{

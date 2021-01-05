@@ -140,6 +140,7 @@ class SuspicionFragment : Fragment() {
         FragmentBinder.bindToButton(
             view.findViewById<ImageButton>(R.id.suspicionMenuBtn),
             SelectorFragment(),
-            requireActivity()
+            requireActivity(),
+            true
         )
 }

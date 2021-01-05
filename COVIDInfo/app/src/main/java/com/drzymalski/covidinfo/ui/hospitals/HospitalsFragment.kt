@@ -58,7 +58,8 @@ class HospitalsFragment : Fragment() {
         FragmentBinder.bindToButton(
             view.findViewById<ImageButton>(R.id.hospitalsMenuBtn),
             SelectorFragment(),
-            requireActivity()
+            requireActivity(),
+            true
         )
 
         images = arrayOf(
