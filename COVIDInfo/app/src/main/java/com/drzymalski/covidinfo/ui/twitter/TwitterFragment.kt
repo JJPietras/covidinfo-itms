@@ -313,57 +313,56 @@ class TwitterFragment : Fragment() {
 
     @Throws(IOException::class, URISyntaxException::class)
     private fun getUsers() {
-        var userResponse: String? = null
-        val httpClient: HttpClient = HttpClients.custom()
-            .setDefaultRequestConfig(
-                RequestConfig.custom()
-                    .setCookieSpec(CookieSpecs.STANDARD).build()
+        try{
+            var userResponse: String? = null
+            val httpClient: HttpClient = HttpClients.custom()
+                .setDefaultRequestConfig(
+                    RequestConfig.custom()
+                        .setCookieSpec(CookieSpecs.STANDARD).build()
+                )
+                .build()
+            val uriBuilder = URIBuilder("https://api.twitter.com/2/users/by")
+            val queryParameters: ArrayList<NameValuePair> = ArrayList()
+            queryParameters.add(BasicNameValuePair("usernames", curTTacc))
+            queryParameters.add(BasicNameValuePair("user.fields", "description,public_metrics"))
+            uriBuilder.addParameters(queryParameters)
+            val httpGet = HttpGet(uriBuilder.build())
+            httpGet.setHeader(
+                "Authorization",
+                String.format(
+                    "Bearer %s",
+                    "AAAAAAAAAAAAAAAAAAAAADd5KAEAAAAAQeoc0ThNUcEYfdvCcciuxZTho%2BE%3DNIHR9ZRTqpHWx37V9ukK6Vsua4NX4sS8Ari3sL4HUkNvRvaFrn"
+                )
             )
-            .build()
-        val uriBuilder = URIBuilder("https://api.twitter.com/2/users/by")
-        val queryParameters: ArrayList<NameValuePair> = ArrayList()
-        queryParameters.add(BasicNameValuePair("usernames", curTTacc))
-        queryParameters.add(BasicNameValuePair("user.fields", "description,public_metrics"))
-        uriBuilder.addParameters(queryParameters)
-        val httpGet = HttpGet(uriBuilder.build())
-        httpGet.setHeader(
-            "Authorization",
-            String.format(
-                "Bearer %s",
-                "AAAAAAAAAAAAAAAAAAAAADd5KAEAAAAAQeoc0ThNUcEYfdvCcciuxZTho%2BE%3DNIHR9ZRTqpHWx37V9ukK6Vsua4NX4sS8Ari3sL4HUkNvRvaFrn"
-            )
-        )
-        httpGet.setHeader("Content-Type", "application/json")
-        val response = httpClient.execute(httpGet)
-        val entity = response.entity
-        if (null != entity) {
-            userResponse = EntityUtils.toString(entity, "UTF-8")
-        }
-
-        Handler(Looper.getMainLooper()).post {
-            try {
-                if (userResponse!=null) {
-                    val jsonObject = JSONObject(userResponse)
-                    val jArray: JSONArray = jsonObject.getJSONArray("data")
-                    for (i in 0 until jArray.length()) {
-                        val jsonObject1: JSONObject = jArray.getJSONObject(i)
-                        twitterAccountTitle.text = jsonObject1.optString("name")
-                        twitterAccountDescription.text = jsonObject1.optString("description")
-                        twitterAccountUsername.text = jsonObject1.optString("username")
-                        val newjsonobj: JSONObject = jsonObject1.getJSONObject("public_metrics")
-                        twitterObservedCount.text = newjsonobj.getString("following_count")
-                        twitterObservesCount.text = newjsonobj.getString("followers_count")
-                        println(newjsonobj)
-                    }
-                }
-            }catch (ex: NullPointerException){
-                println(ex.message)
+            httpGet.setHeader("Content-Type", "application/json")
+            val response = httpClient.execute(httpGet)
+            val entity = response.entity
+            if (null != entity) {
+                userResponse = EntityUtils.toString(entity, "UTF-8")
             }
+
+            Handler(Looper.getMainLooper()).post {
+                try {
+                    if (userResponse!=null) {
+                        val jsonObject = JSONObject(userResponse)
+                        val jArray: JSONArray = jsonObject.getJSONArray("data")
+                        for (i in 0 until jArray.length()) {
+                            val jsonObject1: JSONObject = jArray.getJSONObject(i)
+                            twitterAccountTitle.text = jsonObject1.optString("name")
+                            twitterAccountDescription.text = jsonObject1.optString("description")
+                            twitterAccountUsername.text = jsonObject1.optString("username")
+                            val newjsonobj: JSONObject = jsonObject1.getJSONObject("public_metrics")
+                            twitterObservedCount.text = newjsonobj.getString("following_count")
+                            twitterObservesCount.text = newjsonobj.getString("followers_count")
+                            println(newjsonobj)
+                        }
+                    }
+                }catch (ex: NullPointerException){
+                    println(ex.message)
+                }
+            }
+        }catch (ex: Exception){
+            println(ex.message)
         }
     }
-
-
-
-
-
 }

@@ -60,7 +60,26 @@
         android:id="@+id/nav_selector"
         android:name="com.drzymalski.covidinfo.ui.selector.SelectorFragment"
         android:label="SELECTOR"
-        tools:layout="@layout/fragment_selector" />
+        tools:layout="@layout/fragment_selector" >
+        <action
+            android:id="@+id/action_nav_selector_to_nav_hospitals"
+            app:destination="@id/nav_hospitals" />
+        <action
+            android:id="@+id/action_nav_selector_to_nav_tweeter"
+            app:destination="@id/nav_tweeter" />
+        <action
+            android:id="@+id/action_nav_selector_to_nav_compare"
+            app:destination="@id/nav_compare" />
+        <action
+            android:id="@+id/action_nav_selector_to_nav_today"
+            app:destination="@id/nav_today" />
+        <action
+            android:id="@+id/action_nav_selector_to_nav_authors"
+            app:destination="@id/nav_authors" />
+        <action
+            android:id="@+id/action_nav_selector_to_nav_suspicion"
+            app:destination="@id/nav_suspicion" />
+    </fragment>
     <fragment
         android:id="@+id/nav_authors"
         android:name="com.drzymalski.covidinfo.ui.authors.AuthorsFragment"
