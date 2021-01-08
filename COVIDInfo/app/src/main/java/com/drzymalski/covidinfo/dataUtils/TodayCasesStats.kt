@@ -1,5 +1,6 @@
 package com.drzymalski.covidinfo.dataUtils
 
+import com.drzymalski.covidinfo.apiUtils.models.CountrySummary
 import com.drzymalski.covidinfo.apiUtils.models.DataProvider
 
 class TodayCasesStats{
@@ -15,7 +16,6 @@ class TodayCasesStats{
 
     val datesList = mutableListOf<String>()
     val datesFullList = mutableListOf<String>()
-
 
     private fun clearData(){
         totalCasesList.clear()

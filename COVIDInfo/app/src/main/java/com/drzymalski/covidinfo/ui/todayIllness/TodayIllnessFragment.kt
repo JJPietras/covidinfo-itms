@@ -52,6 +52,8 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        generateCountryButtons()
+
         loadDataAndRefresh()
         refreshButtons()
 
@@ -169,7 +171,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
             })
 
             initializer.config.config.countries.forEach{ countryConfig ->
-                val data = initializer.summaryData.Countries.find { countryConfig.slug == it.Slug }
+                val data = initializer.summaryData?.Countries?.find { countryConfig.slug == it.Slug }
 
                 val button = Button(this.context).apply {
                     layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
