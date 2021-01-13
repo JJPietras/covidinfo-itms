@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.os.Handler
 import android.transition.Slide
 import android.transition.TransitionManager
 import android.view.Gravity
@@ -15,6 +16,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.AppCompatImageButton
+import androidx.fragment.app.Fragment
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.config.CountryConfig
 import com.drzymalski.covidinfo.data.Countries
@@ -32,14 +34,14 @@ class SettingsView(
     fragmentSettings: FragmentSettings
 ) {
     private var popupWindow: PopupWindow
-
+    private var pickerOpen: Boolean = false
     private var rootLayout: LinearLayout
     private var statisticsCountriesLayout: LinearLayout
     private lateinit var callback: OnBackPressedCallback
     private var isClosed: Boolean = false
     private var fragmentSettings: FragmentSettings
 
-    private var spinner: SearchableSpinner
+    private var spinner: CustomSearchableSpinner
     private var addCountryBtn: Button
     private var saveBtn: Button
     private var closeBtn: Button
@@ -82,6 +84,7 @@ class SettingsView(
         }
 
         spinner.setTitle("Wybierz kraj")
+
         saveBtn = settingsView.findViewById(R.id.saveBtn)
         closeBtn = settingsView.findViewById(R.id.closeBtn)
 
@@ -159,8 +162,10 @@ class SettingsView(
             countriesNew.forEach{ country ->
 
                     val button = Button(this.context).apply {
-                        layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
-                            ActionBar.LayoutParams.WRAP_CONTENT, 0.6f)
+                        layoutParams = LinearLayout.LayoutParams(
+                            ActionBar.LayoutParams.MATCH_PARENT,
+                            ActionBar.LayoutParams.WRAP_CONTENT, 0.6f
+                        )
                         val shape = GradientDrawable()
                         shape.cornerRadius = 100f
                         background = shape
@@ -169,34 +174,45 @@ class SettingsView(
                         setTextColor(Color.parseColor("#FFFFFF"))
                         backgroundTintList = ColorStateList.valueOf(Color.parseColor(country.color))
                         setOnClickListener{
-                            ColorPickerDialogBuilder
-                                .with(context)
-                                .setTitle("Zmień kolor")
-                                .initialColor(Color.parseColor(country.color))
-                                .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
-                                .density(12)
-                                .lightnessSliderOnly()
-                                .setPositiveButton("OK"
-                                ) { _, selectedColor, _ ->
-                                    country.color = "#" + Integer.toHexString(selectedColor).substring(2)
-                                    backgroundTintList = ColorStateList.valueOf(selectedColor)
+                            if (!pickerOpen){
+                                ColorPickerDialogBuilder
+                                    .with(context)
+                                    .setTitle("Zmień kolor")
+                                    .initialColor(Color.parseColor(country.color))
+                                    .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
+                                    .density(12)
+                                    .lightnessSliderOnly()
+                                    .setPositiveButton(
+                                        "OK"
+                                    ) { _, selectedColor, _ ->
+                                        country.color = "#" + Integer.toHexString(selectedColor).substring(
+                                            2
+                                        )
+                                        backgroundTintList = ColorStateList.valueOf(selectedColor)
+                                    }
+                                    .setNegativeButton("Anuluj") { _, _ -> }
+                                    .build()
+                                    .show()
+                                pickerOpen = true
                                 }
-                                .setNegativeButton("Anuluj") { _, _ -> }
-                                .build()
-                                .show()
+                        enableColorPicker()
                         }
                     }
 
                     val parent = LinearLayout(context).apply {
-                        layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
-                            ActionBar.LayoutParams.WRAP_CONTENT, 0.2f)
+                        layoutParams = LinearLayout.LayoutParams(
+                            ActionBar.LayoutParams.MATCH_PARENT,
+                            ActionBar.LayoutParams.WRAP_CONTENT, 0.2f
+                        )
                         orientation = LinearLayout.HORIZONTAL
                         setPadding(20, 5, 5, 5)
                     }
 
                     val child = LinearLayout(context).apply {
-                        layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
-                            ActionBar.LayoutParams.WRAP_CONTENT, 0.4f)
+                        layoutParams = LinearLayout.LayoutParams(
+                            ActionBar.LayoutParams.MATCH_PARENT,
+                            ActionBar.LayoutParams.WRAP_CONTENT, 0.4f
+                        )
                         orientation = LinearLayout.VERTICAL
                         setPadding(30, 0, 30, 0)
                     }
@@ -214,8 +230,10 @@ class SettingsView(
                     }
 
                     val buttonDel = ImageButton(this.context).apply {
-                        layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
-                            ActionBar.LayoutParams.MATCH_PARENT, 0.75f)
+                        layoutParams = LinearLayout.LayoutParams(
+                            ActionBar.LayoutParams.MATCH_PARENT,
+                            ActionBar.LayoutParams.MATCH_PARENT, 0.75f
+                        )
 
                         setBackgroundResource(R.drawable.ic_delete)
                         backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F44336"))
@@ -258,7 +276,8 @@ class SettingsView(
 
         val searchMethod = ArrayAdapter(context,
             android.R.layout.simple_spinner_item,
-            Countries.clist.map { "${it.name} ( ${it.code} )" }.toTypedArray())
+            Countries.clist.map { "${it.name} ( ${it.code} )" }.toTypedArray()
+        )
         searchMethod.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = searchMethod
     }
@@ -270,19 +289,29 @@ class SettingsView(
     }
 
     private fun displayColorPicker(){
-        ColorPickerDialogBuilder
-            .with(context)
-            .setTitle("Wybierz kolor")
-            .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
-            .density(12)
-            .lightnessSliderOnly()
-            .setPositiveButton("OK"
-            ) { _, selectedColor, _ ->
-                this.selectedColor = "#" + Integer.toHexString(selectedColor).substring(2)
-                colorBtn.backgroundTintList = ColorStateList.valueOf(selectedColor)
-            }
-            .setNegativeButton("Anuluj") { _, _ -> }
-            .build()
-            .show()
+        if (!pickerOpen){
+            ColorPickerDialogBuilder
+                .with(context)
+                .setTitle("Wybierz kolor")
+                .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
+                .density(12)
+                .lightnessSliderOnly()
+                .setPositiveButton(
+                    "OK"
+                ) { _, selectedColor, _ ->
+                    this.selectedColor = "#" + Integer.toHexString(selectedColor).substring(2)
+                    colorBtn.backgroundTintList = ColorStateList.valueOf(selectedColor)
+                }
+                .setNegativeButton("Anuluj") { _, _ -> }
+                .build()
+                .show()
+            pickerOpen = true
+        }
+        enableColorPicker()
     }
+
+    private fun enableColorPicker()=
+        Handler().postDelayed(Runnable {
+            pickerOpen = false
+        }, 1500)
 }
