@@ -72,9 +72,9 @@ class CompareCasesStats{
 
     fun calculateStats(covidData: List<DataDay>){
         clearData()
-        var lastCases = 0
-        var lastDeaths = 0
-        var lastRecovered = 0
+        var lastCases = -1
+        var lastDeaths = -1
+        var lastRecovered = -1
 
         covidData.forEach { casesOnDay ->
             run {
@@ -83,7 +83,7 @@ class CompareCasesStats{
 
                 datesList.plusAssign(DateConverter.formatDateShort(casesOnDay.date_stamp))
 
-                if (lastDeaths==0) {lastDeaths = casesOnDay.cnt_death}
+                if (lastDeaths==-1) {lastDeaths = casesOnDay.cnt_death}
                 else {
                     var temp = casesOnDay.cnt_death - lastDeaths
                     if (temp < 0) temp = 0
@@ -91,7 +91,7 @@ class CompareCasesStats{
                     lastDeaths = casesOnDay.cnt_death
                 }
 
-                if (lastRecovered==0) {lastRecovered = casesOnDay.cnt_recovered}
+                if (lastRecovered==-1) {lastRecovered = casesOnDay.cnt_recovered}
                 else {
                     var temp = casesOnDay.cnt_recovered - lastRecovered
                     if (temp < 0) temp = 0
@@ -99,7 +99,7 @@ class CompareCasesStats{
                     lastRecovered = casesOnDay.cnt_recovered
                 }
 
-                if (lastCases==0) {lastCases = casesOnDay.cnt_confirmed}
+                if (lastCases==-1) {lastCases = casesOnDay.cnt_confirmed}
                 else {
                     var temp = casesOnDay.cnt_confirmed - lastCases
                     if (temp < 0) temp = 0

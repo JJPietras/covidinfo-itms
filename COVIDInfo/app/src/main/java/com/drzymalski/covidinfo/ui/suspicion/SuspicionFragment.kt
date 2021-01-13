@@ -75,7 +75,7 @@ class SuspicionFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     fun reactOnChange(closestHospital: Hospital) {
 
-        suspicionNearestHospitalMoveToMap.setOnClickListener {
+        suspicionNearestHospitalMoveToMap?.setOnClickListener {
             val contact = closestHospital.contact
             val cords = closestHospital.location
             val route = contact.substring(0, contact.indexOf(','))
@@ -90,15 +90,15 @@ class SuspicionFragment : Fragment() {
             val chooser = Intent.createChooser(mapIntent, intentTitle)
             startActivity(chooser)
         }
-        suspicionNearestHospitalMoveToMap.isVisible = true
+        suspicionNearestHospitalMoveToMap?.isVisible = true
 
         val displayText = StringBuilder(closestHospital.city).append("\n")
         displayText.append(closestHospital.name).append("\n")
         displayText.append(closestHospital.title).append("\n")
         displayText.append(closestHospital.contact)
-        suspicionNearestHospitalDisclaimer.setTextColor(Color.WHITE)
-        suspicionNearestHospitalDisclaimer.text = displayText.toString()
-        suspicionNearestHospitalButtonSphere.visibility = View.VISIBLE
+        suspicionNearestHospitalDisclaimer?.setTextColor(Color.WHITE)
+        suspicionNearestHospitalDisclaimer?.text = displayText.toString()
+        suspicionNearestHospitalButtonSphere?.visibility = View.VISIBLE
         progressBar.visibility = View.INVISIBLE
     }
 

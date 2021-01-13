@@ -123,142 +123,145 @@ class TwitterFragment : Fragment() {
 
             Handler(Looper.getMainLooper()).post(Runnable(@SuppressLint("SetTextI18n")
             fun() {
-                val jsonObject = JSONObject(line)
-                val jArray: JSONArray = jsonObject.getJSONArray("data")
-                for (i in 0 until jArray.length()) {
-                    val jsonObject1: JSONObject = jArray.getJSONObject(i)
-                    val cardView = CardView(requireContext())
-                    // Initialize a new LayoutParams instance, CardView width and height
-                    val cvLayoutParams = LayoutParams(
-                        LayoutParams.MATCH_PARENT, // CardView width
-                        LayoutParams.WRAP_CONTENT // CardView height
-                    )
-
-                    cvLayoutParams.setMargins(0, 70, 0, 35)
-                    cardView.layoutParams = cvLayoutParams
-
-                    cardView.setCardBackgroundColor(
-                        ContextCompat.getColor(
-                            requireContext(),
-                            R.color.colorPrimary
+                try {
+                    val jsonObject = JSONObject(line)
+                    val jArray: JSONArray = jsonObject.getJSONArray("data")
+                    for (i in 0 until jArray.length()) {
+                        val jsonObject1: JSONObject = jArray.getJSONObject(i)
+                        val cardView = CardView(requireContext())
+                        // Initialize a new LayoutParams instance, CardView width and height
+                        val cvLayoutParams = LayoutParams(
+                            LayoutParams.MATCH_PARENT, // CardView width
+                            LayoutParams.WRAP_CONTENT // CardView height
                         )
-                    )
-                    cardView.radius = 100F
-                    twitterLayout.addView(cardView)
-                    //tło
-                    val imageView = ImageView(requireContext())
 
-                    imageView.setImageResource(R.drawable.side_nav_bar)
+                        cvLayoutParams.setMargins(0, 70, 0, 35)
+                        cardView.layoutParams = cvLayoutParams
 
-                    imageView.layoutParams = LayoutParams(
-                        LayoutParams.MATCH_PARENT,
-                        LayoutParams.MATCH_PARENT
-                    )
+                        cardView.setCardBackgroundColor(
+                            ContextCompat.getColor(
+                                requireContext(),
+                                R.color.colorPrimary
+                            )
+                        )
+                        cardView.radius = 100F
+                        twitterLayout.addView(cardView)
+                        //tło
+                        val imageView = ImageView(requireContext())
 
-                    cardView.addView(imageView)
-                    //pierwszy LL
-                    val linearLayout = LinearLayout(requireContext())
+                        imageView.setImageResource(R.drawable.side_nav_bar)
 
-                    linearLayout.layoutParams = LayoutParams(
-                        LayoutParams.MATCH_PARENT,
-                        LayoutParams.MATCH_PARENT
-                    )
+                        imageView.layoutParams = LayoutParams(
+                            LayoutParams.MATCH_PARENT,
+                            LayoutParams.MATCH_PARENT
+                        )
 
-                    linearLayout.orientation = LinearLayout.VERTICAL
+                        cardView.addView(imageView)
+                        //pierwszy LL
+                        val linearLayout = LinearLayout(requireContext())
 
-                    cardView.addView(linearLayout)
+                        linearLayout.layoutParams = LayoutParams(
+                            LayoutParams.MATCH_PARENT,
+                            LayoutParams.MATCH_PARENT
+                        )
+
+                        linearLayout.orientation = LinearLayout.VERTICAL
+
+                        cardView.addView(linearLayout)
 
 
-                    //drugi LL
-                    val linearLayout2 = LinearLayout(requireContext())
+                        //drugi LL
+                        val linearLayout2 = LinearLayout(requireContext())
 
-                    linearLayout2.layoutParams = LayoutParams(
-                        LayoutParams.MATCH_PARENT,
-                        LayoutParams.WRAP_CONTENT
-                    )
-                    linearLayout2.orientation = LinearLayout.HORIZONTAL
-                    linearLayout.addView(linearLayout2)
+                        linearLayout2.layoutParams = LayoutParams(
+                            LayoutParams.MATCH_PARENT,
+                            LayoutParams.WRAP_CONTENT
+                        )
+                        linearLayout2.orientation = LinearLayout.HORIZONTAL
+                        linearLayout.addView(linearLayout2)
 
-                    //1 textView w drugim LL
-                    val textView12 = TextView(requireContext())
-                    val tv12LayoutParams = LayoutParams(
-                        LayoutParams.WRAP_CONTENT, // CardView width
-                        LayoutParams.WRAP_CONTENT // CardView height
-                    )
-                    tv12LayoutParams.setMargins(80, 60, 0, 0)
+                        //1 textView w drugim LL
+                        val textView12 = TextView(requireContext())
+                        val tv12LayoutParams = LayoutParams(
+                            LayoutParams.WRAP_CONTENT, // CardView width
+                            LayoutParams.WRAP_CONTENT // CardView height
+                        )
+                        tv12LayoutParams.setMargins(80, 60, 0, 0)
 
-                    textView12.layoutParams = tv12LayoutParams
-                    val typeface = ResourcesCompat.getFont(requireContext(), R.font.roboto_medium)
-                    textView12.typeface = typeface
-                    textView12.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20F)
-                    textView12.setTextColor(Color.parseColor("#7EFFFFFF"))
-                    textView12.text = "@$curTTacc"
-                    linearLayout2.addView(textView12)
+                        textView12.layoutParams = tv12LayoutParams
+                        val typeface = ResourcesCompat.getFont(requireContext(), R.font.roboto_medium)
+                        textView12.typeface = typeface
+                        textView12.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20F)
+                        textView12.setTextColor(Color.parseColor("#7EFFFFFF"))
+                        textView12.text = "@$curTTacc"
+                        linearLayout2.addView(textView12)
 
-                    //2 textView w drugim LL
-                    val textView22 = TextView(requireContext())
-                    val tv22LayoutParams = LayoutParams(
-                        0, // CardView width
-                        LayoutParams.WRAP_CONTENT,
-                        0.1F // CardView height
-                    )
-                    tv22LayoutParams.setMargins(40, 60, 0, 0)
-                    tv22LayoutParams.weight = 0.1F
-                    textView22.layoutParams = tv22LayoutParams
+                        //2 textView w drugim LL
+                        val textView22 = TextView(requireContext())
+                        val tv22LayoutParams = LayoutParams(
+                            0, // CardView width
+                            LayoutParams.WRAP_CONTENT,
+                            0.1F // CardView height
+                        )
+                        tv22LayoutParams.setMargins(40, 60, 0, 0)
+                        tv22LayoutParams.weight = 0.1F
+                        textView22.layoutParams = tv22LayoutParams
 
-                    val typeface2 = ResourcesCompat.getFont(requireContext(), R.font.roboto)
-                    textView22.typeface = typeface2
-                    textView22.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16F)
-                    textView22.setTextColor(Color.parseColor("#C4FFFFFF"))
-                    val p = PrettyTime(Locale("pl"))
-                    //val ISO8601DATEFORMAT =  SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.ENGLISH)
-                    textView22.text =
-                        p.format(Date.from(Instant.parse(jsonObject1.optString("created_at"))))
-                    linearLayout2.addView(textView22)
+                        val typeface2 = ResourcesCompat.getFont(requireContext(), R.font.roboto)
+                        textView22.typeface = typeface2
+                        textView22.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16F)
+                        textView22.setTextColor(Color.parseColor("#C4FFFFFF"))
+                        val p = PrettyTime(Locale("pl"))
+                        //val ISO8601DATEFORMAT =  SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.ENGLISH)
+                        textView22.text =
+                            p.format(Date.from(Instant.parse(jsonObject1.optString("created_at"))))
+                        linearLayout2.addView(textView22)
 
-                    //ikonka Twittera
-                    val imageButton = ImageButton(requireContext())
-                    val imgBtnParams = LayoutParams(
-                        LayoutParams.WRAP_CONTENT, // CardView width
-                        LayoutParams.WRAP_CONTENT
-                    )
-                    imgBtnParams.setMargins(0, 30, 100, 0)
-                    imgBtnParams.gravity = Gravity.END or Gravity.BOTTOM  // bottom-right
-                    imageButton.layoutParams = imgBtnParams
-                    imageButton.setImageResource(R.drawable.ic_twitter_small)
-                    imageButton.setBackgroundColor(Color.parseColor("#00FFFFFF"))
+                        //ikonka Twittera
+                        val imageButton = ImageButton(requireContext())
+                        val imgBtnParams = LayoutParams(
+                            LayoutParams.WRAP_CONTENT, // CardView width
+                            LayoutParams.WRAP_CONTENT
+                        )
+                        imgBtnParams.setMargins(0, 30, 100, 0)
+                        imgBtnParams.gravity = Gravity.END or Gravity.BOTTOM  // bottom-right
+                        imageButton.layoutParams = imgBtnParams
+                        imageButton.setImageResource(R.drawable.ic_twitter_small)
+                        imageButton.setBackgroundColor(Color.parseColor("#00FFFFFF"))
 
-                    imageButton.setOnClickListener {
-                        val browserIntent =
-                            Intent(
-                                Intent.ACTION_VIEW,
-                                Uri.parse(
-                                    "https://twitter.com/" + curTTacc + "/status/" + jsonObject1.optString(
-                                        "id"
+                        imageButton.setOnClickListener {
+                            val browserIntent =
+                                Intent(
+                                    Intent.ACTION_VIEW,
+                                    Uri.parse(
+                                        "https://twitter.com/$curTTacc/status/" + jsonObject1.optString(
+                                            "id"
+                                        )
                                     )
                                 )
-                            )
-                        startActivity(browserIntent)
-                    }
-                    linearLayout2.addView(imageButton)
+                            startActivity(browserIntent)
+                        }
+                        linearLayout2.addView(imageButton)
 
-                    //textview do pierwszego LL
-                    val textView = TextView(requireContext())
-                    val tvLayoutParams = LayoutParams(
-                        LayoutParams.MATCH_PARENT, // CardView width
-                        LayoutParams.WRAP_CONTENT // CardView height
-                    )
-                    tvLayoutParams.setMargins(80, 0, 80, 0)
-                    textView.setPadding(0, 0, 0, 50)
-                    textView.layoutParams = tvLayoutParams
-                    textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18F)
-                    textView.setTextColor(Color.parseColor("#CBFFFFFF"))
-                    textView.text = jsonObject1.optString("text")
-                    linearLayout.addView(textView)
+                        //textview do pierwszego LL
+                        val textView = TextView(requireContext())
+                        val tvLayoutParams = LayoutParams(
+                            LayoutParams.MATCH_PARENT, // CardView width
+                            LayoutParams.WRAP_CONTENT // CardView height
+                        )
+                        tvLayoutParams.setMargins(80, 0, 80, 0)
+                        textView.setPadding(0, 0, 0, 50)
+                        textView.layoutParams = tvLayoutParams
+                        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18F)
+                        textView.setTextColor(Color.parseColor("#CBFFFFFF"))
+                        textView.text = jsonObject1.optString("text")
+                        linearLayout.addView(textView)
+                    }
+                } catch (ex: Exception){
+                    println(ex.message)
                 }
             }))
-        }
-            catch (ex: Exception){
+        } catch (ex: Exception){
             println(ex.message)
         }
     }
@@ -348,12 +351,12 @@ class TwitterFragment : Fragment() {
                         val jArray: JSONArray = jsonObject.getJSONArray("data")
                         for (i in 0 until jArray.length()) {
                             val jsonObject1: JSONObject = jArray.getJSONObject(i)
-                            twitterAccountTitle.text = jsonObject1.optString("name")
-                            twitterAccountDescription.text = jsonObject1.optString("description")
-                            twitterAccountUsername.text = jsonObject1.optString("username")
+                            twitterAccountTitle?.text = jsonObject1.optString("name")
+                            twitterAccountDescription?.text = jsonObject1.optString("description")
+                            twitterAccountUsername?.text = jsonObject1.optString("username")
                             val newjsonobj: JSONObject = jsonObject1.getJSONObject("public_metrics")
-                            twitterObservedCount.text = newjsonobj.getString("following_count")
-                            twitterObservesCount.text = newjsonobj.getString("followers_count")
+                            twitterObservedCount?.text = newjsonobj.getString("following_count")
+                            twitterObservesCount?.text = newjsonobj.getString("followers_count")
                             println(newjsonobj)
                         }
                     }

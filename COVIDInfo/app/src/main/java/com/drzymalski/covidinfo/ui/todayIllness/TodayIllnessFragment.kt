@@ -138,16 +138,14 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
             if (selectedDay > 0 && selectedDay < initializer.stats.datesFullList.lastIndex) {
 
                 val newCasesList = initializer.stats.newCasesList
-
-                viewModel.dateLive.postValue(initializer.stats.datesFullList[selectedDay + 1])
-                viewModel.confirmedLive.postValue(initializer.stats.newCasesList[selectedDay])
-                viewModel.deathsLive.postValue(initializer.stats.newDeathsList[selectedDay])
-                viewModel.recoveredLive.postValue(initializer.stats.newRecoveredList[selectedDay])
-
                 viewModel.calcIncrease(
                     newCasesList[selectedDay],
                     newCasesList[selectedDay - 1]
                 )
+                viewModel.dateLive.postValue(initializer.stats.datesFullList[selectedDay + 1])
+                viewModel.confirmedLive.postValue(initializer.stats.newCasesList[selectedDay])
+                viewModel.deathsLive.postValue(initializer.stats.newDeathsList[selectedDay])
+                viewModel.recoveredLive.postValue(initializer.stats.newRecoveredList[selectedDay])
             }
         }catch (ex: Exception){ // No action will be taken
             println(ex)
@@ -156,8 +154,8 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
 
     private fun generateCountryButtons(){
         try{
-            statisticsCountriesLayout.post(Runnable {
-                statisticsCountriesLayout.removeAllViews()
+            statisticsCountriesLayout?.post(Runnable {
+                statisticsCountriesLayout?.removeAllViews()
             })
 
             val tvBanner = TextView(this.context).apply {
@@ -166,8 +164,8 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                 setTextColor(Color.parseColor("#91ABED"))
                 gravity = CENTER
             }
-            statisticsCountriesLayout.post(Runnable {
-                statisticsCountriesLayout.addView(tvBanner)
+            statisticsCountriesLayout?.post(Runnable {
+                statisticsCountriesLayout?.addView(tvBanner)
             })
 
             initializer.config.config.countries.forEach{ countryConfig ->
@@ -185,7 +183,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                     setTextColor(Color.parseColor("#FFFFFF"))
                     backgroundTintList = ColorStateList.valueOf(Color.parseColor(countryConfig.color))
                     setOnClickListener{
-                        statisticsCountriesLayout.visibility = View.GONE
+                        statisticsCountriesLayout?.visibility = View.GONE
                         changeCountry(countryConfig)
                     }
                 }
@@ -196,7 +194,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                     orientation = LinearLayout.HORIZONTAL
                     setPadding(20,5,5,5)
                     setOnClickListener{
-                        statisticsCountriesLayout.visibility = View.GONE
+                        statisticsCountriesLayout?.visibility = View.GONE
                         changeCountry(countryConfig)
                     }
                 }
@@ -236,12 +234,12 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                 parent.addView(child)
                 parent.addView(tvCases)
 
-                statisticsCountriesLayout.post(Runnable {
-                    statisticsCountriesLayout.addView(parent)
+                statisticsCountriesLayout?.post(Runnable {
+                    statisticsCountriesLayout?.addView(parent)
                 })
 
             }
-        }catch (ex: Exception){ // No action will be taken
+        } catch (ex: Exception){ // No action will be taken
             println(ex)
         }
     }
@@ -289,6 +287,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
 
     private fun changeCountry(countryConfig: CountryConfig){
         initializer.config.config.selectedCountry = countryConfig
+        initializer.config.saveConfig()
         viewModel.codeLive.postValue(countryConfig.code)
 
         viewModel.dateLive.postValue("Wczytywanie")

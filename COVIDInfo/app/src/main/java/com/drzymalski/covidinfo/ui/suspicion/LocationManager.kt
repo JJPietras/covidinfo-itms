@@ -35,7 +35,7 @@ class LocationManager(private val suspicionFragment: SuspicionFragment) {
     }
 
     fun makeReturnAction(closestHospital: Hospital) =
-        suspicionFragment.reactOnChange(closestHospital)
+            suspicionFragment.reactOnChange(closestHospital)
 
     @SuppressLint("MissingPermission")
     private fun listen(manager: LocationManager, progressBar: ProgressBar) {
