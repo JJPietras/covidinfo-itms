@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.vaccine.VaccineFragment">
+
+    <ScrollView
+        android:id="@+id/vaccineScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/vaccineLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/vaccineTitleCard"
+                android:layout_width="fill_parent"
+                android:layout_height="380dp"
+                android:layout_marginTop="-45dp"
+                android:visibility="visible"
+                app:cardBackgroundColor="#00FFFFFF"
+                app:cardCornerRadius="50dp">
+
+                <RelativeLayout
+                    android:id="@+id/vaccineTopLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/vaccineTopBackground"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:contentDescription="@string/vaccine_content_desc_background"
+                        android:src="@drawable/side_nav_bar"
+                        tools:visibility="visible" />
+
+                    <ImageButton
+                        android:id="@+id/vaccineMenuBtn"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="68dp"
+                        android:background="#00FFFFFF"
+                        android:contentDescription="@string/vaccine_content_desc_menu_btn"
+                        app:layout_anchorGravity="end|bottom"
+                        app:srcCompat="@drawable/ic_menu_button" />
+
+                    <TextView
+                        android:id="@+id/vaccineTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/vaccineTopBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="70dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/vaccine_main_title"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/vacc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/vaccineTopBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="-1dp"
+                        android:layout_marginTop="132dp"
+                        android:layout_marginEnd="3dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/vaccine_main_subtitle"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/vaccineSubTitleDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@id/vaccineTopBackground"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="220dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/vaccine_main_content"
+                        android:textAlignment="center"
+                        android:textColor="#ABFFFFFF"
+                        android:textSize="18sp" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:id="@+id/vaccinationStats"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-50dp"
+                android:background="#16C8C5"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/graphs"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/vaccinationGraphText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="70dp"
+                        android:layout_marginBottom="25dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:text="@string/vaccinations_graph"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textSize="30sp"
+                        />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="20dp"
+                        app:cardCornerRadius="20dp">
+
+                        <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+                            android:id="@+id/aaChartViewVaccinations"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:background="@color/plotBgColor"
+                            app:layout_constraintBottom_toTopOf="@+id/text_test"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/vaccinationPGraphText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginBottom="35dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:text="@string/vaccination_percentage"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textSize="30sp"
+
+                        />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="20dp"
+                        app:cardCornerRadius="20dp">
+
+                        <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+                            android:id="@+id/aaChartViewVaccinationPercentage"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:background="@color/plotBgColor"
+                            app:layout_constraintBottom_toTopOf="@+id/text_test"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/vaccineActionsLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#00838F"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/vaccineWorthArguments"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/vaccineWorthTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="50dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Dlaczego warto się zaszczepić?"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/vaccineWorthArgument1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+
+
+                        tools:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/vaccineWorthTitle1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vaccineActionsFirstTitle"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="11dp"
+                            android:layout_marginEnd="15dp"
+
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Uratujesz komuś życie"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/vaccineWorthImage1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vaccineActionsFirstTitle"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="35dp"
+                            android:layout_marginEnd="35dp"
+                            android:contentDescription="@string/actions_content_desc_first_img"
+                            android:src="@drawable/ic_cardiogram" />
+
+                        <TextView
+                            android:id="@+id/vaccineWorthText1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vaccineWorthTitle1"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="19dp"
+                            android:layout_toStartOf="@+id/vaccineWorthImage1"
+                            android:fontFamily="@font/roboto"
+                            android:text="Szczepiąc się, myślisz również o innych – członkach rodziny, przyjaciołach i znajomych. Ale także nieznajomych – spotkanych przypadkiem na ulicy, czy w sklepie. Dzięki Tobie zwiększy się również ich bezpieczeństwo. Nawet jeśli czujesz się młody i silny, poprzez zaszczepienie przerwiesz łańcuch zakażeń."
+                            android:textColor="#ABFFFFFF"
+                            android:textSize="12sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/vaccineWorthArgument2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        tools:visibility="visible">
+
+
+                        <ImageView
+                            android:id="@+id/vaccineWorthImage2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="70dp"
+                            android:contentDescription="@string/actions_content_desc_second_img"
+                            android:src="@drawable/ic_graph_down" />
+
+                        <TextView
+                            android:id="@+id/vaccineWorthTitle2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="17dp"
+
+                            android:layout_marginEnd="10dp"
+                            android:layout_toEndOf="@+id/vaccineWorthImage2"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="Pomożesz zwalczyć pandemię na świecie"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/vaccineWorthText2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vaccineWorthTitle2"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="17dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_toEndOf="@+id/vaccineWorthImage2"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Od wybuchu epidemii na COVID-19 zmarło już ponad 2 mln ludzi na całym świecie. Każdy zaszczepiony to potencjalnie od kilku do kilkunastu osób uchronionych przed zarażeniem."
+                            android:textColor="#90FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/vaccineWorthText2note"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vaccineWorthText2"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="17dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_toEndOf="@+id/vaccineWorthImage2"
+                            android:fontFamily="@font/roboto"
+                            android:text="Już 50% zaszczepionej populacji istotnie wpłynie na zmniejszenie ryzyka szerzenia się w niej koronawirusa."
+                            android:textColor="#90FFFFFF"
+                            android:textSize="12sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/vaccineWorthArgument3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+
+
+                        tools:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/vaccineWorthTitle3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="15dp"
+
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Zyskasz spokój"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/vaccineWorthImage3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginEnd="35dp"
+                            android:contentDescription="@string/actions_content_desc_first_img"
+                            android:src="@drawable/ic_peace_of_mind" />
+
+                        <TextView
+                            android:id="@+id/vaccineWorthText3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vaccineWorthTitle3"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="19dp"
+                            android:layout_toStartOf="@+id/vaccineWorthImage3"
+                            android:fontFamily="@font/roboto"
+                            android:text="Szczepiąc się, zyskasz wewnętrzny spokój, wynikający z bezpieczeństwa własnego i najbliższych."
+                            android:textColor="#ABFFFFFF"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/vaccineWorthArgument4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        tools:visibility="visible">
+
+
+                        <ImageView
+                            android:id="@+id/vaccineWorthImage4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:contentDescription="@string/actions_content_desc_second_img"
+                            android:src="@drawable/ic_protection" />
+
+                        <TextView
+                            android:id="@+id/vaccineWorthTitle4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="17dp"
+
+                            android:layout_marginEnd="10dp"
+
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="Szczepionki są bezpieczne"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/vaccineWorthText4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vaccineWorthTitle4"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="17dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_toEndOf="@+id/vaccineWorthImage4"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Szczepionki są badane przez polskie i unijne instytucje. Ich dopuszczenie do użytku jest zależne od decyzji Europejskiej Agencji Lekowej."
+                            android:textColor="#90FFFFFF"
+                            android:textSize="16sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/vaccineWorthArgument5"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+
+
+                        tools:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/vaccineWorthTitle5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="15dp"
+
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Zostaniesz zbadany"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp" />
+
+                        <ImageView
+                            android:id="@+id/vaccineWorthImage5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginEnd="35dp"
+                            android:contentDescription="@string/actions_content_desc_first_img"
+                            android:src="@drawable/ic_doctor" />
+
+                        <TextView
+                            android:id="@+id/vaccineWorthText5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vaccineWorthTitle5"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="19dp"
+                            android:layout_toStartOf="@+id/vaccineWorthImage5"
+                            android:fontFamily="@font/roboto"
+                            android:text="Przed szczepieniem zostaniesz przebadany przez lekarza. Dzięki temu sprawdzisz swój aktualny stan zdrowia."
+                            android:textColor="#ABFFFFFF"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/vaccineWorthArgument6"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        tools:visibility="visible">
+
+
+                        <ImageView
+                            android:id="@+id/vaccineWorthImage6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="0dp"
+                            android:contentDescription="@string/actions_content_desc_second_img"
+                            android:src="@drawable/ic_laugh" />
+
+                        <TextView
+                            android:id="@+id/vaccineWorthTitle6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="17dp"
+                            android:layout_marginTop="45dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_toEndOf="@+id/vaccineWorthImage6"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="Dzięki Tobie szybciej wrócimy do normalności!"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/vaccineWorthText6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vaccineWorthImage6"
+                            android:layout_marginStart="25dp"
+
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Powrót do normalności oznacza:\n
+• odejście od maseczek,\n
+• swobodne spotkania z rodziną i przyjaciółmi,\n
+• powrót dzieci do szkół i rozwój ich kompetencji społecznych,\n
+• dalszy rozwój gospodarki,\n
+• ochronę miejsc pracy oraz szansę na nowe zatrudnienia,\n
+• swobodny dostęp do basenów, siłowni, kin i teatrów,\n
+• wakacje bez ograniczeń,\n
+• poprawę jakości życia nas wszystkich."
+                            android:textColor="#90FFFFFF"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/vaccineWorthText6note"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vaccineWorthText6"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/roboto"
+                            android:text="Szczepiąc się, przyczyniasz się do szybszego znoszenia ograniczeń i powrotu nas wszystkich do normalnego życia."
+                            android:textColor="#90FFFFFF"
+                            android:textSize="16sp" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/vaccineWorthSummary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Szczepionki są badane przez polskie i unijne instytucje. Ich dopuszczenie do użytku jest zależne od decyzji Europejskiej Agencji Lekowej."
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/telephonesLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#388E3C"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/vaccineSignUpTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Zapis na szczepienia"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/vaccineSignUpText1"
+                    android:layout_width="221dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="90dp"
+                    android:layout_marginEnd="175dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Powszechne szczepienia całego społeczeństwa ruszają w styczniu 2021 roku."
+                    android:textAlignment="center"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/telephonesSymptomsFirstContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_below="@+id/vaccineSignUp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Kolejność szczepień ustala Narodowy Program Szczepień przeciwko COVID-19."
+                    android:textAlignment="center"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/vaccineSignUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/vaccineSignUpTitle"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="35dp"
+                    android:contentDescription="@string/actions_content_desc_first_img"
+                    android:src="@drawable/ic_document_sign" />
+
+                <Button
+                    android:id="@+id/vaccineSignUpButton"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/telephonesSymptomsFirstContent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginEnd="60dp"
+                    android:height="55dp"
+                    android:background="@drawable/rounded_button"
+                    android:backgroundTint="#4CAF50"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center"
+                    android:text="Zapisz się"
+                    android:textColor="#C1FFFFFF"
+                    android:textSize="18sp" />
+
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

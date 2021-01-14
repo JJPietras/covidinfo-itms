@@ -1,6 +1,10 @@
 package com.drzymalski.covidinfo.config
 
+import com.neovisionaries.i18n.CountryCode
 import io.paperdb.Paper
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
 
 class ConfigurationManager {
     var config: Config = Config()
@@ -8,6 +12,28 @@ class ConfigurationManager {
     init {
         try {
             loadConfig()
+            GlobalScope.launch {
+                when {
+                    config.selectedVaccine.code != "" -> {
+                        if (config.selectedVaccine.code.length == 2) {
+                            config.selectedVaccine.code =
+                                CountryCode.getByCode(config.selectedVaccine.code).alpha3
+                            saveConfig()
+                        }
+                    }
+                    else -> {
+                        val cc = CountryCode.getByCode("PL").alpha3
+                        config.selectedVaccine = CountryConfig().apply {
+                            slug = "poland"
+                            name = "Polska"
+                            continent = "Europa"
+                            color = "#6f79fc"
+                            code = cc
+                        }
+                        saveConfig()
+                    }
+                }
+            }
         } catch (ex: Exception){
             initializeAndSaveTheBasicConfig()
         }
@@ -83,6 +109,14 @@ class ConfigurationManager {
                 color = "#009688"
                 code = "IT"
             })
+
+        config.selectedVaccine = CountryConfig().apply {
+            slug = "poland"
+            name = "Polska"
+            continent = "Europa"
+            color = "#6f79fc"
+            code = "POL"
+        }
         saveConfig()
     }
 

@@ -97,6 +97,17 @@
     <string name="nearestHospital_content_desc_second_img">TODO</string>
     <string name="nearestHospital_content_desc_third_img">NONE</string>
 
+    <!-- VACCINE -->
+
+    <string name="vaccine_main_title">Sczepienia</string>
+    <string name="vaccine_main_subtitle">Zaszczep się tempa pizdo</string>
+    <string name="vaccine_main_content">Niniejszy panel pokaże Ci wagę sczepionek, jak się na nie zapisać oraz dane statystyczne dotyczące ich.</string>
+    <string name="vaccine_content_desc_background">TODO</string>
+    <string name="vaccine_content_desc_menu_btn">TODO</string>
+    <string name="vaccine_source1">Dane statystyczne z: https://github.com/owid/covid-19-data/blob/master/public/data/vaccinations/vaccinations.csv</string>
+
+
+
     <!-- AUTHORS -->
 
     <string name="authors_project">PROJEKT</string>
@@ -183,5 +194,7 @@
     <string name="monkik"><a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a></string>
     <string name="freepik"><a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a></string>
     <string name="pixel_meetup"><a href="https://www.flaticon.com/authors/pixelmeetup" title="Pixelmeetup">Pixelmeetup</a></string>
+    <string name="vaccinations_graph">Ilość szczepień</string>
+    <string name="vaccination_percentage">Zaszczepienie populacji</string>
 
 </resources>

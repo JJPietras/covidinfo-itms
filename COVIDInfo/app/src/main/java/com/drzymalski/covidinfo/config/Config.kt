@@ -14,6 +14,8 @@ class Config {
     var daysBackCompare:Long = 30
     var daysBackToday:Long = 30
 
+    var selectedVaccine = CountryConfig()
+
     fun getDateFromMain(): String{
         val date: LocalDateTime  = LocalDateTime.now().minusDays(daysBackToday + 1) // +1 to account for 1 day which cannot be calculated
         val out: Date = Date.from(date.atZone(ZoneId.systemDefault()).toInstant())
