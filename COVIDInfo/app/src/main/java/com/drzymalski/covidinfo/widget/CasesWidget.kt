@@ -30,25 +30,28 @@ class CasesWidget : AppWidgetProvider() {
 //        appWidgetManager: AppWidgetManager,
 //        appWidgetIds: IntArray
 //    ) {
-//        val N = appWidgetIds.size
-//        Toast.makeText(context, "Touched view ", Toast.LENGTH_SHORT).show()
-//
-//        for (i in 0 until N) {
-//            val appWidgetId = appWidgetIds[i]
-//
-//            // Create an Intent to launch ExampleActivity
-//            val intent = Intent(context, TodayIllnessFragment::class.java)
-//            val pendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
-//
-//            // Get the layout for the App Widget and attach an on-click listener
-//            // to the button
-//            val views = RemoteViews(context.packageName, R.layout.fragment_today)
-//            views.setOnClickPendingIntent(R.id.widget, pendingIntent)
-//
-//            // Tell the AppWidgetManager to perform an update on the current app
-//            // widget
-//            appWidgetManager.updateAppWidget(appWidgetId, views)
+//        // There may be multiple widgets active, so update all of them
+//        for (appWidgetId in appWidgetIds) {
+//            updateAppWidget(context, appWidgetManager, appWidgetId)
 //        }
+//    }
+
+//    internal fun updateAppWidget(
+//        context: Context,
+//        appWidgetManager: AppWidgetManager,
+//        appWidgetId: Int
+//    ) {
+//        val intent = Intent(context, MainActivity::class.java)
+//        val pendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
+//
+//        // Get the layout for the App Widget and attach an on-click listener
+//        // to the button
+//        val views = RemoteViews(context.packageName, R.layout.fragment_today)
+//        views.setOnClickPendingIntent(R.id.newCasesNum, pendingIntent)
+//
+//        // Tell the AppWidgetManager to perform an update on the current app
+//        // widget
+//        appWidgetManager.updateAppWidget(appWidgetId, views)
 //    }
 }
 

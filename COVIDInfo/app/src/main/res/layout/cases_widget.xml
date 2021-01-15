@@ -19,7 +19,7 @@
 
         android:text="0"
         android:textColor="?attr/appWidgetTextColor"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -41,7 +41,8 @@
         android:layout_marginStart="0dp"
         android:layout_toEndOf="@+id/newCasesNum"
         android:text="+0%"
-        android:textColor="?attr/appWidgetTextColor" />
+        android:textSize="10sp"
+        android:textColor="#E02500" />
 
     <TextView
         android:id="@+id/deltaCases"
@@ -51,6 +52,8 @@
         android:layout_marginEnd="0dp"
         android:layout_toStartOf="@+id/newCasesNum"
         android:text="+0"
-        android:textColor="?attr/appWidgetTextColor" />
+        android:textSize="10sp"
+
+        android:textColor="#E02500" />
 
 </RelativeLayout>
