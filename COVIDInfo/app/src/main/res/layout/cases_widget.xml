@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00978585"
+    android:padding="@dimen/widget_margin"
+    android:theme="@style/ThemeOverlay.COVIDInfo.AppWidgetContainer">
+
+    <TextView
+        android:id="@+id/newCasesNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerInParent="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+
+        android:text="0"
+        android:textColor="?attr/appWidgetTextColor"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/newCases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/newCasesNum"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="0dp"
+        android:text="Nowe zakażenia"
+        android:textColor="?attr/appWidgetTextColor"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/percentageCase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="0dp"
+        android:layout_toEndOf="@+id/newCasesNum"
+        android:text="+0%"
+        android:textColor="?attr/appWidgetTextColor" />
+
+    <TextView
+        android:id="@+id/deltaCases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="0dp"
+        android:layout_toStartOf="@+id/newCasesNum"
+        android:text="+0"
+        android:textColor="?attr/appWidgetTextColor" />
+
+</RelativeLayout>

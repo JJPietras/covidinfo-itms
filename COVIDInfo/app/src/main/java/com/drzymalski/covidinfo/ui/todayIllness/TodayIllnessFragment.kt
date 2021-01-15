@@ -2,6 +2,9 @@ package com.drzymalski.covidinfo.ui.todayIllness
 
 import android.annotation.SuppressLint
 import android.app.ActionBar
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -12,10 +15,7 @@ import android.view.Gravity.CENTER
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
@@ -27,6 +27,7 @@ import com.drzymalski.covidinfo.interfaces.FragmentSettings
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.drzymalski.covidinfo.ui.settings.SettingsView
+import com.drzymalski.covidinfo.widget.CasesWidget
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import kotlinx.android.synthetic.main.fragment_today.*
@@ -95,6 +96,27 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
             requireActivity()
         )
         activateLinks()
+        txt2widget()
+    }
+
+    private fun txt2widget(){
+        val context: Context = requireContext()
+        val appWidgetManager = AppWidgetManager.getInstance(context)
+        val remoteViews = RemoteViews(context.getPackageName(), R.layout.cases_widget)
+        val thisWidget = ComponentName(context, CasesWidget::class.java)
+        remoteViews.setTextViewText(
+            R.id.newCasesNum,
+            statisticsCount.text
+        )
+        remoteViews.setTextViewText(
+            R.id.percentageCase,
+            statisticsIncreasePercent.text
+        )
+        remoteViews.setTextViewText(
+            R.id.deltaCases,
+            statisticsIncreaseNum.text
+        )
+        appWidgetManager.updateAppWidget(thisWidget, remoteViews)
     }
 
     private fun configureButton(button: ImageButton, dayValue: Int, greater: Boolean) =

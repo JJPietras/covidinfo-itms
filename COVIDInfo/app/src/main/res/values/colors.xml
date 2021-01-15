@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--<color name="colorPrimary">#6200EE</color>-->
-<!--<color name="colorPrimaryDark">#3700B3</color>-->
-<!--<color name="colorAccent">#03DAC5</color>-->
+    <!--<color name="colorPrimary">#6200EE</color>-->
+    <!--<color name="colorPrimaryDark">#3700B3</color>-->
+    <!--<color name="colorAccent">#03DAC5</color>-->
     <color name="colorPrimaryDark">#1F2232</color>
     <color name="colorLightGray">#596475</color>
     <color name="colorPrimary">#41469F</color>
@@ -14,4 +14,8 @@
     <color name="white">#FFFFFF</color>
     <color name="plotBgColor">#3D439B</color>
     <color name="mainBgColor">#182075</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
 </resources>

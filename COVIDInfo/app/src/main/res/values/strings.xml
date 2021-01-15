@@ -107,7 +107,6 @@
     <string name="vaccine_source1">Dane statystyczne z: https://github.com/owid/covid-19-data/blob/master/public/data/vaccinations/vaccinations.csv</string>
 
 
-
     <!-- AUTHORS -->
 
     <string name="authors_project">PROJEKT</string>
@@ -148,31 +147,31 @@
         <item>BMI≥35kg/m<sup>2</sup></item>
         <item>brak</item>
     </string-array>
-    
+
     <string-array name="cardio">
         <item>angina lub zawał</item>
         <item>niewydolność serca</item>
         <item>brak</item>
     </string-array>
-    
+
     <string-array name="lungs">
         <item>astma</item>
         <item>inna chroniczna choroba pulmonologiczna</item>
         <item>którekolwiek leczone kortykosterydami</item>
         <item>brak</item>
     </string-array>
-    
+
     <string-array name="cancer">
         <item>aktywny nowotwór</item>
         <item>reemisja nowotwora</item>
         <item>brak</item>
     </string-array>
-    
+
     <string-array name="rheumatologic">
         <item>aktywnie leczone\nzmiany reumatoidalne</item>
         <item>brak</item>
     </string-array>
-    
+
     <string-array name="immuno">
         <item>jakakolwiek terapia immunosupresantami</item>
         <item>brak</item>
@@ -196,5 +195,7 @@
     <string name="pixel_meetup"><a href="https://www.flaticon.com/authors/pixelmeetup" title="Pixelmeetup">Pixelmeetup</a></string>
     <string name="vaccinations_graph">Ilość szczepień</string>
     <string name="vaccination_percentage">Zaszczepienie populacji</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 
 </resources>
