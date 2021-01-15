@@ -1,5 +1,7 @@
 package com.drzymalski.covidinfo.ui.vaccine
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
@@ -20,8 +22,9 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
 import com.vhl.blackmo.grass.dsl.grass
+import kotlinx.android.synthetic.main.fragment_vaccine.*
 
-import kotlinx.android.synthetic.main.fragment_vaccine.aaChartViewVaccinations
+
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.net.HttpURLConnection
@@ -53,11 +56,9 @@ class VaccineFragment : Fragment() {
                 requireActivity()
         )
 
-        refreshData()
-        /*val texts = arrayOf(icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8)
-        for (text in texts) text.movementMethod = LinkMovementMethod.getInstance()
+        activateLinks()
 
-        */
+        refreshData()
     }
 
     private fun configureChart(chart: AAChartView, options: AAOptions) {
@@ -67,10 +68,7 @@ class VaccineFragment : Fragment() {
     private fun configureCharts(){
         try {
             configureChart(aaChartViewVaccinations, initializer.configureVaccineBarChart())
-            /*configureChart(aaChartViewTotalCases, initializer.configureTotalCasesBarChart())
-            configureChart(aaChartViewActiveCases, initializer.configureActiveBarChart())
-            configureChart(aaChartViewRecovered, initializer.configureRecoveredBarChart())
-            configureChart(aaChartViewDied, initializer.configureDeathsBarChart())*/
+            configureChart(aaChartViewVaccinationPercentage, initializer.configureNewVaccinationsBarChart())
         }catch (ex: Exception){ // No action will be taken
             println(ex)
         }
@@ -86,6 +84,14 @@ class VaccineFragment : Fragment() {
             }catch (ex: Exception){ // No action will be taken
                 println(ex)
             }
+        }
+    }
+
+    private fun activateLinks(){
+        vaccineSignUpButton.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gov.pl/web/szczepimysie/jak-sie-szczepic"))
+            startActivity(browserIntent)
         }
     }
 }

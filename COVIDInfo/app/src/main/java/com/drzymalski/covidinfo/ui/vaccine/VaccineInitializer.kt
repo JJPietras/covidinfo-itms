@@ -13,6 +13,7 @@ import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.drzymalski.covidinfo.config.backColor
 import com.drzymalski.covidinfo.config.fontColor
+import com.drzymalski.covidinfo.dataUtils.DateConverter
 import com.drzymalski.covidinfo.dataUtils.DateConverter.Companion.formatDateShort
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -22,8 +23,16 @@ class VaccineInitializer: DataInitializer {
 
     var stats = mutableListOf<VaccineDay>()
 
+    var vaccineDoses =  mutableListOf<Float>()
+    var vaccinePercentage =  mutableListOf<Float>()
+
     private val csvManager = CSVManager()
     override val config: ConfigurationManager = ConfigurationManager()
+
+    private fun clearData(){
+        vaccineDoses.clear()
+        vaccinePercentage.clear()
+    }
 
     @ExperimentalStdlibApi
     fun loadScreenResources(){
@@ -34,29 +43,102 @@ class VaccineInitializer: DataInitializer {
     }
 
     private fun filterList(){
-        stats = csvManager.vaccinationData.filter {csvManager.vaccinationData.map{ data -> data.iso_code }.contains(it.iso_code)}.toMutableList()
+        stats = csvManager.vaccinationData.filter {it.iso_code == config.config.selectedVaccine.code}.toMutableList()
+
     }
 
+/*    fun calculateStats(){
+        clearData()
+        var lastGiven = -1
+        var lastPercentage = -1
+
+        stats.forEach { vaccineOnDay ->
+            run {
+                var temp = vaccineOnDay.people_vaccinated
+                if (temp!=null ){
+                    if (lastGiven==-1) {lastGiven = temp}
+                    else {
+
+                        if (temp <= 0) temp = lastGiven
+                        vaccineDoses += temp
+                        lastGiven = temp
+                    }
+                }
+            }
+        }
+    }*/
 
     fun configureVaccineBarChart(): AAOptions {
+        val values = stats.mapNotNull {  day -> day.people_vaccinated } //?: 0
+        val dates = stats.mapNotNull { day -> day.date}.toTypedArray()
+
         val aaChartModel = AAChartModel()
             .chartType(AAChartType.Spline)
             .title("")
             .yAxisTitle("")
             .zoomType(AAChartZoomType.X)
             .markerRadius(0f)
-            .categories(stats.map { day -> formatDateShort(day.date)}.toTypedArray())
+            .categories(dates)
             .backgroundColor(backColor)
             .axesTextColor(fontColor)
             .series(
                 arrayOf(
                     AASeriesElement()
-                        .name("Przypadki potwierdzone")
+                        .name("Zaszczepieni")
                         .lineWidth(4f)
-                        .data(stats.map { day -> day.people_vaccinated}.toTypedArray())
+                        .data(values.toTypedArray())
                     .color(AAGradientColor.BerrySmoothie)
                 )
             )
+        return getChartOptions(aaChartModel)
+    }
+
+    fun configureVaccinePercentageBarChart(): AAOptions {
+        val values = stats.mapNotNull {  day -> day.people_vaccinated_per_hundred } //?: 0
+        val dates = stats.mapNotNull { day -> day.date}.toTypedArray()
+
+        val aaChartModel = AAChartModel()
+                .chartType(AAChartType.Spline)
+                .title("")
+                .yAxisTitle("")
+                .zoomType(AAChartZoomType.X)
+                .markerRadius(0f)
+                .categories(dates)
+                .backgroundColor(backColor)
+                .axesTextColor(fontColor)
+                .series(
+                        arrayOf(
+                                AASeriesElement()
+                                        .name("Procent zaszczepionych")
+                                        .lineWidth(4f)
+                                        .data(values.toTypedArray())
+                                        .color(AAGradientColor.BerrySmoothie)
+                        )
+                )
+        return getChartOptions(aaChartModel)
+    }
+
+    fun configureNewVaccinationsBarChart(): AAOptions {
+        val values = stats.mapNotNull {  day -> day.daily_vaccinations } //?: 0
+        val dates = stats.mapNotNull { day -> day.date}.toTypedArray()
+
+        val aaChartModel = AAChartModel()
+                .chartType(AAChartType.Column)
+                .title("")
+                .yAxisTitle("")
+                .zoomType(AAChartZoomType.X)
+                .categories(dates)
+                .backgroundColor(backColor)
+                .axesTextColor(fontColor)
+                .series(
+                        arrayOf(
+                                AASeriesElement()
+                                        .name("Ilość szczepień")
+                                        .lineWidth(4f)
+                                        .data(values.toTypedArray())
+                                        .color(AAGradientColor.BerrySmoothie)
+                        )
+                )
         return getChartOptions(aaChartModel)
     }
 

@@ -3,13 +3,15 @@ package com.drzymalski.covidinfo.apiUtils
 import com.drzymalski.covidinfo.apiUtils.models.VaccineDay
 import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
 import com.vhl.blackmo.grass.dsl.grass
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.net.HttpURLConnection
 import java.net.URL
 
 class CSVManager {
-    public var vaccinationData = mutableListOf<VaccineDay>()
+    var vaccinationData = mutableListOf<VaccineDay>()
+
+    private fun mapVaccineData(){
+
+    }
 
     @ExperimentalStdlibApi
     fun loadVaccinationData(){
@@ -18,7 +20,7 @@ class CSVManager {
         val urlConnection = url.openConnection() as HttpURLConnection
 
         var text = ""
-        
+
         try {
             text = urlConnection.inputStream.bufferedReader().readText()
         } catch (ex: Exception) {
@@ -28,6 +30,7 @@ class CSVManager {
         }
         try {
             val csvContents = csvReader().readAllWithHeader(data=text)
+
             val classes = grass<VaccineDay>().harvest(csvContents)
             vaccinationData = classes.toMutableList()
         } catch (ex: Exception) {
