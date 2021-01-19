@@ -100,12 +100,34 @@
     <!-- VACCINE -->
 
     <string name="vaccine_main_title">Sczepienia</string>
-    <string name="vaccine_main_subtitle">Zaszczep się tempa pizdo</string>
+    <string name="vaccine_main_subtitle">Szczepionki </string>
     <string name="vaccine_main_content">Niniejszy panel pokaże Ci wagę sczepionek, jak się na nie zapisać oraz dane statystyczne dotyczące ich.</string>
     <string name="vaccine_content_desc_background">TODO</string>
     <string name="vaccine_content_desc_menu_btn">TODO</string>
     <string name="vaccine_source1">Dane statystyczne z: https://github.com/owid/covid-19-data/blob/master/public/data/vaccinations/vaccinations.csv</string>
 
+    <string name="vaccinations_graph">Ilość zaszczepionych</string>
+    <string name="vaccination_percentage">Ilość szczepień</string>
+    <string name="why_vaccinate">Dlaczego warto się zaszczepić?</string>
+    <string name="save_live">Uratujesz komuś życie</string>
+    <string name="stop_covid">Szczepiąc się, myślisz również o innych – członkach rodziny, przyjaciołach i znajomych. Ale także nieznajomych – spotkanych przypadkiem na ulicy, czy w sklepie. Dzięki Tobie zwiększy się również ich bezpieczeństwo. Nawet jeśli czujesz się młody i silny, poprzez zaszczepienie przerwiesz łańcuch zakażeń.</string>
+    <string name="stop_covid2">Pomożesz zwalczyć pandemię na świecie</string>
+    <string name="save_close_ones">Od wybuchu epidemii na COVID-19 zmarło już ponad 2 mln ludzi na całym świecie. Każdy zaszczepiony to potencjalnie od kilku do kilkunastu osób uchronionych przed zarażeniem.</string>
+    <string name="vaccine_minimum50">Już 50% zaszczepionej populacji istotnie wpłynie na zmniejszenie ryzyka szerzenia się w niej koronawirusa.</string>
+    <string name="vaccine_peace">Zyskasz spokój</string>
+    <string name="vaccine_close_ones2">Szczepiąc się, zyskasz wewnętrzny spokój, wynikający z bezpieczeństwa własnego i najbliższych.</string>
+    <string name="vaccine_safe">Szczepionki są bezpieczne</string>
+    <string name="vaccine_safe2">Szczepionki są badane przez polskie i unijne instytucje. Ich dopuszczenie do użytku jest zależne od decyzji Europejskiej Agencji Lekowej.</string>
+    <string name="vaccine_inspection">Zostaniesz zbadany</string>
+    <string name="vaccine_heath">Przed szczepieniem zostaniesz przebadany przez lekarza. Dzięki temu sprawdzisz swój aktualny stan zdrowia.</string>
+    <string name="vaccine_normal">Dzięki Tobie szybciej wrócimy do normalności!</string>
+    <string name="vaccine_normal_reasons">Powrót do normalności oznacza:\n • odejście od maseczek,\n • swobodne spotkania z rodziną i przyjaciółmi,\n • powrót dzieci do szkół i rozwój ich kompetencji społecznych,\n • dalszy rozwój gospodarki,\n • ochronę miejsc pracy oraz szansę na nowe zatrudnienia,\n • swobodny dostęp do basenów, siłowni, kin i teatrów,\n • wakacje bez ograniczeń,\n • poprawę jakości życia nas wszystkich.</string>
+    <string name="vaccine_normal2">Szczepiąc się, przyczyniasz się do szybszego znoszenia ograniczeń i powrotu nas wszystkich do normalnego życia.</string>
+    <string name="vaccine_research">Szczepionki są badane przez polskie i unijne instytucje. Ich dopuszczenie do użytku jest zależne od decyzji Europejskiej Agencji Lekowej.</string>
+    <string name="vaccine_sigh_up">Zapis na szczepienia</string>
+    <string name="vaccine_start">Powszechne szczepienia całego społeczeństwa ruszają w styczniu 2021 roku.</string>
+    <string name="vaccine_good">Kolejność szczepień ustala Narodowy Program Szczepień przeciwko COVID-19.</string>
+    <string name="sign_up">Zapisz się</string>
 
 
     <!-- AUTHORS -->
@@ -194,7 +216,5 @@
     <string name="monkik"><a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a></string>
     <string name="freepik"><a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a></string>
     <string name="pixel_meetup"><a href="https://www.flaticon.com/authors/pixelmeetup" title="Pixelmeetup">Pixelmeetup</a></string>
-    <string name="vaccinations_graph">Ilość szczepień</string>
-    <string name="vaccination_percentage">Zaszczepienie populacji</string>
 
 </resources>

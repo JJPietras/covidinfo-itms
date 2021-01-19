@@ -15,7 +15,8 @@ class DateConverter {
             return dateNew
         }
 
-        fun formatDateShort(date: Date): String{
+        fun formatDateShort(date: Date?): String{
+            if (date==null) return ""
             val month = if (date.month + 1< 10) "0" +(date.month + 1).toString() else (date.month + 1).toString()
             val day = if (date.date < 10) "0" + date.date.toString() else date.date.toString()
             return "$month-$day"

@@ -1,6 +1,5 @@
 package com.drzymalski.covidinfo.dataUtils
 
-import com.drzymalski.covidinfo.apiUtils.models.CountrySummary
 import com.drzymalski.covidinfo.apiUtils.models.DataProvider
 
 class TodayCasesStats{

@@ -26,7 +26,7 @@ import com.flask.colorpicker.builder.ColorPickerDialogBuilder
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner
 
 
-class SettingsView(
+open class SettingsView(
     context: Context,
     rootLayout: LinearLayout,
     countries: MutableList<CountryConfig>,
@@ -41,18 +41,18 @@ class SettingsView(
     private var isClosed: Boolean = false
     private var fragmentSettings: FragmentSettings
 
-    private var spinner: CustomSearchableSpinner
+    internal var spinner: CustomSearchableSpinner
     private var addCountryBtn: Button
     private var saveBtn: Button
     private var closeBtn: Button
-    private var daysPicker: NumberPicker
-    private var context: Context
+    internal var daysPicker: NumberPicker
+    internal var context: Context
     private var selectedColor: String = "#5C6BC0"
     private var colorBtn: Button
     private var statsButton: AppCompatImageButton
-
+    internal var vaccineInfo: TextView
     private var countriesNew:  MutableList<CountryConfig>
-    private var daysBackNew: Int
+    internal var daysBackNew: Int
     private val nullParent: ViewGroup? = null
 
     init {
@@ -72,6 +72,7 @@ class SettingsView(
         statisticsCountriesLayout = settingsView.findViewById(R.id.statisticsCountriesLayout)
         addCountryBtn = settingsView.findViewById(R.id.addCountryBtn)
         statsButton = settingsView.findViewById(R.id.statisticsChangeCountryBtn)
+        vaccineInfo = settingsView.findViewById(R.id.vaccineInfo)
 
         popupWindow = PopupWindow(
             settingsView,
@@ -105,10 +106,11 @@ class SettingsView(
         addCountryBtn.setOnClickListener{ addCountry() }
 
         generateCountryButtons()
-        configurePickers()
+
     }
 
     fun show(callback: OnBackPressedCallback){
+        this.configurePickers()
         this.callback = callback
         isClosed = false
         TransitionManager.beginDelayedTransition(rootLayout)
@@ -269,7 +271,7 @@ class SettingsView(
         }
     }
 
-    private fun configurePickers()  {
+    internal open fun configurePickers()  {
         daysPicker.minValue = 7
         daysPicker.maxValue = 365
         daysPicker.value = daysBackNew

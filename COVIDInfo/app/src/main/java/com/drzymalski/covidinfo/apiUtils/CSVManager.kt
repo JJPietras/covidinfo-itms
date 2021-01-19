@@ -9,10 +9,6 @@ import java.net.URL
 class CSVManager {
     var vaccinationData = mutableListOf<VaccineDay>()
 
-    private fun mapVaccineData(){
-
-    }
-
     @ExperimentalStdlibApi
     fun loadVaccinationData(){
         val url =

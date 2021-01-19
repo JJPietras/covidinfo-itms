@@ -208,6 +208,18 @@
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
+            <TextView
+                android:id="@+id/vaccineInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center"
+                android:text="Dane dotyczące szczepionek nie są jeszcze dostępne w takim samym stopniu jak dane dotyczące zakażeń, stąd zmniejszona ilość pańśtw w tej liście."
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:visibility="gone"/>
+
             <View
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
