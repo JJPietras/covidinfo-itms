@@ -162,28 +162,32 @@
                     android:textColor="#ABFFFFFF"
                     android:textSize="18sp" />
 
-                <ImageView
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/suspicionSymptomsImageOne"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="85dp"
                     android:layout_marginEnd="35dp"
                     android:contentDescription="@string/symptoms_content_desc_first_img"
-                    android:src="@drawable/ic_symptom" />
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/goraczka" />
 
-                <ImageView
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/suspicionSymptomsImageTwo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
                     android:layout_below="@+id/suspicionSymptomsFirstContent"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="35dp"
                     android:layout_marginTop="60dp"
                     android:contentDescription="@string/symptoms_content_desc_second_img"
                     android:scaleX="-1"
-                    android:src="@drawable/ic_symptom_2" />
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/kaszel" />
 
                 <TextView
                     android:id="@+id/suspicionSymptomsSecondTitle"
@@ -257,7 +261,7 @@
                     android:layout_marginEnd="9dp"
                     android:layout_toStartOf="@+id/suspicionSymptomsSexBtn"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
+                    android:backgroundTint="@color/colorPrimaryLight"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/symptoms_age_btn"
                     android:textColor="#D5FFFFFF" />
@@ -271,7 +275,7 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="2dp"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
+                    android:backgroundTint="@color/colorPrimaryLight"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/symptoms_sex_btn"
                     android:textColor="#D5FFFFFF" />
@@ -287,7 +291,7 @@
                     android:layout_marginEnd="15dp"
                     android:layout_toEndOf="@+id/suspicionSymptomsSexBtn"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
+                    android:backgroundTint="@color/colorPrimaryLight"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/symptoms_ethnics_btn"
                     android:textColor="#D5FFFFFF" />
@@ -303,7 +307,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_toStartOf="@+id/suspicionSymptomsHeartBtn"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
+                    android:backgroundTint="@color/colorPrimaryLight"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/symptoms_diabetes_btn"
                     android:textColor="#D5FFFFFF" />
@@ -317,7 +321,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
+                    android:backgroundTint="@color/colorPrimaryLight"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/symptoms_heart_btn"
                     android:textColor="#D5FFFFFF" />
@@ -333,7 +337,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_toStartOf="@+id/suspicionSymptomsHeartBtn"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
+                    android:backgroundTint="@color/colorPrimaryLight"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/symptoms_lungs_btn"
                     android:textColor="#D5FFFFFF" />
@@ -347,7 +351,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
+                    android:backgroundTint="@color/colorPrimaryLight"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/symptoms_cancer_btn"
                     android:textColor="#D5FFFFFF" />
@@ -363,7 +367,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_toStartOf="@+id/suspicionSymptomsImmunityBtn"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
+                    android:backgroundTint="@color/colorPrimaryLight"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/symptoms_rheumatologic_btn"
                     android:textColor="#D5FFFFFF" />
@@ -377,7 +381,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
+                    android:backgroundTint="@color/colorPrimaryLight"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/symptoms_immunity_btn"
                     android:textColor="#D5FFFFFF" />
@@ -422,7 +426,7 @@
                     android:layout_marginTop="21dp"
                     android:layout_marginEnd="60dp"
                     android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
+                    android:backgroundTint="@color/colorPrimaryLight"
                     android:fontFamily="@font/roboto_bold"
                     android:text="@string/symptoms_calculate_btn"
                     android:textColor="#D5FFFFFF"
@@ -484,16 +488,18 @@
                     android:textColor="#ABFFFFFF"
                     android:textSize="18sp" />
 
-                <ImageView
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/suspicionsActionsMaskIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
                     android:layout_below="@+id/suspicionActionsFirstTitle"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="19dp"
                     android:layout_marginEnd="35dp"
                     android:contentDescription="@string/actions_content_desc_first_img"
-                    android:src="@drawable/ic_mask" />
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/mask" />
 
                 <TextView
                     android:id="@+id/suspicionActionsFirstSubContent"
@@ -510,17 +516,19 @@
                     android:textColor="#ABFFFFFF"
                     android:textSize="12sp" />
 
-                <ImageView
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/suspicionsActionsHandSanitizer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
                     android:layout_below="@+id/suspicionActionsFirstSubContent"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="103dp"
                     android:contentDescription="@string/actions_content_desc_second_img"
                     android:scaleX="-1"
-                    android:src="@drawable/ic_liquids" />
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/mycierak" />
 
                 <TextView
                     android:id="@+id/suspicionsActionsSecondTitle"
@@ -619,16 +627,20 @@
                     android:textColor="#ABFFFFFF"
                     android:textSize="12sp" />
 
-                <ImageView
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/suspicionTeleHelpTelephone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+
                     android:layout_below="@+id/suspicionTeleHelpFirstTitle"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="19dp"
                     android:layout_marginEnd="35dp"
                     android:contentDescription="@string/teleHelp_content_desc_first_img"
-                    android:src="@drawable/ic_tele" />
+                    android:src="@drawable/ic_tele"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/doktor2" />
 
                 <Button
                     android:id="@+id/suspicionTeleHelpBtn"
@@ -646,17 +658,20 @@
                     android:textColor="#C1FFFFFF"
                     android:textSize="20sp" />
 
-                <ImageView
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/suspicionTeleHelpComputer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+
                     android:layout_below="@+id/suspicionTeleHelpBtn"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="35dp"
                     android:layout_marginTop="84dp"
                     android:contentDescription="@string/teleHelp_content_desc_second_img"
                     android:scaleX="-1"
-                    android:src="@drawable/ic_poz" />
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/doktor" />
 
                 <TextView
                     android:id="@+id/suspicionTeleHelpSecondTitle"
@@ -742,16 +757,18 @@
                     android:textColor="#90FFFFFF"
                     android:textSize="18sp" />
 
-                <ImageView
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/telephonesUsefulTelephonesIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="70dp"
                     android:contentDescription="@string/usefulTelephones_content_desc_img"
-                    android:rotation="30"
-                    android:src="@drawable/ic_phone" />
+
+                    android:layout_width="118dp"
+                    android:layout_height="128dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/telefon" />
 
                 <TextView
                     android:id="@+id/telephonesUsefulTelephonesSecondTitle"
@@ -913,15 +930,17 @@
                     android:textSize="15sp"
                     android:visibility="invisible" />
 
-                <ImageView
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/suspicionNearestHospitalIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="75dp"
                     android:contentDescription="@string/nearestHospital_content_desc_first_img"
-                    android:src="@drawable/ic_hospitals" />
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/hospital" />
 
                 <TextView
                     android:id="@+id/suspicionNearestHospitalTitle"

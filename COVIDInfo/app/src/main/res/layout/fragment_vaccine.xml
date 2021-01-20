@@ -275,16 +275,19 @@
                         android:textColor="#FFFFFF"
                         android:textSize="18sp" />
 
-                    <ImageView
+                    <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/vaccineWorthImage1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+
 
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="35dp"
                         android:layout_marginEnd="35dp"
                         android:contentDescription="@string/actions_content_desc_first_img"
-                        android:src="@drawable/ic_cardiogram" />
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/serce"  />
 
                     <TextView
                         android:id="@+id/vaccineWorthText1"
@@ -310,15 +313,17 @@
                     tools:visibility="visible">
 
 
-                    <ImageView
+                    <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/vaccineWorthImage2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="25dp"
                         android:layout_marginTop="70dp"
                         android:contentDescription="@string/actions_content_desc_second_img"
-                        android:src="@drawable/ic_graph_down" />
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/ludzie" />
 
                     <TextView
                         android:id="@+id/vaccineWorthTitle2"
@@ -390,16 +395,18 @@
                         android:textColor="#FFFFFF"
                         android:textSize="18sp" />
 
-                    <ImageView
+                    <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/vaccineWorthImage3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="35dp"
                         android:layout_marginBottom="10dp"
                         android:contentDescription="@string/actions_content_desc_first_img"
-                        android:src="@drawable/ic_peace_of_mind" />
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/spokoj" />
 
                     <TextView
                         android:id="@+id/vaccineWorthText3"
@@ -425,16 +432,18 @@
                     tools:visibility="visible">
 
 
-                    <ImageView
+                    <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/vaccineWorthImage4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="25dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:contentDescription="@string/actions_content_desc_second_img"
-                        android:src="@drawable/ic_protection" />
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/bezpieczne" />
 
                     <TextView
                         android:id="@+id/vaccineWorthTitle4"
@@ -489,16 +498,19 @@
                         android:textColor="#FFFFFF"
                         android:textSize="18sp" />
 
-                    <ImageView
+                    <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/vaccineWorthImage5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="35dp"
                         android:layout_marginBottom="10dp"
                         android:contentDescription="@string/actions_content_desc_first_img"
-                        android:src="@drawable/ic_doctor" />
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/badanie" />
 
                     <TextView
                         android:id="@+id/vaccineWorthText5"
@@ -524,15 +536,17 @@
                     tools:visibility="visible">
 
 
-                    <ImageView
+                    <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/vaccineWorthImage6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="25dp"
                         android:layout_marginTop="0dp"
                         android:contentDescription="@string/actions_content_desc_second_img"
-                        android:src="@drawable/ic_laugh" />
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/normalnosc" />
 
                     <TextView
                         android:id="@+id/vaccineWorthTitle6"
@@ -644,17 +658,19 @@
                     android:textColor="#90FFFFFF"
                     android:textSize="18sp" />
 
-                <ImageView
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/vaccineSignUp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_below="@id/vaccineSignUpTitle"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="35dp"
                     android:layout_marginBottom="10dp"
                     android:contentDescription="@string/actions_content_desc_first_img"
-                    android:src="@drawable/ic_document_sign" />
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/zapis" />
 
                 <Button
                     android:id="@+id/vaccineSignUpButton"
