@@ -24,10 +24,7 @@ import com.drzymalski.covidinfo.lib.buttonManagers.SwitchButtonManager
 import com.drzymalski.covidinfo.lib.buttonManagers.TeleHelpButtonManager
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.github.ybq.android.spinkit.sprite.Sprite
-import com.github.ybq.android.spinkit.style.ChasingDots
-import com.github.ybq.android.spinkit.style.CubeGrid
 import com.github.ybq.android.spinkit.style.DoubleBounce
-import com.github.ybq.android.spinkit.style.RotatingCircle
 import kotlinx.android.synthetic.main.fragment_suspicion.*
 
 
@@ -138,7 +135,7 @@ class SuspicionFragment : Fragment() {
 
     private fun configureBinder(view: View) =
         FragmentBinder.bindToButton(
-            view.findViewById<ImageButton>(R.id.suspicionMenuBtn),
+            view.findViewById<ImageButton>(R.id.statisticsMenuBtn),
             SelectorFragment(),
             requireActivity()
         )

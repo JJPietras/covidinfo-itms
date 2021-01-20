@@ -3,9 +3,26 @@
 <!--<color name="colorPrimary">#6200EE</color>-->
 <!--<color name="colorPrimaryDark">#3700B3</color>-->
 <!--<color name="colorAccent">#03DAC5</color>-->
-    <color name="colorPrimaryDark">#1F2232</color>
+<!--    <color name="colorPrimaryDark">#1F2232</color>-->
+<!--    <color name="colorLightGray">#596475</color>-->
+<!--    <color name="colorPrimary">#41469F</color>-->
+<!--    <color name="colorBackground">#FBFFF1</color>-->
+<!--    <color name="colorBackgroundDark">#121212</color>-->
+<!--    <color name="colorAccent">#B4C5E4</color>-->
+<!--    <color name="colorButton">#1976D2</color>-->
+<!--    <color name="colorTextOnBlack">#91abed</color>-->
+<!--    <color name="white">#FFFFFF</color>-->
+<!--    <color name="plotBgColor">#3D439B</color>-->
+<!--    <color name="mainBgColor">#182075</color>-->
+<!--    <color name="navBar">#000051</color>-->
+    <color name="colorPrimaryDark">#161461</color>
+    <color name="colorPrimary">#1a237e</color>
+    <color name="colorPrimaryLight">#534bae</color>
+    <color name="textColorOnPrimary">#FFFFFF</color>
+
+
     <color name="colorLightGray">#596475</color>
-    <color name="colorPrimary">#41469F</color>
+
     <color name="colorBackground">#FBFFF1</color>
     <color name="colorBackgroundDark">#121212</color>
     <color name="colorAccent">#B4C5E4</color>
@@ -14,4 +31,7 @@
     <color name="white">#FFFFFF</color>
     <color name="plotBgColor">#3D439B</color>
     <color name="mainBgColor">#182075</color>
+
+
+
 </resources>

@@ -4,19 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.compare.CompareFragment">
-
-    <ScrollView
+    tools:context=".ui.compare.CompareFragment"
+    android:id="@+id/main">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackgroundDark">
+        android:orientation="horizontal"
+        android:id="@+id/topNavBar"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageButton
+            android:id="@+id/statisticsMenuBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:background="#00FFFFFF"
+            android:padding="30dp"
+            app:layout_anchorGravity="end|bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_menu_button" />
+
+        <TextView
+            android:id="@+id/suspicionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/topNavBar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto"
+            android:text="Zachorowania"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+
+            android:id="@+id/statisticsSettingsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+
+            android:layout_marginEnd="10dp"
+            android:background="#00FFFFFF"
+            android:padding="30dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_settings" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/swToday"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:background="@color/colorBackgroundDark"
+        android:fillViewport="false"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/root_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#182075">
+            android:background="#182075"
+            android:orientation="vertical">
+
 
             <RelativeLayout
                 android:id="@+id/statisticsHeader"
@@ -26,37 +89,8 @@
                 <ImageView
                     android:id="@+id/statisticsBackground"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
-                    android:src="@drawable/side_nav_bar" />
-
-                <ImageButton
-                    android:id="@+id/statisticsMenuBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="6dp"
-                    android:background="#00FFFFFF"
-                    android:padding="30dp"
-                    app:layout_anchorGravity="end|bottom"
-                    app:srcCompat="@drawable/ic_menu_button" />
-
-                <ImageButton
-
-                    android:id="@+id/statisticsSettingsBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="10dp"
-                    android:background="#00FFFFFF"
-                    android:padding="30dp"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/ic_settings" />
+                    android:layout_height="340dp"
+                    android:src="@color/colorPrimaryDark"/>
 
                 <ImageButton
                     android:id="@+id/statisticsChangeCountryBtn"
@@ -64,7 +98,7 @@
                     android:layout_height="58dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="280dp"
+                    android:layout_marginTop="220dp"
                     android:layout_marginEnd="40dp"
                     android:background="#00FFFFFF"
                     app:layout_anchorGravity="end|bottom"
@@ -77,7 +111,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="40dp"
-                    android:layout_marginTop="280dp"
+                    android:layout_marginTop="220dp"
                     android:background="#00FFFFFF"
                     app:layout_anchorGravity="end|bottom"
                     app:srcCompat="@drawable/ic_reset_to_pl" />
@@ -115,7 +149,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="143dp"
+                    android:layout_marginTop="83dp"
                     android:background="#00FFFFFF"
                     android:padding="20dp"
                     android:src="@drawable/ic_left_day" />
@@ -126,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="143dp"
+                    android:layout_marginTop="83dp"
                     android:layout_marginEnd="10dp"
                     android:background="#00FFFFFF"
                     android:padding="20dp"
@@ -140,7 +174,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="120dp"
-                    android:layout_marginTop="90dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="120dp"
                     android:fontFamily="@font/roboto"
 
@@ -157,7 +191,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="90dp"
-                    android:layout_marginTop="140dp"
+                    android:layout_marginTop="80dp"
                     android:layout_marginEnd="90dp"
                     android:fontFamily="@font/roboto_bold"
                     android:text="24132"
@@ -173,7 +207,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="155dp"
-                    android:layout_marginTop="319dp"
+                    android:layout_marginTop="259dp"
                     android:layout_marginEnd="155dp"
                     android:fontFamily="@font/roboto_bold"
                     android:text="476"
@@ -189,7 +223,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="135dp"
-                    android:layout_marginTop="349dp"
+                    android:layout_marginTop="289dp"
                     android:layout_marginEnd="134dp"
                     android:fontFamily="@font/roboto"
                     android:text="wyzdrowiało"
@@ -204,7 +238,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="55dp"
-                    android:layout_marginTop="160dp"
+                    android:layout_marginTop="100dp"
                     android:fontFamily="@font/roboto_medium"
                     android:text="+243"
                     android:textAlignment="center"
@@ -217,7 +251,7 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="160dp"
+                    android:layout_marginTop="100dp"
                     android:layout_marginEnd="55dp"
                     android:fontFamily="@font/roboto_medium"
                     android:text="+5%"
@@ -233,7 +267,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="110dp"
-                    android:layout_marginTop="200dp"
+                    android:layout_marginTop="140dp"
                     android:layout_marginEnd="110dp"
                     android:fontFamily="@font/roboto"
                     android:text="nowe zakażenia"
@@ -249,7 +283,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="150dp"
-                    android:layout_marginTop="277dp"
+                    android:layout_marginTop="217dp"
                     android:layout_marginEnd="150dp"
                     android:fontFamily="@font/roboto"
                     android:text="zmarło"
@@ -265,30 +299,13 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="155dp"
-                    android:layout_marginTop="247dp"
+                    android:layout_marginTop="187dp"
                     android:layout_marginEnd="155dp"
                     android:fontFamily="@font/roboto_bold"
                     android:text="301"
                     android:textAlignment="center"
                     android:textColor="#C2185B"
                     android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/statisticsTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/statisticsBackground"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="27dp"
-                    android:layout_marginEnd="100dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="Zachorowania"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/statisticsCountry"
@@ -316,9 +333,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
+                android:animateLayoutChanges="true"
                 android:background="#182075"
                 android:orientation="vertical"
-                android:animateLayoutChanges="true"
                 android:visibility="gone">
 
             </LinearLayout>
@@ -327,7 +344,7 @@
                 android:id="@+id/graphs"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/mainBgColor"
+                android:background="@color/colorPrimary"
                 android:orientation="vertical">
 
                 <TextView
@@ -339,7 +356,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
                     android:text="@string/table_new_text"
-                    android:textColor="#B1B1B1"
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -368,7 +385,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
                     android:text="@string/table_sum_text"
-                    android:textColor="#B1B1B1"
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -381,9 +398,9 @@
                         android:id="@+id/aaChartViewTotalCases"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
+                        android:background="@color/plotBgColor"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:background="@color/plotBgColor"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -397,7 +414,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
                     android:text="Aktywne przypadki"
-                    android:textColor="#B1B1B1"
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -410,11 +427,11 @@
                         android:id="@+id/aaChartViewActiveCases"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
+                        android:background="@color/plotBgColor"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:background="@color/plotBgColor"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.cardview.widget.CardView>
 
@@ -424,9 +441,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:textColor="#B1B1B1"
                     android:gravity="center"
                     android:text="Ozdrowienia"
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -439,9 +456,9 @@
                         android:id="@+id/aaChartViewRecovered"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
+                        android:background="@color/plotBgColor"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:background="@color/plotBgColor"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -455,7 +472,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
                     android:text="Ofiary Smiertelne"
-                    android:textColor="#B1B1B1"
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
@@ -468,9 +485,9 @@
                         android:id="@+id/aaChartViewDied"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
+                        android:background="@color/plotBgColor"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:background="@color/plotBgColor"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -507,5 +524,7 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

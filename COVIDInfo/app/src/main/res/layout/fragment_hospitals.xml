@@ -9,10 +9,52 @@
     android:backgroundTint="@color/colorBackground"
     tools:context=".ui.hospitals.HospitalsFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topNavBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/statisticsMenuBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:background="#00FFFFFF"
+            android:padding="30dp"
+            app:layout_anchorGravity="end|bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_menu_button" />
+
+        <TextView
+            android:id="@+id/suspicionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/topNavBar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto"
+            android:text="Szpitale"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <ScrollView
         android:id="@+id/hospital_scroll"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
+        android:layout_marginTop="80dp"
         android:background="@color/colorBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,28 +75,16 @@
                     android:id="@+id/hospitalsBackground"
                     android:layout_width="match_parent"
                     android:layout_height="650dp"
-                    android:src="@drawable/side_nav_bar" />
-
-                <ImageButton
-                    android:id="@+id/hospitalsMenuBtn"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="28dp"
-                    android:layout_marginTop="28dp"
-                    android:background="#00FFFFFF"
-                    app:layout_anchorGravity="end|bottom"
-                    app:srcCompat="@drawable/ic_menu_button" />
+                    android:src="@color/colorPrimaryDark" />
 
                 <ImageButton
                     android:id="@+id/hospitalsShowAll"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/hospitalsShowAllTitle"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_marginTop="9dp"
                     android:background="#00FFFFFF"
                     android:paddingTop="10dp"
@@ -66,12 +96,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/hospitalsMainIcon"
-                    android:layout_marginTop="9dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
+                    android:layout_marginTop="9dp"
                     android:fontFamily="@font/roboto"
-                    android:textAlignment="center"
                     android:text="Pokaż wszystkie"
+                    android:textAlignment="center"
                     android:textColor="#73FFFFFF"
                     android:textSize="20sp" />
 
@@ -161,7 +191,7 @@
                     android:id="@+id/hospitalsCountTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/hospitalsTitle"
+
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="35dp"
@@ -177,7 +207,7 @@
                     android:id="@+id/hospitalsCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/hospitalsTitle"
+
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="35dp"
@@ -273,23 +303,6 @@
                     android:textColor="#C2185B"
                     android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/hospitalsTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/hospitalsBackground"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="27dp"
-                    android:layout_marginEnd="100dp"
-                    android:layout_toEndOf="@+id/hospitalsMenuBtn"
-                    android:fontFamily="@font/roboto"
-                    android:text="Szpitale"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30sp" />
-
                 <EditText
                     android:id="@+id/hospitalsRegionInput"
                     android:layout_width="wrap_content"
@@ -305,7 +318,9 @@
                     android:hint="Podaj województwo"
                     android:inputType="textPersonName"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:backgroundTint="#ffffff"/>
 
                 <ImageView
                     android:id="@+id/hospitalsMainIcon"

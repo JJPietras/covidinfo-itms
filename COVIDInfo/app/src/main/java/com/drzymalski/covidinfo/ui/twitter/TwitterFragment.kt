@@ -135,7 +135,7 @@ class TwitterFragment : Fragment() {
                             LayoutParams.WRAP_CONTENT // CardView height
                         )
 
-                        cvLayoutParams.setMargins(0, 70, 0, 35)
+                        cvLayoutParams.setMargins(0, 50, 0, 0)
                         cardView.layoutParams = cvLayoutParams
 
                         cardView.setCardBackgroundColor(

@@ -6,10 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".ui.suspicion.SuspicionFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topNavBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/statisticsMenuBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:background="#00FFFFFF"
+            android:padding="30dp"
+            app:layout_anchorGravity="end|bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_menu_button" />
+
+        <TextView
+            android:id="@+id/suspicionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/topNavBar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/roboto"
+            android:text="Podejrzenie Infekcji"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <ScrollView
         android:id="@+id/suspicionScroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +67,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/suspicionTitleCard"
                 android:layout_width="fill_parent"
-                android:layout_height="380dp"
+                android:layout_height="270dp"
                 android:layout_marginTop="-45dp"
                 android:visibility="visible"
                 app:cardBackgroundColor="#00FFFFFF"
@@ -42,36 +84,8 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:contentDescription="@string/suspicion_content_desc_background"
-                        android:src="@drawable/side_nav_bar"
+                        android:src="@color/colorPrimaryDark"
                         tools:visibility="visible" />
-
-                    <ImageButton
-                        android:id="@+id/suspicionMenuBtn"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="28dp"
-                        android:layout_marginTop="68dp"
-                        android:background="#00FFFFFF"
-                        android:contentDescription="@string/suspicion_content_desc_menu_btn"
-                        app:layout_anchorGravity="end|bottom"
-                        app:srcCompat="@drawable/ic_menu_button" />
-
-                    <TextView
-                        android:id="@+id/suspicionTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/suspicionTopBackground"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="70dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="@string/suspicion_main_title"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/suspicionSubTitle"
@@ -82,7 +96,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="1dp"
-                        android:layout_marginTop="150dp"
+                        android:layout_marginTop="60dp"
                         android:layout_marginEnd="1dp"
                         android:fontFamily="@font/roboto_bold"
                         android:text="@string/suspicion_main_subtitle"
@@ -99,7 +113,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="5dp"
-                        android:layout_marginTop="220dp"
+                        android:layout_marginTop="130dp"
                         android:layout_marginEnd="5dp"
                         android:fontFamily="@font/roboto_bold"
                         android:text="@string/suspicion_main_content"
@@ -116,7 +130,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-50dp"
-                android:background="#3F51B5"
+                android:background="@color/colorPrimary"
                 tools:visibility="visible">
 
                 <TextView
@@ -759,9 +773,9 @@
                     android:id="@+id/telephonesSymptomsFirstContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="15dp"
                     android:layout_below="@+id/telephonesUsefulTelephonesIcon"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="15dp"
                     android:layout_marginTop="30dp"
                     android:fontFamily="@font/roboto"
                     android:text="@string/usefulTelephones_first_subtitle"
@@ -792,8 +806,8 @@
                     android:layout_below="@+id/telephonesSanitaryEpidemicTelephoneButton"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="20dp"
                     android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/roboto"
                     android:gravity="center"
                     android:text="@string/usefulTelephones_second_subtitle"
@@ -990,8 +1004,6 @@
                     android:id="@+id/suspicionNearestHospitalLoadingImg"
                     style="@style/SpinKitView.Large.Circle"
 
-                    android:scaleY="0.92"
-                    android:scaleX="0.92"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
                     android:layout_alignStart="@+id/suspicionNearestHospitalButtonSphere"
@@ -1002,6 +1014,8 @@
                     android:layout_marginTop="-60dp"
                     android:layout_marginEnd="-60dp"
                     android:layout_marginBottom="-60dp"
+                    android:scaleX="0.92"
+                    android:scaleY="0.92"
                     app:SpinKit_Color="#97E7FF" />
 
                 <!--<ImageView

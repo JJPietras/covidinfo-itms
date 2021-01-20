@@ -3,7 +3,6 @@ package com.drzymalski.covidinfo.ui.hospitals
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.Drawable
-import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -56,7 +55,7 @@ class HospitalsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         FragmentBinder.bindToButton(
-            view.findViewById<ImageButton>(R.id.hospitalsMenuBtn),
+            view.findViewById<ImageButton>(R.id.statisticsMenuBtn),
             SelectorFragment(),
             requireActivity()
         )
