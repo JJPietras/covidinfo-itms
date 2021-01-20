@@ -126,6 +126,7 @@ class CompareFragment : Fragment(), FragmentSettings {
 
         loadDataAndRefresh()
     }
+
     private fun activateLinks(){
         todaySource1.setOnClickListener {
             val browserIntent =

@@ -16,7 +16,6 @@ class TodayCasesStats{
     val datesList = mutableListOf<String>()
     val datesFullList = mutableListOf<String>()
 
-
     private fun clearData(){
         totalCasesList.clear()
 
@@ -46,9 +45,9 @@ class TodayCasesStats{
 
     fun calculateStats(covidData: DataProvider){
         clearData()
-        var lastCases = 0
-        var lastDeaths = 0
-        var lastRecovered = 0
+        var lastCases = -1
+        var lastDeaths = -1
+        var lastRecovered = -1
 
         covidData.dataProvider.forEach { casesOnDay ->
             run {
@@ -58,7 +57,7 @@ class TodayCasesStats{
                 datesList += DateConverter.formatDateShort(casesOnDay.date_stamp)
                 datesFullList += DateConverter.formatDateFull(casesOnDay.date_stamp)
 
-                if (lastDeaths==0) {lastDeaths = casesOnDay.cnt_death}
+                if (lastDeaths==-1) {lastDeaths = casesOnDay.cnt_death}
                 else {
                     var temp = casesOnDay.cnt_death - lastDeaths
                     if (temp < 0) temp = 0
@@ -66,7 +65,7 @@ class TodayCasesStats{
                     lastDeaths = casesOnDay.cnt_death
                 }
 
-                if (lastRecovered==0) {lastRecovered = casesOnDay.cnt_recovered}
+                if (lastRecovered==-1) {lastRecovered = casesOnDay.cnt_recovered}
                 else {
                     var temp = casesOnDay.cnt_recovered - lastRecovered
                     if (temp < 0) temp = 0
@@ -74,7 +73,7 @@ class TodayCasesStats{
                     lastRecovered = casesOnDay.cnt_recovered
                 }
 
-                if (lastCases==0) {lastCases = casesOnDay.cnt_confirmed}
+                if (lastCases==-1) {lastCases = casesOnDay.cnt_confirmed}
                 else {
                     var temp = casesOnDay.cnt_confirmed - lastCases
                     if (temp < 0) temp = 0

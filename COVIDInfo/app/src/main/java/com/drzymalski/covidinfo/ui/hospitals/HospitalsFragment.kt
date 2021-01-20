@@ -107,20 +107,20 @@ class HospitalsFragment : Fragment() {
                 match?.next()?.next()?.value?.trim()
             )
 
-            hospitalsUsedLSM.post {
-                hospitalsUsedLSM.text = values[0]
+            hospitalsUsedLSM?.post {
+                hospitalsUsedLSM?.text = values[0]
             }
 
-            hospitalsUsedBeds.post {
-                hospitalsUsedBeds.text = values[1]
+            hospitalsUsedBeds?.post {
+                hospitalsUsedBeds?.text = values[1]
             }
 
-            hospitalsUnUsedLSM.post {
-                hospitalsUnUsedLSM.text = (values[2]?.toInt()!! - values[0]?.toInt()!!).toString()
+            hospitalsUnUsedLSM?.post {
+                hospitalsUnUsedLSM?.text = (values[2]?.toInt()!! - values[0]?.toInt()!!).toString()
             }
         }
 
-        hospitalsRegionInput.addTextChangedListener {
+        hospitalsRegionInput?.addTextChangedListener {
             for (region in regions) {
                 val contains = region.contains(
                     hospitalsRegionInput.text.toString(),
@@ -139,10 +139,10 @@ class HospitalsFragment : Fragment() {
             }
         }
 
-        hospitalsNextHospital.setOnClickListener { nextPrevHospital(true) }
-        hospitalsPrevHospital.setOnClickListener { nextPrevHospital(false) }
+        hospitalsNextHospital?.setOnClickListener { nextPrevHospital(true) }
+        hospitalsPrevHospital?.setOnClickListener { nextPrevHospital(false) }
 
-        hospitalsShowAll.setOnClickListener { showAll() }
+        hospitalsShowAll?.setOnClickListener { showAll() }
     }
 
     private fun initializeHospitals() {
@@ -170,11 +170,11 @@ class HospitalsFragment : Fragment() {
     }
 
     private fun switchHospital(hospital: Hospital?) {
-        hospitalsHospitalName.text = hospital?.name
-        hospitalsHospitalTitle.text = hospital?.title
-        hospitalsMainContact.text = hospital?.contact
-        hospitalsMainCity.text = hospital?.city
-        hospitalsMainIcon.setImageDrawable(images[abs(Random.nextInt() % 2)])
+        hospitalsHospitalName?.text = hospital?.name
+        hospitalsHospitalTitle?.text = hospital?.title
+        hospitalsMainContact?.text = hospital?.contact
+        hospitalsMainCity?.text = hospital?.city
+        hospitalsMainIcon?.setImageDrawable(images[abs(Random.nextInt() % 2)])
     }
 
     private fun showAll() {

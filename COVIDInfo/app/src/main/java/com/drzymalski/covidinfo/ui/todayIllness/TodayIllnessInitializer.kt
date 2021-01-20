@@ -14,7 +14,7 @@ import com.drzymalski.covidinfo.config.fontColor
 
 class TodayIllnessInitializer: DataInitializer {
     private lateinit var covidData: DataProvider
-    lateinit var summaryData: SummaryData
+    var summaryData: SummaryData? = null
 
     val stats = TodayCasesStats()
 
@@ -26,10 +26,10 @@ class TodayIllnessInitializer: DataInitializer {
             stats.calculateStats(covidData)
     }
 
-    fun loadSummaryData(){
+    fun loadSummaryData(){ //Not used anymore
         try {
             summaryData = ApiManager.getSummaryFromApi()
-            summaryData.Countries = summaryData.Countries.filter{config.config.countries
+            summaryData!!.Countries = summaryData!!.Countries.filter{config.config.countries
                 .map{ countryConfig -> countryConfig.slug }.contains(it.Slug)}
         }catch (ex:Exception){
             println(ex.message) //need to see the errors xd

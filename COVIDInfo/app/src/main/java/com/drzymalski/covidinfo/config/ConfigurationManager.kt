@@ -83,6 +83,37 @@ class ConfigurationManager {
                 color = "#009688"
                 code = "IT"
             })
+
+        config.selectedVaccine = CountryConfig().apply {
+            slug = "poland"
+            name = "Polska"
+            continent = "Europa"
+            color = "#6f79fc"
+            code = "POL"
+        }
+
+        config.vaccinationCountriesToCompare = mutableListOf(
+                CountryConfig().apply {
+                    slug = "poland"
+                    name = "Polska"
+                    continent = "Europa"
+                    color = "#6f79fc"
+                    code = "POL"
+                },
+                CountryConfig().apply {
+                    slug = "germany"
+                    name = "Niemcy"
+                    continent = "Europa"
+                    color = "#F44336"
+                    code = "DEU"
+                },
+                CountryConfig().apply {
+                    slug = "italy"
+                    name = "Włochy"
+                    continent = "Europa"
+                    color = "#009688"
+                    code = "ITA"
+                })
         saveConfig()
     }
 
