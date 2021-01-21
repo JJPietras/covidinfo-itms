@@ -52,10 +52,15 @@ class VaccineFragment : Fragment(), FragmentSettings {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        FragmentBinder.bindToButton(
+        /*FragmentBinder.bindToButton(
                 view.findViewById<ImageButton>(R.id.vaccineMenuBtn),
                 SelectorFragment(),
                 requireActivity()
+        )*/
+        FragmentBinder.bindNavToButton(
+                view.findViewById<ImageButton>(R.id.vaccineMenuBtn),
+                view,
+                R.id.action_vaccineFragment_to_nav_selector
         )
         vaccineSettingsBtn.setOnClickListener{ showSettings() }
         vaccinePickPoland.setOnClickListener{ changeCompare(false) }

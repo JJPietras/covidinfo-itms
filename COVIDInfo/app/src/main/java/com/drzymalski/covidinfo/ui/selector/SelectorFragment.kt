@@ -39,9 +39,10 @@ class SelectorFragment : Fragment() {
 
         val buttons = collectButtons()
         val fragments = collectFragments()
-
+        val navs = collectNavs()
         for (i in buttons.indices) {
-            FragmentBinder.bindToButton(buttons[i], fragments[i], requireActivity())
+            //FragmentBinder.bindToButton(buttons[i], fragments[i], requireActivity())
+            FragmentBinder.bindNavToButton(buttons[i], view, navs[i])
         }
     }
 
@@ -53,5 +54,11 @@ class SelectorFragment : Fragment() {
     private fun collectFragments(): Array<Fragment> = arrayOf(
         TodayIllnessFragment(), CompareFragment(), VaccineFragment(), TwitterFragment(), HospitalsFragment(),
         SuspicionFragment(), AuthorsFragment()
+    )
+    private fun collectNavs(): Array<Int> = arrayOf(
+            R.id.action_nav_selector_to_nav_today, R.id.action_nav_selector_to_nav_compare,
+            R.id.action_nav_selector_to_vaccineFragment, R.id.action_nav_selector_to_nav_tweeter,
+            R.id.action_nav_selector_to_nav_hospitals, R.id.action_nav_selector_to_nav_suspicion,
+            R.id.action_nav_selector_to_nav_authors
     )
 }
