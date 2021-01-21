@@ -178,7 +178,7 @@
                         android:layout_marginTop="110dp"
                         android:layout_marginEnd="30dp"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="0K"
+                        android:text="0.0K"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"
                         android:textSize="42dp" />

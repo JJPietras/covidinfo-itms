@@ -83,6 +83,8 @@ class VaccineFragment : Fragment(), FragmentSettings {
                         initializer.configureNewVaccinationsBarChart()
                 )
             }
+
+            animateButtons(20, 50L)
         }catch (ex: Exception){ // No action will be taken
             println(ex)
         }
@@ -90,7 +92,6 @@ class VaccineFragment : Fragment(), FragmentSettings {
 
     private fun changeCompare(value: Boolean){
         compare = value
-        configureCharts()
         if (compare){
             vaccinePickPoland.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#4CAF50"))
             vaccinePickCompare.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#ed135c"))
@@ -98,6 +99,9 @@ class VaccineFragment : Fragment(), FragmentSettings {
         else{
             vaccinePickPoland.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#ed135c"))
             vaccinePickCompare.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#4CAF50"))
+        }
+        GlobalScope.launch {
+            configureCharts()
         }
     }
 
@@ -107,8 +111,6 @@ class VaccineFragment : Fragment(), FragmentSettings {
             try { // Prevents crashing when data was loaded after changing or refreshing the fragment
                 initializer.loadScreenResources()
                 configureCharts()
-
-                animateButtons(20, 50L)
             }catch (ex: Exception){ // No action will be taken
                 println(ex)
             }
