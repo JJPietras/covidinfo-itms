@@ -76,7 +76,8 @@ dependencies {
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.4.Final'
     implementation 'com.vhl.blackmo:kotlin-grass-jvm:0.4.1'
     implementation 'com.github.doyaaaaaken:kotlin-csv-jvm:0.11.0'
-    compile 'com.neovisionaries:nv-i18n:1.22'
 
+    implementation 'com.neovisionaries:nv-i18n:1.22'
+    implementation 'com.airbnb.android:lottie:3.6.0'
 }
 
