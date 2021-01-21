@@ -9,7 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackgroundDark">
+        android:background="@android:color/transparent">
 
         <LinearLayout
             android:id="@+id/root_layout"
