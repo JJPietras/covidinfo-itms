@@ -55,11 +55,16 @@ class HospitalsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        FragmentBinder.bindToButton(
+        /*FragmentBinder.bindToButton(
             view.findViewById<ImageButton>(R.id.hospitalsMenuBtn),
             SelectorFragment(),
             requireActivity(),
             true
+        )*/
+        FragmentBinder.bindNavToButton(
+                view.findViewById<ImageButton>(R.id.hospitalsMenuBtn),
+                view,
+                R.id.action_nav_hospitals_to_nav_selector
         )
 
         images = arrayOf(

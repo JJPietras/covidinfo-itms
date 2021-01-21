@@ -53,13 +53,18 @@ class CompareFragment : Fragment(), FragmentSettings {
 
         loadDataAndRefresh()
 
-        FragmentBinder.bindToButton(
+        /*FragmentBinder.bindToButton(
             view.findViewById<ImageButton>(R.id.statisticsMenuBtn),
             SelectorFragment(),
             requireActivity(),
             true
-        )
+        )*/
 
+        FragmentBinder.bindNavToButton(
+                view.findViewById<ImageButton>(R.id.statisticsMenuBtn),
+                view,
+                R.id.action_nav_compare_to_nav_selector
+        )
         statisticsSettingsBtn.setOnClickListener{
             showSettings()
         }

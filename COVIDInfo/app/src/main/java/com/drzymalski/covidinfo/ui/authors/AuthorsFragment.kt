@@ -41,10 +41,15 @@ class AuthorsFragment : Fragment() {
         val texts = arrayOf(icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8)
         for (text in texts) text.movementMethod = LinkMovementMethod.getInstance()
 
-        FragmentBinder.bindToButton(
+        /*FragmentBinder.bindToButton(
                 view.findViewById<ImageButton>(R.id.authorsMenuBtn),
                 SelectorFragment(),
                 requireActivity()
+        )*/
+        FragmentBinder.bindNavToButton(
+                view.findViewById<ImageButton>(R.id.authorsMenuBtn),
+                view,
+                R.id.action_nav_authors_to_nav_selector
         )
     }
 }
