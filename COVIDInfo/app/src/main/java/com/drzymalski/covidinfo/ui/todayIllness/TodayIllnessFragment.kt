@@ -89,12 +89,6 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         configureButton(statisticsPrevDay, -1, true)
         configureButton(statisticsNextDay, 1, false)
 
-        /*FragmentBinder.bindToButton(
-            view.findViewById<ImageButton>(R.id.statisticsMenuBtn),
-            SelectorFragment(),
-            requireActivity(),
-            true
-        )*/
         FragmentBinder.bindNavToButton(
                 view.findViewById<ImageButton>(R.id.statisticsMenuBtn),
                 view,

@@ -1,8 +1,10 @@
 package com.drzymalski.covidinfo.dataUtils
 
 import android.annotation.SuppressLint
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.ln
 
 @Suppress("DEPRECATION")
 class DateConverter {
@@ -28,5 +30,12 @@ class DateConverter {
             return sdf.format(Date())
         }
 
+        fun coolNumberFormat(count: Float): String {
+            if (count < 1000) return "" + count
+            val exp = (ln(count.toDouble()) / ln(1000.0)).toInt()
+            val format = DecimalFormat("0.#")
+            val value: String = format.format(count / Math.pow(1000.0, exp.toDouble()))
+            return String.format("%s%c", value, "kMBTPE"[exp - 1])
+        }
     }
 }

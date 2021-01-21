@@ -79,5 +79,7 @@ dependencies {
 
     implementation 'com.neovisionaries:nv-i18n:1.22'
     implementation 'com.airbnb.android:lottie:3.6.0'
+
+    implementation 'ru.bullyboo.animation:text_counter:1.0.2'
 }
 

@@ -170,29 +170,29 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/hospitalsCount2"
+                        android:id="@+id/vaccineCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/vacc"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="110dp"
-                        android:layout_marginEnd="65dp"
+                        android:layout_marginEnd="30dp"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="22K"
+                        android:text="0K"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"
                         android:textSize="42dp" />
 
                     <TextView
-                        android:id="@+id/hospitalsCount3"
+                        android:id="@+id/vaccinePercentage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/vacc"
                         android:layout_alignParentStart="true"
-                        android:layout_marginStart="65dp"
+                        android:layout_marginStart="30dp"
                         android:layout_marginTop="30dp"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="10%"
+                        android:text="0.0%"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"
                         android:textSize="42dp" />

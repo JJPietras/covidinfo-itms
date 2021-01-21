@@ -106,8 +106,8 @@
     <string name="vaccine_content_desc_menu_btn">TODO</string>
     <string name="vaccine_source1">Dane statystyczne z: https://github.com/owid/covid-19-data/blob/master/public/data/vaccinations/vaccinations.csv</string>
 
-    <string name="vaccinations_graph">Ilość zaszczepionych</string>
-    <string name="vaccination_percentage">Ilość szczepień</string>
+    <string name="vaccinations_graph">Liczba zaszczepionych</string>
+    <string name="vaccination_percentage">Liczba szczepień</string>
     <string name="why_vaccinate">Dlaczego warto się zaszczepić?</string>
     <string name="save_live">Uratujesz komuś życie</string>
     <string name="stop_covid">Szczepiąc się, myślisz również o innych – członkach rodziny, przyjaciołach i znajomych. Ale także nieznajomych – spotkanych przypadkiem na ulicy, czy w sklepie. Dzięki Tobie zwiększy się również ich bezpieczeństwo. Nawet jeśli czujesz się młody i silny, poprzez zaszczepienie przerwiesz łańcuch zakażeń.</string>
