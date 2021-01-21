@@ -100,8 +100,8 @@
     <!-- VACCINE -->
 
     <string name="vaccine_main_title">Sczepienia</string>
-    <string name="vaccine_main_subtitle">Szczepionki </string>
-    <string name="vaccine_main_content">Niniejszy panel pokaże Ci wagę sczepionek, jak się na nie zapisać oraz dane statystyczne dotyczące ich.</string>
+    <string name="vaccine_main_subtitle">Narodowy Program Sczepień przeciw COVID-19</string>
+    <string name="vaccine_main_content">Niniejszy panel prezentuje specyfikację sczepionek oraz szczepień. Zawarte są tu informacje i odnośniki do zapisu na szczepienia oraz dane statystyczne wykonanych szczepień Polski oraz innych krajów.</string>
     <string name="vaccine_content_desc_background">TODO</string>
     <string name="vaccine_content_desc_menu_btn">TODO</string>
     <string name="vaccine_source1">Dane statystyczne z: https://github.com/owid/covid-19-data/blob/master/public/data/vaccinations/vaccinations.csv</string>
