@@ -177,38 +177,42 @@ class VaccineFragment : Fragment(), FragmentSettings {
 
 
     private fun animateButtons(steps: Int, stepTime: Long) {
-        var animValP = 0f
-        val animStepP = initializer.stats.vaccinationPercentage / steps
+        try {
+            var animValP = 0f
+            val animStepP = initializer.stats.vaccinationPercentage / steps
 
-        var animValT = 0f
-        val animStepT = initializer.stats.totalVaccinated / steps
+            var animValT = 0f
+            val animStepT = initializer.stats.totalVaccinated / steps
 
-        var step = 0
-        while (step < steps) {
+            var step = 0
+            while (step < steps) {
+                vaccinePercentage?.post(kotlinx.coroutines.Runnable {
+                    "${"%.2f".format(animValP)}%"
+                            .also { vaccinePercentage.text = it }
+                })
+
+                vaccineCount?.post(kotlinx.coroutines.Runnable {
+                    vaccineCount.text =
+                            DateConverter.coolNumberFormat(animValT)
+                })
+
+                animValP += animStepP
+                animValT += animStepT
+                step += 1
+                Thread.sleep(stepTime)
+            }
+
             vaccinePercentage?.post(kotlinx.coroutines.Runnable {
-                "${"%.2f".format(animValP)}%"
+                "${"%.2f".format(initializer.stats.vaccinationPercentage)}%"
                         .also { vaccinePercentage.text = it }
             })
 
             vaccineCount?.post(kotlinx.coroutines.Runnable {
                 vaccineCount.text =
-                        DateConverter.coolNumberFormat(animValT)
+                        DateConverter.coolNumberFormat(initializer.stats.totalVaccinated.toFloat())
             })
-
-            animValP += animStepP
-            animValT += animStepT
-            step += 1
-            Thread.sleep(stepTime)
+        }catch (ex: Exception){ // No action will be taken
+            println(ex)
         }
-
-        vaccinePercentage?.post(kotlinx.coroutines.Runnable {
-            "${"%.2f".format(initializer.stats.vaccinationPercentage)}%"
-                    .also { vaccinePercentage.text = it }
-        })
-
-        vaccineCount?.post(kotlinx.coroutines.Runnable {
-            vaccineCount.text =
-                    DateConverter.coolNumberFormat(initializer.stats.totalVaccinated.toFloat())
-        })
     }
 }
