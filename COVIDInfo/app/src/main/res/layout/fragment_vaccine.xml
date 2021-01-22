@@ -328,7 +328,7 @@
                             android:layout_marginTop="0dp"
                             android:layout_marginEnd="10dp"
                             android:contentDescription="@string/actions_content_desc_first_img"
-                            android:src="@drawable/ic_cardiogram"
+                            android:src="@drawable/pfizer"
                             app:srcCompat="@drawable/pfizer" />
 
                         <TextView
@@ -364,7 +364,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="40dp"
                             android:contentDescription="@string/actions_content_desc_second_img"
-                            android:src="@drawable/ic_graph_down"
+                            android:src="@drawable/moderna"
                             app:srcCompat="@drawable/moderna" />
 
                         <TextView
