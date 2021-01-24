@@ -28,7 +28,11 @@
             app:srcCompat="@drawable/ic_menu_button" />
 
         <TextView
+<<<<<<< Updated upstream
             android:id="@+id/suspicionTitle"
+=======
+            android:id="@+id/vaccineTitle"
+>>>>>>> Stashed changes
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/topNavBar"
@@ -36,7 +40,11 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
+<<<<<<< Updated upstream
             android:fontFamily="@font/roboto"
+=======
+            android:fontFamily="@font/roboto_medium"
+>>>>>>> Stashed changes
             android:text="Szczepionki"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
@@ -68,7 +76,11 @@
         android:id="@+id/vaccineScroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:layout_marginTop="160dp"
+=======
+        android:layout_marginTop="150dp"
+>>>>>>> Stashed changes
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,11 +96,18 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/vaccineTitleCard"
                 android:layout_width="fill_parent"
+<<<<<<< Updated upstream
                 android:layout_height="380dp"
                 android:layout_marginTop="-180dp"
                 android:visibility="visible"
                 app:cardBackgroundColor="@color/colorPrimaryDark"
                 app:cardCornerRadius="50dp">
+=======
+                android:layout_height="550dp"
+                android:layout_marginTop="-45dp"
+                android:visibility="visible"
+                app:cardBackgroundColor="#00FFFFFF">
+>>>>>>> Stashed changes
 
                 <RelativeLayout
                     android:id="@+id/vaccineTopLayout"
@@ -104,10 +123,43 @@
                         android:src="@color/colorPrimaryDark"
                         tools:visibility="visible" />
 
+<<<<<<< Updated upstream
+=======
+
+                    <TextView
+                        android:id="@+id/vacc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vaccineTitle"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="78dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/vaccine_main_subtitle"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/vaccineAnimation"
+                        android:layout_width="280dp"
+                        android:layout_height="280dp"
+                        android:layout_below="@+id/vacc"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-40dp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/strzykawka" />
+
+>>>>>>> Stashed changes
                     <TextView
                         android:id="@+id/vaccineSubTitleDesc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
                         android:layout_alignTop="@id/vaccineTopBackground"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
@@ -116,6 +168,15 @@
                         android:layout_marginTop="220dp"
                         android:layout_marginEnd="5dp"
                         android:fontFamily="@font/roboto_bold"
+=======
+                        android:layout_below="@+id/vaccineAnimation"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="-40dp"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/roboto_medium"
+>>>>>>> Stashed changes
                         android:text="@string/vaccine_main_content"
                         android:textAlignment="center"
                         android:textColor="#ABFFFFFF"
@@ -174,7 +235,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="70dp"
                     android:layout_marginBottom="25dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
                     android:text="@string/vaccinations_graph"
                     android:textColor="@color/textColorOnPrimary"
@@ -183,8 +244,11 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="15dp">
 
                     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                         android:id="@+id/aaChartViewVaccinations"
@@ -204,7 +268,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
                     android:text="@string/vaccination_percentage"
                     android:textColor="@color/textColorOnPrimary"
@@ -215,8 +279,11 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="15dp">
 
                     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                         android:id="@+id/aaChartViewVaccinationPercentage"
@@ -242,6 +309,7 @@
 
                 <TextView
                     android:id="@+id/vaccineWorthTitle"
+<<<<<<< Updated upstream
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -260,12 +328,34 @@
 
                     tools:visibility="visible">
 
+=======
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="0dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/why_vaccinate"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
+
+                <RelativeLayout
+                    android:id="@+id/vaccineWorthArgument1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+
+                    tools:visibility="visible">
+
+>>>>>>> Stashed changes
                     <TextView
                         android:id="@+id/vaccineWorthTitle1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
                         android:layout_alignParentStart="true"
+<<<<<<< Updated upstream
                         android:layout_marginStart="18dp"
                         android:layout_marginTop="11dp"
                         android:layout_marginEnd="15dp"
@@ -420,18 +510,60 @@
                         android:layout_toStartOf="@+id/vaccineWorthImage3"
                         android:fontFamily="@font/roboto"
                         android:text="@string/vaccine_close_ones2"
+=======
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="11dp"
+
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/save_live"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/vaccineWorthImage1"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+
+                        android:layout_below="@+id/vaccineWorthTitle1"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/actions_content_desc_first_img"
+
+                        app:srcCompat="@drawable/pfizer" />
+
+                    <TextView
+                        android:id="@+id/vaccineWorthText1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vaccineWorthTitle1"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="-10dp"
+                        android:layout_toStartOf="@+id/vaccineWorthImage1"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/stop_covid"
+>>>>>>> Stashed changes
                         android:textColor="#ABFFFFFF"
                         android:textSize="14sp" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
+<<<<<<< Updated upstream
                     android:id="@+id/vaccineWorthArgument4"
+=======
+                    android:id="@+id/vaccineWorthArgument2"
+>>>>>>> Stashed changes
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     tools:visibility="visible">
 
 
+<<<<<<< Updated upstream
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/vaccineWorthImage4"
                         android:layout_alignParentStart="true"
@@ -456,10 +588,38 @@
 
                         android:fontFamily="@font/roboto_bold"
                         android:text="@string/vaccine_safe"
+=======
+                    <ImageView
+                        android:id="@+id/vaccineWorthImage2"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="40dp"
+                        android:contentDescription="@string/actions_content_desc_second_img"
+
+                        app:srcCompat="@drawable/moderna" />
+
+                    <TextView
+                        android:id="@+id/vaccineWorthTitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_toEndOf="@+id/vaccineWorthImage2"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@string/stop_covid2"
+>>>>>>> Stashed changes
                         android:textColor="#FFFFFF"
                         android:textSize="20sp" />
 
                     <TextView
+<<<<<<< Updated upstream
                         android:id="@+id/vaccineWorthText4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -593,6 +753,88 @@
 
                 </RelativeLayout>
 
+=======
+                        android:id="@+id/vaccineWorthText2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vaccineWorthTitle2"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_toEndOf="@+id/vaccineWorthImage2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/save_close_ones"
+                        android:textColor="#90FFFFFF"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/vaccineWorthText2note"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vaccineWorthText2"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/vaccine_minimum50"
+                        android:textAlignment="center"
+                        android:textColor="#90FFFFFF"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/vaccineWorthArgument3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+
+                    tools:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/vaccineWorthArgument4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    tools:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/vaccineWorthArgument5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/vaccineWorthTitle5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/vaccine_inspection"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/vaccineWorthArgument6"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    tools:visibility="visible" />
+
+>>>>>>> Stashed changes
                 <TextView
                     android:id="@+id/vaccineWorthSummary"
                     android:layout_width="wrap_content"
@@ -602,7 +844,12 @@
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/roboto_medium"
                     android:text="@string/vaccine_research"
+<<<<<<< Updated upstream
                     android:textColor="#FFFFFF"
+=======
+                    android:textAlignment="center"
+                    android:textColor="#90FFFFFF"
+>>>>>>> Stashed changes
                     android:textSize="16sp" />
 
             </LinearLayout>
@@ -622,7 +869,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="24dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="@string/vaccine_sigh_up"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
@@ -651,6 +898,10 @@
                     android:layout_below="@+id/vaccineSignUp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginHorizontal="15dp"
+<<<<<<< Updated upstream
+=======
+                    android:layout_marginLeft="20dp"
+>>>>>>> Stashed changes
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/roboto"
                     android:text="@string/vaccine_good"
@@ -660,6 +911,11 @@
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/vaccineSignUp"
+<<<<<<< Updated upstream
+=======
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+>>>>>>> Stashed changes
                     android:layout_below="@id/vaccineSignUpTitle"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="20dp"

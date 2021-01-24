@@ -20,7 +20,6 @@ import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.data.Hospitals
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.lib.Hospital
-import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import kotlinx.android.synthetic.main.fragment_hospitals.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -140,7 +139,9 @@ class HospitalsFragment : Fragment() {
         hospitalsNextHospital?.setOnClickListener { nextPrevHospital(true) }
         hospitalsPrevHospital?.setOnClickListener { nextPrevHospital(false) }
 
-        hospitalsShowAll?.setOnClickListener { showAll() }
+        hospitalsShowAll?.setOnClickListener {
+            showAll()
+        }
     }
 
     private fun initializeHospitals() {
@@ -183,6 +184,7 @@ class HospitalsFragment : Fragment() {
         for (hospital in currentList!!) {
             createHospitalEntry(hospital)
         }
+
     }
 
     private fun createHospitalEntry(hospital: Hospital) {

@@ -17,7 +17,11 @@
         android:orientation="horizontal">
 
         <ImageButton
+<<<<<<< Updated upstream
             android:id="@+id/statisticsMenuBtn"
+=======
+            android:id="@+id/hospitalsMenuBtn"
+>>>>>>> Stashed changes
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -39,7 +43,11 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
+<<<<<<< Updated upstream
             android:fontFamily="@font/roboto"
+=======
+            android:fontFamily="@font/roboto_medium"
+>>>>>>> Stashed changes
             android:text="Szpitale"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
@@ -82,10 +90,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/hospitalsShowAllTitle"
+<<<<<<< Updated upstream
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="9dp"
+=======
+
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="-3dp"
+                    android:layout_marginTop="-102dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="20dp"
+>>>>>>> Stashed changes
                     android:background="#00FFFFFF"
                     android:paddingTop="10dp"
                     android:rotation="180"
@@ -98,7 +116,13 @@
                     android:layout_below="@+id/hospitalsMainIcon"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
+<<<<<<< Updated upstream
                     android:layout_marginTop="9dp"
+=======
+                    android:layout_marginStart="-2dp"
+                    android:layout_marginTop="94dp"
+                    android:layout_marginEnd="2dp"
+>>>>>>> Stashed changes
                     android:fontFamily="@font/roboto"
                     android:text="Pokaż wszystkie"
                     android:textAlignment="center"
@@ -241,7 +265,7 @@
                     android:layout_toStartOf="@+id/hospitalsUsedLSM"
                     android:fontFamily="@font/roboto"
                     android:gravity="center|left"
-                    android:text="zajęte respiratory"
+                    android:text="Zajęte respiratory"
                     android:textColor="#59FFFFFF"
                     android:textSize="20sp" />
 
@@ -270,7 +294,7 @@
                     android:layout_toStartOf="@+id/hospitalsUnUsedLSM"
                     android:fontFamily="@font/roboto"
                     android:gravity="center|left"
-                    android:text="wolne respiratory"
+                    android:text="Wolne respiratory"
                     android:textColor="#59FFFFFF"
                     android:textSize="20sp" />
 
@@ -286,7 +310,7 @@
                     android:layout_toStartOf="@+id/hospitalsUsedBeds"
                     android:fontFamily="@font/roboto"
                     android:gravity="center|left"
-                    android:text="zajęte łóżka"
+                    android:text="Zajęte łóżka"
                     android:textColor="#59FFFFFF"
                     android:textSize="20sp" />
 
