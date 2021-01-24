@@ -11,8 +11,12 @@
         android:label="@string/menu_today"
         tools:layout="@layout/fragment_today" >
         <action
-            android:id="@+id/action_nav_today_to_nav_selector2"
-            app:destination="@id/nav_selector" />
+            android:id="@+id/action_nav_today_to_nav_selector"
+            app:destination="@id/nav_selector"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
     </fragment>
 
     <fragment
@@ -21,9 +25,12 @@
         android:label="menu_compare"
         tools:layout="@layout/fragment_compare" >
         <action
-            android:id="@+id/action_nav_today_to_nav_selector"
+            android:id="@+id/action_nav_compare_to_nav_selector"
             app:destination="@id/nav_selector"
-            app:enterAnim="@anim/fragment_close_enter" />
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
     </fragment>
 
     <fragment
@@ -33,7 +40,11 @@
         tools:layout="@layout/fragment_tweeter" >
         <action
             android:id="@+id/action_nav_tweeter_to_nav_selector"
-            app:destination="@id/nav_selector" />
+            app:destination="@id/nav_selector"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out"/>
     </fragment>
 
     <fragment
@@ -44,7 +55,10 @@
         <action
             android:id="@+id/action_nav_hospitals_to_nav_selector"
             app:destination="@id/nav_selector"
-            app:enterAnim="@anim/fragment_close_enter" />
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out"/>
     </fragment>
 
     <fragment
@@ -54,31 +68,68 @@
         tools:layout="@layout/fragment_suspicion" >
         <action
             android:id="@+id/action_nav_suspicion_to_nav_selector"
-            app:destination="@id/nav_selector" />
+            app:destination="@id/nav_selector"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out"/>
     </fragment>
     <fragment
         android:id="@+id/nav_selector"
         android:name="com.drzymalski.covidinfo.ui.selector.SelectorFragment"
         android:label="SELECTOR"
-        tools:layout="@layout/fragment_selector" >
-        <action
-            android:id="@+id/action_nav_selector_to_nav_hospitals"
-            app:destination="@id/nav_hospitals" />
-        <action
-            android:id="@+id/action_nav_selector_to_nav_tweeter"
-            app:destination="@id/nav_tweeter" />
-        <action
-            android:id="@+id/action_nav_selector_to_nav_compare"
-            app:destination="@id/nav_compare" />
-        <action
-            android:id="@+id/action_nav_selector_to_nav_today"
-            app:destination="@id/nav_today" />
+        tools:layout="@layout/fragment_selector"
+
+        >
         <action
             android:id="@+id/action_nav_selector_to_nav_authors"
-            app:destination="@id/nav_authors" />
+            app:destination="@id/nav_authors"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_nav_selector_to_nav_suspicion"
-            app:destination="@id/nav_suspicion" />
+            app:destination="@id/nav_suspicion"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_nav_selector_to_nav_hospitals"
+            app:destination="@id/nav_hospitals"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_nav_selector_to_nav_tweeter"
+            app:destination="@id/nav_tweeter"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_nav_selector_to_nav_compare"
+            app:destination="@id/nav_compare"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_nav_selector_to_nav_today"
+            app:destination="@id/nav_today"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_nav_selector_to_vaccineFragment"
+            app:destination="@id/vaccineFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@android:anim/fade_out"  />
     </fragment>
     <fragment
         android:id="@+id/nav_authors"
@@ -87,6 +138,23 @@
         tools:layout="@layout/fragment_authors" >
         <action
             android:id="@+id/action_nav_authors_to_nav_selector"
-            app:destination="@id/nav_selector" />
+            app:destination="@id/nav_selector"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/vaccineFragment"
+        android:name="com.drzymalski.covidinfo.ui.vaccine.VaccineFragment"
+        android:label="fragment_vaccine"
+        tools:layout="@layout/fragment_vaccine" >
+        <action
+            android:id="@+id/action_vaccineFragment_to_nav_selector"
+            app:destination="@id/nav_selector"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/slide_out"/>
     </fragment>
 </navigation>

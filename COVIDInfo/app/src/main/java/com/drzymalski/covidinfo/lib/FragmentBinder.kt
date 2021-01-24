@@ -1,26 +1,30 @@
 package com.drzymalski.covidinfo.lib
 
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.drzymalski.covidinfo.R
+
 
 class FragmentBinder {
     companion object {
-        fun bindToButton(button: Button, fragment: Fragment, activity: FragmentActivity) =
+
+        fun bindNavToButton(button: Button, view: View, resId: Int ) =
             button.setOnClickListener {
-                activity.supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment, fragment)
-                    .addToBackStack(null).commit()
+                Navigation.findNavController(view).navigate(resId)
             }
 
-        fun bindToButton(button: ImageButton, fragment: Fragment, activity: FragmentActivity) =
+        fun bindNavToButton(button: ImageButton, view: View, resId: Int ) =
             button.setOnClickListener {
-                activity.supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment, fragment)
-                    .addToBackStack(null).commit()
+                Navigation.findNavController(view).navigate(resId)
             }
+
     }
-
 }

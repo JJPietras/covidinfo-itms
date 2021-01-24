@@ -71,11 +71,13 @@ class TwitterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        FragmentBinder.bindToButton(
-            view.findViewById<ImageButton>(R.id.twitterMenuBtn),
-            SelectorFragment(),
-            requireActivity()
+
+        FragmentBinder.bindNavToButton(
+                view.findViewById<ImageButton>(R.id.twitterMenuBtn),
+                view,
+                R.id.action_nav_tweeter_to_nav_selector
         )
+
         twitterRefreshBtn.setOnClickListener {
             refresh()
         }

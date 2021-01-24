@@ -134,9 +134,11 @@ class SuspicionFragment : Fragment() {
     }
 
     private fun configureBinder(view: View) =
-        FragmentBinder.bindToButton(
-            view.findViewById<ImageButton>(R.id.statisticsMenuBtn),
-            SelectorFragment(),
-            requireActivity()
+
+        FragmentBinder.bindNavToButton(
+                view.findViewById<ImageButton>(R.id.suspicionMenuBtn),
+                view,
+                R.id.action_nav_suspicion_to_nav_selector
+
         )
 }

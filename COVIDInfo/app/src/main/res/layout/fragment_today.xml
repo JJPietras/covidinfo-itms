@@ -149,11 +149,7 @@
                     android:id="@+id/statisticsBackground"
                     android:layout_width="match_parent"
                     android:layout_height="340dp"
-<<<<<<< Updated upstream
-                    android:src="@color/colorPrimaryDark"/>
-=======
                     android:src="@color/colorPrimaryDark" />
->>>>>>> Stashed changes
 
                 <ImageButton
                     android:id="@+id/statisticsChangeCountryBtn"
@@ -512,11 +508,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
-<<<<<<< Updated upstream
-                    android:fontFamily="@font/roboto_bold"
-=======
                     android:fontFamily="@font/roboto"
->>>>>>> Stashed changes
                     android:gravity="center"
                     android:text="Ozdrowienia"
                     android:textColor="@color/textColorOnPrimary"
@@ -550,11 +542,7 @@
                     android:layout_marginBottom="35dp"
                     android:fontFamily="@font/roboto"
                     android:gravity="center"
-<<<<<<< Updated upstream
-                    android:text="Ofiary Smiertelne"
-=======
                     android:text="Ofiary Śmiertelne"
->>>>>>> Stashed changes
                     android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
@@ -612,8 +600,4 @@
     </ScrollView>
 
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 </androidx.constraintlayout.widget.ConstraintLayout>
