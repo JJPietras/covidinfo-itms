@@ -99,9 +99,9 @@
 
     <!-- VACCINE -->
 
-    <string name="vaccine_main_title">Sczepienia</string>
-    <string name="vaccine_main_subtitle">Szczepionki </string>
-    <string name="vaccine_main_content">Niniejszy panel pokaże Ci wagę sczepionek, jak się na nie zapisać oraz dane statystyczne dotyczące ich.</string>
+    <string name="vaccine_main_title">Szczepienia</string>
+    <string name="vaccine_main_subtitle">Narodowy Program Szczepień przeciw COVID-19</string>
+    <string name="vaccine_main_content">Niniejszy panel prezentuje specyfikację szczepionek oraz szczepień. Zawarte są tu infromacje i odnośniki do zapisu na szczepienia oraz dane statystyczne wykonanych szczepień Polski oraz innych krajów.</string>
     <string name="vaccine_content_desc_background">TODO</string>
     <string name="vaccine_content_desc_menu_btn">TODO</string>
     <string name="vaccine_source1">Dane statystyczne z: https://github.com/owid/covid-19-data/blob/master/public/data/vaccinations/vaccinations.csv</string>
@@ -118,7 +118,7 @@
     <string name="vaccine_close_ones2">Szczepiąc się, zyskasz wewnętrzny spokój, wynikający z bezpieczeństwa własnego i najbliższych.</string>
     <string name="vaccine_safe">Szczepionki są bezpieczne</string>
     <string name="vaccine_safe2">Szczepionki są badane przez polskie i unijne instytucje. Ich dopuszczenie do użytku jest zależne od decyzji Europejskiej Agencji Lekowej.</string>
-    <string name="vaccine_inspection">Zostaniesz zbadany</string>
+    <string name="vaccine_inspection">Dopuszczenie szczepionek</string>
     <string name="vaccine_heath">Przed szczepieniem zostaniesz przebadany przez lekarza. Dzięki temu sprawdzisz swój aktualny stan zdrowia.</string>
     <string name="vaccine_normal">Dzięki Tobie szybciej wrócimy do normalności!</string>
     <string name="vaccine_normal_reasons">Powrót do normalności oznacza:\n • odejście od maseczek,\n • swobodne spotkania z rodziną i przyjaciółmi,\n • powrót dzieci do szkół i rozwój ich kompetencji społecznych,\n • dalszy rozwój gospodarki,\n • ochronę miejsc pracy oraz szansę na nowe zatrudnienia,\n • swobodny dostęp do basenów, siłowni, kin i teatrów,\n • wakacje bez ograniczeń,\n • poprawę jakości życia nas wszystkich.</string>

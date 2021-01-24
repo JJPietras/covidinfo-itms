@@ -14,10 +14,7 @@
 <!--    <color name="white">#FFFFFF</color>-->
 <!--    <color name="plotBgColor">#3D439B</color>-->
 <!--    <color name="mainBgColor">#182075</color>-->
-<<<<<<< Updated upstream
-<!--    <color name="navBar">#000051</color>-->
-=======
->>>>>>> Stashed changes
+
     <color name="colorPrimaryDark">#161461</color>
     <color name="colorPrimary">#1a237e</color>
     <color name="colorPrimaryLight">#534bae</color>

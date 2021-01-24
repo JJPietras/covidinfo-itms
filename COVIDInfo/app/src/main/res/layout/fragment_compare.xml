@@ -36,11 +36,9 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
-<<<<<<< Updated upstream
-            android:fontFamily="@font/roboto"
-=======
+
             android:fontFamily="@font/roboto_medium"
->>>>>>> Stashed changes
+
             android:text="Porównanie"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
@@ -168,11 +166,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="35dp"
                     android:layout_marginBottom="35dp"
-<<<<<<< Updated upstream
-                    android:fontFamily="@font/roboto_medium"
-=======
+
                     android:fontFamily="@font/roboto"
->>>>>>> Stashed changes
+
                     android:gravity="center"
                     android:text="Średnia nowych zakażeń"
                     android:textColor="@color/textColorOnPrimary"
@@ -270,11 +266,9 @@
                     android:layout_marginBottom="35dp"
                     android:fontFamily="@font/roboto"
                     android:gravity="center"
-<<<<<<< Updated upstream
-                    android:text="Średnia Ozdrowień"
-=======
+
                     android:text="Średnia ozdrowień"
->>>>>>> Stashed changes
+
                     android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
@@ -306,11 +300,9 @@
                     android:layout_marginBottom="35dp"
                     android:fontFamily="@font/roboto"
                     android:gravity="center"
-<<<<<<< Updated upstream
-                    android:text="Średnia Ofiar Smiertelnych"
-=======
+
                     android:text="Średnia ofiar śmiertelnych"
->>>>>>> Stashed changes
+
                     android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 

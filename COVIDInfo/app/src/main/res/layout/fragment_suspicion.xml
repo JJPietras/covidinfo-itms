@@ -14,22 +14,20 @@
         android:orientation="horizontal">
 
         <ImageButton
-<<<<<<< Updated upstream
-            android:id="@+id/statisticsMenuBtn"
-=======
-            android:id="@+id/suspicionMenuBtn"
->>>>>>> Stashed changes
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
-            android:background="#00FFFFFF"
-            android:padding="30dp"
-            app:layout_anchorGravity="end|bottom"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_menu_button" />
+
+        android:id="@+id/suspicionMenuBtn"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:background="#00FFFFFF"
+        android:padding="30dp"
+        app:layout_anchorGravity="end|bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_menu_button" />
 
         <TextView
             android:id="@+id/suspicionTitle"
@@ -40,18 +38,16 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="22dp"
-<<<<<<< Updated upstream
-            android:fontFamily="@font/roboto"
-=======
-            android:fontFamily="@font/roboto_medium"
->>>>>>> Stashed changes
-            android:text="Podejrzenie Infekcji"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="28sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
+        android:fontFamily="@font/roboto_medium"
+
+        android:text="Podejrzenie Infekcji"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -75,1138 +71,1063 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/suspicionTitleCard"
                 android:layout_width="fill_parent"
-<<<<<<< Updated upstream
-                android:layout_height="270dp"
-=======
-                android:layout_height="450dp"
->>>>>>> Stashed changes
-                android:layout_marginTop="-45dp"
-                android:visibility="visible"
-                app:cardBackgroundColor="#00FFFFFF"
-                app:cardCornerRadius="0dp">
 
-                <RelativeLayout
-                    android:id="@+id/suspicionTopLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:visibility="visible">
+            android:layout_height="450dp"
 
-                    <ImageView
-                        android:id="@+id/suspicionTopBackground"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:contentDescription="@string/suspicion_content_desc_background"
-                        android:src="@color/colorPrimaryDark"
-                        tools:visibility="visible" />
-
-<<<<<<< Updated upstream
-=======
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/suspicionDoctor"
-                        android:layout_width="100dp"
-                        android:layout_height="150dp"
-                        android:layout_alignTop="@id/suspicionTopBackground"
-                        android:layout_alignParentStart="false"
-                        android:layout_alignParentLeft="true"
-                        android:layout_alignParentTop="false"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="-1dp"
-                        android:layout_marginTop="139dp"
-                        android:layout_marginRight="1dp"
-                        android:contentDescription="@string/suspicion_content_desc_background"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/doctor_sus"
-                        tools:visibility="visible" />/>
-
->>>>>>> Stashed changes
-                    <TextView
-                        android:id="@+id/suspicionSubTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/suspicionDoctor"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-<<<<<<< Updated upstream
-                        android:layout_marginStart="1dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginEnd="1dp"
-                        android:fontFamily="@font/roboto_bold"
-=======
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginEnd="20dp"
-                        android:fontFamily="@font/roboto"
->>>>>>> Stashed changes
-                        android:text="@string/suspicion_main_subtitle"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="24sp" />
-
-                    <TextView
-                        android:id="@+id/suspicionSubTitleDesc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/suspicionDoctor"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-<<<<<<< Updated upstream
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="130dp"
-                        android:layout_marginEnd="5dp"
-                        android:fontFamily="@font/roboto_bold"
-=======
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="306dp"
-                        android:layout_marginEnd="20dp"
-                        android:fontFamily="@font/roboto"
->>>>>>> Stashed changes
-                        android:text="@string/suspicion_main_content"
-                        android:textAlignment="center"
-                        android:textColor="#ABFFFFFF"
-                        android:textSize="18sp" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
+            android:layout_marginTop="-45dp"
+            android:visibility="visible"
+            app:cardBackgroundColor="#00FFFFFF"
+            app:cardCornerRadius="0dp">
 
             <RelativeLayout
-                android:id="@+id/suspicionSymptoms"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-50dp"
-                android:background="@color/colorPrimary"
-<<<<<<< Updated upstream
-=======
-                android:paddingEnd="10dp"
-                android:paddingBottom="10dp"
->>>>>>> Stashed changes
-                tools:visibility="visible">
-
-                <TextView
-                    android:id="@+id/suspicionSymptomsFirstTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="66dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/symptoms_title"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/suspicionSymptomsFirstContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionSymptomsFirstTitle"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginEnd="17dp"
-                    android:layout_toStartOf="@+id/suspicionSymptomsImageOne"
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/symptoms_first_content"
-                    android:textColor="#ABFFFFFF"
-                    android:textSize="18sp" />
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/suspicionSymptomsImageOne"
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="85dp"
-                    android:layout_marginEnd="35dp"
-                    android:contentDescription="@string/symptoms_content_desc_first_img"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/goraczka" />
-<<<<<<< Updated upstream
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/suspicionSymptomsImageTwo"
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-                    android:layout_below="@+id/suspicionSymptomsFirstContent"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginTop="60dp"
-                    android:contentDescription="@string/symptoms_content_desc_second_img"
-                    android:scaleX="-1"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/kaszel" />
-=======
->>>>>>> Stashed changes
-
-                <TextView
-                    android:id="@+id/suspicionSymptomsSecondTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionSymptomsImageOne"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/symptoms_second_subtitle"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/suspicionSymptomsSecondContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionSymptomsSecondTitle"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/symptoms_second_content"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="12sp" />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/suspicionCalc"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="#F2404C"
-                tools:visibility="visible">
-
-                <TextView
-                    android:id="@+id/suspicionSymptomsThirdTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="29dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_third_title"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/suspicionSymptomsThirdDesc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionSymptomsThirdTitle"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/symptoms_third_description"
-                    android:textAlignment="center"
-                    android:textColor="#ABFFFFFF"
-                    android:textSize="18sp" />
-
-
-                <Button
-                    android:id="@+id/suspicionSymptomsAgeBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/suspicionSymptomsThirdDesc"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="9dp"
-                    android:layout_toStartOf="@+id/suspicionSymptomsSexBtn"
-                    android:background="@drawable/rounded_button"
-<<<<<<< Updated upstream
-                    android:backgroundTint="@color/colorPrimaryLight"
-=======
-                    android:backgroundTint="#F46670"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_age_btn"
-                    android:textColor="#D5FFFFFF" />
-
-                <Button
-                    android:id="@+id/suspicionSymptomsSexBtn"
-                    android:layout_width="92dp"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/suspicionSymptomsThirdDesc"
-                    android:layout_alignEnd="@+id/suspicionSymptomsDiabetesBtn"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="2dp"
-                    android:background="@drawable/rounded_button"
-<<<<<<< Updated upstream
-                    android:backgroundTint="@color/colorPrimaryLight"
-=======
-                    android:backgroundTint="#F46670"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_sex_btn"
-                    android:textColor="#D5FFFFFF" />
-
-                <Button
-                    android:id="@+id/suspicionSymptomsEthnicsBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/suspicionSymptomsThirdDesc"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_toEndOf="@+id/suspicionSymptomsSexBtn"
-                    android:background="@drawable/rounded_button"
-<<<<<<< Updated upstream
-                    android:backgroundTint="@color/colorPrimaryLight"
-=======
-                    android:backgroundTint="#F46670"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_ethnics_btn"
-                    android:textColor="#D5FFFFFF" />
-
-                <Button
-                    android:id="@+id/suspicionSymptomsDiabetesBtn"
-                    android:layout_width="100dp"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/suspicionSymptomsAgeBtn"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_toStartOf="@+id/suspicionSymptomsHeartBtn"
-                    android:background="@drawable/rounded_button"
-<<<<<<< Updated upstream
-                    android:backgroundTint="@color/colorPrimaryLight"
-=======
-                    android:backgroundTint="#F46670"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_diabetes_btn"
-                    android:textColor="#D5FFFFFF" />
-
-                <Button
-                    android:id="@+id/suspicionSymptomsHeartBtn"
-                    android:layout_width="180dp"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/suspicionSymptomsEthnicsBtn"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/rounded_button"
-<<<<<<< Updated upstream
-                    android:backgroundTint="@color/colorPrimaryLight"
-=======
-                    android:backgroundTint="#F46670"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_heart_btn"
-                    android:textColor="#D5FFFFFF" />
-
-                <Button
-                    android:id="@+id/suspicionSymptomsLungsBtn"
-                    android:layout_width="100dp"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/suspicionSymptomsDiabetesBtn"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_toStartOf="@+id/suspicionSymptomsHeartBtn"
-                    android:background="@drawable/rounded_button"
-<<<<<<< Updated upstream
-                    android:backgroundTint="@color/colorPrimaryLight"
-=======
-                    android:backgroundTint="#F46670"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_lungs_btn"
-                    android:textColor="#D5FFFFFF" />
-
-                <Button
-                    android:id="@+id/suspicionSymptomsCancerBtn"
-                    android:layout_width="180dp"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/suspicionSymptomsHeartBtn"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/rounded_button"
-<<<<<<< Updated upstream
-                    android:backgroundTint="@color/colorPrimaryLight"
-=======
-                    android:backgroundTint="#F46670"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_cancer_btn"
-                    android:textColor="#D5FFFFFF" />
-
-                <Button
-                    android:id="@+id/suspicionSymptomsRheumatoidBtn"
-                    android:layout_width="155dp"
-                    android:layout_height="55dp"
-                    android:layout_below="@id/suspicionSymptomsCancerBtn"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_toStartOf="@+id/suspicionSymptomsImmunityBtn"
-                    android:background="@drawable/rounded_button"
-<<<<<<< Updated upstream
-                    android:backgroundTint="@color/colorPrimaryLight"
-=======
-                    android:backgroundTint="#F46670"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_rheumatologic_btn"
-                    android:textColor="#D5FFFFFF" />
-
-                <Button
-                    android:id="@+id/suspicionSymptomsImmunityBtn"
-                    android:layout_width="180dp"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/suspicionSymptomsCancerBtn"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:background="@drawable/rounded_button"
-<<<<<<< Updated upstream
-                    android:backgroundTint="@color/colorPrimaryLight"
-=======
-                    android:backgroundTint="#F46670"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_immunity_btn"
-                    android:textColor="#D5FFFFFF" />
-
-                <TextView
-                    android:id="@+id/suspicionSymptomsFourthTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionSymptomsRheumatoidBtn"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="false"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="17dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/symptoms_risk_text"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/suspicionSymptomsResult"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionSymptomsRheumatoidBtn"
-                    android:layout_alignParentEnd="false"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="17dp"
-                    android:layout_toEndOf="@+id/suspicionSymptomsFourthTitle"
-                    android:fontFamily="@font/roboto"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/suspicionSymptomsCalculateRiskBtn"
-                    android:layout_width="180dp"
-                    android:layout_height="60dp"
-                    android:layout_below="@+id/suspicionSymptomsFourthTitle"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginTop="21dp"
-                    android:layout_marginEnd="60dp"
-                    android:background="@drawable/rounded_button"
-<<<<<<< Updated upstream
-                    android:backgroundTint="@color/colorPrimaryLight"
-=======
-                    android:backgroundTint="#F46670"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/symptoms_calculate_btn"
-                    android:textColor="#D5FFFFFF"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/suspicionSymptomsSource"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionSymptomsCalculateRiskBtn"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="@string/symptoms_source"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="12sp" />
-
-            </RelativeLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/suspicionActionsLayout"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="#00838F"
-                tools:visibility="visible">
-
-                <TextView
-                    android:id="@+id/suspicionActionsFirstTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="0dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/actions_title"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/suspicionsActionsFirstContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionActionsFirstTitle"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_toStartOf="@+id/suspicionsActionsMaskIcon"
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/actions_first_content"
-                    android:textColor="#ABFFFFFF"
-                    android:textSize="18sp" />
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/suspicionsActionsMaskIcon"
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-                    android:layout_below="@+id/suspicionActionsFirstTitle"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="19dp"
-                    android:layout_marginEnd="35dp"
-                    android:contentDescription="@string/actions_content_desc_first_img"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/mask" />
-
-                <TextView
-                    android:id="@+id/suspicionActionsFirstSubContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionsActionsFirstContent"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="19dp"
-                    android:layout_toStartOf="@+id/suspicionsActionsMaskIcon"
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/actions_first_sub_content"
-                    android:textColor="#ABFFFFFF"
-                    android:textSize="12sp" />
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/suspicionsActionsHandSanitizer"
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-                    android:layout_below="@+id/suspicionActionsFirstSubContent"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="103dp"
-                    android:contentDescription="@string/actions_content_desc_second_img"
-                    android:scaleX="-1"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/mycierak" />
-
-                <TextView
-                    android:id="@+id/suspicionsActionsSecondTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionActionsFirstSubContent"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginTop="45dp"
-                    android:layout_marginEnd="0dp"
-                    android:layout_marginRight="0dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="@string/actions_subtitle"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/suspicionActionsSecondContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionsActionsSecondTitle"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="17dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_toEndOf="@+id/suspicionsActionsHandSanitizer"
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/actions_second_content"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/suspicionActionsSecondSubContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionActionsSecondContent"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="17dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_toEndOf="@+id/suspicionsActionsHandSanitizer"
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/actions_second_sub_content"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="12sp" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/suspicionTeleHelpLayout"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="#C2185B"
-                tools:visibility="visible">
-
-                <TextView
-                    android:id="@+id/suspicionTeleHelpFirstTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginStart="66dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginRight="86dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/teleHelp_title"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/suspicionteleHelpFirstContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionTeleHelpFirstTitle"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="11dp"
-                    android:layout_marginEnd="17dp"
-                    android:layout_toStartOf="@+id/suspicionTeleHelpTelephone"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/teleHelp_first_content"
-                    android:textColor="#ABFFFFFF"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/suspicionTeleHelpFirstSubContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionteleHelpFirstContent"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="19dp"
-                    android:layout_toStartOf="@+id/suspicionTeleHelpTelephone"
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/teleHelp_first_sub_content"
-                    android:textColor="#ABFFFFFF"
-                    android:textSize="12sp" />
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/suspicionTeleHelpTelephone"
-
-                    android:layout_below="@+id/suspicionTeleHelpFirstTitle"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="19dp"
-                    android:layout_marginEnd="35dp"
-                    android:contentDescription="@string/teleHelp_content_desc_first_img"
-                    android:src="@drawable/ic_tele"
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/doktor2" />
-
-                <Button
-                    android:id="@+id/suspicionTeleHelpBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionTeleHelpFirstSubContent"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="18dp"
-                    android:height="55dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="#EC407A"
-                    android:fontFamily="@font/roboto_bold"
-                    android:paddingHorizontal="20dp"
-                    android:text="@string/teleHelp_tele_btn"
-                    android:textColor="#C1FFFFFF"
-                    android:textSize="20sp" />
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/suspicionTeleHelpComputer"
-
-<<<<<<< Updated upstream
-=======
-                    android:layout_width="200dp"
-                    android:layout_height="155dp"
->>>>>>> Stashed changes
-                    android:layout_below="@+id/suspicionTeleHelpBtn"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="false"
-                    android:layout_alignParentEnd="false"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginStart="102dp"
-                    android:layout_marginTop="4dp"
-                    android:contentDescription="@string/teleHelp_content_desc_second_img"
-                    android:scaleX="-1"
-<<<<<<< Updated upstream
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-=======
->>>>>>> Stashed changes
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/doktor" />
-
-                <TextView
-                    android:id="@+id/suspicionTeleHelpSecondTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionTeleHelpBtn"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginTop="168dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_toEndOf="@+id/suspicionTeleHelpComputer"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/teleHelp_subtitle"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/suspicionTeleHelpSecondContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionTeleHelpSecondTitle"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/teleHelp_second_content"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/suspicionTeleHelpSecondSubContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/suspicionTeleHelpSecondContent"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/teleHelp_second_sub_content"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="12sp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/telephonesLayout"
+                android:id="@+id/suspicionTopLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#388E3C"
+                android:layout_height="match_parent"
                 tools:visibility="visible">
-
-                <TextView
-                    android:id="@+id/telephonesUsefulTelephonesTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/usefulTelephones_title"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/telephonesUsefulTelephonesFirstTitle"
-                    android:layout_width="365dp"
-                    android:layout_height="73dp"
-                    android:layout_below="@+id/telephonesUsefulTelephonesIcon"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="219dp"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/usefulTelephones_first_title"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="18sp" />
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/telephonesUsefulTelephonesIcon"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="70dp"
-                    android:contentDescription="@string/usefulTelephones_content_desc_img"
-<<<<<<< Updated upstream
-
-                    android:layout_width="118dp"
-                    android:layout_height="128dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/telefon" />
-=======
->>>>>>> Stashed changes
-
-                    android:layout_width="118dp"
-                    android:layout_height="128dp"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/telefon" />
-
-                <TextView
-                    android:id="@+id/telephonesSymptomsFirstContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-<<<<<<< Updated upstream
-                    android:layout_below="@+id/telephonesUsefulTelephonesIcon"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_marginTop="30dp"
-=======
-                    android:layout_below="@id/telephonesUsefulTelephonesFirstTitle"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto"
-                    android:text="@string/usefulTelephones_first_subtitle"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/telephonesSanitaryEpidemicTelephoneButton"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/telephonesSymptomsFirstContent"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:height="55dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="#4CAF50"
-                    android:fontFamily="@font/roboto_bold"
-                    android:gravity="center"
-                    android:text="@string/usefulTelephones_telephone_sanitary"
-                    android:textColor="#C1FFFFFF"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/telephonesSymptomsSecondContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/telephonesSanitaryEpidemicTelephoneButton"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginHorizontal="15dp"
-<<<<<<< Updated upstream
-                    android:layout_marginTop="20dp"
-=======
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
->>>>>>> Stashed changes
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="@string/usefulTelephones_second_subtitle"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/usefulTelephonesNFZBtn"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/telephonesSymptomsSecondContent"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:height="55dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="#4CAF50"
-                    android:fontFamily="@font/roboto_bold"
-                    android:gravity="center"
-                    android:text="@string/usefulTelephones_telephone_nfz"
-                    android:textColor="#C1FFFFFF"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/telephonesSymptomsThirdContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/usefulTelephonesNFZBtn"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="@string/usefulTelephones_third_subtitle"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/usefulTelephonesInfoBtn"
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/telephonesSymptomsThirdContent"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:height="55dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="#4CAF50"
-                    android:fontFamily="@font/roboto_bold"
-                    android:gravity="center"
-                    android:text="@string/usefulTelephones_telephone_info"
-                    android:textColor="#C1FFFFFF"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/telephonesSymptomsSubContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/usefulTelephonesInfoBtn"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="50dp"
-                    android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="@string/usefulTelephones_sub_content"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="12sp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/suspicionNearestHospitalLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#0097A7"
-                tools:visibility="visible">
-
-                <Button
-                    android:id="@+id/suspicionNearestHospitalMoveToMap"
-                    android:layout_width="160dp"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/suspicionNearestHospitalDisclaimer"
-                    android:layout_alignParentBottom="false"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginBottom="20dp"
-                    android:height="55dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="#00ACC1"
-                    android:fontFamily="@font/roboto_bold"
-                    android:gravity="center"
-                    android:text="@string/nearestHospital_go_to_map"
-                    android:textColor="#C1FFFFFF"
-                    android:textSize="15sp"
-                    android:visibility="invisible" />
-
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/suspicionNearestHospitalIcon"
-<<<<<<< Updated upstream
-=======
-                    android:layout_width="200dp"
-                    android:layout_height="158dp"
->>>>>>> Stashed changes
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="52dp"
-                    android:contentDescription="@string/nearestHospital_content_desc_first_img"
-<<<<<<< Updated upstream
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-=======
->>>>>>> Stashed changes
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/hospital" />
-
-                <TextView
-                    android:id="@+id/suspicionNearestHospitalTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="18dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/nearestHospital_title"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/suspicionNearestHospitalDisclaimer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="120dp"
-                    android:layout_below="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginRight="20dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="@string/nearestHospital_disclaimer"
-                    android:textAlignment="center"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/suspicionNearestHospitalFirstSubTitle"
-                    android:layout_width="376dp"
-                    android:layout_height="121dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="198dp"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center"
-                    android:text="@string/nearestHospital_first_subtitle"
-                    android:textColor="#90FFFFFF"
-                    android:textSize="17sp" />
 
                 <ImageView
-                    android:id="@+id/suspicionNearestHospitalGoogleImg"
-                    android:layout_width="132dp"
-                    android:layout_height="153dp"
-                    android:layout_alignStart="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_alignTop="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_alignEnd="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_alignBottom="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_marginStart="-60dp"
-                    android:layout_marginTop="-60dp"
-                    android:layout_marginEnd="-60dp"
-                    android:layout_marginBottom="-60dp"
-                    android:backgroundTint="#00ACC1"
-                    android:contentDescription="@string/nearestHospital_content_desc_second_img"
-                    android:src="@drawable/sub_sphere" />
-
-                <com.github.ybq.android.spinkit.SpinKitView
-                    android:id="@+id/suspicionNearestHospitalLoadingImg"
-                    style="@style/SpinKitView.Large.Circle"
-
-                    android:layout_width="300dp"
-                    android:layout_height="300dp"
-                    android:layout_alignStart="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_alignTop="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_alignEnd="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_alignBottom="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_marginStart="-60dp"
-                    android:layout_marginTop="-60dp"
-                    android:layout_marginEnd="-60dp"
-                    android:layout_marginBottom="-60dp"
-                    android:scaleX="0.92"
-                    android:scaleY="0.92"
-                    app:SpinKit_Color="#97E7FF" />
-
-                <!--<ImageView
+                    android:id="@+id/suspicionTopBackground"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:contentDescription="@string/suspicion_content_desc_background"
+                    android:src="@color/colorPrimaryDark"
+                    tools:visibility="visible" />
 
 
-
-                    android:layout_alignStart="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_alignTop="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_alignEnd="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_alignBottom="@+id/suspicionNearestHospitalButtonSphere"
-                    android:layout_marginStart="-60dp"
-                    android:layout_marginTop="-60dp"
-                    android:layout_marginEnd="-60dp"
-                    android:layout_marginBottom="-60dp"
-                    android:backgroundTint="#00ACC1"
-                    android:contentDescription="@string/nearestHospital_content_desc_second_img"
-                    android:src="@drawable/sub_sphere" />-->
-
-                <ImageButton
-                    android:id="@+id/suspicionNearestHospitalButtonSphere"
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/suspicionDoctor"
                     android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_below="@+id/suspicionNearestHospitalIcon"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="180dp"
-                    android:background="@drawable/sphere"
-                    android:backgroundTint="#00BCD4"
-                    android:contentDescription="@string/nearestHospital_content_desc_third_img"
-                    android:scaleX="2"
-                    android:scaleY="2"
-                    android:src="@drawable/ic_map_point" />
+                    android:layout_height="150dp"
+                    android:layout_alignTop="@id/suspicionTopBackground"
+                    android:layout_alignParentStart="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="-1dp"
+                    android:layout_marginTop="139dp"
+                    android:layout_marginRight="1dp"
+                    android:contentDescription="@string/suspicion_content_desc_background"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/doctor_sus"
+                    tools:visibility="visible" />/>
+
+
+                <TextView
+                    android:id="@+id/suspicionSubTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/suspicionDoctor"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/roboto"
+
+                android:text="@string/suspicion_main_subtitle"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/suspicionSubTitleDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/suspicionDoctor"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="306dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/roboto"
+
+                android:text="@string/suspicion_main_content"
+                android:textAlignment="center"
+                android:textColor="#ABFFFFFF"
+                android:textSize="18sp" />
 
             </RelativeLayout>
-        </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:id="@+id/suspicionSymptoms"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-50dp"
+            android:background="@color/colorPrimary"
+
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp"
+
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/suspicionSymptomsFirstTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="66dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/symptoms_title"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/suspicionSymptomsFirstContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionSymptomsFirstTitle"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="17dp"
+            android:layout_toStartOf="@+id/suspicionSymptomsImageOne"
+            android:fontFamily="@font/roboto"
+            android:text="@string/symptoms_first_content"
+            android:textColor="#ABFFFFFF"
+            android:textSize="18sp" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/suspicionSymptomsImageOne"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="85dp"
+            android:layout_marginEnd="35dp"
+            android:contentDescription="@string/symptoms_content_desc_first_img"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/goraczka" />
+
+
+        <TextView
+            android:id="@+id/suspicionSymptomsSecondTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionSymptomsImageOne"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/symptoms_second_subtitle"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/suspicionSymptomsSecondContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionSymptomsSecondTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+
+            android:fontFamily="@font/roboto"
+            android:text="@string/symptoms_second_content"
+            android:textAlignment="center"
+            android:textColor="#90FFFFFF"
+            android:textSize="12sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/suspicionCalc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#F2404C"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/suspicionSymptomsThirdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="29dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/symptoms_third_title"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/suspicionSymptomsThirdDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionSymptomsThirdTitle"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/symptoms_third_description"
+            android:textAlignment="center"
+            android:textColor="#ABFFFFFF"
+            android:textSize="18sp" />
+
+
+        <Button
+            android:id="@+id/suspicionSymptomsAgeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_below="@+id/suspicionSymptomsThirdDesc"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="9dp"
+            android:layout_toStartOf="@+id/suspicionSymptomsSexBtn"
+            android:background="@drawable/rounded_button"
+
+        android:backgroundTint="#F46670"
+
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/symptoms_age_btn"
+        android:textColor="#D5FFFFFF" />
+
+        <Button
+            android:id="@+id/suspicionSymptomsSexBtn"
+            android:layout_width="92dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/suspicionSymptomsThirdDesc"
+            android:layout_alignEnd="@+id/suspicionSymptomsDiabetesBtn"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/rounded_button"
+
+        android:backgroundTint="#F46670"
+
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/symptoms_sex_btn"
+        android:textColor="#D5FFFFFF" />
+
+        <Button
+            android:id="@+id/suspicionSymptomsEthnicsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_below="@+id/suspicionSymptomsThirdDesc"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="15dp"
+            android:layout_toEndOf="@+id/suspicionSymptomsSexBtn"
+            android:background="@drawable/rounded_button"
+
+        android:backgroundTint="#F46670"
+
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/symptoms_ethnics_btn"
+        android:textColor="#D5FFFFFF" />
+
+        <Button
+            android:id="@+id/suspicionSymptomsDiabetesBtn"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/suspicionSymptomsAgeBtn"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/suspicionSymptomsHeartBtn"
+            android:background="@drawable/rounded_button"
+
+        android:backgroundTint="#F46670"
+
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/symptoms_diabetes_btn"
+        android:textColor="#D5FFFFFF" />
+
+        <Button
+            android:id="@+id/suspicionSymptomsHeartBtn"
+            android:layout_width="180dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/suspicionSymptomsEthnicsBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/rounded_button"
+
+        android:backgroundTint="#F46670"
+
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/symptoms_heart_btn"
+        android:textColor="#D5FFFFFF" />
+
+        <Button
+            android:id="@+id/suspicionSymptomsLungsBtn"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/suspicionSymptomsDiabetesBtn"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/suspicionSymptomsHeartBtn"
+            android:background="@drawable/rounded_button"
+
+        android:backgroundTint="#F46670"
+
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/symptoms_lungs_btn"
+        android:textColor="#D5FFFFFF" />
+
+        <Button
+            android:id="@+id/suspicionSymptomsCancerBtn"
+            android:layout_width="180dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/suspicionSymptomsHeartBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/rounded_button"
+
+        android:backgroundTint="#F46670"
+
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/symptoms_cancer_btn"
+        android:textColor="#D5FFFFFF" />
+
+        <Button
+            android:id="@+id/suspicionSymptomsRheumatoidBtn"
+            android:layout_width="155dp"
+            android:layout_height="55dp"
+            android:layout_below="@id/suspicionSymptomsCancerBtn"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/suspicionSymptomsImmunityBtn"
+            android:background="@drawable/rounded_button"
+
+        android:backgroundTint="#F46670"
+
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/symptoms_rheumatologic_btn"
+        android:textColor="#D5FFFFFF" />
+
+        <Button
+            android:id="@+id/suspicionSymptomsImmunityBtn"
+            android:layout_width="180dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/suspicionSymptomsCancerBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/rounded_button"
+
+        android:backgroundTint="#F46670"
+
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/symptoms_immunity_btn"
+        android:textColor="#D5FFFFFF" />
+
+        <TextView
+            android:id="@+id/suspicionSymptomsFourthTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionSymptomsRheumatoidBtn"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="false"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/symptoms_risk_text"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/suspicionSymptomsResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionSymptomsRheumatoidBtn"
+            android:layout_alignParentEnd="false"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="17dp"
+            android:layout_toEndOf="@+id/suspicionSymptomsFourthTitle"
+            android:fontFamily="@font/roboto"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/suspicionSymptomsCalculateRiskBtn"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/suspicionSymptomsFourthTitle"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/rounded_button"
+
+        android:backgroundTint="#F46670"
+
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/symptoms_calculate_btn"
+        android:textColor="#D5FFFFFF"
+        android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/suspicionSymptomsSource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionSymptomsCalculateRiskBtn"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="@string/symptoms_source"
+            android:textColor="#90FFFFFF"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/suspicionActionsLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#00838F"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/suspicionActionsFirstTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="0dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/actions_title"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/suspicionsActionsFirstContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionActionsFirstTitle"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="15dp"
+            android:layout_toStartOf="@+id/suspicionsActionsMaskIcon"
+            android:fontFamily="@font/roboto"
+            android:text="@string/actions_first_content"
+            android:textColor="#ABFFFFFF"
+            android:textSize="18sp" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/suspicionsActionsMaskIcon"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_below="@+id/suspicionActionsFirstTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="35dp"
+            android:contentDescription="@string/actions_content_desc_first_img"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/mask" />
+
+        <TextView
+            android:id="@+id/suspicionActionsFirstSubContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionsActionsFirstContent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="19dp"
+            android:layout_toStartOf="@+id/suspicionsActionsMaskIcon"
+            android:fontFamily="@font/roboto"
+            android:text="@string/actions_first_sub_content"
+            android:textColor="#ABFFFFFF"
+            android:textSize="12sp" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/suspicionsActionsHandSanitizer"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_below="@+id/suspicionActionsFirstSubContent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="103dp"
+            android:contentDescription="@string/actions_content_desc_second_img"
+            android:scaleX="-1"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/mycierak" />
+
+        <TextView
+            android:id="@+id/suspicionsActionsSecondTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionActionsFirstSubContent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/actions_subtitle"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/suspicionActionsSecondContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionsActionsSecondTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/suspicionsActionsHandSanitizer"
+            android:fontFamily="@font/roboto"
+            android:text="@string/actions_second_content"
+            android:textColor="#90FFFFFF"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/suspicionActionsSecondSubContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionActionsSecondContent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_toEndOf="@+id/suspicionsActionsHandSanitizer"
+            android:fontFamily="@font/roboto"
+            android:text="@string/actions_second_sub_content"
+            android:textColor="#90FFFFFF"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/suspicionTeleHelpLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#C2185B"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/suspicionTeleHelpFirstTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="66dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="86dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/teleHelp_title"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/suspicionteleHelpFirstContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionTeleHelpFirstTitle"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="17dp"
+            android:layout_toStartOf="@+id/suspicionTeleHelpTelephone"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/teleHelp_first_content"
+            android:textColor="#ABFFFFFF"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/suspicionTeleHelpFirstSubContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionteleHelpFirstContent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="19dp"
+            android:layout_toStartOf="@+id/suspicionTeleHelpTelephone"
+            android:fontFamily="@font/roboto"
+            android:text="@string/teleHelp_first_sub_content"
+            android:textColor="#ABFFFFFF"
+            android:textSize="12sp" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/suspicionTeleHelpTelephone"
+
+            android:layout_below="@+id/suspicionTeleHelpFirstTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="35dp"
+            android:contentDescription="@string/teleHelp_content_desc_first_img"
+            android:src="@drawable/ic_tele"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/doktor2" />
+
+        <Button
+            android:id="@+id/suspicionTeleHelpBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionTeleHelpFirstSubContent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:height="55dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#EC407A"
+            android:fontFamily="@font/roboto_bold"
+            android:paddingHorizontal="20dp"
+            android:text="@string/teleHelp_tele_btn"
+            android:textColor="#C1FFFFFF"
+            android:textSize="20sp" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/suspicionTeleHelpComputer"
+
+
+        android:layout_width="200dp"
+        android:layout_height="155dp"
+
+        android:layout_below="@+id/suspicionTeleHelpBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentEnd="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/teleHelp_content_desc_second_img"
+        android:scaleX="-1"
+
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/doktor" />
+
+        <TextView
+            android:id="@+id/suspicionTeleHelpSecondTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionTeleHelpBtn"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="168dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toEndOf="@+id/suspicionTeleHelpComputer"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/teleHelp_subtitle"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/suspicionTeleHelpSecondContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionTeleHelpSecondTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/teleHelp_second_content"
+            android:textAlignment="center"
+            android:textColor="#90FFFFFF"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/suspicionTeleHelpSecondSubContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/suspicionTeleHelpSecondContent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/teleHelp_second_sub_content"
+            android:textAlignment="center"
+            android:textColor="#90FFFFFF"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/telephonesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#388E3C"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/telephonesUsefulTelephonesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/usefulTelephones_title"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/telephonesUsefulTelephonesFirstTitle"
+            android:layout_width="365dp"
+            android:layout_height="73dp"
+            android:layout_below="@+id/telephonesUsefulTelephonesIcon"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="219dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/usefulTelephones_first_title"
+            android:textAlignment="center"
+            android:textColor="#90FFFFFF"
+            android:textSize="18sp" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/telephonesUsefulTelephonesIcon"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:contentDescription="@string/usefulTelephones_content_desc_img"
+
+
+        android:layout_width="118dp"
+        android:layout_height="128dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/telefon" />
+
+        <TextView
+            android:id="@+id/telephonesSymptomsFirstContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+        android:layout_below="@id/telephonesUsefulTelephonesFirstTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+
+        android:fontFamily="@font/roboto"
+        android:text="@string/usefulTelephones_first_subtitle"
+        android:textAlignment="center"
+        android:textColor="#90FFFFFF"
+        android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/telephonesSanitaryEpidemicTelephoneButton"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/telephonesSymptomsFirstContent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:height="55dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#4CAF50"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="@string/usefulTelephones_telephone_sanitary"
+            android:textColor="#C1FFFFFF"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/telephonesSymptomsSecondContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/telephonesSanitaryEpidemicTelephoneButton"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="15dp"
+
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:text="@string/usefulTelephones_second_subtitle"
+        android:textAlignment="center"
+        android:textColor="#90FFFFFF"
+        android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/usefulTelephonesNFZBtn"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/telephonesSymptomsSecondContent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:height="55dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#4CAF50"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="@string/usefulTelephones_telephone_nfz"
+            android:textColor="#C1FFFFFF"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/telephonesSymptomsThirdContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/usefulTelephonesNFZBtn"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="@string/usefulTelephones_third_subtitle"
+            android:textAlignment="center"
+            android:textColor="#90FFFFFF"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/usefulTelephonesInfoBtn"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/telephonesSymptomsThirdContent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:height="55dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#4CAF50"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="@string/usefulTelephones_telephone_info"
+            android:textColor="#C1FFFFFF"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/telephonesSymptomsSubContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/usefulTelephonesInfoBtn"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="@string/usefulTelephones_sub_content"
+            android:textAlignment="center"
+            android:textColor="#90FFFFFF"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/suspicionNearestHospitalLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0097A7"
+        tools:visibility="visible">
+
+        <Button
+            android:id="@+id/suspicionNearestHospitalMoveToMap"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/suspicionNearestHospitalDisclaimer"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            android:height="55dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#00ACC1"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="@string/nearestHospital_go_to_map"
+            android:textColor="#C1FFFFFF"
+            android:textSize="15sp"
+            android:visibility="invisible" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/suspicionNearestHospitalIcon"
+
+        android:layout_width="200dp"
+        android:layout_height="158dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:contentDescription="@string/nearestHospital_content_desc_first_img"
+
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/hospital" />
+
+        <TextView
+            android:id="@+id/suspicionNearestHospitalTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/nearestHospital_title"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/suspicionNearestHospitalDisclaimer"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:layout_below="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="@string/nearestHospital_disclaimer"
+            android:textAlignment="center"
+            android:textColor="#90FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/suspicionNearestHospitalFirstSubTitle"
+            android:layout_width="376dp"
+            android:layout_height="121dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="198dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:text="@string/nearestHospital_first_subtitle"
+            android:textColor="#90FFFFFF"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/suspicionNearestHospitalGoogleImg"
+            android:layout_width="132dp"
+            android:layout_height="153dp"
+            android:layout_alignStart="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_alignTop="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_alignEnd="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_alignBottom="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_marginStart="-60dp"
+            android:layout_marginTop="-60dp"
+            android:layout_marginEnd="-60dp"
+            android:layout_marginBottom="-60dp"
+            android:backgroundTint="#00ACC1"
+            android:contentDescription="@string/nearestHospital_content_desc_second_img"
+            android:src="@drawable/sub_sphere" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/suspicionNearestHospitalLoadingImg"
+            style="@style/SpinKitView.Large.Circle"
+
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_alignStart="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_alignTop="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_alignEnd="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_alignBottom="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_marginStart="-60dp"
+            android:layout_marginTop="-60dp"
+            android:layout_marginEnd="-60dp"
+            android:layout_marginBottom="-60dp"
+            android:scaleX="0.92"
+            android:scaleY="0.92"
+            app:SpinKit_Color="#97E7FF" />
+
+        <!--<ImageView
+
+
+
+            android:layout_alignStart="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_alignTop="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_alignEnd="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_alignBottom="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_marginStart="-60dp"
+            android:layout_marginTop="-60dp"
+            android:layout_marginEnd="-60dp"
+            android:layout_marginBottom="-60dp"
+            android:backgroundTint="#00ACC1"
+            android:contentDescription="@string/nearestHospital_content_desc_second_img"
+            android:src="@drawable/sub_sphere" />-->
+
+        <ImageButton
+            android:id="@+id/suspicionNearestHospitalButtonSphere"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/suspicionNearestHospitalIcon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="180dp"
+            android:background="@drawable/sphere"
+            android:backgroundTint="#00BCD4"
+            android:contentDescription="@string/nearestHospital_content_desc_third_img"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:src="@drawable/ic_map_point" />
+
+    </RelativeLayout>
+</LinearLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
