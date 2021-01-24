@@ -9,267 +9,267 @@
     android:layout_height="match_parent"
     android:background="@drawable/side_nav_bar">
 
-<ScrollView
+    <ScrollView
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/mainBgColor"
->
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
 
-<LinearLayout
-    android:id="@+id/linear_layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
 
-    android:padding="20dp"
-    >
+            android:padding="20dp">
 
-    <!--<RelativeLayout
+            <!--<RelativeLayout
         android:id="@+id/statisticsHeader"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </RelativeLayout>-->
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="center"
-                android:text="Dni wstecz"
-                android:textColor="@color/white"
-                android:textSize="22sp" />
-
-            <NumberPicker
-                android:id="@+id/daysPicker"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:gravity="center"
-                android:layout_marginStart="50dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="20dp"
-
-
-                android:theme="@style/MyNumberPickerTheme" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/white"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/white" />
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="58dp"
-                    android:layout_weight="0.6"
-                    android:paddingStart="40dp"
-                    android:paddingEnd="40dp"
-                    android:paddingTop="0dp"
-                    android:paddingBottom="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
-                    android:text="Wybrane kraje"
+                    android:text="Ilość dni"
                     android:textColor="@color/white"
                     android:textSize="22sp" />
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/white" />
-
-                <ImageButton
-                    android:id="@+id/statisticsChangeCountryBtn"
+                <NumberPicker
+                    android:id="@+id/daysPicker"
                     android:layout_width="wrap_content"
-                    android:layout_height="58dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
 
-                    android:layout_weight="0.5"
-                    android:background="#00FFFFFF"
-                    android:gravity="end"
-                    android:scaleY="1.0"
-                    app:srcCompat="@drawable/ic_less" />
+
+                    android:theme="@style/MyNumberPickerTheme" />
 
                 <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
                     android:background="@android:color/white" />
 
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:orientation="horizontal">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/white"
-                />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white" />
 
-            <LinearLayout
-                android:id="@+id/statisticsCountriesLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="58dp"
+                        android:layout_weight="0.6"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="center"
+                        android:paddingStart="40dp"
+                        android:paddingTop="0dp"
+                        android:paddingEnd="40dp"
+                        android:paddingBottom="0dp"
+                        android:text="Wybrane kraje"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
 
-                android:orientation="vertical"
-                android:animateLayoutChanges="true"
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white" />
 
-                android:visibility="visible">
+                    <ImageButton
+                        android:id="@+id/statisticsChangeCountryBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="58dp"
 
-            </LinearLayout>
+                        android:layout_weight="0.5"
+                        android:background="#00FFFFFF"
+                        android:gravity="end"
+                        android:scaleY="1.0"
+                        app:srcCompat="@drawable/ic_less" />
 
-            <View
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/white"
-                android:layout_marginBottom="20dp"
-                />
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="center"
-                android:text="Dodawanie kraju"
-                android:textColor="@color/white"
-                android:textSize="22sp" />
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white" />
 
-            <com.drzymalski.covidinfo.ui.settings.CustomSearchableSpinner
-                style="@android:style/Widget.Spinner.DropDown"
-                app:hintText="Wybierz kraj"
+                <LinearLayout
+                    android:id="@+id/statisticsCountriesLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
 
-                android:id="@+id/spinner_view"
-                android:layout_width="200dp"
-                android:layout_height="50sp"
-                android:layout_marginEnd="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
 
-                <Button
-                    android:id="@+id/addColorBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50sp"
-                    android:paddingStart="30dp"
-                    android:paddingEnd="30dp"
+                    android:visibility="visible">
 
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@android:color/white" />
 
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="#5C6BC0"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="Wybierz kolor"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/addCountryBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginEnd="40dp"
-                android:background="@drawable/rounded_button"
-                android:backgroundTint="#5C6BC0"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Dodaj kraj"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/vaccineInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="center"
-                android:text="Dane dotyczące szczepionek nie są jeszcze dostępne w takim samym stopniu jak dane dotyczące zakażeń, stąd zmniejszona ilość pańśtw w tej liście."
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:visibility="gone"/>
-
-            <View
-                android:layout_marginBottom="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/white"
-                />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/closeBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-
-                    android:layout_marginStart="10dp"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="#F44336"
-                    android:paddingStart="30dp"
-                    android:paddingEnd="30dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="Anuluj"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="Dodawanie kraju"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="22sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.drzymalski.covidinfo.ui.settings.CustomSearchableSpinner
+                        android:id="@+id/spinner_view"
+                        style="@android:style/Widget.Spinner.DropDown"
+
+                        android:layout_width="200dp"
+                        android:layout_height="50sp"
+                        android:layout_marginEnd="20dp"
+                        app:hintText="Wybierz kraj"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+
+                        />
+
+                    <Button
+                        android:id="@+id/addColorBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="#5C6BC0"
+
+                        android:fontFamily="@font/roboto_medium"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        android:text="Wybierz kolor"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
                 <Button
-                    android:id="@+id/saveBtn"
+                    android:id="@+id/addCountryBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:paddingStart="30dp"
-                    android:paddingEnd="30dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="40dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="#5C6BC0"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="Zapisz"
+                    android:fontFamily="@font/roboto_medium"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:text="Dodaj kraj"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/vaccineInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="Dane dotyczące szczepionek nie są jeszcze dostępne w takim samym stopniu jak dane dotyczące zakażeń, stąd zmniejszona ilość pańśtw w tej liście."
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@android:color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/closeBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="#F44336"
+                        android:fontFamily="@font/roboto_medium"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        android:text="Anuluj"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:id="@+id/saveBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/rounded_button"
+                        android:backgroundTint="#5C6BC0"
+                        android:fontFamily="@font/roboto_medium"
+                        android:paddingStart="30dp"
+                        android:paddingEnd="30dp"
+                        android:text="Zapisz"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
 
-</LinearLayout>
-
-</ScrollView>
+    </ScrollView>
 </RelativeLayout>

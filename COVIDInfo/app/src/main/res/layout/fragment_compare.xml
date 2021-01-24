@@ -6,10 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".ui.compare.CompareFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topNavBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/statisticsMenuBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:background="#00FFFFFF"
+            android:padding="30dp"
+            app:layout_anchorGravity="end|bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_menu_button" />
+
+        <TextView
+            android:id="@+id/suspicionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/topNavBar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+<<<<<<< Updated upstream
+            android:fontFamily="@font/roboto"
+=======
+            android:fontFamily="@font/roboto_medium"
+>>>>>>> Stashed changes
+            android:text="Porównanie"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#182075">
+        android:layout_marginTop="80dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/root_layout"
@@ -20,27 +67,13 @@
             <RelativeLayout
                 android:id="@+id/statisticsHeader"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/statisticsBackground"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:src="@drawable/side_nav_bar" />
-
-                <ImageButton
-                    android:id="@+id/statisticsMenuBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#00FFFFFF"
-                    android:padding="20dp"
-                    app:layout_anchorGravity="end|bottom"
-                    app:srcCompat="@drawable/ic_menu_button" />
+                    android:layout_height="130dp"
+                    android:src="@color/colorPrimaryDark" />
 
                 <ImageButton
                     android:id="@+id/statisticsSettingsBtn"
@@ -81,10 +114,10 @@
                     android:layout_marginEnd="-50dp"
                     android:layout_marginBottom="15dp"
                     android:fontFamily="@font/roboto"
-                    android:text="Dni wstecz"
+                    android:text="Ilość dni"
                     android:textAlignment="center"
                     android:textColor="#73FFFFFF"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/statisticsPoland"
@@ -92,19 +125,19 @@
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/statisticsBackground"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="35dp"
                     android:layout_marginBottom="15dp"
                     android:fontFamily="@font/roboto"
                     android:text="Odśwież"
                     android:textColor="#73FFFFFF"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <NumberPicker
                     android:id="@+id/daysPicker"
                     android:layout_width="50dp"
                     android:layout_height="90dp"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignBottom="@+id/statisticsSettingsBtn"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginBottom="-10dp"
                     android:theme="@style/MyNumberPickerTheme" />
 
@@ -121,24 +154,6 @@
                     android:textColor="#73FFFFFF"
                     android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/statisticsTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/statisticsBackground"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginTop="27dp"
-                    android:layout_marginEnd="100dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="Porównanie"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30sp" />
-
             </RelativeLayout>
 
             <LinearLayout
@@ -151,19 +166,26 @@
                     android:id="@+id/newCasesGraphText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="35dp"
                     android:layout_marginTop="35dp"
+                    android:layout_marginBottom="35dp"
+<<<<<<< Updated upstream
                     android:fontFamily="@font/roboto_medium"
+=======
+                    android:fontFamily="@font/roboto"
+>>>>>>> Stashed changes
                     android:gravity="center"
                     android:text="Średnia nowych zakażeń"
-                    android:textColor="#B1B1B1"
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="15dp">
 
                     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                         android:id="@+id/aaChartViewNewCases"
@@ -182,17 +204,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/roboto"
                     android:gravity="center"
                     android:text="Suma zachorowań"
-                    android:textColor="#B1B1B1"
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="15dp">
 
                     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                         android:id="@+id/aaChartViewTotalCases"
@@ -211,17 +236,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/roboto"
                     android:gravity="center"
                     android:text="Aktywne przypadki"
-                    android:textColor="#B1B1B1"
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="15dp">
 
                     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                         android:id="@+id/aaChartViewActiveCases"
@@ -240,17 +268,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/roboto"
                     android:gravity="center"
+<<<<<<< Updated upstream
                     android:text="Średnia Ozdrowień"
-                    android:textColor="#B1B1B1"
+=======
+                    android:text="Średnia ozdrowień"
+>>>>>>> Stashed changes
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="15dp">
 
                     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                         android:id="@+id/aaChartViewRecovered"
@@ -269,17 +304,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/roboto_medium"
+                    android:fontFamily="@font/roboto"
                     android:gravity="center"
+<<<<<<< Updated upstream
                     android:text="Średnia Ofiar Smiertelnych"
-                    android:textColor="#B1B1B1"
+=======
+                    android:text="Średnia ofiar śmiertelnych"
+>>>>>>> Stashed changes
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="15dp">
 
                     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                         android:id="@+id/aaChartViewDied"

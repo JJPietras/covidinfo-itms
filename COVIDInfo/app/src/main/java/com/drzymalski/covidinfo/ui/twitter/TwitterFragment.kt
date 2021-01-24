@@ -137,7 +137,12 @@ class TwitterFragment : Fragment() {
                             LayoutParams.WRAP_CONTENT // CardView height
                         )
 
-                        cvLayoutParams.setMargins(0, 70, 0, 35)
+<<<<<<< Updated upstream
+                        cvLayoutParams.setMargins(0, 50, 0, 0)
+=======
+                        cvLayoutParams.setMargins(40, 70, 40, 35)
+                        cardView.cardElevation = 50F
+>>>>>>> Stashed changes
                         cardView.layoutParams = cvLayoutParams
 
                         cardView.setCardBackgroundColor(
@@ -151,7 +156,7 @@ class TwitterFragment : Fragment() {
                         //tło
                         val imageView = ImageView(requireContext())
 
-                        imageView.setImageResource(R.drawable.side_nav_bar)
+                        imageView.setImageResource(R.color.plotBgColor)
 
                         imageView.layoutParams = LayoutParams(
                             LayoutParams.MATCH_PARENT,

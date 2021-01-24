@@ -6,10 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".ui.vaccine.VaccineFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topNavBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/vaccineMenuBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:background="#00FFFFFF"
+            android:padding="30dp"
+            app:layout_anchorGravity="end|bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_menu_button" />
+
+        <TextView
+            android:id="@+id/vaccineTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/topNavBar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Szczepionki"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+
+            android:id="@+id/vaccineSettingsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+
+            android:layout_marginEnd="10dp"
+            android:background="#00FFFFFF"
+            android:padding="30dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_settings" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <ScrollView
         android:id="@+id/vaccineScroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,16 +84,15 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/vaccineTitleCard"
                 android:layout_width="fill_parent"
-                android:layout_height="600dp"
+                android:layout_height="550dp"
                 android:layout_marginTop="-45dp"
                 android:visibility="visible"
-                app:cardBackgroundColor="#00FFFFFF"
-                app:cardCornerRadius="50dp">
+                app:cardBackgroundColor="#00FFFFFF">
 
                 <RelativeLayout
                     android:id="@+id/vaccineTopLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     tools:visibility="visible">
 
                     <ImageView
@@ -42,52 +100,9 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:contentDescription="@string/vaccine_content_desc_background"
-                        android:src="@drawable/side_nav_bar"
+                        android:src="@color/colorPrimaryDark"
                         tools:visibility="visible" />
 
-                    <ImageButton
-                        android:id="@+id/vaccineMenuBtn"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginStart="28dp"
-                        android:layout_marginTop="68dp"
-                        android:background="#00FFFFFF"
-                        android:contentDescription="@string/vaccine_content_desc_menu_btn"
-                        app:layout_anchorGravity="end|bottom"
-                        app:srcCompat="@drawable/ic_menu_button" />
-
-                    <ImageButton
-
-                        android:id="@+id/vaccineSettingsBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-
-                        android:layout_marginTop="40dp"
-                        android:layout_marginEnd="10dp"
-                        android:background="#00FFFFFF"
-                        android:padding="30dp"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/ic_settings" />
-
-                    <TextView
-                        android:id="@+id/vaccineTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignTop="@id/vaccineTopBackground"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="70dp"
-                        android:fontFamily="@font/roboto"
-                        android:text="@string/vaccine_main_title"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/vacc"
@@ -97,9 +112,9 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginTop="78dp"
                         android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/roboto_bold"
+                        android:fontFamily="@font/roboto"
                         android:text="@string/vaccine_main_subtitle"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"
@@ -124,10 +139,10 @@
                         android:layout_below="@+id/vaccineAnimation"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="-40dp"
-                        android:layout_marginEnd="5dp"
-                        android:fontFamily="@font/roboto_bold"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/roboto_medium"
                         android:text="@string/vaccine_main_content"
                         android:textAlignment="center"
                         android:textColor="#ABFFFFFF"
@@ -137,9 +152,8 @@
                         android:id="@+id/vaccinePickPoland"
                         android:layout_width="400dp"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/vaccineSubTitleDesc"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="300dp"
                         android:layout_marginEnd="220dp"
                         android:layout_marginBottom="20dp"
                         android:height="55dp"
@@ -155,9 +169,8 @@
                         android:id="@+id/vaccinePickCompare"
                         android:layout_width="400dp"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/vaccineSubTitleDesc"
                         android:layout_marginStart="220dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="300dp"
                         android:layout_marginEnd="30dp"
                         android:layout_marginBottom="20dp"
                         android:height="55dp"
@@ -168,34 +181,6 @@
                         android:text="Porównanie"
                         android:textColor="#C1FFFFFF"
                         android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/vaccineCount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/vacc"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="110dp"
-                        android:layout_marginEnd="30dp"
-                        android:fontFamily="@font/roboto_bold"
-                        android:text="0.0K"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="42dp" />
-
-                    <TextView
-                        android:id="@+id/vaccinePercentage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/vacc"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="30dp"
-                        android:fontFamily="@font/roboto_bold"
-                        android:text="0.0%"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="42dp" />
 
                 </RelativeLayout>
 
@@ -208,8 +193,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="-50dp"
                 android:background="@color/mainBgColor"
-                android:orientation="vertical"
-                tools:visibility="visible">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/vaccinationGraphText"
@@ -217,17 +201,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="70dp"
                     android:layout_marginBottom="25dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
                     android:text="@string/vaccinations_graph"
-                    android:textColor="#B1B1B1"
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="15dp">
 
                     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                         android:id="@+id/aaChartViewVaccinations"
@@ -247,10 +234,10 @@
                     android:layout_height="wrap_content"
 
                     android:layout_marginBottom="35dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/roboto_medium"
                     android:gravity="center"
                     android:text="@string/vaccination_percentage"
-                    android:textColor="#B1B1B1"
+                    android:textColor="@color/textColorOnPrimary"
                     android:textSize="30sp"
 
                     />
@@ -258,8 +245,11 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="15dp">
 
                     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                         android:id="@+id/aaChartViewVaccinationPercentage"
@@ -275,209 +265,211 @@
             </LinearLayout>
 
 
-                <LinearLayout
-                    android:id="@+id/vaccineWorthArguments"
+            <LinearLayout
+                android:id="@+id/vaccineWorthArguments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00838F"
+
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/vaccineWorthTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#00838F"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="0dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/why_vaccinate"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp" />
 
-                    android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/vaccineWorthArgument1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+
+                    tools:visibility="visible">
+
                     <TextView
-                        android:id="@+id/vaccineWorthTitle"
+                        android:id="@+id/vaccineWorthTitle1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="18dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginEnd="50dp"
+
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="11dp"
+
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/save_live"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/vaccineWorthImage1"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+
+                        android:layout_below="@+id/vaccineWorthTitle1"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/actions_content_desc_first_img"
+
+                        app:srcCompat="@drawable/pfizer" />
+
+                    <TextView
+                        android:id="@+id/vaccineWorthText1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vaccineWorthTitle1"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="-10dp"
+                        android:layout_toStartOf="@+id/vaccineWorthImage1"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/stop_covid"
+                        android:textColor="#ABFFFFFF"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/vaccineWorthArgument2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    tools:visibility="visible">
+
+
+                    <ImageView
+                        android:id="@+id/vaccineWorthImage2"
+                        android:layout_width="180dp"
+                        android:layout_height="180dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="40dp"
+                        android:contentDescription="@string/actions_content_desc_second_img"
+
+                        app:srcCompat="@drawable/moderna" />
+
+                    <TextView
+                        android:id="@+id/vaccineWorthTitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_toEndOf="@+id/vaccineWorthImage2"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="@string/why_vaccinate"
+                        android:text="@string/stop_covid2"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/vaccineWorthText2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vaccineWorthTitle2"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_toEndOf="@+id/vaccineWorthImage2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/save_close_ones"
+                        android:textColor="#90FFFFFF"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/vaccineWorthText2note"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vaccineWorthText2"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/roboto"
+                        android:text="@string/vaccine_minimum50"
+                        android:textAlignment="center"
+                        android:textColor="#90FFFFFF"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/vaccineWorthArgument3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+
+                    tools:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/vaccineWorthArgument4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    tools:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/vaccineWorthArgument5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/vaccineWorthTitle5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/vaccine_inspection"
+                        android:textAlignment="center"
                         android:textColor="#FFFFFF"
                         android:textSize="24sp" />
 
-                    <RelativeLayout
-                        android:id="@+id/vaccineWorthArgument1"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
+                </RelativeLayout>
 
+                <RelativeLayout
+                    android:id="@+id/vaccineWorthArgument6"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    tools:visibility="visible" />
 
-                        tools:visibility="visible">
+                <TextView
+                    android:id="@+id/vaccineWorthSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/vaccine_research"
+                    android:textAlignment="center"
+                    android:textColor="#90FFFFFF"
+                    android:textSize="16sp" />
 
-                        <TextView
-                            android:id="@+id/vaccineWorthTitle1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginStart="18dp"
-                            android:layout_marginTop="11dp"
-
-                            android:layout_marginEnd="15dp"
-                            android:fontFamily="@font/roboto_medium"
-                            android:text="@string/save_live"
-                            android:textColor="#FFFFFF"
-                            android:textSize="20sp" />
-
-                        <ImageView
-                            android:id="@+id/vaccineWorthImage1"
-                            android:layout_width="180dp"
-                            android:layout_height="180dp"
-
-                            android:layout_below="@+id/vaccineWorthTitle1"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginTop="0dp"
-                            android:layout_marginEnd="10dp"
-                            android:contentDescription="@string/actions_content_desc_first_img"
-                            android:src="@drawable/pfizer"
-                            app:srcCompat="@drawable/pfizer" />
-
-                        <TextView
-                            android:id="@+id/vaccineWorthText1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/vaccineWorthTitle1"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginStart="18dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="-10dp"
-                            android:layout_toStartOf="@+id/vaccineWorthImage1"
-                            android:fontFamily="@font/roboto"
-                            android:text="@string/stop_covid"
-                            android:textColor="#ABFFFFFF"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/vaccineWorthArgument2"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        tools:visibility="visible">
-
-
-                        <ImageView
-                            android:id="@+id/vaccineWorthImage2"
-                            android:layout_width="180dp"
-                            android:layout_height="180dp"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="40dp"
-                            android:contentDescription="@string/actions_content_desc_second_img"
-                            android:src="@drawable/moderna"
-                            app:srcCompat="@drawable/moderna" />
-
-                        <TextView
-                            android:id="@+id/vaccineWorthTitle2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentEnd="true"
-
-                            android:layout_marginStart="17dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_toEndOf="@+id/vaccineWorthImage2"
-                            android:fontFamily="@font/roboto_bold"
-                            android:text="@string/stop_covid2"
-                            android:textColor="#FFFFFF"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/vaccineWorthText2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/vaccineWorthTitle2"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginStart="17dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:layout_toEndOf="@+id/vaccineWorthImage2"
-                            android:fontFamily="@font/roboto_medium"
-                            android:text="@string/save_close_ones"
-                            android:textColor="#90FFFFFF"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/vaccineWorthText2note"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/vaccineWorthText2"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginEnd="20dp"
-                            android:layout_marginBottom="20dp"
-                            android:fontFamily="@font/roboto"
-                            android:text="@string/vaccine_minimum50"
-                            android:textAlignment="center"
-                            android:textColor="#90FFFFFF"
-                            android:textSize="12sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/vaccineWorthArgument3"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-
-
-                        tools:visibility="visible"/>
-
-                    <RelativeLayout
-                        android:id="@+id/vaccineWorthArgument4"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        tools:visibility="visible"/>
-
-                    <RelativeLayout
-                        android:id="@+id/vaccineWorthArgument5"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-
-
-                        tools:visibility="visible">
-
-                        <TextView
-                            android:id="@+id/vaccineWorthTitle5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
-
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginEnd="10dp"
-                            android:fontFamily="@font/roboto_medium"
-                            android:text="@string/vaccine_inspection"
-                            android:textAlignment="center"
-                            android:textColor="#FFFFFF"
-                            android:textSize="18sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/vaccineWorthArgument6"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        tools:visibility="visible"/>
-
-                    <TextView
-                        android:id="@+id/vaccineWorthSummary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="17dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="@font/roboto_medium"
-                        android:text="@string/vaccine_research"
-                        android:textAlignment="center"
-                        android:textColor="#90FFFFFF"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
+            </LinearLayout>
 
 
             <RelativeLayout
@@ -494,7 +486,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="24dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="@string/vaccine_sigh_up"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
@@ -504,15 +496,15 @@
                     android:id="@+id/vaccineSignUpText1"
                     android:layout_width="221dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/vaccineSignUpTitle"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="34dp"
-                    android:layout_marginEnd="12dp"
-                    android:layout_toStartOf="@+id/vaccineSignUp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="90dp"
+                    android:layout_marginEnd="175dp"
                     android:fontFamily="@font/roboto_medium"
                     android:text="@string/vaccine_start"
-                    android:textAlignment="viewStart"
+                    android:textAlignment="center"
                     android:textColor="#90FFFFFF"
                     android:textSize="18sp" />
 
@@ -520,9 +512,10 @@
                     android:id="@+id/telephonesSymptomsFirstContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="15dp"
                     android:layout_below="@+id/vaccineSignUp"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/roboto"
                     android:text="@string/vaccine_good"
@@ -530,17 +523,21 @@
                     android:textColor="#90FFFFFF"
                     android:textSize="18sp" />
 
-                <ImageView
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/vaccineSignUp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/vaccineSignUpTitle"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="20dp"
-                    android:layout_below="@id/vaccineSignUpTitle"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginEnd="35dp"
+                    android:layout_marginBottom="10dp"
                     android:contentDescription="@string/actions_content_desc_first_img"
-                    android:src="@drawable/ic_document_sign" />
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/zapis" />
 
                 <Button
                     android:id="@+id/vaccineSignUpButton"
@@ -548,10 +545,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/telephonesSymptomsFirstContent"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="60dp"
+                    android:layout_marginBottom="20dp"
                     android:height="55dp"
                     android:background="@drawable/rounded_button"
                     android:backgroundTint="#4CAF50"

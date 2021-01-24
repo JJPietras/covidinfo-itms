@@ -12,10 +12,7 @@ import android.view.Gravity.CENTER
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
@@ -30,6 +27,9 @@ import com.drzymalski.covidinfo.ui.settings.SettingsView
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import kotlinx.android.synthetic.main.fragment_today.*
+import kotlinx.android.synthetic.main.fragment_today.statisticsChangeCountryBtn
+import kotlinx.android.synthetic.main.fragment_today.statisticsCountriesLayout
+import kotlinx.android.synthetic.main.settings_layout.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch
@@ -96,6 +96,9 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         )
 
         activateLinks()
+
+
+
     }
 
     private fun configureButton(button: ImageButton, dayValue: Int, greater: Boolean) =
@@ -107,6 +110,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                 setData()
             }
             buttonVisibility()
+
         }
 
     private fun configureChart(chart: AAChartView, options: AAOptions) {

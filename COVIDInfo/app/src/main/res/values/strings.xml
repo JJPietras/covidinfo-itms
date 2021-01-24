@@ -20,7 +20,7 @@
     <!-- ### SUSPICION MAIN ### -->
 
     <string name="suspicion_main_title">Podejrzenie Infekcji</string>
-    <string name="suspicion_main_subtitle">Istnieje możliwość, że jesteś zarażony/na wirusem SARS-CoV-2</string>
+    <string name="suspicion_main_subtitle">Czy podejrzewasz u siebie \nzarażenie wirusem SARS-CoV-2?</string>
     <string name="suspicion_main_content">Niniejszy panel wskaże ci wszystkie niezbędne czynności, które należy podjąć aby zminimalizować ryzyko zarażenia innych, a także przedstawi niezbędne kroki umożliwiające uzyskanie fachowej pomocy specjalistów w jak najkrótszym czasie.</string>
     <string name="suspicion_content_desc_background">TODO</string>
     <string name="suspicion_content_desc_menu_btn">TODO</string>
@@ -67,7 +67,7 @@
     <string name="teleHelp_first_sub_content">W przypadku, gdy kontakt nie może zostać nawiązany należy umówić się na teleporadę klikając w poniższy przycisk.</string>
     <string name="teleHelp_second_content">Udając się w miejsca zatłoczone możesz stanowić zagrożenie dla innych. Zadbaj o bezpieczeństwo ludzi w swoim otoczeniu.</string>
     <string name="teleHelp_second_sub_content">Teleporada nie wymaga przybycia do żadnej placówki i może, a co więcej powinna być zrealizowana na przykład poprzez rozmowę telefoniczną.</string>
-    <string name="teleHelp_subtitle">Nie przychodź do przychodni ani na SOR</string>
+    <string name="teleHelp_subtitle">Nie przychodź do przychodni \nani na SOR</string>
     <string name="teleHelp_tele_btn">Teleporada</string>
     <string name="teleHelp_content_desc_first_img">TODO</string>
     <string name="teleHelp_content_desc_second_img">TODO</string>
@@ -79,8 +79,8 @@
     <string name="usefulTelephones_second_subtitle">Jeśli masz pytania związane z koronawirusem, zadzwoń na:</string>
     <string name="usefulTelephones_third_subtitle">Jeżeli masz pytania, a jesteś za granicą, to dzwoń pod numer:</string>
     <string name="usefulTelephones_sub_content">połączenia płatne zgodne z cennikiem operatora</string>
-    <string name="usefulTelephones_first_title">Poniżej znajdują się odnośniki z przydatnymi telefonami.</string>
-    <string name="usefulTelephones_second_title">W przypadku opisanych sytuacji nie wachaj się pod nie dzwonić.</string>
+    <string name="usefulTelephones_first_title">Poniżej znajdują się odnośniki z przydatnymi telefonami. W przypadku opisanych sytuacji nie wahaj się pod nie dzwonić.</string>
+    <string name="usefulTelephones_second_title">-</string>
     <string name="usefulTelephones_telephone_sanitary">Stacja sanitarno-epidemiologiczna</string>
     <string name="usefulTelephones_telephone_info">Infolinia dla przebywających za granicą</string>
     <string name="usefulTelephones_telephone_nfz">Infolinia Narodowego Funduszu Zdrowia</string>
@@ -90,8 +90,8 @@
 
     <string name="nearestHospital_title">Najbliższy szpital zakaźny</string>
     <string name="nearestHospital_disclaimer">Aby użyć przycisku należy zezwolić na udostępnienie swojej lokacji, a także ustawienie wysokiej dokładności. Dane NIE są przechowywane ani przekazywane żadnym osobom trzecim.</string>
-    <string name="nearestHospital_first_subtitle">Możesz wyszukać najbliżej połoszony od ciebie szpital zakaźny.</string>
-    <string name="nearestHospital_second_subtitle">Użycie tej funkcji wymaga posiadania połączenia z internetem.</string>
+    <string name="nearestHospital_first_subtitle">W tej sekcji można wyszukać najbliżej położony szpital zakaźny. Użycie tej funkcji wymaga połączenia z internetem.</string>
+    <string name="nearestHospital_second_subtitle">-</string>
     <string name="nearestHospital_go_to_map">Pokaż na mapie</string>
     <string name="nearestHospital_content_desc_first_img">TODO</string>
     <string name="nearestHospital_content_desc_second_img">TODO</string>
@@ -99,16 +99,16 @@
 
     <!-- VACCINE -->
 
-    <string name="vaccine_main_title">Szczepienia</string>
-    <string name="vaccine_main_subtitle">Narodowy Program Szczepień przeciw COVID-19</string>
-    <string name="vaccine_main_content">Niniejszy panel prezentuje specyfikację szczepionek oraz szczepień. Zawarte są tu informacje i odnośniki do zapisu na szczepienia oraz dane statystyczne wykonanych szczepień Polski oraz innych krajów.</string>
+    <string name="vaccine_main_title">Sczepienia</string>
+    <string name="vaccine_main_subtitle">Szczepionki </string>
+    <string name="vaccine_main_content">Niniejszy panel pokaże Ci wagę sczepionek, jak się na nie zapisać oraz dane statystyczne dotyczące ich.</string>
     <string name="vaccine_content_desc_background">TODO</string>
     <string name="vaccine_content_desc_menu_btn">TODO</string>
     <string name="vaccine_source1">Dane statystyczne z: https://github.com/owid/covid-19-data/blob/master/public/data/vaccinations/vaccinations.csv</string>
 
     <string name="vaccinations_graph">Liczba zaszczepionych</string>
     <string name="vaccination_percentage">Liczba szczepień</string>
-    <string name="why_vaccinate">Przedsiębiorstwa produkujące szczepionki</string>
+    <string name="why_vaccinate">Firmy produkujące szczepionki</string>
     <string name="save_live">Pfizer</string>
     <string name="stop_covid">Skuteczność szczepionki Pfizera szacuje się na około 95%. Podawana dawka jest relatywnie niska i wynosi 30µg. Produkt podawany jest domięśniowo jako cykl 2 dawek (0,3 ml każda) w odstępie co najmniej 21 dni. Szczepionka może nie zapewniać pełnej ochrony przed upływem co najmniej 7 dni od otrzymania drugiej dawki.</string>
     <string name="stop_covid2">Moderna</string>
@@ -118,7 +118,7 @@
     <string name="vaccine_close_ones2">Szczepiąc się, zyskasz wewnętrzny spokój, wynikający z bezpieczeństwa własnego i najbliższych.</string>
     <string name="vaccine_safe">Szczepionki są bezpieczne</string>
     <string name="vaccine_safe2">Szczepionki są badane przez polskie i unijne instytucje. Ich dopuszczenie do użytku jest zależne od decyzji Europejskiej Agencji Lekowej.</string>
-    <string name="vaccine_inspection">Dopuszczenie szczepionek</string>
+    <string name="vaccine_inspection">Zostaniesz zbadany</string>
     <string name="vaccine_heath">Przed szczepieniem zostaniesz przebadany przez lekarza. Dzięki temu sprawdzisz swój aktualny stan zdrowia.</string>
     <string name="vaccine_normal">Dzięki Tobie szybciej wrócimy do normalności!</string>
     <string name="vaccine_normal_reasons">Powrót do normalności oznacza:\n • odejście od maseczek,\n • swobodne spotkania z rodziną i przyjaciółmi,\n • powrót dzieci do szkół i rozwój ich kompetencji społecznych,\n • dalszy rozwój gospodarki,\n • ochronę miejsc pracy oraz szansę na nowe zatrudnienia,\n • swobodny dostęp do basenów, siłowni, kin i teatrów,\n • wakacje bez ograniczeń,\n • poprawę jakości życia nas wszystkich.</string>
