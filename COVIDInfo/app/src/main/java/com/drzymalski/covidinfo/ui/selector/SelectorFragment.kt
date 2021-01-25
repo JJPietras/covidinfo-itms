@@ -5,18 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
-import com.drzymalski.covidinfo.ui.authors.AuthorsFragment
-import com.drzymalski.covidinfo.ui.vaccine.VaccineFragment
-import com.drzymalski.covidinfo.ui.hospitals.HospitalsFragment
-import com.drzymalski.covidinfo.ui.suspicion.SuspicionFragment
-import com.drzymalski.covidinfo.ui.compare.CompareFragment
-import com.drzymalski.covidinfo.ui.todayIllness.TodayIllnessFragment
-import com.drzymalski.covidinfo.ui.twitter.TwitterFragment
 import kotlinx.android.synthetic.main.fragment_selector.*
 
 
@@ -38,11 +30,10 @@ class SelectorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val buttons = collectButtons()
-        val fragments = collectFragments()
-        val navs = collectNavs()
+        val navigators = collectNavigators()
+
         for (i in buttons.indices) {
-            //FragmentBinder.bindToButton(buttons[i], fragments[i], requireActivity())
-            FragmentBinder.bindNavToButton(buttons[i], view, navs[i])
+            FragmentBinder.bindNavToButton(buttons[i], view, navigators[i])
         }
     }
 
@@ -51,11 +42,7 @@ class SelectorFragment : Fragment() {
         selectorSuspicionFragBtn, selectorAuthorsFragBtn
     )
 
-    private fun collectFragments(): Array<Fragment> = arrayOf(
-        TodayIllnessFragment(), CompareFragment(), VaccineFragment(), TwitterFragment(), HospitalsFragment(),
-        SuspicionFragment(), AuthorsFragment()
-    )
-    private fun collectNavs(): Array<Int> = arrayOf(
+    private fun collectNavigators(): Array<Int> = arrayOf(
             R.id.action_nav_selector_to_nav_today, R.id.action_nav_selector_to_nav_compare,
             R.id.action_nav_selector_to_vaccineFragment, R.id.action_nav_selector_to_nav_tweeter,
             R.id.action_nav_selector_to_nav_hospitals, R.id.action_nav_selector_to_nav_suspicion,

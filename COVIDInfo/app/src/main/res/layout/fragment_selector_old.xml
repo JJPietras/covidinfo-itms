@@ -8,38 +8,10 @@
     tools:context=".ui.selector.SelectorFragment">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/topNavBar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/suspicionTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/topNavBar"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/roboto_medium"
-            android:text="Wybór Zakładki"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ScrollView
         android:id="@+id/selector_scroll"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_marginTop="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -51,10 +23,34 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/selectorTitleCard"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                app:cardCornerRadius="40dp"
+                app:cardElevation="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/selectorTitleText"
+                    android:layout_width="fill_parent"
+                    android:layout_height="70dp"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:shadowRadius="30"
+                    android:text="Wybierz Zakładkę"
+                    android:textColor="#EAEAEA"
+                    android:textSize="34dp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:id="@+id/selectorStatsCard"
                 android:layout_width="340dp"
                 android:layout_height="70dp"
-                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorPrimary"
                 app:cardCornerRadius="20dp"
@@ -62,8 +58,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selectorTitleCard">
-
+                app:layout_constraintTop_toBottomOf="@+id/selectorTitleCard"
+                android:layout_gravity="center">
 
                 <RelativeLayout
                     android:id="@+id/selectorStatsLayout"
@@ -81,9 +77,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="#00FFFFFF"
-                        android:contentDescription="TODO"
-                        android:src="@drawable/ic_statistics" />
-
+                        android:src="@drawable/ic_statistics"
+                        android:contentDescription="TODO" />
 
                     <Button
                         android:id="@+id/selectorStatsFragBtn"
@@ -123,14 +118,14 @@
                 android:id="@+id/selectorCompareCard"
                 android:layout_width="340dp"
                 android:layout_height="70dp"
-                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorPrimary"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/selectorStatsCard">
+                app:layout_constraintTop_toBottomOf="@id/selectorStatsCard"
+                android:layout_gravity="center">
 
 
                 <RelativeLayout
@@ -166,8 +161,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="#00FFFFFF"
-                        android:contentDescription="TODO"
-                        android:src="@drawable/ic_compare" />
+                        android:src="@drawable/ic_compare"
+                        android:contentDescription="TODO" />
 
                     <Button
                         android:id="@+id/selectorCompareBtn"
@@ -187,16 +182,14 @@
                 android:id="@+id/selectorVaccineCard"
                 android:layout_width="340dp"
                 android:layout_height="70dp"
-                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorPrimary"
-
                 app:cardCornerRadius="20dp"
                 app:cardElevation="15dp"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selectorCompareCard">
+                app:layout_constraintTop_toBottomOf="@+id/selectorCompareCard"
+                android:layout_gravity="center">
 
                 <RelativeLayout
                     android:id="@+id/selectorVaccineLayout"
@@ -248,19 +241,18 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/selectorTwitterCard"
                 android:layout_width="340dp"
                 android:layout_height="70dp"
-                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorPrimary"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selectorVaccineCard">
+                app:layout_constraintTop_toBottomOf="@+id/selectorVaccineCard"
+                android:layout_gravity="center">
 
                 <RelativeLayout
                     android:id="@+id/selectorTwitterLayout"
@@ -280,7 +272,7 @@
                         android:fontFamily="@font/roboto_medium"
                         android:gravity="center"
                         android:shadowRadius="30"
-                        android:text="Tweety"
+                        android:text="Tweety MZ"
                         android:textColor="#E3E3E3"
                         android:textSize="26sp" />
 
@@ -295,9 +287,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="#00FFFFFF"
-                        android:contentDescription="TODO"
-                        android:src="@drawable/ic_twitter" />
-
+                        android:src="@drawable/ic_twitter"
+                        android:contentDescription="TODO" />
 
                     <Button
                         android:id="@+id/selectorTwitterFragBtn"
@@ -317,14 +308,14 @@
                 android:id="@+id/selectorHospitalsCard"
                 android:layout_width="340dp"
                 android:layout_height="70dp"
-                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorPrimary"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/selectorTwitterCard">
+                app:layout_constraintTop_toBottomOf="@id/selectorTwitterCard"
+                android:layout_gravity="center">
 
                 <RelativeLayout
                     android:id="@+id/selectorHospitalsLayout"
@@ -358,8 +349,8 @@
                         android:layout_marginStart="25dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:contentDescription="TODO"
-                        android:src="@drawable/ic_hospital_large" />
+                        android:src="@drawable/ic_hospital_large"
+                        android:contentDescription="TODO" />
 
                     <Button
                         android:id="@+id/selectorHospitalFragBtn"
@@ -379,14 +370,14 @@
                 android:id="@+id/selectorSuspicionCard"
                 android:layout_width="340dp"
                 android:layout_height="70dp"
-                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorPrimary"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/selectorHospitalsCard">
+                app:layout_constraintTop_toBottomOf="@id/selectorHospitalsCard"
+                android:layout_gravity="center">
 
                 <RelativeLayout
                     android:id="@+id/selectorSusupicionLayout"
@@ -420,8 +411,8 @@
                         android:layout_marginStart="25dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:contentDescription="TODO"
-                        android:src="@drawable/ic_suspicion" />
+                        android:src="@drawable/ic_suspicion"
+                        android:contentDescription="TODO" />
 
                     <Button
                         android:id="@+id/selectorSuspicionFragBtn"
@@ -441,14 +432,14 @@
                 android:id="@+id/selectorAuthorsCard"
                 android:layout_width="340dp"
                 android:layout_height="70dp"
-                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorPrimary"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/selectorSuspicionCard">
+                app:layout_constraintTop_toBottomOf="@id/selectorSuspicionCard"
+                android:layout_gravity="center">
 
                 <RelativeLayout
                     android:id="@+id/selectorAuthorsLayout"
@@ -482,8 +473,8 @@
                         android:layout_marginStart="25dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
-                        android:contentDescription="TODO"
-                        android:src="@drawable/ic_programmer" />
+                        android:src="@drawable/ic_programmer"
+                        android:contentDescription="TODO" />
 
                     <Button
                         android:id="@+id/selectorAuthorsFragBtn"

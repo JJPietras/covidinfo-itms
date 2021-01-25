@@ -3,7 +3,6 @@ package com.drzymalski.covidinfo.ui.hospitals
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.Drawable
-import android.media.Image
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -21,7 +20,6 @@ import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.data.Hospitals
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.lib.Hospital
-import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import kotlinx.android.synthetic.main.fragment_hospitals.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -55,16 +53,13 @@ class HospitalsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*FragmentBinder.bindToButton(
-            view.findViewById<ImageButton>(R.id.hospitalsMenuBtn),
-            SelectorFragment(),
-            requireActivity(),
-            true
-        )*/
+
+
         FragmentBinder.bindNavToButton(
                 view.findViewById<ImageButton>(R.id.hospitalsMenuBtn),
                 view,
                 R.id.action_nav_hospitals_to_nav_selector
+
         )
 
         images = arrayOf(
@@ -147,7 +142,9 @@ class HospitalsFragment : Fragment() {
         hospitalsNextHospital?.setOnClickListener { nextPrevHospital(true) }
         hospitalsPrevHospital?.setOnClickListener { nextPrevHospital(false) }
 
-        hospitalsShowAll?.setOnClickListener { showAll() }
+        hospitalsShowAll?.setOnClickListener {
+            showAll()
+        }
     }
 
     private fun initializeHospitals() {
@@ -190,6 +187,7 @@ class HospitalsFragment : Fragment() {
         for (hospital in currentList!!) {
             createHospitalEntry(hospital)
         }
+
     }
 
     private fun createHospitalEntry(hospital: Hospital) {

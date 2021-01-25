@@ -15,7 +15,7 @@ import com.drzymalski.covidinfo.dataUtils.VaccineStats
 
 class VaccineInitializer: DataInitializer {
 
-    private var stats = VaccineStats()
+    var stats = VaccineStats()
     var compareDates = mutableListOf<String>()
     var compareStats = mutableListOf<VaccineStats>()
 

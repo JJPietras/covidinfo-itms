@@ -12,6 +12,9 @@ class VaccineStats {
 
     var country: CountryConfig = CountryConfig()
 
+    var totalVaccinated = 0
+    var vaccinationPercentage = 0f
+
     private fun clearData(){
         datesList.clear()
         vaccineDoses.clear()
@@ -45,7 +48,11 @@ class VaccineStats {
                 lastDaily = temp2
             }
             else vaccineDaily.plusAssign(lastGiven)
+
+            if (vaccineOnDay.people_vaccinated_per_hundred!=null)
+                vaccinationPercentage = vaccineOnDay.people_vaccinated_per_hundred
         }
+        totalVaccinated = lastGiven
 
     }
 }

@@ -71,12 +71,7 @@ class TwitterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*FragmentBinder.bindToButton(
-            view.findViewById<ImageButton>(R.id.twitterMenuBtn),
-            SelectorFragment(),
-            requireActivity(),
-            true
-        )*/
+
         FragmentBinder.bindNavToButton(
                 view.findViewById<ImageButton>(R.id.twitterMenuBtn),
                 view,
@@ -142,7 +137,10 @@ class TwitterFragment : Fragment() {
                             LayoutParams.WRAP_CONTENT // CardView height
                         )
 
-                        cvLayoutParams.setMargins(0, 70, 0, 35)
+
+                        cvLayoutParams.setMargins(40, 70, 40, 35)
+                        cardView.cardElevation = 50F
+
                         cardView.layoutParams = cvLayoutParams
 
                         cardView.setCardBackgroundColor(
@@ -156,7 +154,7 @@ class TwitterFragment : Fragment() {
                         //tło
                         val imageView = ImageView(requireContext())
 
-                        imageView.setImageResource(R.drawable.side_nav_bar)
+                        imageView.setImageResource(R.color.plotBgColor)
 
                         imageView.layoutParams = LayoutParams(
                             LayoutParams.MATCH_PARENT,

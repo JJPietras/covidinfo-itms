@@ -86,6 +86,7 @@ open class SettingsView(
 
         spinner.setTitle("Wybierz kraj")
 
+
         saveBtn = settingsView.findViewById(R.id.saveBtn)
         closeBtn = settingsView.findViewById(R.id.closeBtn)
 
