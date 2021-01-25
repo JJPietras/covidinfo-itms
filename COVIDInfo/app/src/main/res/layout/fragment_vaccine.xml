@@ -504,7 +504,7 @@
             <RelativeLayout
                 android:id="@+id/telephonesLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="450dp"
                 android:background="#388E3C"
                 tools:visibility="visible">
 
@@ -555,14 +555,14 @@
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/vaccineSignUp"
 
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
                     android:layout_below="@id/vaccineSignUpTitle"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="35dp"
                     android:layout_marginBottom="10dp"
                     android:contentDescription="@string/actions_content_desc_first_img"
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/zapis" />
