@@ -180,13 +180,13 @@
 
                         android:background="@drawable/rounded_button"
                         android:backgroundTint="#5C6BC0"
-
+                        android:maxLines="2"
                         android:fontFamily="@font/roboto_medium"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
                         android:text="Wybierz kolor"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -204,8 +204,9 @@
                     android:paddingStart="30dp"
                     android:paddingEnd="30dp"
                     android:text="Dodaj kraj"
+                    android:maxLines="2"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/vaccineInfo"
@@ -243,9 +244,10 @@
                         android:background="@drawable/rounded_button"
                         android:backgroundTint="#F44336"
                         android:fontFamily="@font/roboto_medium"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
                         android:text="Anuluj"
+                        android:layout_weight="2"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
 
@@ -260,9 +262,11 @@
                         android:background="@drawable/rounded_button"
                         android:backgroundTint="#5C6BC0"
                         android:fontFamily="@font/roboto_medium"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="0dp"
                         android:text="Zapisz"
+                        android:layout_weight="2"
+                        android:maxLines="1"
                         android:textColor="@color/white"
                         android:textSize="20sp" />
                 </LinearLayout>

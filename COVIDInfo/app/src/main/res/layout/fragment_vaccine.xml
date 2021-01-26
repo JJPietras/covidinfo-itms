@@ -127,6 +127,7 @@
                         android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-40dp"
+
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true"
                         app:lottie_rawRes="@raw/strzykawka" />
@@ -147,41 +148,6 @@
                         android:textColor="#ABFFFFFF"
                         android:textSize="18sp" />
 
-                    <Button
-                        android:id="@+id/vaccinePickPoland"
-                        android:layout_width="400dp"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/vaccineSubTitleDesc"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="220dp"
-                        android:layout_marginBottom="20dp"
-                        android:height="55dp"
-                        android:background="@drawable/rounded_button"
-                        android:backgroundTint="#ed135c"
-                        android:fontFamily="@font/roboto_bold"
-                        android:gravity="center"
-                        android:text="Polska"
-                        android:textColor="#C1FFFFFF"
-                        android:textSize="18sp" />
-
-                    <Button
-                        android:id="@+id/vaccinePickCompare"
-                        android:layout_width="400dp"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/vaccineSubTitleDesc"
-                        android:layout_marginStart="220dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginBottom="20dp"
-                        android:height="55dp"
-                        android:background="@drawable/rounded_button"
-                        android:backgroundTint="#4CAF50"
-                        android:fontFamily="@font/roboto_bold"
-                        android:gravity="center"
-                        android:text="Porównanie"
-                        android:textColor="#C1FFFFFF"
-                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/vaccineCount"
@@ -211,6 +177,54 @@
                         android:textColor="#FFFFFF"
                         android:textSize="42dp" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+
+                        android:gravity="center"
+                        android:layout_marginTop="0dp"
+                        android:layout_below="@+id/vaccineSubTitleDesc"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/vaccinePickPoland"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:height="55dp"
+                            android:background="@drawable/rounded_button"
+                            android:backgroundTint="#ed135c"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:text="Polska"
+                            android:textColor="#C1FFFFFF"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/vaccinePickCompare"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_marginBottom="20dp"
+                            android:height="55dp"
+                            android:background="@drawable/rounded_button"
+                            android:backgroundTint="#4CAF50"
+                            android:fontFamily="@font/roboto_bold"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:layout_weight="1"
+                            android:text="Porównanie"
+                            android:textColor="#C1FFFFFF"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
@@ -222,6 +236,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="-50dp"
                 android:background="@color/mainBgColor"
+
                 android:orientation="vertical">
 
                 <TextView
@@ -541,10 +556,9 @@
                     android:id="@+id/telephonesSymptomsFirstContent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/vaccineSignUp"
+                    android:layout_below="@+id/vaccineSignUpButton"
                     android:layout_centerHorizontal="true"
                     android:layout_marginHorizontal="15dp"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/roboto"
                     android:text="@string/vaccine_good"
@@ -563,6 +577,8 @@
                     android:layout_marginEnd="35dp"
                     android:layout_marginBottom="10dp"
                     android:contentDescription="@string/actions_content_desc_first_img"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/zapis" />
@@ -571,10 +587,11 @@
                     android:id="@+id/vaccineSignUpButton"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/telephonesSymptomsFirstContent"
+                    android:layout_below="@+id/vaccineSignUp"
+
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="60dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="60dp"
                     android:layout_marginBottom="20dp"
                     android:height="55dp"
