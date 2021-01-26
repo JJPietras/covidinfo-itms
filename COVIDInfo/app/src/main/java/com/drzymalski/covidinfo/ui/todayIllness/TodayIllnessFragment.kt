@@ -321,10 +321,15 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
     override fun applySettings(countries: MutableList<CountryConfig>, daysBack: Long){
         this.initializer.config.config.countries = countries
         this.initializer.config.config.daysBackToday = daysBack
-        this.initializer.config.saveConfig()
+        this.initializer.config.config.selectedCountry.color =
+                countries.find { it.code == this.initializer.config.config.selectedCountry.code }?.color
+                ?: this.initializer.config.config.selectedCountry.color
+
+        this.initializer.config.saveConfig( )
 
         loadDataAndRefresh()
         refreshButtons()
+        changeSelectCountryButtonColor()
     }
 
     private fun refreshButtons(){
@@ -346,10 +351,14 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
             startActivity(browserIntent)
         }*/
     }
-    
+
     private fun changeSelectCountryButtonColor(){
-        val color = ColorStateList.valueOf(Color.parseColor(initializer.config.config.selectedCountry.color))
-        statisticsChangeCountryBtn.backgroundTintList = color
+        try{
+            val color = ColorStateList.valueOf(Color.parseColor(initializer.config.config.selectedCountry.color))
+            statisticsChangeCountryBtn.backgroundTintList = color
+        }catch (ex: Exception){ // No action will be taken
+            println(ex)
+        }
     }
 
 }
