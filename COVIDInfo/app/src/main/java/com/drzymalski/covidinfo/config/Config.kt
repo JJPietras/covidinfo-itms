@@ -37,9 +37,24 @@ class Config {
         return DateConverter.formatDateFull(out)
     }
 
+    fun getDateFromSummary(): String{
+        val date: LocalDateTime = LocalDateTime.now().minusDays(5)
+        val out: Date = Date.from(date.atZone(ZoneId.systemDefault()).toInstant())
+        return DateConverter.formatDateFull(out)
+    }
+
     fun getCompareRequest(): String{
         var str = ""
         countriesToCompare.forEach { country ->
+            str += if (str=="") "iso3166_1=" + country.code
+            else " or iso3166_1=" + country.code
+        }
+        return str
+    }
+
+    fun getSummaryRequest(): String{
+        var str = ""
+        countries.forEach { country ->
             str += if (str=="") "iso3166_1=" + country.code
             else " or iso3166_1=" + country.code
         }

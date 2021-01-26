@@ -174,7 +174,12 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
             })
 
             initializer.config.config.countries.forEach{ countryConfig ->
-                val data = initializer.summaryData?.Countries?.find { countryConfig.slug == it.Slug }
+                val data = initializer.newSummaryData?.dataProvider?.filter { countryConfig.code == it.iso3166_1 }
+
+                var newCases:Int = 0
+
+                if (data != null)
+                    newCases = data[data.size.minus(1)].cnt_confirmed - data[data.size.minus(2)].cnt_confirmed
 
                 val button = Button(this.context).apply {
                     layoutParams = LinearLayout.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,
@@ -229,7 +234,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                     gravity = CENTER
                     textSize = 20f
                     setTextColor(Color.parseColor("#FFFFFF"))
-                    text = if (data == null || data.NewConfirmed == 0) "brak danych" else "${data.NewConfirmed} zakażeń"
+                    text = if (newCases == 0) "" else "$newCases zakażeń"
                 }
 
                 child.addView(tvCountry)
@@ -242,7 +247,6 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                 statisticsCountriesLayout?.post(Runnable {
                     statisticsCountriesLayout?.addView(parent)
                 })
-
             }
         } catch (ex: Exception){ // No action will be taken
             println(ex)
@@ -328,10 +332,10 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://documenter.getpostman.com/view/2220438/SzYevv9u?version=latest"))
             startActivity(browserIntent)
         }
-        todaySource2.setOnClickListener {
+        /*todaySource2.setOnClickListener {
             val browserIntent =
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://documenter.getpostman.com/view/10808728/SzS8rjbc"))
             startActivity(browserIntent)
-        }
+        }*/
     }
 }

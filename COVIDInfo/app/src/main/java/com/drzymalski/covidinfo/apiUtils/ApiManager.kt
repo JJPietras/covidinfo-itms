@@ -47,8 +47,8 @@ class ApiManager {
             return  Gson().fromJson(getJSONFromApi(url), listPersonType)
         }
 
-        fun getCovidDataFromNewApiFromMultipleCountries(dateFrom: String, config: Config): DataProvider {
-            val str = config.getCompareRequest()
+        fun getCovidDataFromNewApiFromMultipleCountries(dateFrom: String, config: Config, summary: Boolean=false): DataProvider {
+            val str = if (summary) config.getSummaryRequest() else config.getCompareRequest()
             val url= "$BASE_URL_NEW/query/int/jhu_country/select?cols=iso3166_1,date_stamp,cnt_confirmed,cnt_death,cnt_recovered,cnt_active&where=(($str) and date_stamp>='$dateFrom')&format=amcharts&limit=5000"
             val listPersonType = object : TypeToken<DataProvider>() {}.type
             return  Gson().fromJson(getJSONFromApi(url), listPersonType)
