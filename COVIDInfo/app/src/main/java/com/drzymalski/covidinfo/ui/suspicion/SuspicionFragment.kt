@@ -14,7 +14,7 @@ import android.widget.ProgressBar
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.drzymalski.covidinfo.R
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.lib.Hospital
@@ -22,11 +22,9 @@ import com.drzymalski.covidinfo.lib.SwitchableButton
 import com.drzymalski.covidinfo.lib.buttonManagers.CalculateButtonManager
 import com.drzymalski.covidinfo.lib.buttonManagers.SwitchButtonManager
 import com.drzymalski.covidinfo.lib.buttonManagers.TeleHelpButtonManager
-import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.github.ybq.android.spinkit.sprite.Sprite
 import com.github.ybq.android.spinkit.style.DoubleBounce
 import kotlinx.android.synthetic.main.fragment_suspicion.*
-
 
 class SuspicionFragment : Fragment() {
 
@@ -45,7 +43,7 @@ class SuspicionFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(this).get(SuspicionViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SuspicionViewModel::class.java)
         return inflater.inflate(R.layout.fragment_suspicion, container, false)
     }
 
@@ -139,6 +137,5 @@ class SuspicionFragment : Fragment() {
                 view.findViewById<ImageButton>(R.id.suspicionMenuBtn),
                 view,
                 R.id.action_nav_suspicion_to_nav_selector
-
         )
 }

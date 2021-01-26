@@ -47,88 +47,20 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/icon6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/authorsIcons"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/icon8"
-                android:fontFamily="@font/roboto"
-                android:text="@string/bqlqn"
-                android:textAlignment="center"
-                android:textColor="#7CB342"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/icon4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/icon6"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/icon5"
-                android:fontFamily="@font/roboto"
-                android:text="@string/freepik"
-                android:textColor="#7CB342"
-                android:textSize="16sp" />
-
-            <TextView
                 android:id="@+id/authorsProjectSub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="150dp"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="60dp"
-                android:layout_marginEnd="150dp"
+                android:layout_marginEnd="50dp"
                 android:fontFamily="@font/roboto"
                 android:text="@string/authors_project"
                 android:textAlignment="center"
                 android:textColor="#9CFFFFFF"
                 android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/icon1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/authorsIcons"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto"
-                android:text="@string/vitali"
-                android:textAlignment="center"
-                android:textColor="#7CB342"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/icon5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/icon8"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/icon2"
-                android:fontFamily="@font/roboto"
-                android:text="@string/pixel_meetup"
-                android:textColor="#7CB342"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/icon2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/icon7"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/icon3"
-                android:fontFamily="@font/roboto"
-                android:text="@string/vectors_market"
-                android:textAlignment="center"
-                android:textColor="#7CB342"
-                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/logo"
@@ -145,33 +77,6 @@
                 android:scaleY="1"
                 android:src="@drawable/ic_covid_info"
                 tools:scaleType="centerCrop" />
-
-            <TextView
-                android:id="@+id/icon3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/icon1"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto"
-                android:text="@string/monkik"
-                android:textColor="#7CB342"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/icon8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/authorsIcons"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/icon7"
-                android:fontFamily="@font/roboto"
-                android:text="@string/dimitri13"
-                android:textAlignment="center"
-                android:textColor="#7CB342"
-                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/authorsPatryk"
@@ -197,10 +102,26 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/authors_icons"
+                android:textAlignment="center"
+                android:textColor="#A4FFFFFF"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/authorsFlatIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/authorsIcons"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Animowane ikony ze strony: https://lottiefiles.com"
                 android:textAlignment="center"
                 android:textColor="#A4FFFFFF"
                 android:textSize="16sp" />
@@ -221,35 +142,129 @@
                 android:textColor="#D8FFFFFF"
                 android:textSize="30sp" />
 
+            <LinearLayout
+                android:id="@+id/layout_souces1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/authorsFlatIcon"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/icon1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/vitali"
+                    android:textAlignment="center"
+                    android:textColor="#7CB342"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/icon7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/roundicons"
+                    android:textAlignment="center"
+                    android:layout_marginStart="15dp"
+                    android:textColor="#7CB342"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/icon3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:layout_marginStart="15dp"
+                    android:text="@string/monkik"
+                    android:textColor="#7CB342"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/icon6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/bqlqn"
+                    android:textAlignment="center"
+                    android:textColor="#7CB342"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_souces2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/layout_souces1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/icon2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/vectors_market"
+                    android:textAlignment="center"
+                    android:textColor="#7CB342"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/icon8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/dimitri13"
+                    android:textAlignment="center"
+                    android:textColor="#7CB342"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/icon4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/freepik"
+                    android:textColor="#7CB342"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/icon5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/pixel_meetup"
+                    android:textColor="#7CB342"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/authorsYear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/authorsIcons"
+                android:layout_below="@+id/layout_souces2"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="75dp"
-                android:layout_marginEnd="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="0dp"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/authors_year"
                 android:textAlignment="center"
                 android:textColor="#D8FFFFFF"
                 android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/icon7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/authorsIcons"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/icon1"
-                android:fontFamily="@font/roboto"
-                android:text="@string/roundicons"
-                android:textAlignment="center"
-                android:textColor="#7CB342"
-                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/authorsProjectTitle"

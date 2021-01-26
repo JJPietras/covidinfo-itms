@@ -229,7 +229,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                     gravity = CENTER
                     textSize = 20f
                     setTextColor(Color.parseColor("#FFFFFF"))
-                    text = if (data == null) "brak danych" else "${data.NewConfirmed} zakażeń"
+                    text = if (data == null || data.NewConfirmed == 0) "brak danych" else "${data.NewConfirmed} zakażeń"
                 }
 
                 child.addView(tvCountry)
