@@ -31,7 +31,6 @@ class TodayIllnessInitializer: DataInitializer {
         try {
             //summaryData = ApiManager.getSummaryFromApi()
             newSummaryData = ApiManager.getCovidDataFromNewApiFromMultipleCountries(config.config.getDateFromSummary(), config.config, summary = true)
-            print(newSummaryData)
            /* summaryData!!.Countries = summaryData!!.Countries.filter{config.config.countries
                 .map{ countryConfig -> countryConfig.slug }.contains(it.Slug)}*/
         }catch (ex:Exception){

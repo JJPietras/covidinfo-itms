@@ -7,6 +7,7 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity.CENTER
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.activity.addCallback
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -61,7 +63,11 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         configureObserver(viewModel.died, statisticsDied)
         configureObserver(viewModel.recovered, statisticsCured)
         configureObserver(viewModel.date, statisticsDate)
-        configureObserver(viewModel.countryCode, statisticsCountry)
+        configureObserver(viewModel.countryCode, statisticsChangeCountryBtn)
+
+        viewModel.codeLive.postValue(initializer.config.config.selectedCountry.code)
+
+        changeSelectCountryButtonColor()
 
         statisticsChangeCountryBtn.setOnClickListener{
             if (statisticsCountriesLayout.visibility == View.VISIBLE)
@@ -307,6 +313,8 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         viewModel.increasePercentLive.postValue(0f)
         viewModel.calcIncrease(1, 1)
 
+        changeSelectCountryButtonColor()
+
         loadDataAndRefresh()
     }
 
@@ -338,4 +346,10 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
             startActivity(browserIntent)
         }*/
     }
+    
+    private fun changeSelectCountryButtonColor(){
+        val color = ColorStateList.valueOf(Color.parseColor(initializer.config.config.selectedCountry.color))
+        statisticsChangeCountryBtn.backgroundTintList = color
+    }
+
 }

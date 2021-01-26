@@ -93,7 +93,7 @@
                     android:layout_height="340dp"
                     android:src="@color/colorPrimaryDark" />
 
-                <ImageButton
+                <Button
                     android:id="@+id/statisticsChangeCountryBtn"
                     android:layout_width="58dp"
                     android:layout_height="58dp"
@@ -101,9 +101,34 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="220dp"
                     android:layout_marginEnd="40dp"
-                    android:background="#00FFFFFF"
                     app:layout_anchorGravity="end|bottom"
-                    app:srcCompat="@drawable/ic_select_country" />
+                    android:backgroundTint="#4CAF50"
+                    android:background="@drawable/ic_select_country"
+                    android:text="PL"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"
+                    />
+
+                <!--<TextView
+                    android:id="@+id/statisticsCountry"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+
+                    android:layout_alignStart="@+id/statisticsChangeCountryBtn"
+                    android:layout_alignTop="@+id/statisticsChangeCountryBtn"
+                    android:layout_alignEnd="@+id/statisticsChangeCountryBtn"
+                    android:layout_alignBottom="@+id/statisticsChangeCountryBtn"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center"
+                    android:text="PL"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24dp" />-->
 
                 <ImageButton
                     android:id="@+id/statisticsShowPoland"
@@ -308,24 +333,7 @@
                     android:textColor="#C2185B"
                     android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/statisticsCountry"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
 
-                    android:layout_alignStart="@+id/statisticsChangeCountryBtn"
-                    android:layout_alignTop="@+id/statisticsChangeCountryBtn"
-                    android:layout_alignEnd="@+id/statisticsChangeCountryBtn"
-                    android:layout_alignBottom="@+id/statisticsChangeCountryBtn"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="0dp"
-                    android:layout_marginBottom="0dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:gravity="center"
-                    android:text="PL"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24dp" />
             </RelativeLayout>
 
             <LinearLayout
