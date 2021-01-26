@@ -161,7 +161,7 @@
                         android:text="0.0K"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"
-                        android:textSize="42dp" />
+                        android:textSize="40sp" />
 
                     <TextView
                         android:id="@+id/vaccinePercentage"
@@ -175,7 +175,7 @@
                         android:text="0.0%"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"
-                        android:textSize="42dp" />
+                        android:textSize="40sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -254,8 +254,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="@color/plotBgColor"
                     android:layout_marginBottom="20dp"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="15dp">
@@ -264,6 +265,7 @@
                         android:id="@+id/aaChartViewVaccinations"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
+                        android:layout_marginTop="10dp"
                         android:background="@color/plotBgColor"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -289,8 +291,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="@color/plotBgColor"
                     android:layout_marginBottom="20dp"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="15dp">
@@ -299,6 +302,7 @@
                         android:id="@+id/aaChartViewVaccinationPercentage"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
+                        android:layout_marginTop="10dp"
                         android:background="@color/plotBgColor"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"

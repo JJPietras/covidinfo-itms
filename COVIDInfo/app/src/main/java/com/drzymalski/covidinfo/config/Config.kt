@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.*
 
-const val backColor: String = "#3A4098"
+const val backColor: String = "#3D439B"
 const val fontColor: String = "#CCCCCC"
 class Config {
     var countries = mutableListOf<CountryConfig>()

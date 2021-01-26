@@ -363,16 +363,18 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_marginBottom="20dp"
                     app:cardCornerRadius="20dp"
+                    android:backgroundTint="@color/plotBgColor"
                     app:cardElevation="15dp">
 
                     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                         android:id="@+id/aaChartViewNewCases"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
+                        android:layout_marginTop="10dp"
                         android:background="@color/plotBgColor"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -395,16 +397,18 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_marginBottom="20dp"
                     app:cardCornerRadius="20dp"
+                    android:backgroundTint="@color/plotBgColor"
                     app:cardElevation="15dp">
 
                     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                         android:id="@+id/aaChartViewTotalCases"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
+                        android:layout_marginTop="10dp"
                         android:background="@color/plotBgColor"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -427,9 +431,10 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/plotBgColor"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="15dp">
 
@@ -438,6 +443,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
                         android:background="@color/plotBgColor"
+                        android:layout_marginTop="10dp"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -459,8 +465,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="@color/plotBgColor"
                     android:layout_marginBottom="20dp"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="15dp">
@@ -472,6 +479,7 @@
                         android:background="@color/plotBgColor"
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="10dp"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -491,8 +499,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="@color/plotBgColor"
                     android:layout_marginBottom="20dp"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="15dp">
@@ -505,6 +514,7 @@
                         app:layout_constraintBottom_toTopOf="@+id/text_test"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
+                        android:layout_marginTop="10dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.cardview.widget.CardView>
