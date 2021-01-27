@@ -1,6 +1,7 @@
 package com.drzymalski.covidinfo
 
 import android.app.AlarmManager
+import android.app.AlarmManager.INTERVAL_DAY
 import android.app.PendingIntent
 
 import android.content.Context
@@ -46,6 +47,6 @@ class MainActivity : AppCompatActivity() {
             PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         val alarmManager =
             this.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, updateTime.timeInMillis, pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, updateTime.timeInMillis, INTERVAL_DAY, pendingIntent);
     }
 }
