@@ -28,21 +28,21 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
                 /*
                  * Set notification title and content
                  * */
-                .setTitle("Najnowsze statystyki dla Polski")
-                .setContent("Umarło dużo zachorowało dużo wyzdrowiało mało")
+                .setTitle("COVID-19 w Polsce")
+                .setContent("+6378 nowych zakażeń, +389 osób wyzdrowiało, +239 zmarło. Kliknij i zobacz najnowsze statystyki.")
                 .setAction(new Intent(context, MainActivity.class))
 
                 /*
                  * Set small icon from drawable resource
                  * */
-                .setSmallIcon(R.drawable.ic_settings)
+                .setSmallIcon(R.drawable.icon)
                 .setColor(R.color.colorPrimary)
 
                 /*
                  * Set notification large icon from drawable resource or URL
                  * (make sure you added INTERNET permission to AndroidManifest.xml)
                  * */
-                .setLargeIcon("https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=440")
+                .setLargeIcon(R.drawable.icon)
 
                 /*
                  * Circular large icon
@@ -53,7 +53,6 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
                  * Add a picture from drawable resource or URL
                  * (INTERNET permission needs to be added to AndroidManifest.xml)
                  * */
-                .setPicture("https://images.pexels.com/photos/1058683/pexels-photo-1058683.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
 
                 .show(); // Show notification
     }
