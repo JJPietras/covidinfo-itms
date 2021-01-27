@@ -12,6 +12,8 @@ import android.os.Bundle;
 
 import androidx.core.app.NotificationCompat;
 
+import com.application.isradeleon.notify.Notify;
+
 public class AlarmBroadcastReceiver extends BroadcastReceiver {
 
     @Override
@@ -21,40 +23,38 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
     }
 
     void showNotification (Context context) {
-        String CHANNEL_ID = "your_name";// The id of the channel.
-        CharSequence name = context . getResources ().getString(R.string.app_name);// The user-visible name of the channel.
-        NotificationCompat.Builder mBuilder;
-        Intent notificationIntent = new Intent(context, MainActivity.class);
-        Bundle bundle = new Bundle();
-        notificationIntent.putExtras(bundle);
-        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent . FLAG_ACTIVITY_MULTIPLE_TASK);
-        PendingIntent contentIntent = PendingIntent . getActivity (context, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        NotificationManager mNotificationManager =(NotificationManager) context . getSystemService (Context.NOTIFICATION_SERVICE);
+        Notify.build(context)
 
-        if (android.os.Build.VERSION.SDK_INT >= 26) {
-            NotificationChannel mChannel = new NotificationChannel(
-                    CHANNEL_ID,
-                    name,
-                    NotificationManager.IMPORTANCE_HIGH
-            );
-            assert mNotificationManager != null;
-            mNotificationManager.createNotificationChannel(mChannel);
-            mBuilder = new NotificationCompat . Builder (context)
-                    .setSmallIcon(R.mipmap.ic_launcher)
-                    .setLights(Color.RED, 300, 300)
-                    .setChannelId(CHANNEL_ID)
-                    .setContentTitle("Title");
-        } else {
-            mBuilder = new NotificationCompat . Builder (context)
-                    .setSmallIcon(R.mipmap.ic_launcher)
-                    .setPriority(Notification.PRIORITY_HIGH)
-                    .setContentTitle("Title");
-        }
+                /*
+                 * Set notification title and content
+                 * */
+                .setTitle("Najnowsze statystyki dla Polski")
+                .setContent("Umarło dużo zachorowało dużo wyzdrowiało mało")
+                .setAction(new Intent(context, MainActivity.class))
 
-        mBuilder.setContentIntent(contentIntent);
-        mBuilder.setContentText("Your Text");
-        mBuilder.setAutoCancel(true);
-        assert mNotificationManager != null;
-        mNotificationManager.notify(1, mBuilder.build());
+                /*
+                 * Set small icon from drawable resource
+                 * */
+                .setSmallIcon(R.drawable.ic_settings)
+                .setColor(R.color.colorPrimary)
+
+                /*
+                 * Set notification large icon from drawable resource or URL
+                 * (make sure you added INTERNET permission to AndroidManifest.xml)
+                 * */
+                .setLargeIcon("https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=440")
+
+                /*
+                 * Circular large icon
+                 * */
+                .largeCircularIcon()
+
+                /*
+                 * Add a picture from drawable resource or URL
+                 * (INTERNET permission needs to be added to AndroidManifest.xml)
+                 * */
+                .setPicture("https://images.pexels.com/photos/1058683/pexels-photo-1058683.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+
+                .show(); // Show notification
     }
 }
