@@ -37,8 +37,8 @@ class Config {
         return DateConverter.formatDateFull(out)
     }
 
-    fun getDateFromSummary(): String{
-        val date: LocalDateTime = LocalDateTime.now().minusDays(5)
+    fun getDateFrom(days: Long): String{
+        val date: LocalDateTime = LocalDateTime.now().minusDays(days)
         val out: Date = Date.from(date.atZone(ZoneId.systemDefault()).toInstant())
         return DateConverter.formatDateFull(out)
     }

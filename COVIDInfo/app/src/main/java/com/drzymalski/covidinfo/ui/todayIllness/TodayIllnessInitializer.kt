@@ -1,6 +1,8 @@
 package com.drzymalski.covidinfo.ui.todayIllness
 
 import com.drzymalski.covidinfo.apiUtils.ApiManager
+import com.drzymalski.covidinfo.apiUtils.CSVManager
+import com.drzymalski.covidinfo.apiUtils.models.DataDay
 import com.drzymalski.covidinfo.apiUtils.models.DataProvider
 import com.drzymalski.covidinfo.apiUtils.models.SummaryData
 import com.drzymalski.covidinfo.config.ConfigurationManager
@@ -11,6 +13,12 @@ import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.drzymalski.covidinfo.config.backColor
 import com.drzymalski.covidinfo.config.fontColor
+import com.drzymalski.covidinfo.dataUtils.DateConverter.Companion.getAddDaysToDate
+import com.drzymalski.covidinfo.dataUtils.DateConverter.Companion.getTodayDate
+import com.drzymalski.covidinfo.dataUtils.DateConverter.Companion.getTodayDateShort
+import com.drzymalski.covidinfo.dataUtils.PolandLoadedData
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class TodayIllnessInitializer: DataInitializer {
     private lateinit var covidData: DataProvider
@@ -21,22 +29,56 @@ class TodayIllnessInitializer: DataInitializer {
 
     override val config: ConfigurationManager = ConfigurationManager()
 
+    val polandLoadedData = PolandLoadedData()
+
+    init {
+        loadPolandData()
+    }
+
     fun loadMainScreenResources(){
         covidData = ApiManager.getCovidDataFromNewApi(config.config.getDateFromMain(), config.config.selectedCountry.code )
-        if (covidData.dataProvider.size < 366)
+
+        if (covidData.dataProvider.size < 366)  {
             stats.calculateStats(covidData)
+            if (config.config.selectedCountry.code == "PL") addPolandDataToStats()
+            stats.getWeeklyAverage()
+        }
+
     }
 
     fun loadSummaryData(){ //Not used anymore
         try {
             //summaryData = ApiManager.getSummaryFromApi()
-            newSummaryData = ApiManager.getCovidDataFromNewApiFromMultipleCountries(config.config.getDateFromSummary(), config.config, summary = true)
+            newSummaryData = ApiManager.getCovidDataFromNewApiFromMultipleCountries(config.config.getDateFrom(5L), config.config, summary = true)
            /* summaryData!!.Countries = summaryData!!.Countries.filter{config.config.countries
                 .map{ countryConfig -> countryConfig.slug }.contains(it.Slug)}*/
         }catch (ex:Exception){
             println(ex.message) //need to see the errors xd
         }
     }
+
+    private fun addPolandDataToStats(){
+        try {
+            if (polandLoadedData.polandData.newCases != stats.newCasesList.last() && polandLoadedData.polandData.newCases != 0){
+                stats.newCasesList.add(polandLoadedData.polandData.newCases)
+                stats.datesList.add(getAddDaysToDate(stats.datesFullList.last(), 1, true))
+                stats.datesFullList.add(getAddDaysToDate(stats.datesFullList.last(), 1))
+                stats.totalCasesList.add(stats.totalCasesList.last() + polandLoadedData.polandData.newCases)
+                stats.newDeathsList.add(polandLoadedData.polandData.died)
+                stats.activeCasesList.add(stats.activeCasesList.last() + polandLoadedData.polandData.newCases - polandLoadedData.polandData.died - polandLoadedData.polandData.recovered)
+                stats.newRecoveredList.add(polandLoadedData.polandData.recovered)
+            }
+        }catch (ex: Exception){ // No action will be taken
+            println(ex)
+        }
+    }
+
+    private fun loadPolandData(){
+        GlobalScope.launch {
+            polandLoadedData.loadPolandData()
+        }
+    }
+
 
     fun configureTotalCasesBarChart(): AAOptions {
         val aaChartModel = AAChartModel()

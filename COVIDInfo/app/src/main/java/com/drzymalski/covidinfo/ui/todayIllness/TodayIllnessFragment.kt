@@ -21,7 +21,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.drzymalski.covidinfo.R
+import com.drzymalski.covidinfo.apiUtils.CSVManager
 import com.drzymalski.covidinfo.config.CountryConfig
+import com.drzymalski.covidinfo.dataUtils.PolandLoadedData
 import com.drzymalski.covidinfo.interfaces.FragmentSettings
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
@@ -35,6 +37,7 @@ import kotlinx.android.synthetic.main.settings_layout.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch
+import org.apache.http.client.methods.RequestBuilder.post
 
 
 @Suppress("DEPRECATION")
@@ -103,8 +106,6 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
 
         activateLinks()
 
-
-
     }
 
     private fun configureButton(button: ImageButton, dayValue: Int, greater: Boolean) =
@@ -148,10 +149,9 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         try {
             if (selectedDay > 0 && selectedDay < initializer.stats.datesFullList.lastIndex) {
 
-                val newCasesList = initializer.stats.newCasesList
                 viewModel.calcIncrease(
-                    newCasesList[selectedDay],
-                    newCasesList[selectedDay - 1]
+                        initializer.stats.newCasesList[selectedDay],
+                        initializer.stats.newCasesList[selectedDay - 1]
                 )
                 viewModel.dateLive.postValue(initializer.stats.datesFullList[selectedDay + 1])
                 viewModel.confirmedLive.postValue(initializer.stats.newCasesList[selectedDay])
@@ -240,7 +240,10 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                     gravity = CENTER
                     textSize = 20f
                     setTextColor(Color.parseColor("#FFFFFF"))
-                    text = if (newCases == 0) "" else "$newCases zakażeń"
+                    text = if (countryConfig.code == "PL" && initializer.polandLoadedData.polandData.newCases != 0)
+                        "${initializer.polandLoadedData.polandData.newCases} zakażeń"
+                    else
+                        if (newCases == 0) "" else "$newCases zakażeń"
                 }
 
                 child.addView(tvCountry)
@@ -263,6 +266,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         GlobalScope.launch {
             try { // Prevents crashing when data was loaded after changing or refreshing the fragment
                 initializer.loadMainScreenResources()
+
                 selectedDay = initializer.stats.datesFullList.lastIndex - 1
                 setData()
                 buttonVisibility()
@@ -345,11 +349,11 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://documenter.getpostman.com/view/2220438/SzYevv9u?version=latest"))
             startActivity(browserIntent)
         }
-        /*todaySource2.setOnClickListener {
+        todaySource2.setOnClickListener {
             val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://documenter.getpostman.com/view/10808728/SzS8rjbc"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gov.pl/web/koronawirus/wykaz-zarazen-koronawirusem-sars-cov-2"))
             startActivity(browserIntent)
-        }*/
+        }
     }
 
     private fun changeSelectCountryButtonColor(){
@@ -360,5 +364,8 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
             println(ex)
         }
     }
+
+
+
 
 }
