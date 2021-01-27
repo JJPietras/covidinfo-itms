@@ -41,6 +41,7 @@ class TodayIllnessInitializer: DataInitializer {
         if (covidData.dataProvider.size < 366)  {
             stats.calculateStats(covidData)
             if (config.config.selectedCountry.code == "PL") addPolandDataToStats()
+            stats.getWeeklyAverage()
         }
 
     }

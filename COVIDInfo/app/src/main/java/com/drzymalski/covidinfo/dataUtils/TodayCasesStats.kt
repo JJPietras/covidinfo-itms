@@ -31,7 +31,7 @@ class TodayCasesStats{
         datesFullList.clear()
     }
 
-    private fun getWeeklyAverage(){
+    fun getWeeklyAverage(){
         newCasesWeeklyList.clear()
         for (i in 0 until newCasesList.size){
             val from = if (i-3<0) 0 else i-3
@@ -82,6 +82,5 @@ class TodayCasesStats{
                 }
             }
         }
-        getWeeklyAverage()
     }
 }
