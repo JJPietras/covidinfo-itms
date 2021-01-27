@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.ln
 
-@Suppress("DEPRECATION")
+
 class DateConverter {
     companion object{
         fun formatDateFull(date: Date): String{
@@ -28,6 +28,28 @@ class DateConverter {
         fun getTodayDate(): String{
             val sdf = SimpleDateFormat("yyyy-MM-dd")
             return sdf.format(Date())
+        }
+
+        @SuppressLint("SimpleDateFormat")
+        fun getTodayDateShort(): String{
+            val sdf = SimpleDateFormat("MM-dd")
+            return sdf.format(Date())
+        }
+
+        @SuppressLint("SimpleDateFormat")
+        fun getDateFromString(string: String): Date? {
+            return SimpleDateFormat("dd-MM-yyyy").parse(string)
+        }
+
+        @SuppressLint("SimpleDateFormat")
+        fun getAddDaysToDate(lastDate: String, daysToAdd: Int, shortFormat: Boolean = false): String{
+            val sdf = SimpleDateFormat("yyyy-MM-dd")
+            val ssdf = SimpleDateFormat("MM-dd")
+            val c = Calendar.getInstance()
+            c.time = sdf.parse(lastDate)
+            c.add(Calendar.DATE, daysToAdd) // number of days to add
+            if (shortFormat) return ssdf.format(c.time)
+            return sdf.format(c.time)
         }
 
         fun coolNumberFormat(count: Float): String {

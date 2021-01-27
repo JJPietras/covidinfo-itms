@@ -25,7 +25,7 @@
     <string name="suspicion_content_desc_background">TODO</string>
     <string name="suspicion_content_desc_menu_btn">TODO</string>
     <string name="today_source1">Dane statystyczne z: https://documenter.getpostman.com/view/2220438/SzYevv9u?version=latest</string>
-    <string name="today_source2">Dane z podsumowaniem dla państw: https://documenter.getpostman.com/view/10808728/SzS8rjbc</string>
+    <string name="today_source2">Dane z aktualnego dnia dla Polski: https://www.gov.pl/web/koronawirus/wykaz-zarazen-koronawirusem-sars-cov-2</string>
     <!-- SYMPTOMS -->
 
     <string name="symptoms_second_subtitle">Występowanie tych symptomów MOŻE oznaczać zarażenie chorobą COVID-19</string>
