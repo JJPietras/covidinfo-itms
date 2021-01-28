@@ -14,8 +14,8 @@ interface DataInitializer {
         val aaOptions = AAOptionsConstructor.configureChartOptions(aaChartModel)
         aaOptions.tooltip!!
             .shared(true)
-            .style(AAStyle().color(AAColor.Black))
-            .backgroundColor(AAColor.rgbaColor(200, 200, 200, 0.9f))
+            //.style(AAStyle().color(AAColor.Black))
+            //.backgroundColor(AAColor.rgbaColor(200, 200, 200, 0.9f))
             /*.useHTML(true)
             .headerFormat("<small style=\\\"color: brown;\\\">{point.key}</small><table style=\\\"color: brown;\\\">")
             .pointFormat(

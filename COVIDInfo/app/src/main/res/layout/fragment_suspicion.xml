@@ -970,20 +970,21 @@
     <RelativeLayout
         android:id="@+id/suspicionNearestHospitalLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="870dp"
         android:background="#0097A7"
         tools:visibility="visible">
 
         <Button
             android:id="@+id/suspicionNearestHospitalMoveToMap"
             android:layout_width="160dp"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:layout_below="@+id/suspicionNearestHospitalDisclaimer"
             android:layout_alignParentBottom="false"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="40dp"
+
             android:layout_marginBottom="20dp"
             android:height="55dp"
             android:background="@drawable/rounded_button"
