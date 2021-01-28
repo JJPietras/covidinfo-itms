@@ -59,6 +59,5 @@ class ApiManager {
             val listPersonType = object : TypeToken<SummaryData>() {}.type
             return  Gson().fromJson(getJSONFromApi(url), listPersonType)
         }
-
     }
 }

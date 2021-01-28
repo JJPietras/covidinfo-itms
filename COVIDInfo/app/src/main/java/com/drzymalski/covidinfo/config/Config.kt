@@ -19,6 +19,9 @@ class Config {
     var selectedVaccine = CountryConfig()
     var vaccinationCountriesToCompare = mutableListOf<CountryConfig>()
 
+    var lastNotification = ""
+    var notifications = true
+
     fun getDateFromMain(): String{
         val date: LocalDateTime  = LocalDateTime.now().minusDays(daysBackToday + 1) // +1 to account for 1 day which cannot be calculated
         val out: Date = Date.from(date.atZone(ZoneId.systemDefault()).toInstant())

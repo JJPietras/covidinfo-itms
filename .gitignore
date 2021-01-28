@@ -39,3 +39,4 @@ build
 *.ipr
 *~
 *.swp
+COVIDInfo/app/release/output-metadata.json
