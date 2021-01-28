@@ -12,12 +12,10 @@ class PolandLoadedData {
     var polandData = SavedPolandData()
 
     init {
-        GlobalScope.launch {
-            try {
-                loadData()
-            } catch (ex: Exception) {
-                loadPolandData()
-            }
+        try {
+            loadData()
+        } catch (ex: Exception) {
+            loadPolandData()
         }
     }
 
