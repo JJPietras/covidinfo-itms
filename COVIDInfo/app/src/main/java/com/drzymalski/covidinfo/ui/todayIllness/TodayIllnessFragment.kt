@@ -105,7 +105,6 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         )
 
         activateLinks()
-
     }
 
     private fun configureButton(button: ImageButton, dayValue: Int, greater: Boolean) =
