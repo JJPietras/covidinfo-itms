@@ -40,6 +40,7 @@ class PolandLoadedData {
                         polandDataCSV.liczba_przypadkow?.let { polandData.dateLoaded = DateConverter.getTodayDate() }
                         polandDataCSV.liczba_przypadkow?.let { polandData.dateLoadedShort = DateConverter.getTodayDateShort() }
                         polandDataCSV.zgony?.let { polandData.died = it }
+                        polandDataCSV.stan_rekordu_na?.let { polandData.recordTime = it }
                         polandDataCSV.liczba_ozdrowiencow?.let { polandData.recovered = it }
                         saveData()
                         return true

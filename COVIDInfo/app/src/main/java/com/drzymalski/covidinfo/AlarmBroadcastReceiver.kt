@@ -7,6 +7,7 @@ import com.application.isradeleon.notify.Notify
 import com.drzymalski.covidinfo.config.ConfigurationManager
 import com.drzymalski.covidinfo.dataUtils.DateConverter
 import com.drzymalski.covidinfo.dataUtils.PolandLoadedData
+import java.time.LocalTime
 
 class AlarmBroadcastReceiver: BroadcastReceiver() {
 
@@ -19,7 +20,7 @@ class AlarmBroadcastReceiver: BroadcastReceiver() {
 
     private fun showNotification(context: Context?) {
         polandLoadedData.loadPolandData()
-        if (config.config.notifications && config.config.lastNotification != DateConverter.getTodayDate() && polandLoadedData.polandData.newCases != 0){
+        if (config.config.notifications && config.config.lastNotification != DateConverter.getTodayDate() && polandLoadedData.polandData.newCases != 0 && checkTime()){
             Notify.build(context!!) /*
                  * Set notification title and content
                  * */
@@ -49,5 +50,10 @@ class AlarmBroadcastReceiver: BroadcastReceiver() {
             config.config.lastNotification = DateConverter.getTodayDate()
             config.saveConfig()
         }
+    }
+
+    private fun checkTime(): Boolean{
+        val target: LocalTime = LocalTime.parse("10:45:00")
+        return LocalTime.now().isAfter(target)
     }
 }

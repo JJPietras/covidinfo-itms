@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         // let's grab new stuff at around 11:45 GMT, inexactly
         val updateTime = Calendar.getInstance()
         updateTime[Calendar.HOUR_OF_DAY] = 11
-        updateTime[Calendar.MINUTE] = 30
+        updateTime[Calendar.MINUTE] = 0
         updateTime[Calendar.SECOND] = 0
         updateTime[Calendar.MILLISECOND] = 0
         val intent = Intent(this, AlarmBroadcastReceiver::class.java)

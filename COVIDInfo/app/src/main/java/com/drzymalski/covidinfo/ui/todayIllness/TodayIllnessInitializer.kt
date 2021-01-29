@@ -59,7 +59,7 @@ class TodayIllnessInitializer: DataInitializer {
 
     private fun addPolandDataToStats(){
         try {
-            if (polandLoadedData.polandData.newCases != stats.newCasesList.last() && polandLoadedData.polandData.newCases != 0){
+            if (polandLoadedData.polandData.newCases != stats.newCasesList.last() && polandLoadedData.polandData.recordTime >= stats.datesFullList.last() && polandLoadedData.polandData.newCases != 0){
                 stats.newCasesList.add(polandLoadedData.polandData.newCases)
                 stats.datesList.add(getAddDaysToDate(stats.datesFullList.last(), 1, true))
                 stats.datesFullList.add(getAddDaysToDate(stats.datesFullList.last(), 1))

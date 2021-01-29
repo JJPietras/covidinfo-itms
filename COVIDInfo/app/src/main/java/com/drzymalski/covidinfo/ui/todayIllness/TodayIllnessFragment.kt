@@ -38,6 +38,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch
 import org.apache.http.client.methods.RequestBuilder.post
+import java.time.LocalTime
 
 
 @Suppress("DEPRECATION")
@@ -105,6 +106,7 @@ class TodayIllnessFragment : Fragment(), FragmentSettings {
         )
 
         activateLinks()
+
     }
 
     private fun configureButton(button: ImageButton, dayValue: Int, greater: Boolean) =
