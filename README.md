@@ -1,13 +1,13 @@
-# Wstęp do Systemów Mobilnych
+# Introduction to Mobile Systems
 
-|               |                	      |
-| ------------- |-------------		      |
-| semestr:      | V	      	 	          |
-| zajęcia:      | czwartek 14:00        |
-| język:        | Kotlin                |
-| prowadzący:   | prof Piotr Napieralski |
-| typ:          | obligatoryjny         |
-| ECTS:         | III                   |
+|             |                	       |
+| ------------|-------------		       |
+| Term:       | V	      	 	           |
+| Classes:    | Thursday 14:00         |
+| Language:   | Kotlin                 |
+| Lecturer:   | prof Piotr Napieralski |
+| Type:       | obligatory             |
+| ECTS:       | III                    |
 
 # COVID Info
 ## The winning apllication of Introduction to Mobile Systems 2020/2021 course
