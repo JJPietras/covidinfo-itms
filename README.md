@@ -10,9 +10,9 @@
 | ECTS:         | III                   |
 
 
-## Program Zajęć
+## Zwycięski projekt przedmiotu Wstęp do Systemów Mobilnych 2020/2021
+https://p.lodz.pl/uczelnia/informacje-dla-mediow/aplikacje-pomocne-w-czasach-covid-19<br/>
+https://www.eska.pl/lodz/studenci-z-politechniki-lodzkiej-stworzyli-aplikacje-covid-info-aa-URDJ-jbgd-ZY96.html
 
-#### 1. Program do obliczania wyróżnika kwadratowego - drugie zajęcia
-#### 2.
-#### 3.
-#### 4.
+### Werdykt finałowy
+![Alt text](https://github.com/JJPietras/Introduction-to-Mobile-Systems/blob/main/CompetitionFinal.png?raw=true)
