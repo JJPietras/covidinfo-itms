@@ -9,10 +9,15 @@
 | typ:          | obligatoryjny         |
 | ECTS:         | III                   |
 
-
-## Zwycięski projekt przedmiotu Wstęp do Systemów Mobilnych 2020/2021
+# COVID Info
+## The winning apllication of Introduction to Mobile Systems 2020/2021 course
 https://p.lodz.pl/uczelnia/informacje-dla-mediow/aplikacje-pomocne-w-czasach-covid-19<br/>
 https://www.eska.pl/lodz/studenci-z-politechniki-lodzkiej-stworzyli-aplikacje-covid-info-aa-URDJ-jbgd-ZY96.html
 
-### Werdykt finałowy
+## Companies that have awarded us the victory:
+
+* ### Cybercom
+* ### TomTom
+
+### Final verdict
 ![Alt text](https://github.com/JJPietras/Introduction-to-Mobile-Systems/blob/main/CompetitionFinal.png?raw=true)
