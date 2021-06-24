@@ -1,18 +1,17 @@
 package com.drzymalski.covidinfo.dataUtils
 
-import com.drzymalski.covidinfo.apiUtils.CSVManager
 import com.drzymalski.covidinfo.apiUtils.models.VaccineDay
 import com.drzymalski.covidinfo.config.CountryConfig
 
 class VaccineStats {
 
     var datesList =  mutableListOf<String>()
-    var vaccineDoses =  mutableListOf<Int>()
-    var vaccineDaily =  mutableListOf<Int>()
+    var vaccineDoses =  mutableListOf<Long>()
+    var vaccineDaily =  mutableListOf<Long>()
 
     var country: CountryConfig = CountryConfig()
 
-    var totalVaccinated = 0
+    var totalVaccinated = 0L
     var vaccinationPercentage = 0f
 
     private fun clearData(){
@@ -23,8 +22,8 @@ class VaccineStats {
 
     fun calculateStats(stats: MutableList<VaccineDay>){
         clearData()
-        var lastGiven = 0
-        var lastDaily = 0
+        var lastGiven = 0L
+        var lastDaily = 0L
         var lastDate = ""
         stats.forEach { vaccineOnDay ->
             if (vaccineOnDay.date!=null) {
@@ -36,6 +35,7 @@ class VaccineStats {
             var temp = vaccineOnDay.people_vaccinated
             if (temp!=null ){
                 if (temp <= 0) temp = lastGiven
+
                 vaccineDoses.plusAssign(temp)
                 lastGiven = temp
             }

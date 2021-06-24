@@ -20,7 +20,8 @@ import com.drzymalski.covidinfo.dataUtils.DateConverter
 import com.drzymalski.covidinfo.interfaces.FragmentSettings
 import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
+import com.github.aachartmodel.aainfographics.aachartcreator.AAOptions
+
 import com.neovisionaries.i18n.CountryCode
 import kotlinx.android.synthetic.main.fragment_today.*
 import kotlinx.android.synthetic.main.fragment_vaccine.*
@@ -46,7 +47,6 @@ class VaccineFragment : Fragment(), FragmentSettings {
         return inflater.inflate(R.layout.fragment_vaccine, container, false)
     }
 
-    @ExperimentalStdlibApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -105,7 +105,7 @@ class VaccineFragment : Fragment(), FragmentSettings {
         }
     }
 
-    @ExperimentalStdlibApi
+
     private fun refreshData(){
         GlobalScope.launch {
             try { // Prevents crashing when data was loaded after changing or refreshing the fragment
@@ -128,7 +128,6 @@ class VaccineFragment : Fragment(), FragmentSettings {
         }
     }
 
-    @ExperimentalStdlibApi
     override fun applySettings(countries: MutableList<CountryConfig>, daysBack: Long) {
         countries.forEach { if (it.code != "" && it.code.length == 2) it.code = CountryCode.getByCode(
                 it.code

@@ -29,7 +29,7 @@ import com.drzymalski.covidinfo.lib.FragmentBinder
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.drzymalski.covidinfo.ui.settings.SettingsView
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
+import com.github.aachartmodel.aainfographics.aachartcreator.AAOptions
 import kotlinx.android.synthetic.main.fragment_today.*
 import kotlinx.android.synthetic.main.fragment_today.statisticsChangeCountryBtn
 import kotlinx.android.synthetic.main.fragment_today.statisticsCountriesLayout

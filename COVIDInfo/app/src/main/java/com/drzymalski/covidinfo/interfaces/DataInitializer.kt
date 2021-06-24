@@ -2,8 +2,8 @@ package com.drzymalski.covidinfo.interfaces
 
 import com.drzymalski.covidinfo.config.ConfigurationManager
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
+import com.github.aachartmodel.aainfographics.aachartcreator.AAOptions
 import com.github.aachartmodel.aainfographics.aachartcreator.AAOptionsConstructor
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAStyle
 import com.github.aachartmodel.aainfographics.aatools.AAColor
 

@@ -7,7 +7,6 @@ import com.drzymalski.covidinfo.config.fontColor
 import com.drzymalski.covidinfo.dataUtils.CompareCasesStats
 import com.drzymalski.covidinfo.interfaces.DataInitializer
 import com.github.aachartmodel.aainfographics.aachartcreator.*
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 
 
 class CompareInitializer: DataInitializer {

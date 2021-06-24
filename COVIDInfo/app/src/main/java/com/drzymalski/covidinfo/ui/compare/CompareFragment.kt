@@ -18,7 +18,7 @@ import com.drzymalski.covidinfo.interfaces.FragmentSettings
 import com.drzymalski.covidinfo.ui.selector.SelectorFragment
 import com.drzymalski.covidinfo.ui.settings.SettingsView
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
+import com.github.aachartmodel.aainfographics.aachartcreator.AAOptions
 import kotlinx.android.synthetic.main.fragment_compare.aaChartViewActiveCases
 import kotlinx.android.synthetic.main.fragment_compare.aaChartViewDied
 import kotlinx.android.synthetic.main.fragment_compare.aaChartViewNewCases

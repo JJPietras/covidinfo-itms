@@ -6,7 +6,6 @@ import com.drzymalski.covidinfo.config.ConfigurationManager
 import com.drzymalski.covidinfo.config.CountryConfig
 import com.drzymalski.covidinfo.interfaces.DataInitializer
 import com.github.aachartmodel.aainfographics.aachartcreator.*
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.drzymalski.covidinfo.config.backColor
 import com.drzymalski.covidinfo.config.fontColor
@@ -23,7 +22,6 @@ class VaccineInitializer: DataInitializer {
     override val config: ConfigurationManager = ConfigurationManager()
 
 
-    @ExperimentalStdlibApi
     fun loadScreenResources() = try {
         csvManager.loadVaccinationData()
         stats.country = config.config.selectedVaccine

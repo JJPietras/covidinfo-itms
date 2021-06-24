@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class PolandLoadedData {
 
     var polandData = SavedPolandData()
-
+    var csvManager = CSVManager()
     init {
         try {
             loadData()
@@ -28,10 +28,9 @@ class PolandLoadedData {
     }
 
 
-    @OptIn(ExperimentalStdlibApi::class)
     fun loadPolandData(): Boolean{
         try{
-            val loadedData = CSVManager.loadPolandData()
+            val loadedData = csvManager.loadPolandData()
             if (loadedData.count()>0 ){
                 val polandDataCSV = loadedData.first()
                 if (polandDataCSV.liczba_przypadkow != null){

@@ -74,8 +74,8 @@ dependencies {
     implementation group: 'org.apache.httpcomponents', name: 'httpclient' , version: '4.3'
     implementation group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.3' //tak ma być xD
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.4.Final'
-    implementation 'com.vhl.blackmo:kotlin-grass-jvm:0.4.1'
-    implementation 'com.github.doyaaaaaken:kotlin-csv-jvm:0.11.0'
+//    implementation 'com.vhl.blackmo:kotlin-grass-jvm:0.4.1'
+//    implementation 'com.github.doyaaaaaken:kotlin-csv-jvm:0.11.0'
 
 
     implementation 'com.neovisionaries:nv-i18n:1.22'
@@ -83,5 +83,8 @@ dependencies {
 
     implementation 'ru.bullyboo.animation:text_counter:1.0.2'
     implementation 'com.github.isradeleon:Notify-Android:1.0.4'
+
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.11.2'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.11.2'
 }
 

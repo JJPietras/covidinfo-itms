@@ -9,7 +9,6 @@ import com.drzymalski.covidinfo.config.ConfigurationManager
 import com.drzymalski.covidinfo.dataUtils.TodayCasesStats
 import com.drzymalski.covidinfo.interfaces.DataInitializer
 import com.github.aachartmodel.aainfographics.aachartcreator.*
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AAOptions
 import com.github.aachartmodel.aainfographics.aatools.AAGradientColor
 import com.drzymalski.covidinfo.config.backColor
 import com.drzymalski.covidinfo.config.fontColor
