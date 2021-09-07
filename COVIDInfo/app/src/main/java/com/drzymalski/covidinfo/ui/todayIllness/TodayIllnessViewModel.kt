@@ -26,7 +26,11 @@ class TodayIllnessViewModel : ViewModel() {
     var nIncreaseCount: LiveData<Int> = increaseCountLive
 
     fun calcIncrease(conf: Int, confYesterday: Int){
-        increasePercentLive.postValue(((conf.toFloat() / confYesterday.toFloat()) - 1f) * 100f)
+        if (confYesterday<=0) {
+            increasePercentLive.postValue(0f)
+        } else {
+            increasePercentLive.postValue(((conf.toFloat() / confYesterday.toFloat()) - 1f) * 100f)
+        }
         increaseCountLive.postValue(conf - confYesterday)
     }
 }

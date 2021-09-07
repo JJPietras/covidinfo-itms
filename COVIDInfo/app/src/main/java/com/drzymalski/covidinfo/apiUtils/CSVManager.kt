@@ -2,6 +2,7 @@ package com.drzymalski.covidinfo.apiUtils
 
 import com.drzymalski.covidinfo.apiUtils.models.PolandData
 import com.drzymalski.covidinfo.apiUtils.models.VaccineDay
+import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.dataformat.csv.CsvMapper
 import com.fasterxml.jackson.dataformat.csv.CsvSchema
 import com.fasterxml.jackson.module.kotlin.KotlinModule
@@ -14,6 +15,7 @@ class CSVManager {
 
     private val csvMapper = CsvMapper().apply {
         registerModule(KotlinModule())
+        disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
     }
 
     private inline fun <reified T> readCsv(contents: String): MutableList<T> {
